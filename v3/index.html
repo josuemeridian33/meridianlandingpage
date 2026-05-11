@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Founders List · Meridian — Built for you to win.</title>
-<meta name="description" content="Únete a los 1,000 Founders de Meridian. Acceso anticipado antes del lanzamiento. Sin costo.">
+<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity, voz, comunidad. Sesión en vivo el 25 jun 2026 a las 7PM CDMX.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,11 +50,10 @@
 
   .ambient-bg {
     background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(95,127,120,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(95,127,120,0.10) 0%, transparent 60%),
       radial-gradient(ellipse 60% 50% at 50% 100%, rgba(95,127,120,0.04) 0%, transparent 60%),
       var(--midnight);
   }
-
   .grid-bg {
     background-image:
       linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
@@ -66,11 +65,14 @@
 
   /* ── Typography ── */
   .h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
-  .h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
+  .h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; }
+  .h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
   .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
-  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.72); font-weight: 400; }
+  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.74); font-weight: 400; }
   .muted { color: var(--pewter); }
   .accent { color: var(--patina); }
+  .glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
 
   /* ── Buttons ── */
   .btn-primary {
@@ -78,12 +80,11 @@
     color: #FFFFFF;
     padding: 1.05rem 1.8rem;
     border-radius: 8px;
-    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85rem;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.86rem;
     transition: all 0.25s ease;
     box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset;
     display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem;
-    border: none; font-family: inherit; cursor: pointer;
-    width: 100%;
+    border: none; font-family: inherit; cursor: pointer; text-decoration: none;
   }
   .btn-primary:hover {
     transform: translateY(-1px);
@@ -107,106 +108,99 @@
   .field::placeholder { color: rgba(107,113,124,0.7); }
 
   /* ── Pulse dot ── */
-  .pulse-dot {
-    position: relative; display: inline-block;
-    width: 8px; height: 8px; flex-shrink: 0;
-  }
+  .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; flex-shrink: 0; }
   .pulse-dot::before {
     content: ''; position: absolute; inset: 0;
     background: var(--patina); border-radius: 50%;
     animation: pulse-ring 2s ease-out infinite; opacity: 0.6;
   }
-  .pulse-dot::after {
-    content: ''; position: absolute; inset: 0;
-    background: var(--patina); border-radius: 50%;
-  }
-  @keyframes pulse-ring {
-    0% { transform: scale(1); opacity: 0.6; }
-    100% { transform: scale(2.5); opacity: 0; }
-  }
+  .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
+  @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
 
-  /* ── Founder crown logo ── */
-  .logo-glow {
-    filter: drop-shadow(0 8px 32px rgba(95,127,120,0.35)) drop-shadow(0 2px 8px rgba(0,0,0,0.45));
+  /* ══════════════ ALEPH-ZERO STYLE LOGO ANIMATION ══════════════ */
+  /* Intro: scale + blur reveal + clip-path wipe, then continuous heartbeat loop */
+  .logo-stage {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .logo-stage .logo-img {
+    display: block;
+    width: clamp(220px, 30vw, 320px);
+    height: auto;
+    opacity: 0;
+    transform: scale(0.72) rotate(-6deg);
+    filter: blur(18px) drop-shadow(0 0 0 rgba(95,127,120,0));
+    animation:
+      logo-reveal 1.8s cubic-bezier(0.22, 0.65, 0.18, 1) forwards,
+      logo-heartbeat 5s ease-in-out 2.4s infinite;
+  }
+  /* Diamond wipe overlay — sweeps left→right during reveal */
+  .logo-stage::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(110deg,
+      transparent 30%,
+      rgba(255,255,255,0.18) 48%,
+      rgba(127,164,153,0.32) 52%,
+      transparent 70%
+    );
+    mix-blend-mode: screen;
+    opacity: 0;
+    animation: logo-sheen 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+  }
+  /* Ambient glow ring behind logo — expands as logo settles */
+  .logo-stage::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 120%; height: 120%;
+    transform: translate(-50%, -50%) scale(0.3);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(95,127,120,0.28) 0%, transparent 60%);
+    z-index: -1;
+    opacity: 0;
+    animation: logo-ring-expand 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s forwards,
+               logo-ring-pulse 5s ease-in-out 2.4s infinite;
+  }
+  @keyframes logo-reveal {
+    0%   { opacity: 0; transform: scale(0.72) rotate(-6deg); filter: blur(18px); }
+    55%  { opacity: 1; transform: scale(1.04) rotate(1deg); filter: blur(2px); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0px) drop-shadow(0 14px 38px rgba(95,127,120,0.32)); }
+  }
+  @keyframes logo-sheen {
+    0%   { opacity: 0; transform: translateX(-60%); }
+    40%  { opacity: 1; }
+    100% { opacity: 0; transform: translateX(60%); }
+  }
+  @keyframes logo-ring-expand {
+    0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+    60%  { opacity: 1; }
+    100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
+  }
+  @keyframes logo-heartbeat {
+    0%, 100% { transform: scale(1) rotate(0deg); filter: blur(0px) drop-shadow(0 14px 38px rgba(95,127,120,0.32)); }
+    50%      { transform: scale(1.015) rotate(0deg); filter: blur(0px) drop-shadow(0 18px 48px rgba(95,127,120,0.50)); }
+  }
+  @keyframes logo-ring-pulse {
+    0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 0.85; transform: translate(-50%, -50%) scale(1.08); }
   }
 
   /* ── Countdown digit ── */
   .countdown-digit {
     font-variant-numeric: tabular-nums;
     font-weight: 600;
-    background: rgba(95,127,120,0.08);
-    border: 1px solid rgba(95,127,120,0.18);
+    background: rgba(95,127,120,0.10);
+    border: 1px solid rgba(95,127,120,0.22);
     border-radius: 8px;
-    padding: 0.5rem 0.4rem;
-    min-width: 3rem;
+    padding: 0.55rem 0.5rem;
+    min-width: 3.4rem;
     text-align: center;
   }
 
-  /* ════════ WORDMARK LINE-DRAW ANIMATION (Aleph Zero–style) ════════ */
-  .wordmark-svg {
-    display: block; margin: 0 auto;
-    width: clamp(220px, 36vw, 380px);
-    height: auto;
-    overflow: visible;
-  }
-  .wordmark-svg .wm-letter {
-    fill: transparent;
-    stroke: rgba(255,255,255,0.92);
-    stroke-width: 1.4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 320;
-    stroke-dashoffset: 320;
-    animation: wm-draw 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards,
-               wm-fill 0.6s ease-out forwards;
-  }
-  .wordmark-svg .wm-letter:nth-child(1) { animation-delay: 0.05s, 1.30s; }
-  .wordmark-svg .wm-letter:nth-child(2) { animation-delay: 0.13s, 1.38s; }
-  .wordmark-svg .wm-letter:nth-child(3) { animation-delay: 0.21s, 1.46s; }
-  .wordmark-svg .wm-letter:nth-child(4) { animation-delay: 0.29s, 1.54s; }
-  .wordmark-svg .wm-letter:nth-child(5) { animation-delay: 0.37s, 1.62s; }
-  .wordmark-svg .wm-letter:nth-child(6) { animation-delay: 0.45s, 1.70s; }
-  .wordmark-svg .wm-letter:nth-child(7) { animation-delay: 0.53s, 1.78s; }
-  .wordmark-svg .wm-letter:nth-child(8) { animation-delay: 0.61s, 1.86s; }
-  @keyframes wm-draw {
-    to { stroke-dashoffset: 0; }
-  }
-  @keyframes wm-fill {
-    from { fill: transparent; stroke-opacity: 0.92; }
-    to   { fill: rgba(255,255,255,0.96); stroke-opacity: 0; }
-  }
-
-  /* Sublabel reveals after wordmark */
-  .wm-sublabel {
-    opacity: 0;
-    transform: translateY(8px);
-    animation: wm-sub-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-    animation-delay: 2.1s;
-  }
-  @keyframes wm-sub-rise {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Ambient orbit decoration in hero (Aleph-style geometry) */
-  .hero-orbit {
-    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-    z-index: 0;
-  }
-  .hero-orbit svg { position: absolute; opacity: 0.18; }
-  .hero-orbit .orbit-ring {
-    fill: none; stroke: rgba(95,127,120,0.45); stroke-width: 0.6;
-  }
-  .hero-orbit .orbit-spinner {
-    transform-origin: center;
-    animation: orbit-spin 36s linear infinite;
-  }
-  @keyframes orbit-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-  /* ── Pillar cards (section 2) ── */
-  .pillar-card {
+  /* ── Problem card / Pillar card ── */
+  .problem-card, .pillar-card {
     position: relative;
     background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.01) 100%);
     border: 1px solid rgba(255,255,255,0.06);
@@ -214,21 +208,37 @@
     padding: 1.6rem 1.4rem 1.5rem;
     transition: border-color 0.3s ease, transform 0.3s ease;
   }
-  .pillar-card:hover {
+  .problem-card:hover, .pillar-card:hover {
     border-color: rgba(95,127,120,0.32);
     transform: translateY(-2px);
   }
-  .pillar-num {
+  .card-num {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 38px; height: 38px;
+    width: 42px; height: 42px;
     border-radius: 8px;
-    background: rgba(95,127,120,0.12);
-    border: 1px solid rgba(95,127,120,0.28);
+    background: rgba(95,127,120,0.14);
+    border: 1px solid rgba(95,127,120,0.30);
     color: var(--patina);
-    font-weight: 600; font-size: 0.95rem;
+    font-weight: 600; font-size: 1rem;
     letter-spacing: 0.04em;
-    margin-bottom: 0.95rem;
+    margin-bottom: 1rem;
   }
+
+  /* ── Compare list (VS) ── */
+  .vs-col {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+  }
+  .vs-col.meridian { border-color: rgba(95,127,120,0.28); }
+  .vs-row {
+    display: flex; align-items: flex-start; gap: 0.65rem;
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .vs-row svg { flex-shrink: 0; margin-top: 0.2rem; }
 
   /* ── Progress bar ── */
   .progress-track {
@@ -252,109 +262,122 @@
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
     animation: shimmer 2.4s ease-in-out infinite;
   }
-  @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
+  @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+
+  /* ── Guarantee badge ── */
+  .guarantee-badge {
+    width: 180px; height: 180px;
+    position: relative;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(95,127,120,0.18) 0%, rgba(11,18,32,0.85) 70%);
+    border: 1px solid rgba(95,127,120,0.32);
+    box-shadow: 0 0 60px rgba(95,127,120,0.18);
+  }
+  .guarantee-badge::before {
+    content: ''; position: absolute; inset: -6px;
+    border-radius: 50%;
+    border: 1px dashed rgba(95,127,120,0.32);
+    animation: guarantee-spin 32s linear infinite;
+  }
+  @keyframes guarantee-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* ── FAQ accordion ── */
+  details.faq-item {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  details.faq-item[open] { border-color: rgba(95,127,120,0.28); }
+  details.faq-item summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    list-style: none;
+    font-weight: 500; font-size: 0.98rem;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: '+';
+    color: var(--patina);
+    font-size: 1.5rem; line-height: 1;
+    transition: transform 0.25s;
+  }
+  details.faq-item[open] summary::after { transform: rotate(45deg); }
+  details.faq-item .faq-body {
+    padding: 0 1.25rem 1.15rem;
+    color: rgba(255,255,255,0.74);
+    line-height: 1.6;
+    font-size: 0.94rem;
   }
 
-  /* ── Section separator ── */
-  .section-divider {
-    border-top: 1px solid rgba(255,255,255,0.04);
-  }
+  /* ── Section divider ── */
+  .section-divider { border-top: 1px solid rgba(255,255,255,0.04); }
 
   @media (prefers-reduced-motion: reduce) {
-    .pulse-dot::before { animation: none; }
-    .wordmark-svg .wm-letter { animation: none; fill: rgba(255,255,255,0.96); stroke-opacity: 0; stroke-dashoffset: 0; }
-    .wm-sublabel { opacity: 1; transform: none; animation: none; }
-    .hero-orbit .orbit-spinner { animation: none; }
-    .progress-fill::after { animation: none; }
+    .pulse-dot::before, .logo-stage::before, .logo-stage::after,
+    .progress-fill::after, .guarantee-badge::before { animation: none; }
+    .logo-stage .logo-img { animation: none; opacity: 1; transform: none; filter: drop-shadow(0 14px 38px rgba(95,127,120,0.32)); }
   }
 </style>
 </head>
 <body class="ambient-bg">
 
-<!-- Background texture -->
+<!-- Background grid -->
 <div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
 
-<!-- ════════════════════════ SECTION 1 · HERO ════════════════════════ -->
-<section id="hero" class="relative px-6 pt-14 pb-20 lg:pt-20 lg:pb-24 overflow-hidden">
 
-  <!-- Ambient orbit -->
-  <div class="hero-orbit" aria-hidden="true">
-    <svg class="orbit-spinner" style="top:-180px; left:50%; transform:translateX(-50%);"
-         width="720" height="720" viewBox="0 0 720 720">
-      <circle class="orbit-ring" cx="360" cy="360" r="280"/>
-      <circle class="orbit-ring" cx="360" cy="360" r="220" stroke-dasharray="2 6"/>
-      <circle class="orbit-ring" cx="360" cy="360" r="160"/>
-    </svg>
-  </div>
-
-  <div class="relative max-w-3xl mx-auto text-center" style="z-index:1;">
+<!-- ════════════════════════ 1 · HERO ════════════════════════ -->
+<section id="hero" class="relative px-6 pt-12 pb-20 lg:pt-16 lg:pb-24">
+  <div class="relative max-w-3xl mx-auto text-center">
 
     <!-- Live eyebrow -->
     <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-8"
          style="background: rgba(95,127,120,0.10); border: 1px solid rgba(95,127,120,0.28);">
       <span class="pulse-dot"></span>
-      <span class="eyebrow !text-[10.5px]">Próximo lanzamiento · 25 jun 2026</span>
+      <span class="eyebrow !text-[10.5px]">Antes de que Meridian abra al público</span>
     </div>
 
-    <!-- Founder crown logo -->
-    <div class="logo-glow mx-auto mb-7">
-      <img src="/assets/founder-crown-logo-v2.png"
-           alt="Meridian Founders Crown"
-           class="block w-32 sm:w-36 lg:w-40 mx-auto"
-           loading="eager" decoding="async" />
+    <!-- ALEPH-STYLE ANIMATED LOGO -->
+    <div class="logo-stage mb-9">
+      <img src="/assets/meridian-logo.png" alt="Meridian — Built for you to win"
+           class="logo-img" loading="eager" decoding="async" />
     </div>
-
-    <!-- MERIDIAN wordmark (SVG line-draw, Aleph Zero–style) -->
-    <svg class="wordmark-svg" viewBox="0 0 380 36" xmlns="http://www.w3.org/2000/svg" aria-label="MERIDIAN">
-      <g font-family="Inter, sans-serif" font-weight="600" font-size="32" letter-spacing="6">
-        <text class="wm-letter" x="6"   y="28">M</text>
-        <text class="wm-letter" x="56"  y="28">E</text>
-        <text class="wm-letter" x="98"  y="28">R</text>
-        <text class="wm-letter" x="142" y="28">I</text>
-        <text class="wm-letter" x="170" y="28">D</text>
-        <text class="wm-letter" x="216" y="28">I</text>
-        <text class="wm-letter" x="244" y="28">A</text>
-        <text class="wm-letter" x="290" y="28">N</text>
-      </g>
-    </svg>
-
-    <p class="wm-sublabel text-[10px] tracking-[0.32em] uppercase accent mt-3 mb-8">Founders List</p>
 
     <!-- Headline -->
     <h1 class="h1">
-      Reserva tu plaza<br class="hidden sm:block">
-      entre los <span class="accent">1,000 Founders.</span>
+      Vamos a elegir <span class="accent">1,000 traders.</span><br class="hidden sm:block">
+      Y los vamos a tratar como nunca.
     </h1>
 
     <!-- Subtitle -->
-    <p class="body-text mt-5 max-w-lg mx-auto">
-      Acceso anticipado a Meridian antes del lanzamiento público.
-      <span class="text-arctic font-medium">Equity. Voz. Comunidad. Para siempre.</span>
+    <p class="body-text mt-6 max-w-xl mx-auto">
+      No es lista de espera. Es la fundación de un broker que se construye contigo adentro.
+      <span class="text-arctic font-medium">Equity. Voz. Comunidad. Título. Eventos.</span>
     </p>
 
-    <!-- Date strip (Finanzas-style) -->
-    <div class="mt-7 inline-flex items-center gap-4 px-5 py-2.5 rounded-lg"
+    <!-- Live session strip -->
+    <div class="mt-7 inline-flex items-center gap-4 px-5 py-3 rounded-lg flex-wrap justify-center"
          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
-      <div class="text-left">
-        <div class="text-[9px] eyebrow !tracking-[0.22em]">Fecha</div>
-        <div class="text-arctic font-semibold text-[13px] mt-0.5">25 jun · 2026</div>
+      <div class="flex items-center gap-2">
+        <span class="pulse-dot"></span>
+        <span class="text-[10px] eyebrow !tracking-[0.22em]">Sesión en vivo</span>
       </div>
-      <div class="w-px h-7 bg-white/10"></div>
-      <div class="text-left">
-        <div class="text-[9px] eyebrow !tracking-[0.22em]">Lanzamiento</div>
-        <div class="text-arctic font-semibold text-[13px] mt-0.5">Mundial · LATAM</div>
-      </div>
+      <div class="w-px h-6 bg-white/10"></div>
+      <div class="text-arctic font-semibold text-[13px]">25 jun · 2026</div>
+      <div class="w-px h-6 bg-white/10"></div>
+      <div class="text-arctic font-semibold text-[13px]">7:00 PM · CDMX</div>
     </div>
 
-    <!-- Primary CTA → scrolls to form -->
+    <!-- Primary CTA -->
     <div class="mt-8 max-w-md mx-auto">
-      <a href="#registro" class="btn-primary">
-        Apartar mi plaza ahora
+      <a href="#registro" class="btn-primary w-full">
+        Quiero ser Founder
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <p class="mt-3 text-[11px] muted flex items-center justify-center gap-3 flex-wrap">
+      <p class="mt-4 text-[12px] muted flex items-center justify-center gap-3 flex-wrap">
         <span class="flex items-center gap-1.5">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
           Sin costo
@@ -371,46 +394,158 @@
       </p>
     </div>
 
+    <!-- Trust strip with concrete numbers -->
+    <div class="mt-12 max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
+      <div class="bg-midnight/80 backdrop-blur px-4 py-4 text-center">
+        <p class="text-[18px] font-semibold text-arctic"><span data-counter="founders">347</span><span class="text-pewter">/1,000</span></p>
+        <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-1">Founders</p>
+      </div>
+      <div class="bg-midnight/80 backdrop-blur px-4 py-4 text-center">
+        <p class="text-[18px] font-semibold text-arctic">$20M</p>
+        <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-1">Valuación</p>
+      </div>
+      <div class="bg-midnight/80 backdrop-blur px-4 py-4 text-center">
+        <p class="text-[18px] font-semibold text-arctic">12</p>
+        <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-1">Países LATAM</p>
+      </div>
+      <div class="bg-midnight/80 backdrop-blur px-4 py-4 text-center">
+        <p class="text-[18px] font-semibold accent">100%</p>
+        <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-1">On-chain</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 
-<!-- ════════════════════════ SECTION 2 · QUÉ RECIBES (3 pilares) ════════════════════════ -->
-<section id="pilares" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
-  <div class="max-w-4xl mx-auto">
+<!-- ════════════════════════ 2 · EL PROBLEMA ════════════════════════ -->
+<section id="problema" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
+  <div class="max-w-5xl mx-auto">
 
-    <div class="text-center mb-12">
-      <p class="eyebrow mb-3">Qué recibes como Founder</p>
+    <div class="text-center mb-12 max-w-3xl mx-auto">
+      <p class="eyebrow mb-3">El problema</p>
       <h2 class="h2">
-        No es <span class="muted line-through decoration-pewter/30">una lista de espera.</span>
-        <br class="hidden sm:block">
-        Es <span class="accent">tu plaza permanente</span> en Meridian.
+        El problema nunca fue tu estrategia.<br class="hidden sm:block">
+        Fue el <span class="accent">broker que juega contra ti.</span>
       </h2>
+      <p class="body-text mt-5">
+        Todos los traders que conoces operan dentro de un sistema diseñado para que pierdan.
+        Hasta ahora.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-      <div class="pillar-card">
-        <span class="pillar-num">01</span>
-        <h3 class="text-arctic font-semibold text-[1.05rem] mb-2">Equity simbólico</h3>
+      <div class="problem-card">
+        <span class="card-num">01</span>
+        <h3 class="h3 text-arctic mb-2">Ganan cuando pierdes</h3>
         <p class="body-text !text-[14px]">
-          Reconocimiento permanente como fundador. Tu nombre vive en la plataforma.
+          El modelo B-book hace que el broker gane cada vez que tu cuenta se vacía.
+          Su negocio es que tú pierdas.
         </p>
       </div>
 
-      <div class="pillar-card">
-        <span class="pillar-num">02</span>
-        <h3 class="text-arctic font-semibold text-[1.05rem] mb-2">Voz en producto</h3>
+      <div class="problem-card">
+        <span class="card-num">02</span>
+        <h3 class="h3 text-arctic mb-2">Bloquean retiros</h3>
         <p class="body-text !text-[14px]">
-          Decides lo que se construye. Acceso al roadmap, votaciones, gobernanza.
+          Ganaste 5K legítimos. "Irregularidades", "violación de términos".
+          El retiro se congela 60 días. O para siempre.
         </p>
       </div>
 
-      <div class="pillar-card">
-        <span class="pillar-num">03</span>
-        <h3 class="text-arctic font-semibold text-[1.05rem] mb-2">Eventos & comunidad</h3>
+      <div class="problem-card">
+        <span class="card-num">03</span>
+        <h3 class="h3 text-arctic mb-2">Sin voz, sin equity</h3>
         <p class="body-text !text-[14px]">
-          Trader Gala anual, comunidad privada de los 1,000 y mesas con el equipo.
+          Eres una cuenta más en su libro. Nunca votas, nunca participas,
+          nunca tienes parte del broker que ayudaste a crecer.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="text-center mt-10 body-text !text-[14px] max-w-2xl mx-auto muted">
+      La verdad es esta: hasta que cambies el broker, ninguna estrategia te va a salvar.
+      Por eso construimos <span class="text-arctic font-medium">Meridian</span>.
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 3 · EL PLAN — 5 PILARES ════════════════════════ -->
+<section id="plan" class="section-divider px-6 py-16 lg:py-24">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-12 max-w-3xl mx-auto">
+      <p class="eyebrow mb-3">Los 5 pilares de un Founder</p>
+      <h2 class="h2">
+        <span class="accent">5 cosas</span> que ningún broker<br class="hidden sm:block">
+        en la historia te dio.
+      </h2>
+      <p class="body-text mt-5">
+        Los recibes sólo los primeros 1,000 Founders. Después del lanzamiento general,
+        ninguno se mantiene.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <!-- 01 Equity (featured) -->
+      <div class="pillar-card md:col-span-2 lg:col-span-1 lg:row-span-2 flex flex-col justify-between"
+           style="border-color: rgba(95,127,120,0.28); min-height: 280px;">
+        <div>
+          <span class="card-num">01</span>
+          <h3 class="h3 text-arctic mb-2">Equity en el broker</h3>
+          <p class="body-text !text-[14px] mb-6">
+            Participación documentada legalmente antes del lanzamiento público.
+            Cuando Meridian crece, creces con el broker.
+          </p>
+        </div>
+        <div class="pt-5 border-t" style="border-color: rgba(95,127,120,0.20);">
+          <p class="text-[10px] eyebrow mb-1.5">Valuación de entrada</p>
+          <p class="text-3xl lg:text-4xl font-semibold text-arctic">$20M USD</p>
+          <p class="text-[11px] muted mt-1">Documentado en wallet on-chain</p>
+        </div>
+      </div>
+
+      <!-- 02 Founder Account -->
+      <div class="pillar-card">
+        <span class="card-num">02</span>
+        <h3 class="h3 text-arctic mb-2">Founder Account</h3>
+        <p class="body-text !text-[14px]">
+          Tu cuenta marcada como Founder desde el primer login. Visible en dashboard.
+          <span class="text-arctic">Para siempre.</span>
+        </p>
+      </div>
+
+      <!-- 03 Trader Gala -->
+      <div class="pillar-card">
+        <span class="card-num">03</span>
+        <h3 class="h3 text-arctic mb-2">Trader Gala + Expo</h3>
+        <p class="body-text !text-[14px]">
+          Acceso anual a los eventos privados de Meridian. Networking
+          + traders top de LATAM. Sin costo.
+        </p>
+      </div>
+
+      <!-- 04 Voz on-chain -->
+      <div class="pillar-card">
+        <span class="card-num">04</span>
+        <h3 class="h3 text-arctic mb-2">Voz directa en el código</h3>
+        <p class="body-text !text-[14px]">
+          Gobernanza on-chain. <span class="text-arctic">1 Founder · 1 voto.</span>
+          Decides lo que se construye.
+        </p>
+      </div>
+
+      <!-- 05 Comunidad privada -->
+      <div class="pillar-card">
+        <span class="card-num">05</span>
+        <h3 class="h3 text-arctic mb-2">Comunidad privada</h3>
+        <p class="body-text !text-[14px]">
+          Telegram con los otros 999 Founders + el equipo de Meridian.
+          Acceso permanente.
         </p>
       </div>
 
@@ -419,18 +554,22 @@
 </section>
 
 
-<!-- ════════════════════════ SECTION 3 · URGENCIA + COUNTDOWN ════════════════════════ -->
-<section id="urgencia" class="section-divider px-6 py-16 lg:py-20">
-  <div class="max-w-2xl mx-auto text-center">
+<!-- ════════════════════════ 4 · ACCESO + COUNTDOWN ════════════════════════ -->
+<section id="acceso" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
+  <div class="max-w-3xl mx-auto text-center">
 
-    <p class="eyebrow mb-3">Plazas restantes</p>
-    <h2 class="h2 mb-8">
-      Sólo <span class="accent">1,000 Founders</span>.<br class="hidden sm:block">
-      Nunca volverá a abrirse.
+    <p class="eyebrow mb-3">Tu acceso al Founders List</p>
+    <h2 class="h2 mb-4">
+      Acceso completo a los 5 pilares.<br class="hidden sm:block">
+      <span class="accent">Sin costo.</span>
     </h2>
+    <p class="body-text mb-10 max-w-2xl mx-auto">
+      Lo que recibirías en cualquier otro lanzamiento como pago alto, en Meridian
+      es el reconocimiento a los primeros 1,000 que creyeron antes del público.
+    </p>
 
     <!-- Countdown -->
-    <div class="flex items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto mb-7">
+    <div class="flex items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto mb-9">
       <div class="text-center">
         <div class="countdown-digit text-2xl sm:text-3xl text-arctic" id="cd-days">--</div>
         <div class="text-[9px] eyebrow !tracking-[0.2em] mt-1.5">días</div>
@@ -452,36 +591,217 @@
       </div>
     </div>
 
-    <!-- Progress bar -->
-    <div class="max-w-md mx-auto">
+    <!-- Progress + remaining -->
+    <div class="max-w-md mx-auto mb-9">
       <div class="flex items-center justify-between text-[11px] muted mb-2">
         <span><span data-counter="founders" class="accent font-semibold">347</span> apartadas</span>
-        <span>653 disponibles</span>
+        <span><span data-counter-remaining>653</span> disponibles</span>
       </div>
       <div class="progress-track">
         <div class="progress-fill" id="progress-fill" style="width: 34.7%"></div>
       </div>
     </div>
 
-    <p class="mt-7 body-text !text-[13px] max-w-md mx-auto">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2" class="inline-block align-text-bottom mr-1.5" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-      Acceso garantizado si entras antes del cierre. Sin riesgo, sin costo.
+    <a href="#registro" class="btn-primary inline-flex max-w-md w-full mx-auto">
+      Apartar mi plaza ahora
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Compare strip — VS resto industria -->
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+      <div class="vs-col">
+        <h3 class="text-[14px] tracking-[0.16em] uppercase muted font-semibold mb-3">El resto de la industria</h3>
+        <div class="vs-row muted">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B717C" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          Gana cuando tú pierdes
+        </div>
+        <div class="vs-row muted">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B717C" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          Bloquea retiros al ganar
+        </div>
+        <div class="vs-row muted">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B717C" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          Te trata como un cliente más
+        </div>
+      </div>
+      <div class="vs-col meridian">
+        <h3 class="text-[14px] tracking-[0.16em] uppercase accent font-semibold mb-3">Meridian</h3>
+        <div class="vs-row text-arctic/92">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+          Físicamente no puede ganar contra ti
+        </div>
+        <div class="vs-row text-arctic/92">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+          Retiros verificables on-chain
+        </div>
+        <div class="vs-row text-arctic/92">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+          Te trata como Founder. Para siempre.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 5 · ¿QUIÉN ES JOSUÉ? ════════════════════════ -->
+<section id="josue" class="section-divider px-6 py-16 lg:py-24">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="relative max-w-sm mx-auto">
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden glass-strong">
+            <img src="/assets/josue-portrait.png"
+                 alt="Josué Melero, fundador de Meridian"
+                 class="absolute inset-0 w-full h-full object-cover"
+                 loading="lazy" decoding="async" />
+            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight via-midnight/40 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 80px rgba(95,127,120,0.18);"></div>
+            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-midnight/80 backdrop-blur border border-white/10">
+              <span class="text-[11px] tracking-wide text-pewter">@josuemelero</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <p class="eyebrow mb-3">¿Quién está detrás de Meridian?</p>
+        <h2 class="h2">
+          Llevo <span class="accent">7 años</span> buscando un broker<br class="hidden sm:block">
+          que no jugara en mi contra. Por fin lo encontré.
+        </h2>
+        <p class="body-text mt-6">
+          Soy Josué Melero. Llevo años diciendo que el problema del trader latinoamericano
+          no es la estrategia — es el broker. Cuando vi cómo funciona Meridian
+          <span class="text-arctic font-medium">— A-book real, on-chain, verificable —</span>
+          supe que era la primera respuesta real al sistema.
+        </p>
+        <p class="body-text mt-4">
+          Por eso estoy adentro como fundador, no como afiliado. Mi nombre, mi reputación
+          y mi tiempo están en esto. Por eso elegimos a los 1,000 primeros como Founders:
+          ustedes son la mitad del proyecto.
+        </p>
+        <div class="mt-7">
+          <a href="#registro" class="btn-primary">
+            Quiero entrar antes del público
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 6 · GARANTÍA ════════════════════════ -->
+<section id="garantia" class="section-divider px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4);">
+  <div class="max-w-3xl mx-auto text-center">
+
+    <div class="guarantee-badge mb-8 mx-auto">
+      <div class="text-center">
+        <div class="text-[10px] eyebrow !tracking-[0.22em] mb-1">Founder</div>
+        <div class="text-5xl font-semibold text-arctic leading-none">∞</div>
+        <div class="text-[10px] eyebrow !tracking-[0.22em] mt-1">Para siempre</div>
+      </div>
+    </div>
+
+    <p class="eyebrow mb-3">Tu plaza es permanente</p>
+    <h2 class="h2 mb-5">
+      Una vez Founder, <span class="accent">siempre Founder.</span>
+    </h2>
+    <p class="body-text max-w-2xl mx-auto">
+      Cuando se cierran las 1,000 plazas, se cierra todo el programa de Founders.
+      Pero los 1,000 quedan <span class="text-arctic font-medium">documentados legalmente — para siempre.</span>
+      No hay renovación. No hay cuota anual. No hay forma de perderlo.
+    </p>
+    <p class="body-text mt-4 max-w-xl mx-auto !text-[14px] muted">
+      Y si decides salirte antes del lanzamiento, también es libre. Sin cargos.
+      Sin penalización. Sin tarjeta.
     </p>
 
   </div>
 </section>
 
 
-<!-- ════════════════════════ SECTION 4 · REGISTRO ════════════════════════ -->
-<section id="registro" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
-  <div class="max-w-xl mx-auto text-center">
+<!-- ════════════════════════ 7 · FAQ ════════════════════════ -->
+<section id="faq" class="section-divider px-6 py-16 lg:py-24">
+  <div class="max-w-2xl mx-auto">
 
-    <p class="eyebrow mb-3">Tu plaza</p>
-    <h2 class="h2 mb-3">
-      ¿Vas a entrar antes que los otros <span class="accent" data-counter-remaining>653</span>?
+    <div class="text-center mb-10">
+      <p class="eyebrow mb-3">Preguntas frecuentes</p>
+      <h2 class="h2">Antes de registrarte.</h2>
+    </div>
+
+    <div class="space-y-3">
+      <details class="faq-item">
+        <summary>¿Cuánto cuesta de verdad?</summary>
+        <div class="faq-body">
+          Cero. No hay costo de entrada al Founders List. Tampoco se pide tarjeta.
+          Solo tu registro.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué necesito para empezar?</summary>
+        <div class="faq-body">
+          Email, nombre y país. Después recibes el link al Telegram privado.
+          Tu Founder Account se activa el 25 de junio en la sesión en vivo (7 PM CDMX).
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo funciona el equity?</summary>
+        <div class="faq-body">
+          Tu participación se documenta legalmente antes del lanzamiento público.
+          Recibes los términos exactos al entrar al Founders List, no después.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Hay restricciones para operar?</summary>
+        <div class="faq-body">
+          Sólo el KYC normal del broker. Sin volumen mínimo. Sin estrategia restringida —
+          arbitraje, HFT, scalping, swing, todo permitido. Sin máximo de retiro.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo salirme cuando quiera?</summary>
+        <div class="faq-body">
+          Sí. Salir del Telegram privado o cerrar la cuenta del broker se hace cuando
+          quieras. Sin cargos. Sin penalización.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué pasa después del 25 de junio?</summary>
+        <div class="faq-body">
+          Después del lanzamiento general, los 5 pilares (equity, voz, gala, comunidad,
+          Founder Account) ya no se ofrecen. Sólo los 1,000 Founders los mantienen.
+          Para siempre.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 8 · CTA FINAL (con pregunta tipo Finanzas) ════════════════════════ -->
+<section id="registro" class="section-divider px-6 py-16 lg:py-24 relative overflow-hidden"
+         style="background: rgba(23,34,49,0.4);">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(95,127,120,0.10) 0%, transparent 60%);"></div>
+  </div>
+
+  <div class="relative max-w-xl mx-auto text-center">
+
+    <p class="eyebrow mb-3"><span data-counter-remaining>653</span> plazas restantes · cierra el 25 de junio</p>
+    <h2 class="h2 mb-4">
+      ¿Vas a entrar antes que los otros <span class="accent" data-counter-remaining>653</span>,
+      o vas a llegar al lanzamiento general sin nada?
     </h2>
     <p class="body-text mb-9 max-w-md mx-auto">
       Apartar tu plaza toma menos de 30 segundos. No pedimos tarjeta, no pedimos pago.
+      Sólo tu registro.
     </p>
 
     <form id="foundersForm" class="space-y-3 max-w-md mx-auto text-left" novalidate>
@@ -510,7 +830,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn-primary mt-2">
+      <button type="submit" class="btn-primary w-full mt-2">
         Apartar mi plaza
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
@@ -539,63 +859,50 @@
 
 
 <!-- FOOTER -->
-<footer class="px-6 py-5 border-t border-white/5 relative">
-  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] muted">
+<footer class="px-6 py-6 border-t border-white/5">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] muted">
     <span class="tracking-[0.14em] uppercase">Meridian · Built for you to win.</span>
     <span>© 2026 · All rights reserved.</span>
   </div>
 </footer>
 
+
 <script>
-  // ── COUNTDOWN to June 25, 2026 ──
-  const LAUNCH = new Date('2026-06-25T00:00:00');
-  const cdDays  = document.getElementById('cd-days');
+  // ── COUNTDOWN to June 25, 2026 7PM CDMX (UTC-6) ──
+  const LAUNCH = new Date('2026-06-25T19:00:00-06:00');
+  const cdDays = document.getElementById('cd-days');
   const cdHours = document.getElementById('cd-hours');
-  const cdMins  = document.getElementById('cd-mins');
-  const cdSecs  = document.getElementById('cd-secs');
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
+  const cdMins = document.getElementById('cd-mins');
+  const cdSecs = document.getElementById('cd-secs');
+  const pad = n => String(n).padStart(2, '0');
   function tick() {
-    const now = new Date();
-    const diff = LAUNCH - now;
-    if (diff <= 0) {
-      cdDays.textContent = '00'; cdHours.textContent = '00'; cdMins.textContent = '00'; cdSecs.textContent = '00';
-      return;
-    }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const mins  = Math.floor((diff / (1000 * 60)) % 60);
-    const secs  = Math.floor((diff / 1000) % 60);
-    cdDays.textContent = pad(days);
-    cdHours.textContent = pad(hours);
-    cdMins.textContent = pad(mins);
-    cdSecs.textContent = pad(secs);
+    const diff = LAUNCH - new Date();
+    if (diff <= 0) { cdDays.textContent = cdHours.textContent = cdMins.textContent = cdSecs.textContent = '00'; return; }
+    cdDays.textContent = pad(Math.floor(diff / 86400000));
+    cdHours.textContent = pad(Math.floor((diff / 3600000) % 24));
+    cdMins.textContent = pad(Math.floor((diff / 60000) % 60));
+    cdSecs.textContent = pad(Math.floor((diff / 1000) % 60));
   }
-  tick();
-  setInterval(tick, 1000);
+  tick(); setInterval(tick, 1000);
 
-  // ── PHONE PREFIX based on country ──
+  // ── PHONE PREFIX ──
   const countrySel = document.getElementById('f-country');
   const phoneCode = document.getElementById('phone-code');
   countrySel.addEventListener('change', () => {
     const opt = countrySel.options[countrySel.selectedIndex];
-    const code = opt ? (opt.getAttribute('data-code') || '+') : '+';
-    phoneCode.textContent = code;
+    phoneCode.textContent = (opt && opt.getAttribute('data-code')) || '+';
   });
 
   // ── LIVE FOUNDER COUNTER + PROGRESS BAR ──
   let currentFounders = 347;
   const FOUNDERS_TOTAL = 1000;
   const progressFill = document.getElementById('progress-fill');
-
   function syncCounter() {
     document.querySelectorAll('[data-counter="founders"]').forEach(el => el.textContent = currentFounders.toLocaleString());
     document.querySelectorAll('[data-counter-remaining]').forEach(el => el.textContent = (FOUNDERS_TOTAL - currentFounders).toLocaleString());
     if (progressFill) progressFill.style.width = ((currentFounders / FOUNDERS_TOTAL) * 100).toFixed(2) + '%';
   }
   syncCounter();
-
   function liveIncrement() {
     if (currentFounders >= FOUNDERS_TOTAL) return;
     currentFounders += 1;
