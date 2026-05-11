@@ -40,17 +40,14 @@
     --pewter: #6B717C;
   }
   * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
-  html, body { overflow-x: hidden; max-width: 100%; margin: 0; }
+  html, body { overflow-x: hidden; max-width: 100%; margin: 0; scroll-behavior: smooth; }
   body {
     font-family: 'Inter', sans-serif;
     background: var(--midnight);
     color: var(--arctic);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
 
-  /* Subtle ambient background */
   .ambient-bg {
     background:
       radial-gradient(ellipse 80% 60% at 50% 0%, rgba(95,127,120,0.08) 0%, transparent 60%),
@@ -58,7 +55,6 @@
       var(--midnight);
   }
 
-  /* Subtle grid texture */
   .grid-bg {
     background-image:
       linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
@@ -68,20 +64,21 @@
             mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
   }
 
-  /* Typography */
-  .h1 { font-size: clamp(2rem, 4.4vw, 3.6rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
+  /* ── Typography ── */
+  .h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
+  .h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
   .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
   .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.72); font-weight: 400; }
   .muted { color: var(--pewter); }
   .accent { color: var(--patina); }
 
-  /* Primary CTA */
+  /* ── Buttons ── */
   .btn-primary {
     background: linear-gradient(180deg, #5F7F78 0%, #4F6B65 100%);
     color: #FFFFFF;
-    padding: 1.1rem 1.6rem;
+    padding: 1.05rem 1.8rem;
     border-radius: 8px;
-    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.88rem;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85rem;
     transition: all 0.25s ease;
     box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset;
     display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem;
@@ -92,11 +89,9 @@
     transform: translateY(-1px);
     box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 12px 36px rgba(95,127,120,0.28);
   }
-  .btn-primary:focus-visible {
-    outline: 2px solid var(--patina); outline-offset: 3px;
-  }
+  .btn-primary:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
 
-  /* Form fields */
+  /* ── Form fields ── */
   .field {
     width: 100%;
     padding: 0.95rem 1rem;
@@ -108,14 +103,10 @@
     transition: border-color 0.2s, background 0.2s;
     font-family: inherit;
   }
-  .field:focus {
-    outline: none;
-    border-color: var(--patina);
-    background: rgba(255,255,255,0.05);
-  }
+  .field:focus { outline: none; border-color: var(--patina); background: rgba(255,255,255,0.05); }
   .field::placeholder { color: rgba(107,113,124,0.7); }
 
-  /* Pulse dot */
+  /* ── Pulse dot ── */
   .pulse-dot {
     position: relative; display: inline-block;
     width: 8px; height: 8px; flex-shrink: 0;
@@ -134,12 +125,12 @@
     100% { transform: scale(2.5); opacity: 0; }
   }
 
-  /* Logo glow */
+  /* ── Founder crown logo ── */
   .logo-glow {
     filter: drop-shadow(0 8px 32px rgba(95,127,120,0.35)) drop-shadow(0 2px 8px rgba(0,0,0,0.45));
   }
 
-  /* Countdown digit */
+  /* ── Countdown digit ── */
   .countdown-digit {
     font-variant-numeric: tabular-nums;
     font-weight: 600;
@@ -151,8 +142,132 @@
     text-align: center;
   }
 
+  /* ════════ WORDMARK LINE-DRAW ANIMATION (Aleph Zero–style) ════════ */
+  .wordmark-svg {
+    display: block; margin: 0 auto;
+    width: clamp(220px, 36vw, 380px);
+    height: auto;
+    overflow: visible;
+  }
+  .wordmark-svg .wm-letter {
+    fill: transparent;
+    stroke: rgba(255,255,255,0.92);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+    animation: wm-draw 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+               wm-fill 0.6s ease-out forwards;
+  }
+  .wordmark-svg .wm-letter:nth-child(1) { animation-delay: 0.05s, 1.30s; }
+  .wordmark-svg .wm-letter:nth-child(2) { animation-delay: 0.13s, 1.38s; }
+  .wordmark-svg .wm-letter:nth-child(3) { animation-delay: 0.21s, 1.46s; }
+  .wordmark-svg .wm-letter:nth-child(4) { animation-delay: 0.29s, 1.54s; }
+  .wordmark-svg .wm-letter:nth-child(5) { animation-delay: 0.37s, 1.62s; }
+  .wordmark-svg .wm-letter:nth-child(6) { animation-delay: 0.45s, 1.70s; }
+  .wordmark-svg .wm-letter:nth-child(7) { animation-delay: 0.53s, 1.78s; }
+  .wordmark-svg .wm-letter:nth-child(8) { animation-delay: 0.61s, 1.86s; }
+  @keyframes wm-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes wm-fill {
+    from { fill: transparent; stroke-opacity: 0.92; }
+    to   { fill: rgba(255,255,255,0.96); stroke-opacity: 0; }
+  }
+
+  /* Sublabel reveals after wordmark */
+  .wm-sublabel {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: wm-sub-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation-delay: 2.1s;
+  }
+  @keyframes wm-sub-rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Ambient orbit decoration in hero (Aleph-style geometry) */
+  .hero-orbit {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    z-index: 0;
+  }
+  .hero-orbit svg { position: absolute; opacity: 0.18; }
+  .hero-orbit .orbit-ring {
+    fill: none; stroke: rgba(95,127,120,0.45); stroke-width: 0.6;
+  }
+  .hero-orbit .orbit-spinner {
+    transform-origin: center;
+    animation: orbit-spin 36s linear infinite;
+  }
+  @keyframes orbit-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* ── Pillar cards (section 2) ── */
+  .pillar-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 1.6rem 1.4rem 1.5rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .pillar-card:hover {
+    border-color: rgba(95,127,120,0.32);
+    transform: translateY(-2px);
+  }
+  .pillar-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px;
+    border-radius: 8px;
+    background: rgba(95,127,120,0.12);
+    border: 1px solid rgba(95,127,120,0.28);
+    color: var(--patina);
+    font-weight: 600; font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.95rem;
+  }
+
+  /* ── Progress bar ── */
+  .progress-track {
+    width: 100%; height: 8px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #5F7F78 0%, #7FA499 100%);
+    border-radius: 999px;
+    transition: width 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    position: relative;
+    box-shadow: 0 0 12px rgba(95,127,120,0.45);
+  }
+  .progress-fill::after {
+    content: ''; position: absolute; top: 0; right: 0; bottom: 0;
+    width: 32px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
+    animation: shimmer 2.4s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* ── Section separator ── */
+  .section-divider {
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .pulse-dot::before { animation: none; }
+    .wordmark-svg .wm-letter { animation: none; fill: rgba(255,255,255,0.96); stroke-opacity: 0; stroke-dashoffset: 0; }
+    .wm-sublabel { opacity: 1; transform: none; animation: none; }
+    .hero-orbit .orbit-spinner { animation: none; }
+    .progress-fill::after { animation: none; }
   }
 </style>
 </head>
@@ -161,43 +276,161 @@
 <!-- Background texture -->
 <div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
 
-<!-- ════════════════ MAIN ════════════════ -->
-<main class="relative flex-1 flex items-center justify-center px-6 py-10 lg:py-14">
-  <div class="relative w-full max-w-2xl mx-auto text-center">
+<!-- ════════════════════════ SECTION 1 · HERO ════════════════════════ -->
+<section id="hero" class="relative px-6 pt-14 pb-20 lg:pt-20 lg:pb-24 overflow-hidden">
 
-    <!-- LIVE EYEBROW with pulse -->
-    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-7"
+  <!-- Ambient orbit -->
+  <div class="hero-orbit" aria-hidden="true">
+    <svg class="orbit-spinner" style="top:-180px; left:50%; transform:translateX(-50%);"
+         width="720" height="720" viewBox="0 0 720 720">
+      <circle class="orbit-ring" cx="360" cy="360" r="280"/>
+      <circle class="orbit-ring" cx="360" cy="360" r="220" stroke-dasharray="2 6"/>
+      <circle class="orbit-ring" cx="360" cy="360" r="160"/>
+    </svg>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto text-center" style="z-index:1;">
+
+    <!-- Live eyebrow -->
+    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-8"
          style="background: rgba(95,127,120,0.10); border: 1px solid rgba(95,127,120,0.28);">
       <span class="pulse-dot"></span>
       <span class="eyebrow !text-[10.5px]">Próximo lanzamiento · 25 jun 2026</span>
     </div>
 
-    <!-- BIG FOUNDER CROWN LOGO -->
-    <div class="logo-glow mx-auto mb-8 lg:mb-10">
+    <!-- Founder crown logo -->
+    <div class="logo-glow mx-auto mb-7">
       <img src="/assets/founder-crown-logo-v2.png"
            alt="Meridian Founders Crown"
-           class="block w-40 sm:w-44 lg:w-52 mx-auto"
+           class="block w-32 sm:w-36 lg:w-40 mx-auto"
            loading="eager" decoding="async" />
     </div>
 
-    <!-- WORDMARK -->
-    <p class="text-[11px] tracking-[0.34em] uppercase text-arctic font-semibold mb-2">Meridian</p>
-    <p class="text-[10px] tracking-[0.28em] uppercase accent mb-7">Founders List</p>
+    <!-- MERIDIAN wordmark (SVG line-draw, Aleph Zero–style) -->
+    <svg class="wordmark-svg" viewBox="0 0 380 36" xmlns="http://www.w3.org/2000/svg" aria-label="MERIDIAN">
+      <g font-family="Inter, sans-serif" font-weight="600" font-size="32" letter-spacing="6">
+        <text class="wm-letter" x="6"   y="28">M</text>
+        <text class="wm-letter" x="56"  y="28">E</text>
+        <text class="wm-letter" x="98"  y="28">R</text>
+        <text class="wm-letter" x="142" y="28">I</text>
+        <text class="wm-letter" x="170" y="28">D</text>
+        <text class="wm-letter" x="216" y="28">I</text>
+        <text class="wm-letter" x="244" y="28">A</text>
+        <text class="wm-letter" x="290" y="28">N</text>
+      </g>
+    </svg>
 
-    <!-- HEADLINE -->
+    <p class="wm-sublabel text-[10px] tracking-[0.32em] uppercase accent mt-3 mb-8">Founders List</p>
+
+    <!-- Headline -->
     <h1 class="h1">
       Reserva tu plaza<br class="hidden sm:block">
       entre los <span class="accent">1,000 Founders.</span>
     </h1>
 
-    <!-- SUBTITLE -->
-    <p class="body-text mt-5 max-w-md mx-auto">
+    <!-- Subtitle -->
+    <p class="body-text mt-5 max-w-lg mx-auto">
       Acceso anticipado a Meridian antes del lanzamiento público.
       <span class="text-arctic font-medium">Equity. Voz. Comunidad. Para siempre.</span>
     </p>
 
-    <!-- COUNTDOWN -->
-    <div class="mt-8 mb-9 flex items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto">
+    <!-- Date strip (Finanzas-style) -->
+    <div class="mt-7 inline-flex items-center gap-4 px-5 py-2.5 rounded-lg"
+         style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <div class="text-left">
+        <div class="text-[9px] eyebrow !tracking-[0.22em]">Fecha</div>
+        <div class="text-arctic font-semibold text-[13px] mt-0.5">25 jun · 2026</div>
+      </div>
+      <div class="w-px h-7 bg-white/10"></div>
+      <div class="text-left">
+        <div class="text-[9px] eyebrow !tracking-[0.22em]">Lanzamiento</div>
+        <div class="text-arctic font-semibold text-[13px] mt-0.5">Mundial · LATAM</div>
+      </div>
+    </div>
+
+    <!-- Primary CTA → scrolls to form -->
+    <div class="mt-8 max-w-md mx-auto">
+      <a href="#registro" class="btn-primary">
+        Apartar mi plaza ahora
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <p class="mt-3 text-[11px] muted flex items-center justify-center gap-3 flex-wrap">
+        <span class="flex items-center gap-1.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          Sin costo
+        </span>
+        <span class="text-white/15">·</span>
+        <span class="flex items-center gap-1.5">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          Sin tarjeta
+        </span>
+        <span class="text-white/15">·</span>
+        <span class="flex items-center gap-1.5 accent font-semibold">
+          <span data-counter="founders">347</span>/1,000
+        </span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════ SECTION 2 · QUÉ RECIBES (3 pilares) ════════════════════════ -->
+<section id="pilares" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-12">
+      <p class="eyebrow mb-3">Qué recibes como Founder</p>
+      <h2 class="h2">
+        No es <span class="muted line-through decoration-pewter/30">una lista de espera.</span>
+        <br class="hidden sm:block">
+        Es <span class="accent">tu plaza permanente</span> en Meridian.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+      <div class="pillar-card">
+        <span class="pillar-num">01</span>
+        <h3 class="text-arctic font-semibold text-[1.05rem] mb-2">Equity simbólico</h3>
+        <p class="body-text !text-[14px]">
+          Reconocimiento permanente como fundador. Tu nombre vive en la plataforma.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-num">02</span>
+        <h3 class="text-arctic font-semibold text-[1.05rem] mb-2">Voz en producto</h3>
+        <p class="body-text !text-[14px]">
+          Decides lo que se construye. Acceso al roadmap, votaciones, gobernanza.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-num">03</span>
+        <h3 class="text-arctic font-semibold text-[1.05rem] mb-2">Eventos & comunidad</h3>
+        <p class="body-text !text-[14px]">
+          Trader Gala anual, comunidad privada de los 1,000 y mesas con el equipo.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ SECTION 3 · URGENCIA + COUNTDOWN ════════════════════════ -->
+<section id="urgencia" class="section-divider px-6 py-16 lg:py-20">
+  <div class="max-w-2xl mx-auto text-center">
+
+    <p class="eyebrow mb-3">Plazas restantes</p>
+    <h2 class="h2 mb-8">
+      Sólo <span class="accent">1,000 Founders</span>.<br class="hidden sm:block">
+      Nunca volverá a abrirse.
+    </h2>
+
+    <!-- Countdown -->
+    <div class="flex items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto mb-7">
       <div class="text-center">
         <div class="countdown-digit text-2xl sm:text-3xl text-arctic" id="cd-days">--</div>
         <div class="text-[9px] eyebrow !tracking-[0.2em] mt-1.5">días</div>
@@ -219,7 +452,38 @@
       </div>
     </div>
 
-    <!-- FORM -->
+    <!-- Progress bar -->
+    <div class="max-w-md mx-auto">
+      <div class="flex items-center justify-between text-[11px] muted mb-2">
+        <span><span data-counter="founders" class="accent font-semibold">347</span> apartadas</span>
+        <span>653 disponibles</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width: 34.7%"></div>
+      </div>
+    </div>
+
+    <p class="mt-7 body-text !text-[13px] max-w-md mx-auto">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2" class="inline-block align-text-bottom mr-1.5" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+      Acceso garantizado si entras antes del cierre. Sin riesgo, sin costo.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════ SECTION 4 · REGISTRO ════════════════════════ -->
+<section id="registro" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
+  <div class="max-w-xl mx-auto text-center">
+
+    <p class="eyebrow mb-3">Tu plaza</p>
+    <h2 class="h2 mb-3">
+      ¿Vas a entrar antes que los otros <span class="accent" data-counter-remaining>653</span>?
+    </h2>
+    <p class="body-text mb-9 max-w-md mx-auto">
+      Apartar tu plaza toma menos de 30 segundos. No pedimos tarjeta, no pedimos pago.
+    </p>
+
     <form id="foundersForm" class="space-y-3 max-w-md mx-auto text-left" novalidate>
       <label class="sr-only" for="f-name">Nombre completo</label>
       <input id="f-name" name="name" type="text" required placeholder="Tu nombre completo" class="field"/>
@@ -254,7 +518,6 @@
       <p id="formMsg" class="hidden text-[13px] text-center mt-3" role="status"></p>
     </form>
 
-    <!-- Trust micro-line -->
     <p class="mt-6 text-[12px] muted flex items-center justify-center gap-3 flex-wrap">
       <span class="flex items-center gap-1.5">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
@@ -266,13 +529,14 @@
         Sin tarjeta
       </span>
       <span class="text-white/15">·</span>
-      <span class="flex items-center gap-1.5 accent font-semibold counter-num">
+      <span class="flex items-center gap-1.5 accent font-semibold">
         <span data-counter="founders">347</span>/1,000
       </span>
     </p>
 
   </div>
-</main>
+</section>
+
 
 <!-- FOOTER -->
 <footer class="px-6 py-5 border-t border-white/5 relative">
@@ -320,14 +584,18 @@
     phoneCode.textContent = code;
   });
 
-  // ── LIVE FOUNDER COUNTER ──
+  // ── LIVE FOUNDER COUNTER + PROGRESS BAR ──
   let currentFounders = 347;
   const FOUNDERS_TOTAL = 1000;
+  const progressFill = document.getElementById('progress-fill');
+
   function syncCounter() {
     document.querySelectorAll('[data-counter="founders"]').forEach(el => el.textContent = currentFounders.toLocaleString());
+    document.querySelectorAll('[data-counter-remaining]').forEach(el => el.textContent = (FOUNDERS_TOTAL - currentFounders).toLocaleString());
+    if (progressFill) progressFill.style.width = ((currentFounders / FOUNDERS_TOTAL) * 100).toFixed(2) + '%';
   }
   syncCounter();
-  // Slow live increment
+
   function liveIncrement() {
     if (currentFounders >= FOUNDERS_TOTAL) return;
     currentFounders += 1;
@@ -357,7 +625,6 @@
     msg.textContent = '✓ Apartando tu plaza…';
     msg.classList.remove('hidden');
     msg.style.color = '#5F7F78';
-    // Redirect to thank-you
     setTimeout(() => {
       window.location.href = `/v3/thank-you/?n=${currentFounders + 1}`;
     }, 1000);
