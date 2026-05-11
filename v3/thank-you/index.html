@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casi listo · Founders List Meridian</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --arctic: #FFFFFF;
+    --patina: #5F7F78;
+    --patina-light: #7FA499;
+    --midnight: #0B1220;
+    --steel: #172231;
+    --slate: #2A3440;
+    --pewter: #6B717C;
+  }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { overflow-x: hidden; margin: 0; max-width: 100%; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(95,127,120,0.10) 0%, transparent 60%),
+      var(--midnight);
+    color: var(--arctic);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+
+  .h1 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
+  .h2 { font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
+  .muted { color: var(--pewter); }
+  .accent { color: var(--patina); }
+
+  /* Progress */
+  .progress-track {
+    width: 100%; height: 8px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .progress-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--patina) 0%, var(--patina-light) 100%);
+    border-radius: 100px;
+    transition: width 3.2s cubic-bezier(0.22, 0.72, 0.22, 1);
+    position: relative; overflow: hidden;
+  }
+  .progress-fill::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: sheen 2.5s linear infinite;
+  }
+  @keyframes sheen {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Pulse dot */
+  .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; }
+  .pulse-dot::before { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; animation: pr 2s ease-out infinite; opacity: 0.6; }
+  .pulse-dot::after  { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
+  @keyframes pr { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+
+  /* CTA */
+  .btn-primary {
+    background: linear-gradient(180deg, #5F7F78 0%, #4F6B65 100%);
+    color: #FFFFFF;
+    padding: 1.1rem 2rem; border-radius: 8px;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.9rem;
+    transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.7rem;
+    text-decoration: none; cursor: pointer; border: none;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(95,127,120,0.28); }
+  .btn-primary:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
+
+  /* Glass card */
+  .glass {
+    background: linear-gradient(180deg, rgba(42,52,64,0.6) 0%, rgba(23,34,49,0.5) 100%);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Phase reveal */
+  .phase-2 {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    pointer-events: none;
+  }
+  .phase-2.in { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  /* Logo glow */
+  .logo-glow {
+    filter: drop-shadow(0 8px 28px rgba(95,127,120,0.30));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .progress-fill, .progress-fill::after, .pulse-dot::before { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Brand bar -->
+<header class="px-6 py-5 lg:py-6 flex items-center justify-center border-b border-white/5">
+  <a href="/v3/" class="flex items-center gap-3" aria-label="Volver al inicio">
+    <span class="text-[11px] font-semibold uppercase tracking-[0.3em] text-arctic">Meridian</span>
+    <span class="text-[10px] tracking-[0.22em] uppercase text-patina">Founders List</span>
+  </a>
+</header>
+
+<!-- Main -->
+<main class="flex-1 flex items-center justify-center px-6 py-12 lg:py-16">
+  <div class="w-full max-w-xl mx-auto">
+
+    <!-- PHASE 1 — Progress -->
+    <section class="text-center">
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-7"
+           style="background: rgba(95,127,120,0.10); border: 1px solid rgba(95,127,120,0.28);">
+        <span class="pulse-dot"></span>
+        <span class="eyebrow !text-[10.5px]">Paso 02 de 02 · Confirmación</span>
+      </div>
+
+      <!-- Founder Crown logo -->
+      <div class="logo-glow mx-auto mb-7">
+        <img src="/assets/founder-crown-logo-v2.png"
+             alt="Meridian Founders Crown"
+             class="block w-28 mx-auto"
+             loading="eager" decoding="async" />
+      </div>
+
+      <h1 class="h1">
+        Casi listo,<br>
+        <span class="accent">founder.</span>
+      </h1>
+      <p class="mt-5 text-[15px] text-arctic/75 max-w-md mx-auto leading-relaxed">
+        Apartando tu plaza <span class="text-arctic font-medium">#<span id="founderNum">348</span></span>.
+        Estás a un paso de quedarte adentro.
+      </p>
+
+      <!-- Progress bar -->
+      <div class="mt-9 max-w-md mx-auto">
+        <div class="flex items-baseline justify-between mb-2.5 font-mono text-[11px]">
+          <span class="muted tracking-[0.14em]">PROGRESO</span>
+          <span class="accent font-semibold" id="progressLabel">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+        </div>
+        <p class="mt-3 text-[12px] muted" id="progressStatus">Iniciando confirmación…</p>
+      </div>
+    </section>
+
+    <!-- PHASE 2 — Telegram CTA -->
+    <section class="phase-2 mt-12 lg:mt-14" id="phase2">
+      <div class="glass rounded-2xl p-7 lg:p-8 text-center relative overflow-hidden">
+        <p class="eyebrow !text-[10.5px]">Último paso</p>
+        <h2 class="h2 mt-3 text-arctic">
+          Únete al <span class="accent">Telegram privado.</span>
+        </h2>
+        <p class="mt-3 text-[14px] text-arctic/75 max-w-sm mx-auto leading-relaxed">
+          Tu plaza solo se confirma cuando entras al grupo.
+          <span class="text-arctic font-medium">Sin Telegram, no hay reserva.</span>
+        </p>
+
+        <a id="telegramCta"
+           href="https://t.me/+founders_meridian_placeholder"
+           target="_blank" rel="noopener"
+           class="btn-primary mt-6 mx-auto">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          Únete al Telegram
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+
+        <p class="mt-4 text-[11px] muted">
+          ✓ Acceso inmediato · <span class="accent font-semibold">347 founders dentro</span>
+        </p>
+      </div>
+
+      <!-- Welcome line -->
+      <div class="mt-10 text-center">
+        <p class="eyebrow !text-[10px]">Welcome to the</p>
+        <p class="text-[26px] lg:text-[32px] font-semibold accent mt-2" style="letter-spacing: -0.015em;">Founders Hub.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="px-6 py-5 border-t border-white/5">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] muted">
+    <span class="tracking-[0.14em] uppercase">Meridian · Built for you to win.</span>
+    <span>© 2026 · All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const founderNum = params.get('n') || '348';
+  document.getElementById('founderNum').textContent = founderNum;
+
+  const isPreview = params.get('preview') === '1';
+  const bar = document.getElementById('progressBar');
+  const label = document.getElementById('progressLabel');
+  const status = document.getElementById('progressStatus');
+  const phase2 = document.getElementById('phase2');
+
+  const targetPct = 85;
+  const duration = 3200;
+  const statusMessages = [
+    { at: 0,  text: 'Iniciando confirmación…' },
+    { at: 22, text: 'Apartando tu lugar en el grupo…' },
+    { at: 48, text: 'Generando tu Founder ID…' },
+    { at: 68, text: 'Verificando con la red on-chain…' },
+    { at: 82, text: 'Casi listo — falta un paso tuyo' },
+  ];
+
+  function start() {
+    if (isPreview) {
+      bar.style.transition = 'none';
+      bar.style.width = targetPct + '%';
+      label.textContent = targetPct + '%';
+      status.textContent = 'Casi listo — falta un paso tuyo';
+      phase2.classList.add('in');
+      return;
+    }
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        bar.style.width = targetPct + '%';
+        bar.setAttribute('aria-valuenow', targetPct);
+        const s = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - s) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const value = Math.floor(eased * targetPct);
+          label.textContent = value + '%';
+          const m = statusMessages.filter(x => value >= x.at).pop();
+          if (m) status.textContent = m.text;
+          if (p < 1) requestAnimationFrame(tick);
+          else setTimeout(() => phase2.classList.add('in'), 250);
+        };
+        requestAnimationFrame(tick);
+      }, 320);
+    });
+  }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+</script>
+
+</body>
+</html>

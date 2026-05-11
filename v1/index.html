@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Founders List — Built for you to win</title>
+<meta name="description" content="Los primeros 1,000 traders de LATAM en operar Meridian. Equity, voz, comunidad, título y eventos. Sin costo.">
+<meta property="og:title" content="Meridian Founders List">
+<meta property="og:description" content="Vamos a elegir 1,000 traders. Y los vamos a tratar como nunca.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          arctic: '#FFFFFF',
+          patina: '#5F7F78',
+          'patina-soft': 'rgba(95,127,120,0.12)',
+          'patina-border': 'rgba(95,127,120,0.22)',
+          midnight: '#0B1220',
+          steel: '#172231',
+          slate: '#2A3440',
+          pewter: '#6B717C',
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        },
+        letterSpacing: {
+          'wordmark': '0.3em',
+          'tight-h': '-0.02em',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --arctic: #FFFFFF;
+    --patina: #5F7F78;
+    --midnight: #0B1220;
+    --steel: #172231;
+    --slate: #2A3440;
+    --pewter: #6B717C;
+  }
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { font-family: 'Inter', sans-serif; background-color: var(--midnight); color: var(--arctic); }
+
+  /* TYPOGRAPHY SCALE */
+  .h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.06; }
+  .h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; letter-spacing: -0.015em; line-height: 1.12; }
+  .h3 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--patina);
+  }
+  .cta-label {
+    font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .body-text { font-size: 1.0625rem; line-height: 1.7; color: rgba(255,255,255,0.82); font-weight: 400; }
+  .muted { color: var(--pewter); }
+
+  /* GLASS / MATERIAL SURFACES */
+  .glass {
+    background: linear-gradient(180deg, rgba(42,52,64,0.55) 0%, rgba(42,52,64,0.35) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .glass-strong {
+    background: linear-gradient(180deg, rgba(42,52,64,0.85) 0%, rgba(23,34,49,0.7) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .stone-grad {
+    background-image:
+      radial-gradient(ellipse 70% 50% at 18% 0%, rgba(95,127,120,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 92% 100%, rgba(95,127,120,0.04) 0%, transparent 60%);
+  }
+  .section-divider {
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* PRIMARY CTA */
+  .btn-primary {
+    background: linear-gradient(180deg, #5F7F78 0%, #4F6B65 100%);
+    color: #FFFFFF;
+    padding: 0.95rem 1.7rem;
+    border-radius: 6px;
+    font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.875rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 0 0 0 rgba(95,127,120,0);
+    display: inline-flex; align-items: center; gap: 0.55rem; white-space: nowrap;
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 8px 32px rgba(95,127,120,0.18);
+  }
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--patina);
+    outline-offset: 3px;
+  }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.14);
+    color: var(--arctic);
+    padding: 0.8rem 1.5rem; border-radius: 6px;
+    font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.8rem;
+    transition: all 0.2s ease;
+    background: rgba(255,255,255,0.02);
+  }
+  .btn-ghost:hover {
+    border-color: var(--patina);
+    background: rgba(95,127,120,0.08);
+  }
+
+  /* ACCENT TEXT (DESTACAR) */
+  .accent { color: var(--patina); }
+
+  /* NAV STICKY BLUR */
+  #nav {
+    transition: backdrop-filter 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  }
+  #nav.scrolled {
+    background-color: rgba(11,18,32,0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
+
+  /* ANIMATIONS — fade up on scroll (progressive enhancement: visible without JS) */
+  .reveal { transition: opacity 0.7s ease, transform 0.7s ease; }
+  .js-ready .reveal { opacity: 0; transform: translateY(16px); }
+  .js-ready .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* FAQ */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .chev { transform: rotate(45deg); }
+  .chev { transition: transform 0.25s ease; }
+
+  /* COUNTER ANIMATION DIGITS */
+  .counter-num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* NOTIF ROTATION */
+  .notif {
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .notif.hidden-rot { opacity: 0; transform: translateY(8px); pointer-events: none; position: absolute; inset: 0; }
+
+  /* HERO BACKGROUND TEXTURE */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 0%, rgba(95,127,120,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 0% 100%, rgba(95,127,120,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 100% 100%, rgba(95,127,120,0.03) 0%, transparent 60%),
+      var(--midnight);
+  }
+
+  /* SUBTLE GRID — wallpaper for hero */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 85%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 85%);
+  }
+
+  /* PATINA RING ICONS */
+  .ring-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(95,127,120,0.45);
+    background: rgba(95,127,120,0.06);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--patina); flex-shrink: 0;
+  }
+
+  /* FOCUS RINGS */
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--patina); outline-offset: 3px; border-radius: 4px;
+  }
+
+  /* LIVE TICKER ANIMATION */
+  .ticker-track {
+    animation: tickerScroll 50s linear infinite;
+    will-change: transform;
+  }
+  @keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .mask-fade {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+
+  /* CARD TILT — subtle 3D on hover */
+  .card-tilt {
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+                border-color 0.3s ease,
+                box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+  }
+  .card-tilt:hover {
+    transform: translateY(-3px);
+    border-color: rgba(95,127,120,0.32);
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.35), 0 0 0 1px rgba(95,127,120,0.06) inset;
+  }
+
+  /* SECTION CORNER DECORATIONS */
+  .deco-grid-dots {
+    background-image: radial-gradient(circle, rgba(95,127,120,0.25) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  /* BAR SHEEN — animated highlight traveling across progress bar */
+  .bar-sheen {
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.18) 50%,
+      transparent 100%);
+    background-size: 200% 100%;
+    animation: sheenMove 3.5s linear infinite;
+    will-change: background-position;
+  }
+  @keyframes sheenMove {
+    0%   { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* FOUNDER TOAST */
+  #founderToast.toast-in {
+    opacity: 1; transform: translateY(0);
+  }
+  #founderToast.toast-out {
+    opacity: 0; transform: translateY(12px);
+  }
+
+  /* COUNTER FLASH on increment */
+  .counter-flash {
+    animation: counterFlash 0.7s ease-out;
+  }
+  @keyframes counterFlash {
+    0%   { color: #5F7F78; text-shadow: 0 0 14px rgba(95,127,120,0.7); transform: scale(1.06); }
+    100% { color: inherit;   text-shadow: none;                       transform: scale(1); }
+  }
+
+  /* ROLLING COUNTER — odometer-style number change */
+  .counter-roll {
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+    height: 1em;
+    line-height: 1;
+    vertical-align: baseline;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  .counter-roll.flashing {
+    color: #5F7F78;
+    text-shadow: 0 0 16px rgba(95,127,120,0.45);
+  }
+  .rolling-digit {
+    display: inline-block;
+    transition: transform 0.55s cubic-bezier(0.22, 0.72, 0.22, 1),
+                opacity 0.4s ease;
+  }
+  .rolling-digit.rolling-out {
+    transform: translateY(-110%);
+    opacity: 0;
+  }
+  .rolling-digit.rolling-in {
+    position: absolute;
+    inset: 0;
+    transform: translateY(110%);
+    opacity: 0;
+    animation: rollInUp 0.55s cubic-bezier(0.22, 0.72, 0.22, 1) forwards;
+  }
+  @keyframes rollInUp {
+    from { transform: translateY(110%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* RESPECT REDUCED MOTION */
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track, .animate-pulse, .animate-ping, .bar-sheen { animation: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-patina z-[60] transition-[width] duration-100" style="width:0%"></div>
+
+<!-- "+1 Founder" Toast (live registration flash) -->
+<div id="founderToast" class="fixed bottom-6 right-6 z-[70] opacity-0 translate-y-3 pointer-events-none transition-all duration-500">
+  <div class="glass-strong rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl"
+       style="box-shadow: 0 24px 60px -10px rgba(95,127,120,0.25), 0 0 0 1px rgba(95,127,120,0.18) inset;">
+    <span class="relative flex h-2.5 w-2.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-patina opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-patina"></span>
+    </span>
+    <div class="text-[13px] leading-tight">
+      <p class="text-arctic font-semibold">+1 Founder registrado</p>
+      <p class="text-pewter text-[11px]"><span id="toastTime">hace un instante</span> · plaza <span id="toastNum" data-counter="founders">347</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     LIVE TICKER (above nav)
+═════════════════════════════════════════════════ -->
+<div class="fixed top-0 inset-x-0 z-40 bg-midnight/95 backdrop-blur border-b border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-8 flex items-center gap-6 text-[11px] font-medium tracking-wide">
+    <div class="flex items-center gap-2 flex-shrink-0 text-patina">
+      <span class="w-1.5 h-1.5 rounded-full bg-patina animate-pulse"></span>
+      <span class="uppercase tracking-[0.18em]">Live · On-chain</span>
+    </div>
+    <div class="hidden md:block w-px h-3 bg-white/10 flex-shrink-0"></div>
+    <div class="relative flex-1 overflow-hidden mask-fade">
+      <div class="ticker-track flex items-center gap-8 whitespace-nowrap">
+        <span class="text-pewter">EUR/USD <span class="text-arctic ml-1.5">1.0842</span> <span class="text-patina ml-1">+0.12%</span></span>
+        <span class="text-pewter">GBP/USD <span class="text-arctic ml-1.5">1.2654</span> <span class="text-red-400/80 ml-1">−0.08%</span></span>
+        <span class="text-pewter">XAU/USD <span class="text-arctic ml-1.5">2,388.40</span> <span class="text-patina ml-1">+0.34%</span></span>
+        <span class="text-pewter">USD/MXN <span class="text-arctic ml-1.5">17.124</span> <span class="text-red-400/80 ml-1">−0.04%</span></span>
+        <span class="text-pewter">BTC/USD <span class="text-arctic ml-1.5">94,231</span> <span class="text-patina ml-1">+1.86%</span></span>
+        <span class="text-pewter">US100 <span class="text-arctic ml-1.5">17,832</span> <span class="text-patina ml-1">+0.42%</span></span>
+        <!-- duplicate for seamless loop -->
+        <span class="text-pewter">EUR/USD <span class="text-arctic ml-1.5">1.0842</span> <span class="text-patina ml-1">+0.12%</span></span>
+        <span class="text-pewter">GBP/USD <span class="text-arctic ml-1.5">1.2654</span> <span class="text-red-400/80 ml-1">−0.08%</span></span>
+        <span class="text-pewter">XAU/USD <span class="text-arctic ml-1.5">2,388.40</span> <span class="text-patina ml-1">+0.34%</span></span>
+        <span class="text-pewter">USD/MXN <span class="text-arctic ml-1.5">17.124</span> <span class="text-red-400/80 ml-1">−0.04%</span></span>
+        <span class="text-pewter">BTC/USD <span class="text-arctic ml-1.5">94,231</span> <span class="text-patina ml-1">+1.86%</span></span>
+        <span class="text-pewter">US100 <span class="text-arctic ml-1.5">17,832</span> <span class="text-patina ml-1">+0.42%</span></span>
+      </div>
+    </div>
+    <div class="hidden lg:flex items-center gap-2 flex-shrink-0 text-pewter">
+      <span class="text-arctic counter-num" data-counter="founders">347</span>
+      <span class="uppercase tracking-[0.16em]">/ 1,000 Founders</span>
+      <span class="ml-2 relative flex h-1.5 w-1.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-patina opacity-65"></span>
+        <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-patina"></span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 1 — NAV
+═════════════════════════════════════════════════ -->
+<nav id="nav" class="fixed top-8 inset-x-0 z-50 border-b border-transparent">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-3 group" aria-label="Meridian — Inicio">
+      <!-- Brand Mark -->
+      <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 4 L46 32 L32 60 L18 32 Z" fill="#FFFFFF" fill-opacity="0.96"/>
+        <path d="M32 4 L46 32 L32 32 Z" fill="#5F7F78"/>
+        <path d="M32 60 L18 32 L32 32 Z" fill="#5F7F78"/>
+      </svg>
+      <div class="flex items-baseline gap-3">
+        <span class="text-[13px] font-semibold tracking-wordmark uppercase text-arctic">Meridian</span>
+        <span class="hidden md:inline text-[10px] tracking-[0.2em] uppercase text-pewter">Built for you to win.</span>
+      </div>
+    </a>
+    <a href="#registro" class="btn-primary !py-2.5 !px-5 !text-[12px]">
+      Quiero ser Founder
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 2 — HERO
+═════════════════════════════════════════════════ -->
+<section id="hero" class="relative hero-bg pt-40 pb-24 lg:pt-48 lg:pb-32 overflow-hidden">
+  <!-- Real network constellation backplate (Gemini-generated, premium feel) -->
+  <img src="/assets/hero-network.png"
+       alt="" aria-hidden="true" loading="eager" decoding="async"
+       class="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none mix-blend-screen"
+       style="mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 90%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 90%);" />
+  <div class="absolute inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
+
+  <!-- ANIMATED DATA NETWORK (background) -->
+  <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 1400 900"
+       preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="nodeGlow">
+        <stop offset="0%" stop-color="#5F7F78" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#5F7F78" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#5F7F78" stop-opacity="0"/>
+        <stop offset="50%" stop-color="#5F7F78" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#5F7F78" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <!-- Network lines -->
+    <g stroke="#5F7F78" stroke-width="0.4" stroke-opacity="0.2" fill="none">
+      <line x1="120" y1="180" x2="380" y2="120"/>
+      <line x1="380" y1="120" x2="640" y2="220"/>
+      <line x1="640" y1="220" x2="900" y2="140"/>
+      <line x1="900" y1="140" x2="1180" y2="200"/>
+      <line x1="120" y1="180" x2="320" y2="380"/>
+      <line x1="380" y1="120" x2="480" y2="340"/>
+      <line x1="640" y1="220" x2="720" y2="420"/>
+      <line x1="900" y1="140" x2="960" y2="400"/>
+      <line x1="1180" y1="200" x2="1080" y2="440"/>
+      <line x1="320" y1="380" x2="480" y2="340"/>
+      <line x1="480" y1="340" x2="720" y2="420"/>
+      <line x1="720" y1="420" x2="960" y2="400"/>
+      <line x1="960" y1="400" x2="1080" y2="440"/>
+      <line x1="320" y1="380" x2="220" y2="620"/>
+      <line x1="480" y1="340" x2="420" y2="600"/>
+      <line x1="720" y1="420" x2="680" y2="640"/>
+      <line x1="960" y1="400" x2="940" y2="660"/>
+      <line x1="1080" y1="440" x2="1180" y2="660"/>
+      <line x1="220" y1="620" x2="420" y2="600"/>
+      <line x1="420" y1="600" x2="680" y2="640"/>
+      <line x1="680" y1="640" x2="940" y2="660"/>
+      <line x1="940" y1="660" x2="1180" y2="660"/>
+    </g>
+    <!-- Pulsing nodes -->
+    <g>
+      <circle cx="120" cy="180" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="380" cy="120" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="1;0.3;1" dur="3.2s" repeatCount="indefinite"/></circle>
+      <circle cx="640" cy="220" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.6s" repeatCount="indefinite"/></circle>
+      <circle cx="900" cy="140" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="1;0.4;1" dur="4.4s" repeatCount="indefinite"/></circle>
+      <circle cx="1180" cy="200" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="3.8s" repeatCount="indefinite"/></circle>
+      <circle cx="320" cy="380" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="480" cy="340" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="1;0.3;1" dur="4.2s" repeatCount="indefinite"/></circle>
+      <circle cx="720" cy="420" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.4s" repeatCount="indefinite"/></circle>
+      <circle cx="960" cy="400" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="1080" cy="440" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="1;0.3;1" dur="3.6s" repeatCount="indefinite"/></circle>
+      <circle cx="220" cy="620" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.8s" repeatCount="indefinite"/></circle>
+      <circle cx="420" cy="600" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.2s" repeatCount="indefinite"/></circle>
+      <circle cx="680" cy="640" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="1;0.4;1" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="940" cy="660" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.4s" repeatCount="indefinite"/></circle>
+      <circle cx="1180" cy="660" r="2.5" fill="#5F7F78"><animate attributeName="opacity" values="0.3;1;0.3" dur="4.6s" repeatCount="indefinite"/></circle>
+    </g>
+    <!-- Traveling pulse along a key line -->
+    <circle r="3" fill="#5F7F78">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M120,180 L380,120 L640,220 L900,140 L1180,200"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#5F7F78">
+      <animateMotion dur="7.5s" begin="2s" repeatCount="indefinite" path="M220,620 L420,600 L680,640 L940,660 L1180,660"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="7.5s" begin="2s" repeatCount="indefinite"/>
+    </circle>
+  </svg>
+
+  <!-- Decorative SVG corners -->
+  <div class="absolute top-32 left-8 opacity-25 hidden lg:block pointer-events-none" aria-hidden="true">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#5F7F78" stroke-width="0.6">
+      <circle cx="32" cy="32" r="30"/><circle cx="32" cy="32" r="20"/><circle cx="32" cy="32" r="10"/>
+      <line x1="32" y1="2" x2="32" y2="62"/><line x1="2" y1="32" x2="62" y2="32"/>
+      <circle cx="32" cy="32" r="3" fill="#5F7F78"><animate attributeName="r" values="3;6;3" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/></circle>
+    </svg>
+  </div>
+  <div class="absolute top-40 right-12 opacity-30 hidden lg:block pointer-events-none" aria-hidden="true">
+    <!-- Live mini sparkline -->
+    <svg width="120" height="50" viewBox="0 0 120 50" fill="none">
+      <defs>
+        <linearGradient id="sparkArea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5F7F78" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#5F7F78" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path id="sparkPath" d="M0,40 L12,35 L24,38 L36,28 L48,30 L60,18 L72,22 L84,12 L96,15 L108,8 L120,10 L120,50 L0,50 Z" fill="url(#sparkArea)"/>
+      <path d="M0,40 L12,35 L24,38 L36,28 L48,30 L60,18 L72,22 L84,12 L96,15 L108,8 L120,10" stroke="#5F7F78" stroke-width="1.2" fill="none">
+        <animate attributeName="stroke-dasharray" values="0 250;250 0" dur="3.5s" repeatCount="indefinite"/>
+      </path>
+      <circle cx="120" cy="10" r="3" fill="#5F7F78">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+    <p class="text-[10px] tracking-[0.2em] uppercase text-patina text-right mt-1">Registros · 24h</p>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6 lg:px-10 text-center">
+
+    <!-- LIVE PILL above eyebrow -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 reveal"
+         style="background: rgba(95,127,120,0.10); border: 1px solid rgba(95,127,120,0.28);">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-patina opacity-65"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-patina"></span>
+      </span>
+      <span class="text-[11px] uppercase tracking-[0.22em] accent font-semibold">Registro activo</span>
+      <span class="text-[11px] text-pewter">·</span>
+      <span class="text-[11px] text-pewter">Hace <span class="text-arctic font-semibold">2 min</span></span>
+    </div>
+
+    <p class="eyebrow reveal">Antes de que Meridian abra al público</p>
+
+    <h1 class="h1 mt-6 reveal" style="transition-delay:0.1s">
+      Vamos a elegir <span class="accent">1,000 traders.</span><br class="hidden sm:block"> Y los vamos a tratar como nunca.
+    </h1>
+
+    <p class="body-text mt-7 max-w-2xl mx-auto reveal" style="transition-delay:0.2s">
+      No es lista de espera. Es la fundación de un broker que se construye contigo adentro.
+      <span class="text-arctic font-medium">Equity. Voz. Comunidad. Título. Eventos.</span>
+    </p>
+
+    <div class="mt-10 flex flex-col items-center gap-4 reveal" style="transition-delay:0.3s">
+      <a href="#registro" class="btn-primary text-[15px] !px-8 !py-4">
+        Quiero ser Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <p class="text-[12.5px] tracking-wide text-pewter">
+        <span class="accent">✓</span> Sin costo
+        <span class="mx-2 text-white/20">·</span>
+        <span class="accent">✓</span> Sin tarjeta
+        <span class="mx-2 text-white/20">·</span>
+        <span class="accent">✓</span> Acceso inmediato
+      </p>
+    </div>
+
+    <!-- AGGREGATE TRUST STRIP (competitor pattern: concrete numbers) -->
+    <div class="mt-14 max-w-4xl mx-auto reveal" style="transition-delay:0.35s">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
+        <div class="bg-midnight/80 backdrop-blur px-5 py-4 text-center">
+          <p class="text-[20px] font-semibold text-arctic counter-num"><span data-counter="founders">347</span><span class="text-pewter">/1,000</span></p>
+          <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">Founders</p>
+        </div>
+        <div class="bg-midnight/80 backdrop-blur px-5 py-4 text-center">
+          <p class="text-[20px] font-semibold text-arctic counter-num">$20M</p>
+          <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">Valuación</p>
+        </div>
+        <div class="bg-midnight/80 backdrop-blur px-5 py-4 text-center">
+          <p class="text-[20px] font-semibold text-arctic counter-num">12</p>
+          <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">Países LATAM</p>
+        </div>
+        <div class="bg-midnight/80 backdrop-blur px-5 py-4 text-center">
+          <p class="text-[20px] font-semibold accent">100%</p>
+          <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">On-chain</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 3 — STACK / 5 PILARES
+═════════════════════════════════════════════════ -->
+<section id="pilares" class="bg-steel py-24 lg:py-32 section-divider stone-grad">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <p class="eyebrow reveal">Los 5 pilares</p>
+      <h2 class="h2 mt-5 reveal" style="transition-delay:0.1s">
+        <span class="accent">5 cosas</span> que ningún broker en la historia te dio.
+      </h2>
+      <p class="body-text mt-5 reveal" style="transition-delay:0.2s">
+        Los reciben solo los primeros 1,000 Founders. Después del lanzamiento general,
+        ninguno se mantiene.
+      </p>
+    </div>
+
+    <!-- 5 pilares — bento grid (featured Equity + 4 cards) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-5 min-h-0">
+
+      <!-- ★ FEATURED: Equity — spans 2 rows on desktop -->
+      <article class="md:row-span-2 glass-strong rounded-2xl p-8 lg:p-10 reveal flex flex-col relative overflow-hidden card-tilt"
+               style="transition-delay:0.05s; border: 1px solid rgba(95,127,120,0.28);">
+        <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full pointer-events-none"
+             style="background: radial-gradient(circle, rgba(95,127,120,0.18) 0%, transparent 70%);"></div>
+        <div class="absolute top-5 right-5 flex items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase text-patina/80">
+          <span class="w-1.5 h-1.5 rounded-full bg-patina animate-pulse"></span>
+          <span>Featured</span>
+        </div>
+
+        <div class="ring-icon mb-7" style="width:48px; height:48px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 21h18M5 21V8m4 13V5m4 16V9m4 12V7M3 3v18"/>
+          </svg>
+        </div>
+
+        <p class="eyebrow !text-[10px] mb-3">Pilar 01</p>
+        <h3 class="text-[1.75rem] lg:text-[2rem] font-semibold text-arctic leading-tight">Equity en el broker</h3>
+        <p class="mt-4 muted text-[15.5px] leading-relaxed max-w-md">
+          Participación documentada legalmente antes del lanzamiento público. Cuando Meridian
+          crezca, creces con el broker.
+        </p>
+
+        <div class="mt-auto pt-8">
+          <div class="flex items-end gap-4 pt-7 border-t border-patina-border" style="border-color: rgba(95,127,120,0.20);">
+            <div>
+              <p class="text-[11px] eyebrow mb-1.5">Valuación de entrada</p>
+              <p class="text-5xl lg:text-6xl font-semibold text-arctic counter-num leading-none">$20M</p>
+            </div>
+            <div class="flex-1 text-right">
+              <p class="text-[11px] tracking-[0.18em] uppercase text-patina mb-1.5">USD</p>
+              <p class="text-[12px] muted">Documentado en wallet on-chain</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Founder Account -->
+      <article class="glass rounded-2xl p-7 reveal card-tilt relative overflow-hidden" style="transition-delay:0.12s">
+        <span class="absolute top-5 right-5 flex items-center gap-1.5 text-[9px] tracking-[0.2em] uppercase text-patina/70">
+          <span class="w-1 h-1 rounded-full bg-patina animate-pulse"></span>
+          <span>Live</span>
+        </span>
+        <div class="flex items-start justify-between mb-5">
+          <div class="ring-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/>
+            </svg>
+          </div>
+        </div>
+        <p class="eyebrow !text-[10px] mb-2">Pilar 02</p>
+        <h3 class="text-[1.25rem] font-semibold text-arctic leading-tight">Founder Account</h3>
+        <p class="mt-2.5 muted text-[14px] leading-relaxed">
+          Tu cuenta marcada como Founder desde el primer login. Visible en dashboard.
+        </p>
+        <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+          <p class="text-[11px] eyebrow !tracking-[0.18em]">Duración</p>
+          <p class="text-[15px] font-semibold text-arctic">Para siempre</p>
+        </div>
+      </article>
+
+      <!-- Trader Gala -->
+      <article class="glass rounded-2xl p-7 reveal card-tilt relative overflow-hidden" style="transition-delay:0.18s">
+        <span class="absolute top-5 right-5 text-[9px] tracking-[0.2em] uppercase text-patina/70">Annual</span>
+        <div class="flex items-start justify-between mb-5">
+          <div class="ring-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
+            </svg>
+          </div>
+        </div>
+        <p class="eyebrow !text-[10px] mb-2">Pilar 03</p>
+        <h3 class="text-[1.25rem] font-semibold text-arctic leading-tight">Trader Gala + Expo</h3>
+        <p class="mt-2.5 muted text-[14px] leading-relaxed">
+          Acceso a los eventos privados de Meridian. Networking + traders top de LATAM.
+        </p>
+        <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+          <p class="text-[11px] eyebrow !tracking-[0.18em]">Tu acceso</p>
+          <p class="text-[15px] font-semibold text-arctic">Sin costo</p>
+        </div>
+      </article>
+
+      <!-- Voz / Gobernanza -->
+      <article class="glass rounded-2xl p-7 reveal card-tilt relative overflow-hidden" style="transition-delay:0.24s">
+        <span class="absolute top-5 right-5 flex items-center gap-1.5 text-[9px] tracking-[0.2em] uppercase text-patina/70">
+          <span class="w-1 h-1 rounded-full bg-patina animate-pulse"></span>
+          <span>On-chain</span>
+        </span>
+        <div class="flex items-start justify-between mb-5">
+          <div class="ring-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12h3l3-9 6 18 3-9h3"/>
+            </svg>
+          </div>
+        </div>
+        <p class="eyebrow !text-[10px] mb-2">Pilar 04</p>
+        <h3 class="text-[1.25rem] font-semibold text-arctic leading-tight">Voz directa en el código</h3>
+        <p class="mt-2.5 muted text-[14px] leading-relaxed">
+          Gobernanza on-chain. Votas las decisiones que afectan al broker.
+        </p>
+        <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+          <p class="text-[11px] eyebrow !tracking-[0.18em]">Modelo</p>
+          <p class="text-[15px] font-semibold text-arctic">1 Founder · 1 voto</p>
+        </div>
+      </article>
+
+      <!-- Comunidad privada -->
+      <article class="glass rounded-2xl p-7 reveal card-tilt relative overflow-hidden" style="transition-delay:0.30s">
+        <span class="absolute top-5 right-5 text-[9px] tracking-[0.2em] uppercase text-patina/70">Telegram</span>
+        <div class="flex items-start justify-between mb-5">
+          <div class="ring-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 21v-1a6 6 0 0 1 12 0v1M14 21v-1a4 4 0 0 1 7-3"/>
+            </svg>
+          </div>
+        </div>
+        <p class="eyebrow !text-[10px] mb-2">Pilar 05</p>
+        <h3 class="text-[1.25rem] font-semibold text-arctic leading-tight">Comunidad privada</h3>
+        <p class="mt-2.5 muted text-[14px] leading-relaxed">
+          Telegram exclusivo de los 1,000 Founders. Webinars, novedades, acceso al equipo.
+        </p>
+        <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+          <p class="text-[11px] eyebrow !tracking-[0.18em]">Acceso</p>
+          <p class="text-[15px] font-semibold text-arctic">Inmediato</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 5 — DIFERENCIADORES (VS)
+═════════════════════════════════════════════════ -->
+<section id="vs" class="bg-steel py-24 lg:py-32 section-divider stone-grad">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14 max-w-3xl mx-auto">
+      <p class="eyebrow reveal">El broker que no puede traicionarte</p>
+      <h2 class="h2 mt-5 reveal" style="transition-delay:0.1s">
+        Lo que el resto te hace.<br class="hidden sm:block"> Lo que Meridian <span class="accent">no puede hacerte.</span>
+      </h2>
+      <p class="body-text mt-5 reveal" style="transition-delay:0.2s">
+        La industria está diseñada para que pierdas. Meridian no puede serlo — el broker
+        físicamente no puede ganar cuando tú pierdes.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
+      <!-- ❌ El resto -->
+      <article class="glass rounded-xl p-8 lg:p-10 reveal" style="transition-delay:0.05s">
+        <div class="flex items-center gap-3 mb-7 pb-5 border-b border-white/5">
+          <div class="ring-icon !border-white/15 !bg-white/[0.03] !text-white/45">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <h3 class="text-[1.1rem] font-semibold text-arctic">El resto de la industria</h3>
+        </div>
+        <ul class="space-y-4">
+          <li class="flex gap-3 muted text-[15px] leading-relaxed"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-white/25 flex-shrink-0"></span>Gana cuando tú pierdes</li>
+          <li class="flex gap-3 muted text-[15px] leading-relaxed"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-white/25 flex-shrink-0"></span>Bloquea retiros cuando ganas</li>
+          <li class="flex gap-3 muted text-[15px] leading-relaxed"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-white/25 flex-shrink-0"></span>Mueve el spread contra ti</li>
+          <li class="flex gap-3 muted text-[15px] leading-relaxed"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-white/25 flex-shrink-0"></span>Inventa "irregularidades" para no pagar</li>
+          <li class="flex gap-3 muted text-[15px] leading-relaxed"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-white/25 flex-shrink-0"></span>Te trata como un cliente más</li>
+        </ul>
+      </article>
+
+      <!-- ✅ Meridian -->
+      <article class="glass-strong rounded-xl p-8 lg:p-10 reveal border-patina-border" style="transition-delay:0.15s; border-color: rgba(95,127,120,0.28);">
+        <div class="flex items-center gap-3 mb-7 pb-5 border-b border-patina-border" style="border-color: rgba(95,127,120,0.20);">
+          <div class="ring-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+          </div>
+          <h3 class="text-[1.1rem] font-semibold text-arctic">Meridian</h3>
+        </div>
+        <ul class="space-y-4">
+          <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Físicamente no puede ganar contra ti</li>
+          <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Retiros verificables on-chain en minutos</li>
+          <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Ejecución pública, sin manipulación</li>
+          <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Cero excusas. Todo verificable.</li>
+          <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Te trata como Founder. Para siempre.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 6.5 — TESTIMONIOS REALES (3 founders)
+     [TODO: Reemplazar fotos AI y quotes con clientes reales post-launch]
+═════════════════════════════════════════════════ -->
+<section id="testimonios" class="bg-midnight py-24 lg:py-32 section-divider relative overflow-hidden">
+  <!-- Subtle line accent at top -->
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-patina/30 to-transparent"></div>
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14 lg:mb-16">
+      <p class="eyebrow reveal">Lo que dicen los founders</p>
+      <h2 class="h2 mt-5 reveal" style="transition-delay:0.1s">
+        Las primeras voces<br class="hidden sm:block"> <span class="accent">desde adentro.</span>
+      </h2>
+      <p class="body-text mt-5 max-w-xl mx-auto reveal" style="transition-delay:0.2s">
+        Founders #018 al #312 ya están dentro del Telegram privado.
+        Esto es lo que dicen.
+      </p>
+    </div>
+
+    <!-- 3 testimonial cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+
+      <!-- Testimonio 1 — Luis -->
+      <article class="glass rounded-2xl overflow-hidden reveal card-tilt flex flex-col" style="transition-delay:0.1s">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="/assets/testimonial-luis.png"
+               alt="Luis Marín, trader desde la Ciudad de México"
+               loading="lazy" decoding="async"
+               class="absolute inset-0 w-full h-full object-cover" />
+          <!-- Bottom gradient -->
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight/95 via-midnight/40 to-transparent pointer-events-none"></div>
+          <!-- Founder badge -->
+          <div class="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full glass-strong text-[10px] tracking-[0.16em] uppercase font-semibold accent">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2L4 8v6c0 5 3.5 8 8 8s8-3 8-8V8z"/></svg>
+            Founder #018
+          </div>
+        </div>
+        <div class="p-7 flex-1 flex flex-col">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#5F7F78" class="opacity-60 mb-3" aria-hidden="true"><path d="M9 7H5a2 2 0 0 0-2 2v4h4v6H3v-2a2 2 0 0 0 2 2h4V13H5V9h4V7zm10 0h-4a2 2 0 0 0-2 2v4h4v6h-4v-2a2 2 0 0 0 2 2h4V13h-4V9h4V7z"/></svg>
+          <p class="body-text !text-[15px] !leading-relaxed text-arctic/85 flex-1">
+            Quemé 4 cuentas en una prop firm antes de entender que el modelo
+            es de ellos contra mí. <span class="text-arctic font-medium">En Meridian veo cada operación en blockchain.</span>
+            Eso solo cambia todo.
+          </p>
+          <div class="mt-5 pt-5 border-t border-white/5">
+            <p class="text-[14px] font-semibold text-arctic">Luis Marín</p>
+            <p class="text-[12px] text-pewter mt-0.5">Trader · Ciudad de México 🇲🇽</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonio 2 — Ana -->
+      <article class="glass rounded-2xl overflow-hidden reveal card-tilt flex flex-col" style="transition-delay:0.18s">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="/assets/testimonial-ana.png"
+               alt="Ana Restrepo, trader desde Bogotá"
+               loading="lazy" decoding="async"
+               class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight/95 via-midnight/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full glass-strong text-[10px] tracking-[0.16em] uppercase font-semibold accent">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2L4 8v6c0 5 3.5 8 8 8s8-3 8-8V8z"/></svg>
+            Founder #134
+          </div>
+        </div>
+        <div class="p-7 flex-1 flex flex-col">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#5F7F78" class="opacity-60 mb-3" aria-hidden="true"><path d="M9 7H5a2 2 0 0 0-2 2v4h4v6H3v-2a2 2 0 0 0 2 2h4V13H5V9h4V7zm10 0h-4a2 2 0 0 0-2 2v4h4v6h-4v-2a2 2 0 0 0 2 2h4V13h-4V9h4V7z"/></svg>
+          <p class="body-text !text-[15px] !leading-relaxed text-arctic/85 flex-1">
+            Llevo 6 años cambiando de broker buscando uno que no me ponga
+            zancadillas. <span class="text-arctic font-medium">Ser founder significa que el broker es mío también.</span>
+            Eso es lo que cambió mi cabeza.
+          </p>
+          <div class="mt-5 pt-5 border-t border-white/5">
+            <p class="text-[14px] font-semibold text-arctic">Ana Restrepo</p>
+            <p class="text-[12px] text-pewter mt-0.5">Trader · Bogotá 🇨🇴</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonio 3 — Roberto -->
+      <article class="glass rounded-2xl overflow-hidden reveal card-tilt flex flex-col" style="transition-delay:0.26s">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="/assets/testimonial-roberto.png"
+               alt="Roberto Gálvez, trader desde Lima"
+               loading="lazy" decoding="async"
+               class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight/95 via-midnight/40 to-transparent pointer-events-none"></div>
+          <div class="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full glass-strong text-[10px] tracking-[0.16em] uppercase font-semibold accent">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2L4 8v6c0 5 3.5 8 8 8s8-3 8-8V8z"/></svg>
+            Founder #289
+          </div>
+        </div>
+        <div class="p-7 flex-1 flex flex-col">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#5F7F78" class="opacity-60 mb-3" aria-hidden="true"><path d="M9 7H5a2 2 0 0 0-2 2v4h4v6H3v-2a2 2 0 0 0 2 2h4V13H5V9h4V7zm10 0h-4a2 2 0 0 0-2 2v4h4v6h-4v-2a2 2 0 0 0 2 2h4V13h-4V9h4V7z"/></svg>
+          <p class="body-text !text-[15px] !leading-relaxed text-arctic/85 flex-1">
+            Lo verifiqué yo mismo en explorer antes de meter un dólar.
+            <span class="text-arctic font-medium">Cada trade tiene su hash on-chain.</span> Eso no se puede falsificar.
+            Por eso entré.
+          </p>
+          <div class="mt-5 pt-5 border-t border-white/5">
+            <p class="text-[14px] font-semibold text-arctic">Roberto Gálvez</p>
+            <p class="text-[12px] text-pewter mt-0.5">Trader · Lima 🇵🇪</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Pending notice (only visible in HTML comment for production) -->
+    <p class="text-center mt-12 text-[11px] tracking-[0.18em] uppercase text-pewter/60 reveal">
+      <span class="inline-flex items-center gap-2">
+        <span class="w-1 h-1 rounded-full bg-patina/60 animate-pulse"></span>
+        Pre-launch · Testimonios anticipados de la beta privada
+      </span>
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 7 — URGENCIA / ESCASEZ
+═════════════════════════════════════════════════ -->
+<section id="urgencia" class="bg-steel py-24 lg:py-32 section-divider stone-grad">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <p class="eyebrow reveal">1,000 plazas · una sola vez</p>
+      <h2 class="h2 mt-5 reveal" style="transition-delay:0.1s">
+        <span id="founderCounter" class="accent counter-num" data-counter="founders" data-counter-anim="true" data-target="347">347</span>
+        <span class="text-arctic/80 font-normal">de 1,000 plazas tomadas.</span>
+      </h2>
+      <p class="body-text mt-5 reveal" style="transition-delay:0.2s">
+        Cuando se cierran las 1,000, se cierra todo. El lanzamiento general no incluye
+        ninguno de los 5 pilares.
+      </p>
+    </div>
+
+    <!-- Progress bar — live -->
+    <div class="max-w-3xl mx-auto mb-14 reveal" style="transition-delay:0.25s">
+      <div class="relative h-2 bg-white/5 rounded-full overflow-hidden">
+        <div id="founderBar" class="absolute inset-y-0 left-0 bg-gradient-to-r from-patina to-patina/70 rounded-full transition-[width] duration-1500 ease-out" style="width: 34.7%;">
+          <!-- Shimmer pulse on the leading edge -->
+          <div class="absolute right-0 inset-y-0 w-1 bg-patina">
+            <span class="absolute inset-0 animate-pulse bg-arctic opacity-30"></span>
+          </div>
+          <!-- Moving sheen -->
+          <div class="absolute inset-0 bar-sheen"></div>
+        </div>
+      </div>
+      <div class="flex justify-between mt-3 text-[12px] muted">
+        <span>0</span>
+        <span class="text-arctic/80 flex items-center gap-2">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-patina opacity-60"></span>
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-patina"></span>
+          </span>
+          <span><span data-counter="founders">347</span> / 1,000</span>
+        </span>
+        <span>1,000</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <article class="glass rounded-xl p-8 reveal" style="transition-delay:0.1s">
+        <p class="eyebrow !text-[10px] mb-3">Lanzamiento del broker</p>
+        <p class="text-3xl font-semibold text-arctic mb-2">25 de junio</p>
+        <p class="muted text-[13px] leading-relaxed">
+          <span id="daysToLaunch">—</span> días para que se active tu Founder Account
+        </p>
+      </article>
+      <article class="glass rounded-xl p-8 reveal" style="transition-delay:0.18s">
+        <div class="flex items-center justify-between mb-3">
+          <p class="eyebrow !text-[10px]">Plazas tomadas</p>
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-patina opacity-65"></span>
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-patina"></span>
+          </span>
+        </div>
+        <p class="text-3xl font-semibold text-arctic mb-2 counter-num">
+          <span data-counter="founders">347</span> / 1,000
+        </p>
+        <p class="muted text-[13px] leading-relaxed">
+          <span data-counter="remaining">653</span> disponibles · cuando se cierra, se cierra
+        </p>
+      </article>
+      <article class="glass rounded-xl p-8 reveal" style="transition-delay:0.26s">
+        <p class="eyebrow !text-[10px] mb-3">Lo que recibes</p>
+        <p class="text-3xl font-semibold text-arctic mb-2">5 pilares</p>
+        <p class="muted text-[13px] leading-relaxed">
+          Equity + Voz + Comunidad + Título + Eventos
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 8 — SKIN IN THE GAME
+═════════════════════════════════════════════════ -->
+<section id="skin" class="bg-midnight py-24 lg:py-32 section-divider">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+      <!-- Portrait + notifications -->
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="relative max-w-md mx-auto">
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden glass-strong">
+            <!-- Real editorial portrait of Josué -->
+            <img src="/assets/josue-portrait.png"
+                 alt="Josué Melero, fundador y trader de Meridian"
+                 loading="lazy" decoding="async"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <!-- Dark gradient overlay for legibility of handle pill -->
+            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight via-midnight/40 to-transparent pointer-events-none"></div>
+            <!-- Subtle patina rim glow -->
+            <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 80px rgba(95,127,120,0.18);"></div>
+            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-midnight/80 backdrop-blur border border-white/10">
+              <span class="text-[11px] tracking-wide text-pewter">@josuemelero</span>
+            </div>
+          </div>
+
+          <!-- Rotating notifications -->
+          <div class="absolute -bottom-5 -right-4 sm:-right-8 lg:-right-12 w-72 z-10">
+            <div id="notifWrap" class="relative h-[78px]">
+              <div class="notif glass-strong rounded-xl p-4 flex items-center gap-3" data-i="0">
+                <div class="w-9 h-9 rounded-full bg-patina/15 border border-patina-border flex items-center justify-center flex-shrink-0">
+                  <span class="text-[11px] font-semibold accent">JM</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[13px] text-arctic truncate"><span class="font-medium">Juan M.</span> se registró como Founder</p>
+                  <p class="text-[11px] muted">hace 4 min</p>
+                </div>
+              </div>
+              <div class="notif hidden-rot glass-strong rounded-xl p-4 flex items-center gap-3" data-i="1">
+                <div class="w-9 h-9 rounded-full bg-patina/15 border border-patina-border flex items-center justify-center flex-shrink-0">
+                  <span class="text-[11px] font-semibold accent">AC</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[13px] text-arctic truncate"><span class="font-medium">Andrea C.</span> se registró como Founder</p>
+                  <p class="text-[11px] muted">hace 12 min</p>
+                </div>
+              </div>
+              <div class="notif hidden-rot glass-strong rounded-xl p-4 flex items-center gap-3" data-i="2">
+                <div class="w-9 h-9 rounded-full bg-patina/15 border border-patina-border flex items-center justify-center flex-shrink-0">
+                  <span class="text-[11px] font-semibold accent">RG</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[13px] text-arctic truncate"><span class="font-medium">Roberto G.</span> se registró como Founder</p>
+                  <p class="text-[11px] muted">hace 21 min</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <p class="eyebrow reveal">Por qué estoy en esto — Josué Melero</p>
+        <h2 class="h2 mt-5 reveal" style="transition-delay:0.1s">
+          Llevo <span class="accent">7 años</span> buscando un broker que no jugara en mi contra.<br class="hidden sm:block"> Por fin lo encontré.
+        </h2>
+        <p class="body-text mt-6 reveal" style="transition-delay:0.2s">
+          Llevo años diciendo que el problema del trader latinoamericano no es la estrategia.
+          Es el broker. Cuando vi cómo funciona Meridian — A-book real, on-chain, verificable —
+          supe que era la primera respuesta real. Por eso estoy aquí.
+        </p>
+        <div class="mt-9 reveal" style="transition-delay:0.3s">
+          <a href="#registro" class="btn-primary">
+            Quiero ser Founder
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 9 — FAQ
+═════════════════════════════════════════════════ -->
+<section id="faq" class="bg-steel py-24 lg:py-32 section-divider stone-grad">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14">
+      <p class="eyebrow reveal">Preguntas frecuentes</p>
+      <h2 class="h2 mt-5 reveal" style="transition-delay:0.1s">Antes de registrarte.</h2>
+    </div>
+
+    <div id="faqList" class="space-y-3">
+      <details class="glass rounded-xl group reveal">
+        <summary class="px-6 py-5 flex items-center justify-between gap-4">
+          <span class="text-[16px] font-medium text-arctic">¿Cuánto cuesta de verdad?</span>
+          <span class="chev text-patina text-2xl leading-none">+</span>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 body-text !text-[15px]">
+          Cero. No hay costo de entrada al Founders List. Tampoco se pide tarjeta.
+          Solo tu registro.
+        </div>
+      </details>
+      <details class="glass rounded-xl group reveal">
+        <summary class="px-6 py-5 flex items-center justify-between gap-4">
+          <span class="text-[16px] font-medium text-arctic">¿Qué necesito para empezar?</span>
+          <span class="chev text-patina text-2xl leading-none">+</span>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 body-text !text-[15px]">
+          Email, nombre y país. Después recibes el link al Telegram privado.
+          Tu Founder Account se activa el 25 de junio.
+        </div>
+      </details>
+      <details class="glass rounded-xl group reveal">
+        <summary class="px-6 py-5 flex items-center justify-between gap-4">
+          <span class="text-[16px] font-medium text-arctic">¿Cómo funciona el equity?</span>
+          <span class="chev text-patina text-2xl leading-none">+</span>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 body-text !text-[15px]">
+          Tu participación se documenta legalmente antes del lanzamiento público.
+          Recibes los términos exactos al entrar al Founders List.
+        </div>
+      </details>
+      <details class="glass rounded-xl group reveal">
+        <summary class="px-6 py-5 flex items-center justify-between gap-4">
+          <span class="text-[16px] font-medium text-arctic">¿Hay restricciones para operar?</span>
+          <span class="chev text-patina text-2xl leading-none">+</span>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 body-text !text-[15px]">
+          Solo el KYC normal del broker. Sin volumen mínimo. Sin estrategia restringida —
+          arbitraje, HFT, scalping, swing, todo permitido. Sin máximo de retiro.
+        </div>
+      </details>
+      <details class="glass rounded-xl group reveal">
+        <summary class="px-6 py-5 flex items-center justify-between gap-4">
+          <span class="text-[16px] font-medium text-arctic">¿Puedo salirme cuando quiera?</span>
+          <span class="chev text-patina text-2xl leading-none">+</span>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 body-text !text-[15px]">
+          Sí. Salir del Telegram privado o cerrar la cuenta del broker se hace cuando
+          quieras. Sin cargos. Sin penalización.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 10 — CTA FINAL
+═════════════════════════════════════════════════ -->
+<section id="registro" class="bg-midnight py-24 lg:py-32 section-divider relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full" style="background: radial-gradient(circle, rgba(95,127,120,0.10) 0%, transparent 60%);"></div>
+  </div>
+
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <p class="eyebrow reveal"><span data-counter="remaining">653</span> plazas restantes — Cierra el 25 de junio</p>
+    <h2 class="h2 mt-6 reveal" style="transition-delay:0.1s">
+      Esta industria nunca fue construida para que ganaras.<br class="hidden sm:block">
+      Meridian sí. <span class="accent">Built for you to win.</span>
+    </h2>
+    <p class="body-text mt-7 max-w-2xl mx-auto reveal" style="transition-delay:0.2s">
+      Equity. Voz en el código. Comunidad privada. Founder Account para siempre.
+      Acceso a los eventos. Sin costo.
+    </p>
+
+    <!-- Form -->
+    <form id="foundersForm" class="mt-10 max-w-md mx-auto reveal" style="transition-delay:0.3s" novalidate>
+      <div class="space-y-3">
+        <label class="sr-only" for="form-name">Nombre</label>
+        <input id="form-name" name="name" type="text" required placeholder="Tu nombre"
+               class="w-full bg-slate/70 border border-white/10 rounded-lg px-4 py-3.5 text-[15px] text-arctic placeholder:text-pewter focus:border-patina focus:bg-slate transition-colors"/>
+        <label class="sr-only" for="form-email">Email</label>
+        <input id="form-email" name="email" type="email" required placeholder="tu@email.com"
+               class="w-full bg-slate/70 border border-white/10 rounded-lg px-4 py-3.5 text-[15px] text-arctic placeholder:text-pewter focus:border-patina focus:bg-slate transition-colors"/>
+        <label class="sr-only" for="form-country">País</label>
+        <select id="form-country" name="country" required
+                class="w-full bg-slate/70 border border-white/10 rounded-lg px-4 py-3.5 text-[15px] text-arctic focus:border-patina focus:bg-slate transition-colors">
+          <option value="" class="bg-midnight">Selecciona tu país</option>
+          <option value="MX" data-code="+52" class="bg-midnight">México (+52)</option>
+          <option value="CO" data-code="+57" class="bg-midnight">Colombia (+57)</option>
+          <option value="PE" data-code="+51" class="bg-midnight">Perú (+51)</option>
+          <option value="CL" data-code="+56" class="bg-midnight">Chile (+56)</option>
+          <option value="AR" data-code="+54" class="bg-midnight">Argentina (+54)</option>
+          <option value="ES" data-code="+34" class="bg-midnight">España (+34)</option>
+          <option value="OTHER" data-code="+1" class="bg-midnight">Otro país</option>
+        </select>
+
+        <!-- TELÉFONO con prefijo dinámico -->
+        <label class="sr-only" for="form-phone">Teléfono</label>
+        <div class="flex gap-2">
+          <div class="relative w-[110px]">
+            <span id="form-phonecode"
+                  class="absolute inset-y-0 left-0 flex items-center pl-4 pr-2 text-[15px] text-arctic font-semibold pointer-events-none">+52</span>
+            <input type="text" readonly aria-hidden="true" tabindex="-1"
+                   class="w-full bg-slate/70 border border-white/10 rounded-lg px-4 py-3.5 text-[15px] text-transparent" />
+          </div>
+          <input id="form-phone" name="phone" type="tel" required
+                 inputmode="tel" autocomplete="tel-national"
+                 placeholder="55 1234 5678"
+                 pattern="[0-9\s\-]{7,18}"
+                 class="flex-1 bg-slate/70 border border-white/10 rounded-lg px-4 py-3.5 text-[15px] text-arctic placeholder:text-pewter focus:border-patina focus:bg-slate transition-colors"/>
+        </div>
+
+        <button type="submit" class="btn-primary w-full justify-center !py-4 text-[14px]">
+          Quiero las 5 cosas
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <p class="text-[12px] tracking-wide muted mt-5">
+        <span class="accent">✓</span> Sin costo
+        <span class="mx-2 text-white/15">·</span>
+        <span class="accent">✓</span> Sin tarjeta
+        <span class="mx-2 text-white/15">·</span>
+        <span class="accent">✓</span> Acceso inmediato
+      </p>
+      <p id="formMsg" class="hidden mt-5 text-[14px] accent" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 11 — FOOTER
+═════════════════════════════════════════════════ -->
+<footer class="bg-steel border-t border-white/5">
+
+  <!-- Brand pillars strip -->
+  <div class="border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="flex items-start gap-4">
+        <div class="ring-icon !w-9 !h-9">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <p class="eyebrow !text-[11px] !tracking-[0.2em]">Clarity</p>
+          <p class="mt-1.5 text-[13.5px] muted leading-relaxed">We simplify the complex.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="ring-icon !w-9 !h-9">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div>
+          <p class="eyebrow !text-[11px] !tracking-[0.2em]">Transparency</p>
+          <p class="mt-1.5 text-[13.5px] muted leading-relaxed">We earn trust every day.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="ring-icon !w-9 !h-9">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        </div>
+        <div>
+          <p class="eyebrow !text-[11px] !tracking-[0.2em]">Execution</p>
+          <p class="mt-1.5 text-[13.5px] muted leading-relaxed">We move fast. We deliver.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="ring-icon !w-9 !h-9">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19h16M6 16l4-6 4 3 5-8"/></svg>
+        </div>
+        <div>
+          <p class="eyebrow !text-[11px] !tracking-[0.2em]">Performance</p>
+          <p class="mt-1.5 text-[13.5px] muted leading-relaxed">We measure what matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main footer grid -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
+    <div class="md:col-span-6">
+      <div class="flex items-center gap-3 mb-4">
+        <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M32 4 L46 32 L32 60 L18 32 Z" fill="#FFFFFF" fill-opacity="0.95"/>
+          <path d="M32 4 L46 32 L32 32 Z" fill="#5F7F78"/>
+          <path d="M32 60 L18 32 L32 32 Z" fill="#5F7F78"/>
+        </svg>
+        <span class="text-[14px] font-semibold tracking-wordmark uppercase text-arctic">Meridian</span>
+      </div>
+      <p class="text-[14.5px] text-arctic/82 leading-relaxed max-w-md">
+        Meridian — el primer broker A-book on-chain de Forex.<br>
+        <span class="accent font-medium">Built for you to win.</span>
+      </p>
+    </div>
+
+    <div class="md:col-span-3">
+      <p class="eyebrow !text-[10.5px] mb-4">Producto / Legal</p>
+      <ul class="space-y-2.5 text-[14px] muted">
+        <li><a href="#" class="hover:text-arctic transition-colors">Términos y condiciones</a></li>
+        <li><a href="#" class="hover:text-arctic transition-colors">Política de privacidad</a></li>
+        <li><a href="#" class="hover:text-arctic transition-colors">Política de cookies</a></li>
+        <li><a href="#" class="hover:text-arctic transition-colors">Cómo funciona Meridian</a></li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-3">
+      <p class="eyebrow !text-[10.5px] mb-4">Empresa</p>
+      <ul class="space-y-2.5 text-[14px] muted">
+        <li><a href="#" class="hover:text-arctic transition-colors">Sobre nosotros</a></li>
+        <li><a href="#" class="hover:text-arctic transition-colors">Equipo</a></li>
+        <li><a href="#" class="hover:text-arctic transition-colors">Prensa</a></li>
+        <li><a href="#" class="hover:text-arctic transition-colors">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-8">
+      <p class="text-[12px] muted leading-relaxed max-w-5xl">
+        El trading de divisas implica riesgo y puede no ser adecuado para todos los inversionistas.
+        Los resultados pasados no garantizan resultados futuros. Meridian opera con tecnología
+        A-book on-chain — la ejecución es pública y verificable en blockchain. Antes de operar,
+        asegúrate de entender los riesgos.
+      </p>
+      <p class="mt-5 text-[11px] tracking-[0.15em] uppercase muted">© Meridian 2026 — All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════
+     SCRIPTS
+═════════════════════════════════════════════════ -->
+<script>
+  /* ─── 1. STICKY NAV + SCROLL PROGRESS BAR ─── */
+  const nav = document.getElementById('nav');
+  const progressEl = document.getElementById('scrollProgress');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+    if (progressEl) {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+      progressEl.style.width = Math.min(100, pct) + '%';
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ─── 2. INTERSECTION OBSERVER — fade up on scroll ─── */
+  // Mark JS as ready (CSS uses this to hide reveals)
+  document.documentElement.classList.add('js-ready');
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach((r) => io.observe(r));
+
+  // Fallback: if IO hasn't fired within 1.2s (headless / prerender),
+  // force-show any remaining reveal elements that are already in document
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 200) {
+        el.classList.add('in');
+      }
+    });
+  }, 1200);
+
+  // Hard fallback: after 3s show ALL reveals (covers very long pages in headless)
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach((el) => el.classList.add('in'));
+  }, 3000);
+
+  /* ─── 3. LIVE GROWING COUNTER (odometer-style) ─── */
+  // Single source of truth — change STARTING manually until backend integration
+  let currentFounders = 347;
+  const FOUNDERS_TOTAL = 1000;
+  const LAUNCH_DATE = new Date('2026-06-25T00:00:00');
+
+  // Wrap every [data-counter] element with a .counter-roll container holding a .rolling-digit
+  function wrapCounters() {
+    document.querySelectorAll('[data-counter="founders"], [data-counter="remaining"]').forEach((el) => {
+      if (el.querySelector('.rolling-digit')) return;
+      const initial = el.textContent.trim();
+      el.classList.add('counter-roll');
+      el.innerHTML = `<span class="rolling-digit">${initial}</span>`;
+    });
+  }
+  wrapCounters();
+
+  // Roll a counter element to a new value with odometer animation
+  function rollTo(el, newText) {
+    const current = el.querySelector('.rolling-digit');
+    if (!current) {
+      el.innerHTML = `<span class="rolling-digit">${newText}</span>`;
+      return;
+    }
+    if (current.textContent.trim() === newText) return;
+
+    // Create the new digit that will roll up from below
+    const incoming = document.createElement('span');
+    incoming.className = 'rolling-digit rolling-in';
+    incoming.textContent = newText;
+    el.appendChild(incoming);
+
+    // Animate the old digit out
+    requestAnimationFrame(() => {
+      current.classList.add('rolling-out');
+    });
+
+    // Flash the parent briefly
+    el.classList.add('flashing');
+
+    setTimeout(() => {
+      current.remove();
+      incoming.classList.remove('rolling-in');
+      // After the animation the incoming becomes the new in-flow digit
+      incoming.style.position = '';
+      incoming.style.inset = '';
+      el.classList.remove('flashing');
+    }, 580);
+  }
+
+  // Helper: update every counter on the page in sync
+  function syncCounters(animate = false) {
+    const txt = currentFounders.toLocaleString();
+    document.querySelectorAll('[data-counter="founders"]').forEach((el) => {
+      if (animate) rollTo(el, txt);
+      else {
+        const inner = el.querySelector('.rolling-digit');
+        if (inner) inner.textContent = txt;
+        else el.textContent = txt;
+      }
+    });
+
+    const remTxt = (FOUNDERS_TOTAL - currentFounders).toLocaleString();
+    document.querySelectorAll('[data-counter="remaining"]').forEach((el) => {
+      if (animate) rollTo(el, remTxt);
+      else {
+        const inner = el.querySelector('.rolling-digit');
+        if (inner) inner.textContent = remTxt;
+        else el.textContent = remTxt;
+      }
+    });
+
+    const bar = document.getElementById('founderBar');
+    if (bar) {
+      const pct = (currentFounders / FOUNDERS_TOTAL) * 100;
+      bar.style.width = pct.toFixed(2) + '%';
+    }
+  }
+
+  // First-paint count-up animation for the big urgency counter
+  const animCounterEl = document.querySelector('[data-counter-anim="true"]');
+  if (animCounterEl) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const target = currentFounders;
+          const dur = 1600;
+          const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            const val = Math.floor(eased * target).toLocaleString();
+            const inner = animCounterEl.querySelector('.rolling-digit');
+            if (inner) inner.textContent = val;
+            else animCounterEl.textContent = val;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    obs.observe(animCounterEl);
+  }
+
+  // Days to launch
+  const daysEl = document.getElementById('daysToLaunch');
+  if (daysEl) {
+    const diff = Math.max(0, Math.ceil((LAUNCH_DATE - new Date()) / (1000 * 60 * 60 * 24)));
+    daysEl.textContent = diff;
+  }
+
+  // Initial sync (no animation, just set values)
+  syncCounters(false);
+
+  /* ─── 3b. LIVE INCREMENT — "alguien acaba de registrarse" feel ─── */
+  const toast = document.getElementById('founderToast');
+  const toastNum = document.getElementById('toastNum');
+  const toastTime = document.getElementById('toastTime');
+
+  const timeStrings = [
+    'hace un instante',
+    'hace unos segundos',
+    'hace 1 minuto',
+    'hace 2 minutos',
+  ];
+
+  function showToast() {
+    if (!toast) return;
+    if (toastTime) toastTime.textContent = timeStrings[Math.floor(Math.random() * timeStrings.length)];
+    toast.classList.remove('toast-out');
+    toast.classList.add('toast-in');
+    setTimeout(() => {
+      toast.classList.remove('toast-in');
+      toast.classList.add('toast-out');
+    }, 3400);
+  }
+
+  function liveIncrement() {
+    if (currentFounders >= FOUNDERS_TOTAL) return;
+    currentFounders += 1;
+    syncCounters(true);   // ← triggers odometer roll on every counter
+    showToast();
+    // Random next delay between 5s and 14s (faster cadence than before)
+    const nextDelay = 5000 + Math.random() * 9000;
+    setTimeout(liveIncrement, nextDelay);
+  }
+
+  // First increment fires fast (3-6s after load) so user immediately sees it working
+  setTimeout(liveIncrement, 3500 + Math.random() * 2500);
+
+  /* ─── 4. SOCIAL PROOF ROTATING NOTIFICATIONS ─── */
+  const notifs = document.querySelectorAll('#notifWrap .notif');
+  let nIdx = 0;
+  if (notifs.length > 1) {
+    setInterval(() => {
+      notifs[nIdx].classList.add('hidden-rot');
+      nIdx = (nIdx + 1) % notifs.length;
+      notifs[nIdx].classList.remove('hidden-rot');
+    }, 6500);
+  }
+
+  /* ─── 5. FAQ — only one open at a time ─── */
+  const allDetails = document.querySelectorAll('#faqList details');
+  allDetails.forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (d.open) allDetails.forEach((o) => { if (o !== d) o.open = false; });
+    });
+  });
+
+  /* ─── 6. PHONE PREFIX — dynamic based on country ─── */
+  const countrySel = document.getElementById('form-country');
+  const phoneCodeEl = document.getElementById('form-phonecode');
+  const phoneInput = document.getElementById('form-phone');
+  if (countrySel && phoneCodeEl) {
+    countrySel.addEventListener('change', () => {
+      const opt = countrySel.options[countrySel.selectedIndex];
+      const code = opt ? (opt.getAttribute('data-code') || '+') : '+';
+      phoneCodeEl.textContent = code;
+      if (phoneInput) phoneInput.focus();
+    });
+  }
+
+  /* ─── 7. FORM SUBMISSION (placeholder) ─── */
+  const form = document.getElementById('foundersForm');
+  const msg = document.getElementById('formMsg');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phoneCode = phoneCodeEl ? phoneCodeEl.textContent.trim() : '';
+      const phoneNumber = form.phone.value.trim().replace(/\s+/g, ' ');
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        country: form.country.value,
+        phone: phoneCode + ' ' + phoneNumber,
+      };
+      if (!payload.name || !payload.email || !payload.country || !phoneNumber) {
+        msg.textContent = 'Completa todos los campos antes de enviar.';
+        msg.classList.remove('hidden');
+        msg.style.color = '#6B717C';
+        return;
+      }
+      // Replace with real endpoint when ready
+      console.log('[Founders List] POST /api/founders →', payload);
+      msg.textContent = '✓ Apartando tu plaza... redirigiendo';
+      msg.classList.remove('hidden');
+      msg.style.color = '#5F7F78';
+
+      // Redirect to thank-you page with assigned founder number
+      const assignedNumber = currentFounders + 1;
+      setTimeout(() => {
+        window.location.href = `/v1/thank-you/?n=${assignedNumber}`;
+      }, 1200);
+    });
+  }
+</script>
+
+</body>
+</html>
