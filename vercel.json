@@ -2,8 +2,8 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/v3/vsl/index.html" }
+  "redirects": [
+    { "source": "/", "destination": "/v3/vsl", "permanent": false }
   ],
   "headers": [
     {
