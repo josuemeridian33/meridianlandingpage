@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
 <script>
@@ -19,7 +19,7 @@
           arctic: '#FFFFFF', patina: '#5F7F78', 'patina-light': '#7FA499',
           midnight: '#0B1220', steel: '#172231', slate: '#2A3440', pewter: '#6B717C',
         },
-        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['Sora', 'Inter', 'system-ui', 'sans-serif'] }
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
       }
     }
   }
@@ -88,10 +88,10 @@
   .cine-section > * { position: relative; }
 
   /* ── Typography ── */
-  .display { font-family: 'Sora', 'Inter', sans-serif; }
-  .h1 { font-family: 'Sora', sans-serif; font-size: clamp(2.1rem, 4.8vw, 3.8rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
-  .h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.7rem, 3.2vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-  .h3 { font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+  .display { font-family: 'Inter', sans-serif; font-weight: 600; }
+  .h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.1rem, 4.8vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
+  .h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.7rem, 3.2vw, 2.6rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .h3 { font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
   .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
   .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.78); font-weight: 400; }
   .muted { color: var(--pewter); }
@@ -102,7 +102,7 @@
   .btn-pill {
     background: linear-gradient(180deg, #5F7F78 0%, #4F6B65 100%);
     color: #FFFFFF; padding: 1.1rem 2.5rem; border-radius: 999px;
-    font-family: 'Sora', sans-serif; font-weight: 700;
+    font-family: 'Inter', sans-serif; font-weight: 600;
     letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.84rem;
     transition: all 0.25s ease;
     box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(95,127,120,0.32), 0 12px 28px rgba(0,0,0,0.35);
@@ -169,7 +169,7 @@
     background: linear-gradient(135deg, rgba(95,127,120,0.42) 0%, rgba(11,18,32,0.95) 100%);
     border: 1px solid rgba(95,127,120,0.50);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Sora', sans-serif; font-weight: 700; color: var(--arctic);
+    font-family: 'Inter', sans-serif; font-weight: 600; color: var(--arctic);
     font-size: 1.05rem; letter-spacing: -0.02em;
     backdrop-filter: blur(8px);
   }
@@ -179,7 +179,7 @@
   .badge-sq {
     display: inline-flex; align-items: center; justify-content: center;
     width: 44px; height: 44px; border-radius: 10px;
-    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.05rem;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.05rem;
     margin-bottom: 1.1rem;
   }
   .badge-sq.dark { background: var(--midnight); color: var(--arctic); border: 1px solid rgba(255,255,255,0.10); }
@@ -204,8 +204,8 @@
   /* ── Step list ── */
   .step-row { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .step-row:last-child { border-bottom: none; }
-  .step-num { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--patina); line-height: 1; flex-shrink: 0; width: 36px; }
-  .step-body h4 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; color: var(--arctic); margin-bottom: 0.35rem; }
+  .step-num { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.4rem; color: var(--patina); line-height: 1; flex-shrink: 0; width: 36px; }
+  .step-body h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; color: var(--arctic); margin-bottom: 0.35rem; }
   .step-body p { font-size: 0.92rem; line-height: 1.55; color: rgba(255,255,255,0.74); }
 
   /* ── Dashboard mockup ── */
@@ -229,14 +229,14 @@
     padding: 0.55rem 0.4rem; border-radius: 6px; font-size: 0.78rem;
   }
   .trade-row:nth-child(odd) { background: rgba(255,255,255,0.02); }
-  .trade-pair { font-family: 'Sora', sans-serif; font-weight: 600; color: var(--arctic); }
+  .trade-pair { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--arctic); }
   .trade-hash { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--patina); font-size: 0.7rem; }
   .trade-pnl-pos { color: #7FA499; font-weight: 600; }
   .trade-pnl-neg { color: #C46B5F; font-weight: 600; }
 
   /* ── Countdown ── */
   .countdown-digit {
-    font-variant-numeric: tabular-nums; font-family: 'Sora', sans-serif; font-weight: 700;
+    font-variant-numeric: tabular-nums; font-family: 'Inter', sans-serif; font-weight: 600;
     background: rgba(95,127,120,0.14); border: 1px solid rgba(95,127,120,0.26);
     border-radius: 12px; padding: 0.7rem 0.6rem; min-width: 3.6rem; text-align: center;
     backdrop-filter: blur(8px);
@@ -251,7 +251,7 @@
   /* ══════════════ GUARANTEE — layered composition ══════════════ */
   .guarantee-stack { position: relative; display: inline-block; }
   .guarantee-bg-text {
-    font-family: 'Sora', sans-serif; font-weight: 700;
+    font-family: 'Inter', sans-serif; font-weight: 600;
     font-size: clamp(7rem, 16vw, 13rem); letter-spacing: -0.05em; line-height: 1;
     color: rgba(255,255,255,0.05); user-select: none;
   }
@@ -267,7 +267,7 @@
     content: ''; position: absolute; inset: -10px; border-radius: 50%;
     border: 1px dashed rgba(95,127,120,0.36); animation: seal-spin 32s linear infinite;
   }
-  .guarantee-center-seal .gs-big { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 4.5rem; color: var(--arctic); line-height: 0.9; }
+  .guarantee-center-seal .gs-big { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 4.5rem; color: var(--arctic); line-height: 0.9; }
   .guarantee-center-seal .gs-label { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); margin-top: 0.4rem; }
 
   /* ══════════════ FAQ pill rows ══════════════ */
@@ -280,7 +280,7 @@
   details.faq-pill[open] { border-color: rgba(95,127,120,0.60); border-radius: 24px; background: rgba(95,127,120,0.10); }
   details.faq-pill summary {
     padding: 1.1rem 1.4rem; cursor: pointer; display: flex; align-items: center; gap: 1rem;
-    list-style: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.98rem; color: var(--arctic);
+    list-style: none; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.98rem; color: var(--arctic);
   }
   details.faq-pill summary::-webkit-details-marker { display: none; }
   details.faq-pill summary::before {
@@ -407,7 +407,7 @@
             <div class="seal-text">
               <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
                 <defs><path id="seal-circle" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs>
-                <text fill="#7FA499" font-family="Sora, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
+                <text fill="#7FA499" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
                   <textPath href="#seal-circle">FOUNDERS · 1000 · BUILT FOR YOU TO WIN · MERIDIAN ·</textPath>
                 </text>
               </svg>
@@ -566,7 +566,7 @@
             <div class="seal-text">
               <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
                 <defs><path id="seal-circle-2" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs>
-                <text fill="#7FA499" font-family="Sora, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
+                <text fill="#7FA499" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
                   <textPath href="#seal-circle-2">FOUNDERS · 1000 · BUILT FOR YOU TO WIN · MERIDIAN ·</textPath>
                 </text>
               </svg>

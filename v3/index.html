@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
 <script>
@@ -26,7 +26,6 @@
         },
         fontFamily: {
           sans: ['Inter', 'system-ui', 'sans-serif'],
-          display: ['Sora', 'Inter', 'system-ui', 'sans-serif'],
         }
       }
     }
@@ -67,11 +66,11 @@
             mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
   }
 
-  /* ── Typography (Sora for heads, Inter for body — mirrors Finanzas type system feel) ── */
-  .display { font-family: 'Sora', 'Inter', sans-serif; }
-  .h1 { font-family: 'Sora', sans-serif; font-size: clamp(2.1rem, 4.8vw, 3.8rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
-  .h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.7rem, 3.2vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-  .h3 { font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+  /* ── Typography (Inter SemiBold for heads, Inter Regular for body — per Meridian brand sheet) ── */
+  .display { font-family: 'Inter', sans-serif; font-weight: 600; }
+  .h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.1rem, 4.8vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; }
+  .h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.7rem, 3.2vw, 2.6rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .h3 { font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
   .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
   .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.74); font-weight: 400; }
   .muted { color: var(--pewter); }
@@ -80,15 +79,15 @@
   .glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); }
   .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
 
-  /* ── Pill button (40px radius, Sora 700, like Finanzas) ── */
+  /* ── Pill button (40px radius, Inter SemiBold) ── */
   .btn-pill {
     background: linear-gradient(180deg, #5F7F78 0%, #4F6B65 100%);
     color: #FFFFFF;
     padding: 1.1rem 2.5rem;
     border-radius: 999px;
-    font-family: 'Sora', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     font-size: 0.84rem;
     transition: all 0.25s ease;
@@ -198,8 +197,8 @@
     background: linear-gradient(135deg, rgba(95,127,120,0.35) 0%, rgba(11,18,32,0.95) 100%);
     border: 1px solid rgba(95,127,120,0.45);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Sora', sans-serif;
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     color: var(--arctic);
     font-size: 1.05rem;
     letter-spacing: -0.02em;
@@ -211,8 +210,8 @@
     display: inline-flex; align-items: center; justify-content: center;
     width: 44px; height: 44px;
     border-radius: 10px;
-    font-family: 'Sora', sans-serif;
-    font-weight: 700; font-size: 1.05rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 1.05rem;
     margin-bottom: 1.1rem;
   }
   .badge-sq.dark { background: var(--midnight); color: var(--arctic); border: 1px solid rgba(255,255,255,0.08); }
@@ -246,14 +245,14 @@
   }
   .step-row:last-child { border-bottom: none; }
   .step-num {
-    font-family: 'Sora', sans-serif;
-    font-weight: 700; font-size: 1.4rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 1.4rem;
     color: var(--patina);
     line-height: 1;
     flex-shrink: 0;
     width: 36px;
   }
-  .step-body h4 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; color: var(--arctic); margin-bottom: 0.35rem; }
+  .step-body h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; color: var(--arctic); margin-bottom: 0.35rem; }
   .step-body p { font-size: 0.92rem; line-height: 1.55; color: rgba(255,255,255,0.7); }
 
   /* ── Dashboard mockup (Meridian equivalent of Finanzas's Zoom mock) ── */
@@ -292,7 +291,7 @@
     transition: background 0.2s;
   }
   .trade-row:nth-child(odd) { background: rgba(255,255,255,0.02); }
-  .trade-pair { font-family: 'Sora', sans-serif; font-weight: 600; color: var(--arctic); }
+  .trade-pair { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--arctic); }
   .trade-hash { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--patina); font-size: 0.7rem; }
   .trade-pnl-pos { color: #7FA499; font-weight: 600; }
   .trade-pnl-neg { color: #C46B5F; font-weight: 600; }
@@ -300,8 +299,8 @@
   /* ── Countdown ── */
   .countdown-digit {
     font-variant-numeric: tabular-nums;
-    font-family: 'Sora', sans-serif;
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     background: rgba(95,127,120,0.10);
     border: 1px solid rgba(95,127,120,0.22);
     border-radius: 12px;
@@ -331,8 +330,8 @@
   /* ══════════════ GUARANTEE — layered composition (Finanzas-style) ══════════════ */
   .guarantee-stack { position: relative; display: inline-block; }
   .guarantee-bg-text {
-    font-family: 'Sora', sans-serif;
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     font-size: clamp(7rem, 16vw, 13rem);
     letter-spacing: -0.05em;
     line-height: 1;
@@ -359,8 +358,8 @@
     animation: seal-spin 32s linear infinite;
   }
   .guarantee-center-seal .gs-big {
-    font-family: 'Sora', sans-serif;
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     font-size: 4.5rem;
     color: var(--arctic);
     line-height: 0.9;
@@ -391,7 +390,7 @@
     cursor: pointer;
     display: flex; align-items: center; gap: 1rem;
     list-style: none;
-    font-family: 'Sora', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600; font-size: 0.98rem;
     color: var(--arctic);
   }
@@ -545,7 +544,7 @@
                 <defs>
                   <path id="seal-circle" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/>
                 </defs>
-                <text fill="#5F7F78" font-family="Sora, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
+                <text fill="#5F7F78" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
                   <textPath href="#seal-circle">FOUNDERS · 1000 · BUILT FOR YOU TO WIN · MERIDIAN ·</textPath>
                 </text>
               </svg>
@@ -736,7 +735,7 @@
                 <defs>
                   <path id="seal-circle-2" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/>
                 </defs>
-                <text fill="#5F7F78" font-family="Sora, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
+                <text fill="#5F7F78" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
                   <textPath href="#seal-circle-2">FOUNDERS · 1000 · BUILT FOR YOU TO WIN · MERIDIAN ·</textPath>
                 </text>
               </svg>
