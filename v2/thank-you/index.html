@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casi listo · El momento — Founders Hub Meridian</title>
-<meta name="description" content="Tu registro al Founders List está casi confirmado. Último paso: únete al Telegram privado.">
+<title>Casi listo · Founders List Meridian</title>
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,378 +11,211 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          arctic: '#FFFFFF',
-          patina: '#52716E',
-          'patina-light': '#7D9A96',
-          midnight: '#0B1220',
-          steel: '#172231',
-          slate: '#2A3440',
-          pewter: '#6B717C',
-        },
-        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-      }
-    }
-  }
-</script>
-
 <style>
   :root {
     --arctic: #FFFFFF;
     --patina: #52716E;
+    --patina-light: #7D9A96;
     --midnight: #0B1220;
     --steel: #172231;
     --slate: #2A3440;
     --pewter: #6B717C;
   }
-  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; box-sizing: border-box; }
-  html, body { overflow-x: hidden; max-width: 100%; }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { overflow-x: hidden; margin: 0; max-width: 100%; }
   body {
     font-family: 'Inter', sans-serif;
-    background: var(--midnight);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(82,113,110,0.12) 0%, transparent 60%),
+      var(--midnight);
     color: var(--arctic);
     min-height: 100vh;
-    margin: 0;
+    display: flex; flex-direction: column;
   }
-  .h1 { font-size: clamp(2rem, 4.5vw, 3.75rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; }
-  .h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+
+  .h1 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
+  .h2 { font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; }
   .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
-  .body-text { font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.78); font-weight: 400; }
   .muted { color: var(--pewter); }
   .accent { color: var(--patina); }
+  .accent-light { color: var(--patina-light); }
 
-  /* Background — cinematic with backdrop image */
-  .bg-stage {
-    background: var(--midnight);
-    position: relative;
-  }
-  .bg-stage::after {
-    content: '';
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    background-image: url('/assets/cinematic/04-outro-moment.png');
-    background-size: cover; background-position: center;
-    filter: brightness(0.32) saturate(0.85) contrast(1.05);
-    opacity: 0.9;
-  }
-  .bg-stage > * { position: relative; z-index: 1; }
-
-  /* Vignette overlay above the image */
-  .stage-vignette {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    background:
-      linear-gradient(180deg, rgba(11,18,32,0.65) 0%, rgba(11,18,32,0.55) 50%, rgba(11,18,32,0.92) 100%),
-      radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, rgba(11,18,32,0.60) 100%);
-  }
-
-  /* Film grain global */
-  .grain-overlay {
-    position: fixed; inset: 0; pointer-events: none; z-index: 9991;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    opacity: 0.10;
-    mix-blend-mode: overlay;
-  }
-  @media (max-width: 640px) {
-    .grain-overlay { opacity: 0.06; }
-  }
-
-  /* Subtle grid texture */
-  .grid-bg {
-    background-image:
-      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black 0%, transparent 85%);
-            mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black 0%, transparent 85%);
-  }
-
-  /* GLASS card */
-  .glass-strong {
-    background: linear-gradient(180deg, rgba(42,52,64,0.85) 0%, rgba(23,34,49,0.7) 100%);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-
-  /* PROGRESS BAR */
   .progress-track {
     width: 100%; height: 8px;
     background: rgba(255,255,255,0.05);
     border-radius: 100px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.03);
-    position: relative;
+    border: 1px solid rgba(255,255,255,0.04);
   }
   .progress-fill {
-    height: 100%;
-    width: 0%;
+    height: 100%; width: 0%;
     background: linear-gradient(90deg, var(--patina) 0%, var(--patina-light) 100%);
     border-radius: 100px;
     transition: width 3.2s cubic-bezier(0.22, 0.72, 0.22, 1);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .progress-fill::after {
-    content: '';
-    position: absolute; inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
     background-size: 200% 100%;
     animation: sheen 2.5s linear infinite;
-    will-change: background-position;
   }
-  @keyframes sheen {
-    0%   { background-position: -100% 0; }
-    100% { background-position: 200% 0; }
-  }
+  @keyframes sheen { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
 
-  /* PRIMARY CTA */
+  .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; }
+  .pulse-dot::before { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; animation: pr 2s ease-out infinite; opacity: 0.6; }
+  .pulse-dot::after  { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
+  @keyframes pr { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+
   .btn-primary {
-    background: linear-gradient(180deg, #52716E 0%, #4F6B65 100%);
+    background: linear-gradient(180deg, #52716E 0%, #42605D 100%);
     color: #FFFFFF;
-    padding: 1.1rem 2rem;
-    border-radius: 8px;
-    font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.95rem;
-    transition: all 0.25s ease;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 0 0 0 rgba(82,113,110,0);
-    display: inline-flex; align-items: center; gap: 0.7rem;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
+    padding: 1.1rem 2rem; border-radius: 999px;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.86rem;
+    transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.7rem;
+    text-decoration: none; cursor: pointer; border: none;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32);
   }
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 12px 36px rgba(82,113,110,0.28);
-  }
-  .btn-primary:focus-visible {
-    outline: 2px solid var(--patina);
-    outline-offset: 3px;
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(82,113,110,0.45); }
+  .btn-primary:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
+
+  .glass {
+    background: linear-gradient(180deg, rgba(42,52,64,0.6) 0%, rgba(23,34,49,0.5) 100%);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.06);
   }
 
-  /* PHASE 2 reveal */
   .phase-2 {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 0; transform: translateY(20px);
     transition: opacity 0.7s ease, transform 0.7s ease;
     pointer-events: none;
   }
-  .phase-2.in {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  .phase-2.in { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  /* Logo (compact mark with breathe) */
+  .ty-mark { width: 92px; height: 92px; display: block; margin: 0 auto;
+    animation: ty-mark-breathe 6s ease-in-out infinite;
+  }
+  .ty-mark .half-white { fill: #FFFFFF; }
+  .ty-mark .half-patina { fill: #52716E; }
+  @keyframes ty-mark-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 8px 24px rgba(82,113,110,0.32)); }
+    50%      { transform: scale(1.03); filter: drop-shadow(0 12px 32px rgba(82,113,110,0.52)); }
   }
 
-  /* PULSE dot */
-  .pulse-dot {
-    position: relative;
-    display: inline-block;
-    width: 8px; height: 8px;
-  }
-  .pulse-dot::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: var(--patina);
-    border-radius: 50%;
-    animation: pulse-ring 2s ease-out infinite;
-    opacity: 0.6;
-  }
-  .pulse-dot::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: var(--patina);
-    border-radius: 50%;
-  }
-  @keyframes pulse-ring {
-    0%   { transform: scale(1); opacity: 0.6; }
-    100% { transform: scale(2.5); opacity: 0; }
-  }
-
-  /* Decorative SVG corners */
-  .corner-deco {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.22;
-  }
-
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .progress-fill { transition: none; }
-    .progress-fill::after, .pulse-dot::before { animation: none; }
+    .progress-fill, .progress-fill::after, .pulse-dot::before, .ty-mark { animation: none !important; transition: none !important; }
   }
 </style>
 </head>
-<body class="bg-stage relative">
+<body>
 
-<!-- 🎬 Cinematic overlays (vignette + film grain) -->
-<div class="stage-vignette" aria-hidden="true"></div>
-<div class="grain-overlay" aria-hidden="true"></div>
+<header class="px-6 py-5 lg:py-6 flex items-center justify-center border-b border-white/5">
+  <a href="/v2/" class="flex items-center gap-3" aria-label="Volver al inicio">
+    <span class="text-[11px] font-semibold uppercase tracking-[0.3em] text-arctic">Meridian</span>
+    <span class="text-[10px] tracking-[0.22em] uppercase text-patina">Founders List</span>
+  </a>
+</header>
 
-<!-- Background grid texture -->
-<div class="absolute inset-0 grid-bg pointer-events-none" aria-hidden="true" style="z-index: 1;"></div>
+<main class="flex-1 flex items-center justify-center px-6 py-12 lg:py-16">
+  <div class="w-full max-w-xl mx-auto">
 
-<!-- Decorative corners -->
-<div class="corner-deco top-10 left-10 hidden md:block" aria-hidden="true">
-  <svg width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="#52716E" stroke-width="0.5">
-    <circle cx="32" cy="32" r="30"/><circle cx="32" cy="32" r="20"/><circle cx="32" cy="32" r="10"/>
-    <line x1="32" y1="2" x2="32" y2="62"/><line x1="2" y1="32" x2="62" y2="32"/>
-  </svg>
-</div>
-<div class="corner-deco bottom-10 right-10 hidden md:block" aria-hidden="true">
-  <svg width="90" height="40" viewBox="0 0 90 40" fill="none" stroke="#52716E" stroke-width="0.5">
-    <path d="M0 35 L10 28 L20 30 L30 22 L40 24 L50 16 L60 18 L70 10 L80 12 L90 6" stroke-linecap="round"/>
-    <line x1="0" y1="39" x2="90" y2="39" stroke-dasharray="2 3"/>
-  </svg>
-</div>
+    <section class="text-center">
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-7"
+           style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.32);">
+        <span class="pulse-dot"></span>
+        <span class="eyebrow !text-[10.5px]">Paso 02 de 02 · Confirmación</span>
+      </div>
 
-<main class="relative min-h-screen flex flex-col">
-
-  <!-- Top brand bar -->
-  <header class="px-6 py-6 lg:px-10 lg:py-7 flex items-center justify-center border-b border-white/5">
-    <a href="/v2/" class="flex items-center gap-3 group" aria-label="Meridian — Inicio">
-      <!-- Brand mark: 4-point star -->
-      <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <path d="M32 4 L46 32 L32 60 L18 32 Z" fill="#FFFFFF" fill-opacity="0.96"/>
-        <path d="M32 4 L46 32 L32 32 Z" fill="#52716E"/>
-        <path d="M32 60 L18 32 L32 32 Z" fill="#52716E"/>
+      <svg class="ty-mark mb-7" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
+        <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+        <path class="half-patina" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
       </svg>
-      <span class="text-[13px] font-semibold uppercase text-arctic" style="letter-spacing: 0.3em;">Meridian</span>
-    </a>
-  </header>
 
-  <!-- Content -->
-  <div class="flex-1 flex items-center justify-center px-6 py-12 lg:py-20">
-    <div class="w-full max-w-2xl mx-auto">
+      <h1 class="h1">
+        Bienvenido,<br>
+        <span class="accent">Founder.</span>
+      </h1>
+      <p class="mt-5 text-[15px] text-arctic/78 max-w-md mx-auto leading-relaxed">
+        Estás apartando la plaza <span class="text-arctic font-medium">#<span id="founderNum">348</span></span>
+        de los 1,000. Un paso más y quedas adentro para siempre.
+      </p>
 
-      <!-- PHASE 1 — Progress -->
-      <section class="text-center">
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-7"
-             style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.28);">
-          <span class="pulse-dot"></span>
-          <span class="text-[10.5px] uppercase font-semibold accent" style="letter-spacing: 0.22em;">
-            Paso 02 de 02 · Confirmación
-          </span>
+      <div class="mt-9 max-w-md mx-auto">
+        <div class="flex items-baseline justify-between mb-2.5 font-mono text-[11px]">
+          <span class="muted tracking-[0.14em]">PROGRESO</span>
+          <span class="accent font-semibold" id="progressLabel">0%</span>
         </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+        </div>
+        <p class="mt-3 text-[12px] muted" id="progressStatus">Iniciando confirmación…</p>
+      </div>
+    </section>
 
-        <h1 class="h1">
-          Casi listo,<br>
-          <span style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; color: #52716E;">founder.</span>
-        </h1>
-
-        <p class="body-text mt-5 max-w-md mx-auto">
-          Apartando tu plaza <span class="text-arctic font-medium">#<span id="founderNum">348</span></span>.
-          Estás a un paso de quedarte adentro.
+    <section class="phase-2 mt-12 lg:mt-14" id="phase2">
+      <div class="glass rounded-2xl p-7 lg:p-8 text-center relative overflow-hidden">
+        <p class="eyebrow !text-[10.5px]">Último paso</p>
+        <h2 class="h2 mt-3 text-arctic">
+          Únete al <span class="accent">Telegram de los Founders.</span>
+        </h2>
+        <p class="mt-3 text-[14px] text-arctic/78 max-w-sm mx-auto leading-relaxed">
+          Tu plaza se confirma cuando entras al grupo.
+          <span class="text-arctic font-medium">Ahí decidimos juntos qué se construye.</span>
         </p>
 
-        <!-- Progress bar -->
-        <div class="mt-10 max-w-md mx-auto">
-          <div class="flex items-baseline justify-between mb-2.5 font-mono text-[11px]">
-            <span class="muted" style="letter-spacing: 0.14em;">PROGRESO</span>
-            <span class="accent font-semibold" id="progressLabel">0%</span>
-          </div>
-          <div class="progress-track">
-            <div class="progress-fill" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-          </div>
-          <p class="mt-3 text-[12px] muted" id="progressStatus">Iniciando confirmación...</p>
-        </div>
-      </section>
+        <a id="telegramCta"
+           href="https://t.me/+founders_meridian_placeholder"
+           target="_blank" rel="noopener"
+           class="btn-primary mt-6 mx-auto">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          Entrar al Telegram
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
 
-      <!-- PHASE 2 — Telegram CTA (revealed when progress finishes) -->
-      <section class="phase-2 mt-16 lg:mt-20" id="phase2">
-        <div class="glass-strong rounded-2xl p-7 lg:p-9 text-center relative overflow-hidden">
-          <!-- Telegram icon decoration -->
-          <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full pointer-events-none"
-               style="background: radial-gradient(circle, rgba(82,113,110,0.18) 0%, transparent 70%);"></div>
+        <p class="mt-4 text-[11px] muted">
+          ✓ Acceso inmediato · <span class="accent font-semibold">347 founders adentro</span>
+        </p>
+      </div>
 
-          <p class="eyebrow">Último paso</p>
-          <h2 class="h2 mt-4">
-            Únete al <span class="accent">Telegram privado.</span>
-          </h2>
-          <p class="body-text mt-4 max-w-md mx-auto">
-            Tus datos están guardados. <span class="text-arctic font-medium">Pero tu plaza solo es tuya cuando entras al grupo de Founders.</span> Sin Telegram, no hay confirmación.
-          </p>
+      <div class="mt-10 text-center">
+        <p class="eyebrow !text-[10px]">Welcome to the</p>
+        <p class="text-[26px] lg:text-[32px] font-semibold accent mt-2" style="letter-spacing: -0.015em;">Founders Hub.</p>
+      </div>
+    </section>
 
-          <a id="telegramCta"
-             href="https://t.me/+founders_meridian_placeholder"
-             target="_blank"
-             rel="noopener"
-             class="btn-primary mt-8 mx-auto">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Únete al Telegram ahora
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-
-          <div class="mt-6 flex items-center justify-center gap-4 text-[11px] muted">
-            <span class="flex items-center gap-1.5">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-              Acceso inmediato
-            </span>
-            <span class="text-white/15">·</span>
-            <span class="flex items-center gap-1.5">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L4 8v6c0 5 3.5 8 8 8s8-3 8-8V8z"/></svg>
-              347 founders dentro
-            </span>
-          </div>
-        </div>
-
-        <!-- Welcome footer block -->
-        <div class="mt-14 text-center">
-          <p class="text-[11px] tracking-[0.28em] uppercase text-pewter mb-3">Welcome to the</p>
-          <p class="text-[28px] lg:text-[36px] font-semibold accent" style="letter-spacing: -0.01em;">
-            Founders Hub.
-          </p>
-          <p class="text-[13px] muted mt-3">
-            Sé uno de los 1,000. Para siempre.
-          </p>
-        </div>
-      </section>
-
-    </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5 px-6 py-6 lg:px-10">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] muted">
-      <span class="tracking-[0.16em]" style="text-transform: uppercase;">
-        Meridian · Built for you to win.
-      </span>
-      <span>© 2026 · All rights reserved.</span>
-    </div>
-  </footer>
-
 </main>
 
+<footer class="px-6 py-5 border-t border-white/5">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] muted">
+    <span class="tracking-[0.14em] uppercase">Meridian · Built for you to win.</span>
+    <span>© 2026 · All rights reserved.</span>
+  </div>
+</footer>
+
 <script>
-  // ── Read founder # from URL or use default ──
   const params = new URLSearchParams(window.location.search);
   const founderNum = params.get('n') || '348';
   document.getElementById('founderNum').textContent = founderNum;
 
-  // ── Progress bar animation ──
+  const isPreview = params.get('preview') === '1';
   const bar = document.getElementById('progressBar');
   const label = document.getElementById('progressLabel');
   const status = document.getElementById('progressStatus');
   const phase2 = document.getElementById('phase2');
 
   const targetPct = 85;
-  const duration = 3200; // ms (matches CSS transition)
+  const duration = 3200;
   const statusMessages = [
-    { at: 0,  text: 'Iniciando confirmación...' },
-    { at: 18, text: 'Apartando tu lugar en el grupo...' },
-    { at: 42, text: 'Generando tu Founder ID...' },
-    { at: 65, text: 'Registrando tu equity en el sistema...' },
-    { at: 80, text: 'Casi listo — falta un paso tuyo' },
+    { at: 0,  text: 'Iniciando confirmación…' },
+    { at: 22, text: 'Apartando tu lugar en el grupo…' },
+    { at: 48, text: 'Generando tu Founder ID…' },
+    { at: 68, text: 'Registrando tu equity en el sistema…' },
+    { at: 82, text: 'Casi listo — falta un paso tuyo' },
   ];
 
-  // ?preview=1 → skip animation, show final state immediately (for screenshots)
-  const isPreview = params.get('preview') === '1';
-
-  // Trigger bar animation just after page load
-  function startProgress() {
+  function start() {
     if (isPreview) {
       bar.style.transition = 'none';
       bar.style.width = targetPct + '%';
@@ -396,50 +228,23 @@
       setTimeout(() => {
         bar.style.width = targetPct + '%';
         bar.setAttribute('aria-valuenow', targetPct);
-
-        // Animate the numeric label & status in sync
-        const start = performance.now();
+        const s = performance.now();
         const tick = (now) => {
-          const elapsed = now - start;
-          const p = Math.min(elapsed / duration, 1);
+          const p = Math.min((now - s) / duration, 1);
           const eased = 1 - Math.pow(1 - p, 3);
           const value = Math.floor(eased * targetPct);
           label.textContent = value + '%';
-
-          // Update status message based on progress
-          const msg = statusMessages.filter(s => value >= s.at).pop();
-          if (msg) status.textContent = msg.text;
-
+          const m = statusMessages.filter(x => value >= x.at).pop();
+          if (m) status.textContent = m.text;
           if (p < 1) requestAnimationFrame(tick);
-          else {
-            // Reveal phase 2 after bar finishes
-            setTimeout(() => {
-              phase2.classList.add('in');
-            }, 250);
-          }
+          else setTimeout(() => phase2.classList.add('in'), 250);
         };
         requestAnimationFrame(tick);
-      }, 350);
+      }, 320);
     });
   }
-  // Start when ready
-  if (document.readyState === 'complete') startProgress();
-  else window.addEventListener('load', startProgress);
-
-  // ── Smooth scroll to phase 2 when it reveals ──
-  const obs = new MutationObserver(() => {
-    if (phase2.classList.contains('in')) {
-      // gentle scroll cue
-      setTimeout(() => {
-        const r = phase2.getBoundingClientRect();
-        if (r.top > window.innerHeight * 0.6) {
-          phase2.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }, 400);
-      obs.disconnect();
-    }
-  });
-  obs.observe(phase2, { attributes: true, attributeFilter: ['class'] });
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
 </script>
 
 </body>
