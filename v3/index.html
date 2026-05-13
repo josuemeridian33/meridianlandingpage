@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founders List · Meridian — Built for you to win.</title>
-<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity, voz, comunidad. Sesión en vivo el 25 jun 2026 · 7PM CDMX.">
+<title>Founders List · Meridian — Sé dueño del broker</title>
+<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity real, voz, comunidad y libertad total para operar como tú quieras. Sesión en vivo 25 jun · 7PM CDMX.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,16 +17,14 @@
       extend: {
         colors: {
           arctic: '#FFFFFF',
-          patina: '#5F7F78',
-          'patina-light': '#7FA499',
+          patina: '#52716E',
+          'patina-light': '#7D9A96',
           midnight: '#0B1220',
           steel: '#172231',
           slate: '#2A3440',
           pewter: '#6B717C',
         },
-        fontFamily: {
-          sans: ['Inter', 'system-ui', 'sans-serif'],
-        }
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
       }
     }
   }
@@ -35,8 +33,8 @@
 <style>
   :root {
     --arctic: #FFFFFF;
-    --patina: #5F7F78;
-    --patina-light: #7FA499;
+    --patina: #52716E;
+    --patina-light: #7D9A96;
     --midnight: #0B1220;
     --steel: #172231;
     --slate: #2A3440;
@@ -44,17 +42,12 @@
   }
   * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
   html, body { overflow-x: hidden; max-width: 100%; margin: 0; scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--midnight);
-    color: var(--arctic);
-    min-height: 100vh;
-  }
+  body { font-family: 'Inter', sans-serif; background: var(--midnight); color: var(--arctic); min-height: 100vh; }
 
   .ambient-bg {
     background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(95,127,120,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(95,127,120,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(82,113,110,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(82,113,110,0.05) 0%, transparent 60%),
       var(--midnight);
   }
   .grid-bg {
@@ -66,22 +59,21 @@
             mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
   }
 
-  /* ── Typography (Inter SemiBold for heads, Inter Regular for body — per Meridian brand sheet) ── */
-  .display { font-family: 'Inter', sans-serif; font-weight: 600; }
-  .h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.1rem, 4.8vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; }
-  .h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.7rem, 3.2vw, 2.6rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
-  .h3 { font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
+  /* ── Typography (Inter only) ── */
+  .h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.1rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
+  .h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; }
+  .h3 { font-family: 'Inter', sans-serif; font-size: 1.18rem; font-weight: 600; letter-spacing: -0.01em; }
   .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
-  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.74); font-weight: 400; }
+  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.76); font-weight: 400; }
   .muted { color: var(--pewter); }
   .accent { color: var(--patina); }
   .accent-light { color: var(--patina-light); }
   .glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); }
   .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
 
-  /* ── Pill button (40px radius, Inter SemiBold) ── */
+  /* ── Pill button ── */
   .btn-pill {
-    background: linear-gradient(180deg, #5F7F78 0%, #4F6B65 100%);
+    background: linear-gradient(180deg, #52716E 0%, #42605D 100%);
     color: #FFFFFF;
     padding: 1.1rem 2.5rem;
     border-radius: 999px;
@@ -91,15 +83,12 @@
     text-transform: uppercase;
     font-size: 0.84rem;
     transition: all 0.25s ease;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(95,127,120,0.30);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32);
     display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
     border: none; cursor: pointer; text-decoration: none;
     white-space: nowrap;
   }
-  .btn-pill:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(95,127,120,0.42);
-  }
+  .btn-pill:hover { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(82,113,110,0.45); }
   .btn-pill:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
 
   /* ── Form fields ── */
@@ -119,144 +108,127 @@
 
   /* ── Pulse dot ── */
   .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; flex-shrink: 0; }
-  .pulse-dot::before {
-    content: ''; position: absolute; inset: 0;
-    background: var(--patina); border-radius: 50%;
-    animation: pulse-ring 2s ease-out infinite; opacity: 0.6;
-  }
+  .pulse-dot::before { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; animation: pulse-ring 2s ease-out infinite; opacity: 0.6; }
   .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
   @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
 
-  /* ══════════════ ALEPH-STYLE LOGO ANIMATION ══════════════ */
-  .logo-stage { position: relative; display: inline-block; }
-  .logo-stage .logo-img {
-    display: block;
-    width: clamp(240px, 32vw, 360px);
+  /* ══════════════ INLINE LOGO with 2-half animation ══════════════ */
+  .meridian-mark {
+    width: clamp(220px, 28vw, 320px);
     height: auto;
+    display: block;
+  }
+  .meridian-mark .half-white, .meridian-mark .half-patina {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .meridian-mark .half-white {
+    fill: #FFFFFF;
+    animation: half-white-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) forwards,
+               half-white-float 6s ease-in-out 2.0s infinite;
     opacity: 0;
-    transform: scale(0.72) rotate(-6deg);
-    filter: blur(18px);
-    animation:
-      logo-reveal 1.8s cubic-bezier(0.22, 0.65, 0.18, 1) forwards,
-      logo-heartbeat 5s ease-in-out 2.4s infinite;
   }
-  .logo-stage::before {
-    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.20) 48%, rgba(127,164,153,0.38) 52%, transparent 70%);
-    mix-blend-mode: screen; opacity: 0;
-    animation: logo-sheen 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+  .meridian-mark .half-patina {
+    fill: #52716E;
+    animation: half-patina-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) 0.18s forwards,
+               half-patina-float 6s ease-in-out 2.2s infinite;
+    opacity: 0;
   }
-  .logo-stage::after {
-    content: ''; position: absolute; top: 50%; left: 50%;
-    width: 130%; height: 130%;
-    transform: translate(-50%, -50%) scale(0.3);
+  @keyframes half-white-in {
+    0%   { opacity: 0; transform: translate(-80px, -80px) rotate(-22deg) scale(0.7); }
+    60%  { opacity: 1; transform: translate(5px, 5px) rotate(2deg) scale(1.04); }
+    100% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  }
+  @keyframes half-patina-in {
+    0%   { opacity: 0; transform: translate(80px, 80px) rotate(22deg) scale(0.7); }
+    60%  { opacity: 1; transform: translate(-5px, -5px) rotate(-2deg) scale(1.04); }
+    100% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  }
+  @keyframes half-white-float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50%      { transform: translate(0, -4px) rotate(-1deg); }
+  }
+  @keyframes half-patina-float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50%      { transform: translate(0, 4px) rotate(1deg); }
+  }
+  .meridian-mark-wrap { position: relative; display: inline-block; }
+  .meridian-mark-wrap::after {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    width: 150%; height: 150%;
+    transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(95,127,120,0.35) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(82,113,110,0.34) 0%, transparent 60%);
     z-index: -1; opacity: 0;
-    animation: logo-ring-expand 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s forwards,
-               logo-ring-pulse 5s ease-in-out 2.4s infinite;
+    animation: mark-glow 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards,
+               mark-glow-pulse 5s ease-in-out 2.4s infinite;
   }
-  @keyframes logo-reveal {
-    0%   { opacity: 0; transform: scale(0.72) rotate(-6deg); filter: blur(18px); }
-    55%  { opacity: 1; transform: scale(1.04) rotate(1deg); filter: blur(2px); }
-    100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0px) drop-shadow(0 14px 38px rgba(95,127,120,0.35)); }
-  }
-  @keyframes logo-sheen {
-    0%   { opacity: 0; transform: translateX(-60%); }
-    40%  { opacity: 1; }
-    100% { opacity: 0; transform: translateX(60%); }
-  }
-  @keyframes logo-ring-expand {
-    0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
-    100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-  }
-  @keyframes logo-heartbeat {
-    0%, 100% { transform: scale(1); filter: blur(0px) drop-shadow(0 14px 38px rgba(95,127,120,0.35)); }
-    50%      { transform: scale(1.015); filter: blur(0px) drop-shadow(0 18px 50px rgba(95,127,120,0.55)); }
-  }
-  @keyframes logo-ring-pulse {
+  @keyframes mark-glow { to { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } }
+  @keyframes mark-glow-pulse {
     0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
     50%      { opacity: 0.9; transform: translate(-50%, -50%) scale(1.08); }
   }
+  .lockup-text { margin-top: 1rem; opacity: 0; transform: translateY(8px);
+    animation: lockup-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 1.6s forwards; }
+  @keyframes lockup-rise { to { opacity: 1; transform: translateY(0); } }
 
-  /* ══════════════ WAX SEAL (recurring brand element) ══════════════ */
-  .wax-seal {
-    width: 140px; height: 140px;
-    position: relative;
-    display: inline-flex; align-items: center; justify-content: center;
-  }
-  .wax-seal .seal-text {
-    position: absolute; inset: 0;
-    animation: seal-spin 40s linear infinite;
-  }
+  /* ── Brand seal (recurring) ── */
+  .wax-seal { width: 130px; height: 130px; position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .wax-seal .seal-text { position: absolute; inset: 0; animation: seal-spin 40s linear infinite; }
   .wax-seal .seal-text svg { width: 100%; height: 100%; }
   .wax-seal .seal-mono {
-    position: relative; z-index: 1;
-    width: 56px; height: 56px;
+    position: relative; z-index: 1; width: 50px; height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(95,127,120,0.35) 0%, rgba(11,18,32,0.95) 100%);
-    border: 1px solid rgba(95,127,120,0.45);
+    background: linear-gradient(135deg, rgba(82,113,110,0.40) 0%, rgba(11,18,32,0.95) 100%);
+    border: 1px solid rgba(82,113,110,0.50);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     color: var(--arctic);
-    font-size: 1.05rem;
+    font-size: 1rem;
     letter-spacing: -0.02em;
   }
   @keyframes seal-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  /* ── Filled square number badge (Finanzas-style) ── */
+  /* ── Filled square badge ── */
   .badge-sq {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 44px; height: 44px;
-    border-radius: 10px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600; font-size: 1.05rem;
+    width: 44px; height: 44px; border-radius: 10px;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.05rem;
     margin-bottom: 1.1rem;
   }
-  .badge-sq.dark { background: var(--midnight); color: var(--arctic); border: 1px solid rgba(255,255,255,0.08); }
+  .badge-sq.dark { background: var(--midnight); color: var(--arctic); border: 1px solid rgba(255,255,255,0.10); }
   .badge-sq.cream { background: rgba(255,255,255,0.92); color: var(--midnight); }
-  .badge-sq.patina { background: rgba(95,127,120,0.95); color: var(--arctic); }
+  .badge-sq.patina { background: rgba(82,113,110,0.95); color: var(--arctic); }
 
-  /* ── Problem cards: 3 distinct background tones ── */
+  /* ── Problem / Pillar cards ── */
   .pcard {
-    position: relative;
-    border-radius: 16px;
-    padding: 1.8rem 1.5rem;
+    position: relative; border-radius: 16px; padding: 1.8rem 1.5rem;
     box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 12px 24px -10px rgba(0,0,0,0.40);
     transition: transform 0.3s ease;
   }
   .pcard:hover { transform: translateY(-4px); }
   .pcard.v1 { background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.025) 100%); border: 1px solid rgba(255,255,255,0.10); }
-  .pcard.v1 h3, .pcard.v1 p { color: var(--arctic); }
-  .pcard.v1 p { color: rgba(255,255,255,0.74); }
+  .pcard.v1 p { color: rgba(255,255,255,0.78); }
   .pcard.v2 { background: linear-gradient(180deg, #1d1410 0%, #14100c 100%); border: 1px solid rgba(255,255,255,0.06); }
-  .pcard.v2 h3 { color: var(--arctic); }
-  .pcard.v2 p { color: rgba(255,235,210,0.62); }
-  .pcard.v3 { background: linear-gradient(180deg, rgba(95,127,120,0.42) 0%, rgba(75,107,100,0.32) 100%); border: 1px solid rgba(95,127,120,0.45); }
-  .pcard.v3 h3 { color: var(--arctic); }
-  .pcard.v3 p { color: rgba(255,255,255,0.85); }
+  .pcard.v2 p { color: rgba(255,235,210,0.66); }
+  .pcard.v3 { background: linear-gradient(180deg, rgba(82,113,110,0.45) 0%, rgba(64,90,87,0.35) 100%); border: 1px solid rgba(82,113,110,0.48); }
+  .pcard.v3 p { color: rgba(255,255,255,0.86); }
 
-  /* ── Pillar/Plan numbered list (Finanzas em-dash style) ── */
+  /* ── Step list ── */
   .step-row {
     display: flex; gap: 1rem;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
   }
   .step-row:last-child { border-bottom: none; }
-  .step-num {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600; font-size: 1.4rem;
-    color: var(--patina);
-    line-height: 1;
-    flex-shrink: 0;
-    width: 36px;
-  }
+  .step-num { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.4rem; color: var(--patina-light); line-height: 1; flex-shrink: 0; width: 42px; }
   .step-body h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; color: var(--arctic); margin-bottom: 0.35rem; }
-  .step-body p { font-size: 0.92rem; line-height: 1.55; color: rgba(255,255,255,0.7); }
+  .step-body p { font-size: 0.93rem; line-height: 1.55; color: rgba(255,255,255,0.72); }
 
-  /* ── Dashboard mockup (Meridian equivalent of Finanzas's Zoom mock) ── */
-  .mockup-frame {
+  /* ── Community mockup (replaces dashboard) ── */
+  .community-frame {
     position: relative;
     background: linear-gradient(180deg, #0f1726 0%, #0a1019 100%);
     border: 1px solid rgba(255,255,255,0.08);
@@ -264,70 +236,71 @@
     padding: 1.2rem;
     box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
   }
-  .mockup-header {
-    display: flex; align-items: center; gap: 0.5rem;
+  .community-header {
+    display: flex; align-items: center; gap: 0.55rem;
     padding-bottom: 0.9rem;
     border-bottom: 1px solid rgba(255,255,255,0.05);
     margin-bottom: 1rem;
   }
-  .mockup-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .mockup-pill {
+  .channel-pill {
     margin-left: auto;
     display: inline-flex; align-items: center; gap: 0.4rem;
     padding: 0.25rem 0.7rem;
-    background: rgba(95,127,120,0.18);
-    border: 1px solid rgba(95,127,120,0.42);
+    background: rgba(82,113,110,0.18);
+    border: 1px solid rgba(82,113,110,0.45);
     border-radius: 999px;
     font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--patina);
+    color: var(--patina-light);
     font-weight: 600;
   }
-  .trade-row {
-    display: grid; grid-template-columns: 22px 1fr auto auto;
-    gap: 0.6rem; align-items: center;
-    padding: 0.55rem 0.4rem;
-    border-radius: 6px;
-    font-size: 0.78rem;
-    transition: background 0.2s;
+  .chat-row { padding: 0.6rem 0.2rem; display: flex; gap: 0.65rem; }
+  .chat-av {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(82,113,110,0.22);
+    border: 1px solid rgba(82,113,110,0.48);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--patina-light);
+    font-weight: 600; font-size: 0.7rem;
+    flex-shrink: 0;
   }
-  .trade-row:nth-child(odd) { background: rgba(255,255,255,0.02); }
-  .trade-pair { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--arctic); }
-  .trade-hash { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--patina); font-size: 0.7rem; }
-  .trade-pnl-pos { color: #7FA499; font-weight: 600; }
-  .trade-pnl-neg { color: #C46B5F; font-weight: 600; }
+  .chat-bubble { flex: 1; }
+  .chat-name { font-weight: 600; font-size: 0.78rem; color: var(--arctic); display: flex; align-items: center; gap: 0.5rem; }
+  .chat-name .role { font-size: 0.58rem; padding: 0.1rem 0.4rem; background: rgba(82,113,110,0.20); border: 1px solid rgba(82,113,110,0.40); border-radius: 4px; color: var(--patina-light); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
+  .chat-text { color: rgba(255,255,255,0.78); font-size: 0.82rem; line-height: 1.45; margin-top: 0.2rem; }
+  .chat-time { color: var(--pewter); font-size: 0.66rem; }
 
   /* ── Countdown ── */
   .countdown-digit {
     font-variant-numeric: tabular-nums;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    background: rgba(95,127,120,0.10);
-    border: 1px solid rgba(95,127,120,0.22);
+    background: rgba(82,113,110,0.12);
+    border: 1px solid rgba(82,113,110,0.26);
     border-radius: 12px;
     padding: 0.7rem 0.6rem;
     min-width: 3.6rem;
     text-align: center;
   }
 
-  /* ── Progress bar ── */
+  /* ── Progress ── */
   .progress-track { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; position: relative; }
   .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #5F7F78 0%, #7FA499 100%);
+    background: linear-gradient(90deg, #52716E 0%, #7D9A96 100%);
     border-radius: 999px;
     transition: width 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
     position: relative;
-    box-shadow: 0 0 12px rgba(95,127,120,0.45);
+    box-shadow: 0 0 12px rgba(82,113,110,0.50);
   }
   .progress-fill::after {
     content: ''; position: absolute; top: 0; right: 0; bottom: 0;
     width: 32px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.42));
     animation: shimmer 2.4s ease-in-out infinite;
   }
   @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
 
-  /* ══════════════ GUARANTEE — layered composition (Finanzas-style) ══════════════ */
+  /* ── Guarantee composition ── */
   .guarantee-stack { position: relative; display: inline-block; }
   .guarantee-bg-text {
     font-family: 'Inter', sans-serif;
@@ -335,157 +308,140 @@
     font-size: clamp(7rem, 16vw, 13rem);
     letter-spacing: -0.05em;
     line-height: 1;
-    color: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.05);
     user-select: none;
   }
   .guarantee-center-seal {
-    position: absolute;
-    top: 50%; left: 50%;
+    position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 200px; height: 200px;
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, #1a2536 0%, #050810 70%);
-    border: 1px solid rgba(95,127,120,0.40);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.10);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column;
+    border: 1px solid rgba(82,113,110,0.45);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.10);
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
   }
   .guarantee-center-seal::before {
-    content: '';
-    position: absolute; inset: -10px;
+    content: ''; position: absolute; inset: -10px;
     border-radius: 50%;
-    border: 1px dashed rgba(95,127,120,0.32);
+    border: 1px dashed rgba(82,113,110,0.36);
     animation: seal-spin 32s linear infinite;
   }
-  .guarantee-center-seal .gs-big {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 4.5rem;
-    color: var(--arctic);
-    line-height: 0.9;
-  }
-  .guarantee-center-seal .gs-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--patina);
-    margin-top: 0.4rem;
-  }
+  .guarantee-center-seal .gs-big { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 4.5rem; color: var(--arctic); line-height: 0.9; }
+  .guarantee-center-seal .gs-label { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina-light); margin-top: 0.4rem; }
 
-  /* ══════════════ FAQ — pill rows (Finanzas-style) ══════════════ */
+  /* ── FAQ pill rows ── */
   details.faq-pill {
     background: transparent;
-    border: 1px solid rgba(95,127,120,0.32);
+    border: 1px solid rgba(82,113,110,0.36);
     border-radius: 999px;
     overflow: hidden;
     transition: border-color 0.2s, border-radius 0.2s, background 0.25s;
   }
   details.faq-pill[open] {
-    border-color: rgba(95,127,120,0.55);
+    border-color: rgba(82,113,110,0.58);
     border-radius: 24px;
-    background: rgba(95,127,120,0.06);
+    background: rgba(82,113,110,0.08);
   }
   details.faq-pill summary {
     padding: 1.1rem 1.4rem;
     cursor: pointer;
     display: flex; align-items: center; gap: 1rem;
     list-style: none;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600; font-size: 0.98rem;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.98rem;
     color: var(--arctic);
   }
   details.faq-pill summary::-webkit-details-marker { display: none; }
   details.faq-pill summary::before {
-    content: '+';
-    color: var(--patina);
-    font-size: 1.5rem; line-height: 1;
-    width: 18px; text-align: center;
-    transition: transform 0.25s;
-    flex-shrink: 0;
+    content: '+'; color: var(--patina-light); font-size: 1.5rem; line-height: 1;
+    width: 18px; text-align: center; transition: transform 0.25s; flex-shrink: 0;
   }
   details.faq-pill[open] summary::before { transform: rotate(45deg); }
-  details.faq-pill .faq-body {
-    padding: 0 1.4rem 1.15rem 3.4rem;
-    color: rgba(255,255,255,0.74);
-    line-height: 1.6;
-    font-size: 0.93rem;
-  }
+  details.faq-pill .faq-body { padding: 0 1.4rem 1.15rem 3.4rem; color: rgba(255,255,255,0.76); line-height: 1.6; font-size: 0.94rem; }
 
-  /* ── Section divider ── */
   .section-divider { border-top: 1px solid rgba(255,255,255,0.04); }
-
-  /* ── Date strip with icons ── */
   .date-chip {
     display: inline-flex; align-items: center; gap: 0.6rem;
     padding: 0.55rem 0.95rem;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 999px;
-    font-size: 0.83rem;
-    font-weight: 500;
-    color: rgba(255,255,255,0.85);
+    font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.86);
   }
-  .date-chip svg { color: var(--patina); flex-shrink: 0; }
+  .date-chip svg { color: var(--patina-light); flex-shrink: 0; }
+
+  /* Strategy chip */
+  .strat-chip {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    background: rgba(82,113,110,0.10);
+    border: 1px solid rgba(82,113,110,0.32);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--arctic);
+    font-weight: 500;
+  }
+  .strat-chip svg { color: var(--patina-light); flex-shrink: 0; }
 
   @media (prefers-reduced-motion: reduce) {
-    .pulse-dot::before, .logo-stage::before, .logo-stage::after,
-    .progress-fill::after, .wax-seal .seal-text, .guarantee-center-seal::before { animation: none; }
-    .logo-stage .logo-img { animation: none; opacity: 1; transform: none; filter: drop-shadow(0 14px 38px rgba(95,127,120,0.35)); }
+    .pulse-dot::before, .progress-fill::after,
+    .wax-seal .seal-text, .guarantee-center-seal::before,
+    .meridian-mark .half-white, .meridian-mark .half-patina,
+    .meridian-mark-wrap::after, .lockup-text { animation: none; }
+    .meridian-mark .half-white, .meridian-mark .half-patina { opacity: 1; transform: none; }
+    .lockup-text { opacity: 1; transform: none; }
   }
 </style>
 </head>
 <body class="ambient-bg">
 
-<!-- Background grid -->
 <div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
 
 
-<!-- ════════════════════════ 1 · HERO (2-column) ════════════════════════ -->
+<!-- ════════════════════════ 1 · HERO (2-col, copy LEFT, logo RIGHT) ════════════════════════ -->
 <section id="hero" class="relative px-6 pt-12 pb-20 lg:pt-16 lg:pb-24">
   <div class="relative max-w-6xl mx-auto">
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-      <!-- LEFT: copy + CTA -->
+      <!-- LEFT: copy -->
       <div class="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left">
 
         <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-7"
-             style="background: rgba(95,127,120,0.10); border: 1px solid rgba(95,127,120,0.28);">
+             style="background: rgba(82,113,110,0.12); border: 1px solid rgba(82,113,110,0.32);">
           <span class="pulse-dot"></span>
-          <span class="eyebrow !text-[10.5px]">Antes de que Meridian abra al público</span>
+          <span class="eyebrow !text-[10.5px]">Founders List · 1,000 plazas únicas</span>
         </div>
 
         <h1 class="h1">
-          Vamos a elegir<br class="hidden sm:block">
-          <span class="accent">1,000 traders.</span> Y los vamos<br class="hidden sm:block">
-          a tratar como nunca.
+          Sé <span class="accent">dueño</span><br class="hidden sm:block">
+          del broker que siempre<br class="hidden sm:block">
+          quisiste tener.
         </h1>
 
         <p class="body-text mt-6 max-w-xl mx-auto lg:mx-0">
-          No es lista de espera. Es la fundación de un broker que se construye contigo adentro.
-          <span class="text-arctic font-medium">Equity. Voz. Comunidad. Título. Eventos.</span>
+          Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span>.
+          Recibe equity real del broker, voz directa en lo que construimos, una comunidad
+          de traders dueños — y la libertad total para operar como tú quieras.
         </p>
 
-        <!-- Date strip with icons -->
+        <!-- Date strip -->
         <div class="mt-7 flex items-center gap-3 flex-wrap justify-center lg:justify-start">
           <span class="date-chip">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2"/>
-              <path d="M16 2v4M8 2v4M3 10h18"/>
+              <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
             </svg>
             25 jun · 2026
           </span>
           <span class="date-chip">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 6v6l4 2"/>
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
             </svg>
             7:00 PM · CDMX
           </span>
           <span class="date-chip">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="3"/>
+              <path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/>
             </svg>
             Sesión en vivo
           </span>
@@ -496,60 +452,24 @@
             Quiero ser Founder
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <p class="text-[12px] muted flex items-center gap-2.5 flex-wrap">
-            <span class="flex items-center gap-1.5">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-              Sin costo
-            </span>
-            <span class="text-white/15">·</span>
-            <span class="flex items-center gap-1.5 accent font-semibold">
-              <span data-counter="founders">347</span>/1,000
-            </span>
+          <p class="text-[12px] muted flex items-center gap-2">
+            <span class="pulse-dot" style="width:7px;height:7px;"></span>
+            <span><span class="accent font-semibold"><span data-counter="founders">347</span></span>/1,000 ya adentro</span>
           </p>
-        </div>
-
-        <!-- Trust strip -->
-        <div class="mt-12 max-w-xl mx-auto lg:mx-0 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
-          <div class="bg-midnight/80 px-3 py-3.5 text-center">
-            <p class="display text-[16px] font-bold text-arctic"><span data-counter="founders">347</span><span class="text-pewter">/1k</span></p>
-            <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-0.5">Founders</p>
-          </div>
-          <div class="bg-midnight/80 px-3 py-3.5 text-center">
-            <p class="display text-[16px] font-bold text-arctic">$20M</p>
-            <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-0.5">Valuación</p>
-          </div>
-          <div class="bg-midnight/80 px-3 py-3.5 text-center">
-            <p class="display text-[16px] font-bold text-arctic">12</p>
-            <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-0.5">Países</p>
-          </div>
-          <div class="bg-midnight/80 px-3 py-3.5 text-center">
-            <p class="display text-[16px] font-bold accent">100%</p>
-            <p class="text-[9px] tracking-[0.18em] uppercase text-pewter mt-0.5">On-chain</p>
-          </div>
         </div>
 
       </div>
 
-      <!-- RIGHT: logo + wax seal overlay -->
+      <!-- RIGHT: animated logo -->
       <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
-        <div class="relative">
-          <div class="logo-stage">
-            <img src="/assets/meridian-logo.png" alt="Meridian — Built for you to win"
-                 class="logo-img" loading="eager" decoding="async" />
-          </div>
-          <!-- Wax seal overlay (top-right of logo) -->
-          <div class="wax-seal absolute -top-4 -right-4 lg:-top-6 lg:-right-6">
-            <div class="seal-text">
-              <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <path id="seal-circle" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/>
-                </defs>
-                <text fill="#5F7F78" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
-                  <textPath href="#seal-circle">FOUNDERS · 1000 · BUILT FOR YOU TO WIN · MERIDIAN ·</textPath>
-                </text>
-              </svg>
-            </div>
-            <div class="seal-mono">M</div>
+        <div class="meridian-mark-wrap text-center">
+          <svg class="meridian-mark mx-auto" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
+            <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+            <path class="half-patina" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+          </svg>
+          <div class="lockup-text">
+            <p class="text-arctic font-semibold tracking-[0.40em] text-[20px] lg:text-[24px]">MERIDIAN</p>
+            <p class="text-[10.5px] tracking-[0.28em] uppercase accent mt-2">Built for you to win</p>
           </div>
         </div>
       </div>
@@ -560,190 +480,202 @@
 </section>
 
 
-<!-- ════════════════════════ 2 · PROBLEMA (3 cards, 3 colors) ════════════════════════ -->
-<section id="problema" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
+<!-- ════════════════════════ 2 · POR QUÉ ES DISTINTO (no más broker B-book) ════════════════════════ -->
+<section id="distinto" class="section-divider px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4);">
   <div class="max-w-5xl mx-auto">
 
     <div class="text-center mb-14 max-w-3xl mx-auto">
-      <p class="eyebrow mb-3">El problema</p>
+      <p class="eyebrow mb-3">Por qué Meridian es distinto</p>
       <h2 class="h2">
-        El <span class="accent">problema nunca fue tu estrategia.</span><br class="hidden sm:block">
-        Fue el broker que juega contra ti.
+        Estás cansado de brokers que<br class="hidden sm:block">
+        <span class="accent">te limitan, te bloquean y te ignoran.</span>
       </h2>
+      <p class="body-text mt-5">
+        Meridian es un broker <span class="text-arctic font-semibold">100% A-book honesto</span>.
+        No tradeamos contra ti, no te limitamos la estrategia, y te tratamos como dueño —
+        porque eso es exactamente lo que eres.
+      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
       <div class="pcard v1">
         <span class="badge-sq dark">1</span>
-        <h3 class="h3 mb-2">Ganan cuando pierdes</h3>
+        <h3 class="h3 text-arctic mb-2">Te prohíben estrategias</h3>
         <p class="text-[14.5px] leading-relaxed">
-          El modelo B-book hace que el broker gane cada vez que tu cuenta se vacía.
-          Su negocio es que tú pierdas.
+          "Sin scalping". "Sin HFT". "Sin news trading". El resto te corta las estrategias
+          que <span class="font-semibold">justamente funcionan</span> para que no ganes mucho.
         </p>
       </div>
 
       <div class="pcard v2">
         <span class="badge-sq cream">2</span>
-        <h3 class="h3 mb-2">Bloquean retiros</h3>
+        <h3 class="h3 text-arctic mb-2">Ganan cuando pierdes</h3>
         <p class="text-[14.5px] leading-relaxed">
-          Ganaste 5K legítimos. "Irregularidades", "violación de términos".
-          El retiro se congela 60 días. O para siempre.
+          El modelo B-book hace que el broker gane cada vez que tu cuenta se vacía.
+          Su negocio es que tú pierdas. Por eso te ponen trabas para retirar.
         </p>
       </div>
 
       <div class="pcard v3">
         <span class="badge-sq cream">3</span>
-        <h3 class="h3 mb-2">Sin voz, sin equity</h3>
+        <h3 class="h3 text-arctic mb-2">Sin voz, sin equity</h3>
         <p class="text-[14.5px] leading-relaxed">
-          Eres una cuenta más en su libro. Nunca votas, nunca participas,
-          nunca tienes parte del broker que ayudaste a crecer.
+          Eres una cuenta más en su libro. Nunca decides nada, nunca participas del éxito
+          del broker que ayudaste a crecer con tu volumen.
         </p>
       </div>
 
     </div>
 
-    <p class="text-center mt-12 display font-semibold text-[15px] lg:text-[17px] max-w-3xl mx-auto" style="color: rgba(255,255,255,0.86);">
-      La verdad es otra: hasta que cambies el broker, ninguna estrategia te va a salvar.
-      Por eso construimos <span class="accent">Meridian</span>.
+    <p class="text-center mt-12 font-medium text-[15px] lg:text-[17px] max-w-3xl mx-auto" style="color: rgba(255,255,255,0.88);">
+      Nosotros construimos <span class="accent">lo opuesto.</span> Un broker que es 100% honesto,
+      100% A-book, y donde tú eres uno de los 1,000 que lo posee.
     </p>
   </div>
 </section>
 
 
-<!-- ════════════════════════ 3 · EL PLAN — numbered list + mockup (2-col) ════════════════════════ -->
-<section id="plan" class="section-divider px-6 py-16 lg:py-24">
+<!-- ════════════════════════ 3 · 5 PILARES ════════════════════════ -->
+<section id="pilares" class="section-divider px-6 py-16 lg:py-24">
   <div class="max-w-6xl mx-auto">
 
     <div class="text-center mb-14 max-w-3xl mx-auto">
       <p class="eyebrow mb-3">Los 5 pilares de un Founder</p>
       <h2 class="h2">
-        El <span class="accent">plan de los 1,000 Founders</span> para<br class="hidden sm:block">
-        construir un broker desde adentro.
+        Lo que recibes por ser uno<br class="hidden sm:block">
+        de los <span class="accent">1,000 dueños.</span>
       </h2>
+      <p class="body-text mt-5">
+        No es lista de espera, no es acceso anticipado. Es ser <span class="text-arctic font-semibold">dueño parcial</span>
+        de la primera generación de Meridian.
+      </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-      <!-- LEFT: numbered steps with em-dash -->
+      <!-- LEFT: numbered pillar list -->
       <div>
-        <p class="eyebrow !text-[11px] mb-5">Pilar por pilar</p>
-
         <div class="step-row">
-          <span class="step-num">01 –</span>
+          <span class="step-num">01</span>
           <div class="step-body">
-            <h4>Equity en el broker</h4>
-            <p>Participación documentada legalmente antes del lanzamiento público. Valuación de entrada: <span class="accent font-semibold">$20M USD</span>. Cuando Meridian crece, creces con el broker.</p>
+            <h4>Equity real del broker</h4>
+            <p>Tu participación queda <span class="text-arctic font-medium">documentada legalmente</span> antes del lanzamiento público. Recibes equity como uno de los 1,000 fundadores. Cuando Meridian crece, tú creces.</p>
           </div>
         </div>
 
         <div class="step-row">
-          <span class="step-num">02 –</span>
+          <span class="step-num">02</span>
           <div class="step-body">
-            <h4>Founder Account permanente</h4>
-            <p>Tu cuenta marcada como Founder desde el primer login. Visible en dashboard. Para siempre.</p>
+            <h4>Voz directa en el producto</h4>
+            <p>Pides una feature, la construimos. Quieres ver algo distinto en el dashboard, lo agregamos. <span class="text-arctic font-medium">1 Founder · 1 voto</span> en el roadmap.</p>
           </div>
         </div>
 
         <div class="step-row">
-          <span class="step-num">03 –</span>
+          <span class="step-num">03</span>
+          <div class="step-body">
+            <h4>Libertad total para operar</h4>
+            <p>Scalping, HFT, arbitraje, news trading, swing, grid, copy, algorítmico — <span class="text-arctic font-medium">todo permitido.</span> Sin volumen mínimo. Sin máximos de retiro.</p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <span class="step-num">04</span>
+          <div class="step-body">
+            <h4>Comunidad de los 1,000</h4>
+            <p>Telegram privado con los otros 999 Founders + el equipo de Meridian. Networking real con traders que comparten propiedad del proyecto.</p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <span class="step-num">05</span>
           <div class="step-body">
             <h4>Trader Gala + Expo anual</h4>
-            <p>Acceso a los eventos privados de Meridian. Networking con los traders top de LATAM. Sin costo, todos los años.</p>
-          </div>
-        </div>
-
-        <div class="step-row">
-          <span class="step-num">04 –</span>
-          <div class="step-body">
-            <h4>Voz directa en el código</h4>
-            <p>Gobernanza on-chain. 1 Founder · 1 voto. Decides lo que se construye antes que el resto del mundo.</p>
-          </div>
-        </div>
-
-        <div class="step-row">
-          <span class="step-num">05 –</span>
-          <div class="step-body">
-            <h4>Comunidad privada</h4>
-            <p>Telegram con los otros 999 Founders + el equipo de Meridian. Acceso permanente, sin renovaciones.</p>
+            <p>Acceso anual a los eventos privados de Meridian. Networking + traders top de LATAM + el equipo, sin costo, todos los años.</p>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: Meridian dashboard mockup (equivalent to Finanzas's Zoom mock) -->
+      <!-- RIGHT: community chat mockup -->
       <div class="lg:sticky lg:top-12">
-        <div class="mockup-frame">
-          <div class="mockup-header">
-            <span class="mockup-dot" style="background: #ff5f56;"></span>
-            <span class="mockup-dot" style="background: #ffbd2e;"></span>
-            <span class="mockup-dot" style="background: #27c93f;"></span>
-            <span class="ml-2 text-[10px] muted tracking-wide">meridian.app/founders</span>
-            <span class="mockup-pill">
+        <div class="community-frame">
+          <div class="community-header">
+            <span class="w-2.5 h-2.5 rounded-full" style="background: #ff5f56;"></span>
+            <span class="w-2.5 h-2.5 rounded-full" style="background: #ffbd2e;"></span>
+            <span class="w-2.5 h-2.5 rounded-full" style="background: #27c93f;"></span>
+            <span class="ml-2 text-[10px] muted tracking-wide">Telegram · Meridian Founders</span>
+            <span class="channel-pill">
               <span class="pulse-dot" style="width: 6px; height: 6px;"></span>
-              On-chain live
+              Live · 347
             </span>
           </div>
-          <div class="px-1">
-            <div class="flex items-center justify-between mb-3">
-              <p class="display text-[13px] font-bold text-arctic">Founder #347 · Dashboard</p>
-              <p class="text-[10px] muted tracking-wider uppercase">EQUITY · $20M</p>
+
+          <div class="chat-row">
+            <span class="chat-av">JM</span>
+            <div class="chat-bubble">
+              <p class="chat-name">Josué Melero <span class="role">Founder</span></p>
+              <p class="chat-text">¿Qué feature quieren ver primero en el dashboard? Voto sobre el roadmap esta semana 👇</p>
+              <p class="chat-time">10:24 AM</p>
             </div>
-            <div class="space-y-0.5">
-              <div class="trade-row">
-                <span class="text-[#7FA499] text-[10px]">▲</span>
-                <span class="trade-pair">EUR/USD</span>
-                <span class="trade-hash">0x4a2…f9c1</span>
-                <span class="trade-pnl-pos">+$240</span>
-              </div>
-              <div class="trade-row">
-                <span class="text-[#7FA499] text-[10px]">▲</span>
-                <span class="trade-pair">XAU/USD</span>
-                <span class="trade-hash">0x83b…e7d2</span>
-                <span class="trade-pnl-pos">+$1.4k</span>
-              </div>
-              <div class="trade-row">
-                <span class="text-[#C46B5F] text-[10px]">▼</span>
-                <span class="trade-pair">GBP/JPY</span>
-                <span class="trade-hash">0xc1a…2b08</span>
-                <span class="trade-pnl-neg">-$95</span>
-              </div>
-              <div class="trade-row">
-                <span class="text-[#7FA499] text-[10px]">▲</span>
-                <span class="trade-pair">BTC/USD</span>
-                <span class="trade-hash">0x7e4…91af</span>
-                <span class="trade-pnl-pos">+$820</span>
-              </div>
-              <div class="trade-row">
-                <span class="text-[#7FA499] text-[10px]">▲</span>
-                <span class="trade-pair">USD/MXN</span>
-                <span class="trade-hash">0xd09…43c5</span>
-                <span class="trade-pnl-pos">+$135</span>
-              </div>
+          </div>
+
+          <div class="chat-row">
+            <span class="chat-av">LM</span>
+            <div class="chat-bubble">
+              <p class="chat-name">Luis M. <span class="role">#018</span></p>
+              <p class="chat-text">Yo necesito vista de equity histórico para mi estrategia algorítmica. Es prioridad 1 para mí.</p>
+              <p class="chat-time">10:26 AM</p>
             </div>
-            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] muted tracking-wide">
-              <span>Verificable en chain.meridian.app</span>
-              <span class="accent">↑ todas las trades</span>
+          </div>
+
+          <div class="chat-row">
+            <span class="chat-av">AC</span>
+            <div class="chat-bubble">
+              <p class="chat-name">Andrea C. <span class="role">#134</span></p>
+              <p class="chat-text">+1 a lo de Luis. Y por favor mantengan el ejecutor de scalping rápido — eso me cambió el juego.</p>
+              <p class="chat-time">10:28 AM</p>
             </div>
+          </div>
+
+          <div class="chat-row">
+            <span class="chat-av">RG</span>
+            <div class="chat-bubble">
+              <p class="chat-name">Roberto G. <span class="role">#289</span></p>
+              <p class="chat-text">Por mí, quiero el modo arbitraje cross-pair que mencionaron. Lo necesito para mi book diario.</p>
+              <p class="chat-time">10:31 AM</p>
+            </div>
+          </div>
+
+          <div class="chat-row">
+            <span class="chat-av">JM</span>
+            <div class="chat-bubble">
+              <p class="chat-name">Josué Melero <span class="role">Founder</span></p>
+              <p class="chat-text">Listo. Lo agrego al roadmap de este trimestre. Lo construimos para ustedes 🚀</p>
+              <p class="chat-time">10:33 AM</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] muted tracking-wide">
+            <span>Vista en vivo del Telegram privado de Founders</span>
+            <span class="accent">347 online</span>
           </div>
         </div>
 
-        <!-- Wax seal divider below mockup -->
+        <!-- Wax seal -->
         <div class="flex justify-center mt-8">
           <div class="wax-seal">
             <div class="seal-text">
-              <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <path id="seal-circle-2" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/>
-                </defs>
-                <text fill="#5F7F78" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
-                  <textPath href="#seal-circle-2">FOUNDERS · 1000 · BUILT FOR YOU TO WIN · MERIDIAN ·</textPath>
+              <svg viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
+                <defs><path id="seal-circle-1" d="M65,65 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
+                <text fill="#7D9A96" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="3" font-weight="600">
+                  <textPath href="#seal-circle-1">FOUNDERS · 1000 · BUILT FOR YOU TO WIN · MERIDIAN ·</textPath>
                 </text>
               </svg>
             </div>
             <div class="seal-mono">M</div>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -757,12 +689,12 @@
 
     <p class="eyebrow mb-3">Tu acceso al Founders List</p>
     <h2 class="h2 mb-4">
-      Acceso completo a los 5 pilares.<br class="hidden sm:block">
-      <span class="accent">Sin costo.</span>
+      Recibe los <span class="accent">5 pilares</span> completos.<br class="hidden sm:block">
+      Sin costo. Sólo registro.
     </h2>
     <p class="body-text mb-12 max-w-2xl mx-auto">
       Lo que recibirías en cualquier otro lanzamiento como pago alto, en Meridian
-      es el reconocimiento a los primeros 1,000 que creyeron antes del público.
+      es el reconocimiento a los primeros 1,000 que creyeron antes que nadie.
     </p>
 
     <div class="flex items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto mb-9">
@@ -802,26 +734,23 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
 
-    <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
-      <span class="date-chip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
-        </svg>
-        25 jun · 2026
-      </span>
-      <span class="date-chip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-        </svg>
-        7:00 PM · CDMX
-      </span>
+    <!-- Strategy chips strip -->
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
+      <span class="eyebrow !text-[10px] mr-2">Operas con</span>
+      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Scalping</span>
+      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> HFT</span>
+      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Arbitraje</span>
+      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> News</span>
+      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Swing</span>
+      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Algo</span>
+      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Lo que quieras</span>
     </div>
 
   </div>
 </section>
 
 
-<!-- ════════════════════════ 5 · ¿QUIÉN ES JOSUÉ? (2-col bio) ════════════════════════ -->
+<!-- ════════════════════════ 5 · ¿QUIÉN ES JOSUÉ? ════════════════════════ -->
 <section id="josue" class="section-divider px-6 py-16 lg:py-24">
   <div class="max-w-5xl mx-auto">
 
@@ -835,20 +764,19 @@
         </h2>
         <p class="body-text mt-6">
           Soy <span class="text-arctic font-semibold">Josué Melero</span>. Llevo años diciendo que
-          el problema del trader latinoamericano no es la estrategia — es el broker.
-          Cuando vi cómo funciona Meridian
-          <span class="text-arctic font-medium">— A-book real, on-chain, verificable —</span>
-          supe que era la primera respuesta real al sistema.
+          el problema del trader latinoamericano no es la estrategia — es el broker. Las
+          restricciones, los bloqueos, el modelo B-book. Cuando entendí que se podía hacer
+          un broker <span class="text-arctic font-medium">100% A-book honesto y construido por sus traders</span>,
+          decidí hacerlo.
         </p>
         <p class="body-text mt-4">
-          He participado en <span class="text-arctic font-medium">programas de radio</span>,
-          escrito artículos sobre mercados, manejado cuentas reales y construido la operación de
-          <span class="text-arctic font-medium">12 países en LATAM</span>. Cuando entras
-          al Founders List, entras al equipo conmigo — no como afiliado, como fundador.
+          Por eso elegimos a los 1,000 primeros como Founders: ustedes son la mitad del
+          proyecto. Su voz construye Meridian. Sus estrategias definen el dashboard.
+          Su voto dirige el roadmap. Esto no es un broker — es <span class="text-arctic font-semibold">nuestra casa.</span>
         </p>
         <div class="mt-8">
           <a href="#registro" class="btn-pill">
-            Quiero entrar antes del público
+            Quiero ser parte
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -861,7 +789,7 @@
                  class="absolute inset-0 w-full h-full object-cover"
                  loading="lazy" decoding="async" />
             <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight via-midnight/40 to-transparent pointer-events-none"></div>
-            <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 80px rgba(95,127,120,0.18);"></div>
+            <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 80px rgba(82,113,110,0.18);"></div>
             <div class="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-midnight/80 backdrop-blur border border-white/10">
               <span class="text-[11px] tracking-wide text-pewter">@josuemelero · 🇲🇽</span>
             </div>
@@ -874,7 +802,7 @@
 </section>
 
 
-<!-- ════════════════════════ 6 · GARANTÍA (layered composition) ════════════════════════ -->
+<!-- ════════════════════════ 6 · GARANTÍA ════════════════════════ -->
 <section id="garantia" class="section-divider px-6 py-20 lg:py-28 text-center" style="background: rgba(23,34,49,0.4);">
   <div class="max-w-3xl mx-auto">
 
@@ -892,17 +820,18 @@
     <p class="body-text max-w-2xl mx-auto">
       Cuando se cierran las 1,000 plazas, se cierra todo el programa de Founders.
       Pero los 1,000 quedan <span class="text-arctic font-medium">documentados legalmente — para siempre.</span>
-      No hay renovación. No hay cuota anual. No hay forma de perderlo.
+      Tu equity, tu voz, tu acceso a los eventos — todo se mantiene mientras Meridian exista.
     </p>
     <p class="body-text mt-4 max-w-xl mx-auto !text-[14px] muted">
-      Y si decides salirte antes del lanzamiento, también es libre. Sin cargos, sin tarjeta.
+      Y si decides salirte antes del lanzamiento, también es libre. Sin penalización.
+      Sólo tu palabra y la nuestra.
     </p>
 
   </div>
 </section>
 
 
-<!-- ════════════════════════ 7 · FAQ (pill rows) ════════════════════════ -->
+<!-- ════════════════════════ 7 · FAQ ════════════════════════ -->
 <section id="faq" class="section-divider px-6 py-16 lg:py-24">
   <div class="max-w-2xl mx-auto">
 
@@ -913,45 +842,50 @@
 
     <div class="space-y-3">
       <details class="faq-pill">
-        <summary>¿Cuánto cuesta de verdad?</summary>
+        <summary>¿Qué significa "ser dueño" del broker?</summary>
         <div class="faq-body">
-          Cero. No hay costo de entrada al Founders List. Tampoco se pide tarjeta.
-          Solo tu registro.
+          Que recibes equity real del broker antes del lanzamiento público. Tu participación
+          queda documentada legalmente. Cuando Meridian crece, tú creces como parte de la
+          empresa — no como cliente.
+        </div>
+      </details>
+      <details class="faq-pill">
+        <summary>¿Qué estrategias puedo usar para operar?</summary>
+        <div class="faq-body">
+          Cualquiera. Scalping, HFT, arbitraje, news trading, swing, position trading,
+          hedging, grid, algorítmico, copy trading — todo permitido. Sin volumen mínimo.
+          Sin máximos de retiro. Sin "letra pequeña".
+        </div>
+      </details>
+      <details class="faq-pill">
+        <summary>¿Cómo funciona la voz en el roadmap?</summary>
+        <div class="faq-body">
+          Cada Founder tiene 1 voto. Cada trimestre votamos qué features se construyen.
+          Y si una mayoría de Founders pide algo, se construye. Es así de simple — porque
+          ustedes son los dueños.
+        </div>
+      </details>
+      <details class="faq-pill">
+        <summary>¿Qué pasa si quiero algo personalizado para mí?</summary>
+        <div class="faq-body">
+          Si es una feature que sólo a ti te sirve, hablamos directo con el equipo en el
+          Telegram privado. Muchas de las features de Meridian nacieron de un Founder que
+          la pidió primero. <span class="text-arctic font-medium">Tu feedback construye el broker.</span>
         </div>
       </details>
       <details class="faq-pill">
         <summary>¿Qué necesito para empezar?</summary>
         <div class="faq-body">
-          Email, nombre y país. Después recibes el link al Telegram privado.
-          Tu Founder Account se activa el 25 de junio en la sesión en vivo (7 PM CDMX).
-        </div>
-      </details>
-      <details class="faq-pill">
-        <summary>¿Cómo funciona el equity?</summary>
-        <div class="faq-body">
-          Tu participación se documenta legalmente antes del lanzamiento público.
-          Recibes los términos exactos al entrar al Founders List, no después.
-        </div>
-      </details>
-      <details class="faq-pill">
-        <summary>¿Hay restricciones para operar?</summary>
-        <div class="faq-body">
-          Sólo el KYC normal del broker. Sin volumen mínimo. Sin estrategia restringida —
-          arbitraje, HFT, scalping, swing, todo permitido. Sin máximo de retiro.
-        </div>
-      </details>
-      <details class="faq-pill">
-        <summary>¿Puedo salirme cuando quiera?</summary>
-        <div class="faq-body">
-          Sí. Salir del Telegram privado o cerrar la cuenta del broker se hace cuando
-          quieras. Sin cargos. Sin penalización.
+          Email, nombre y país. Después recibes el link al Telegram privado y tu posición
+          en la lista. Tu Founder Account se activa el 25 de junio en la sesión en vivo (7 PM CDMX).
         </div>
       </details>
       <details class="faq-pill">
         <summary>¿Qué pasa después del 25 de junio?</summary>
         <div class="faq-body">
           Después del lanzamiento general, los 5 pilares (equity, voz, gala, comunidad,
-          Founder Account) ya no se ofrecen. Sólo los 1,000 Founders los mantienen. Para siempre.
+          Founder Account) ya no se ofrecen. Sólo los 1,000 Founders los mantienen.
+          Para siempre.
         </div>
       </details>
     </div>
@@ -959,18 +893,17 @@
 </section>
 
 
-<!-- ════════════════════════ 8 · CTA FINAL — 2-col emocional + form ════════════════════════ -->
+<!-- ════════════════════════ 8 · CTA FINAL ════════════════════════ -->
 <section id="registro" class="section-divider px-6 py-16 lg:py-24 relative overflow-hidden"
          style="background: rgba(23,34,49,0.4);">
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full" style="background: radial-gradient(circle, rgba(95,127,120,0.10) 0%, transparent 60%);"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full" style="background: radial-gradient(circle, rgba(82,113,110,0.12) 0%, transparent 60%);"></div>
   </div>
 
   <div class="relative max-w-6xl mx-auto">
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-      <!-- LEFT: narrative photo -->
       <div class="lg:col-span-5 order-2 lg:order-1">
         <div class="relative aspect-[4/5] rounded-2xl overflow-hidden max-w-sm mx-auto">
           <img src="/assets/cinematic/04-outro-moment.png" alt="" aria-hidden="true"
@@ -979,22 +912,22 @@
           <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-midnight via-midnight/30 to-transparent pointer-events-none"></div>
           <div class="absolute bottom-6 left-6 right-6 text-left">
             <p class="font-mono text-[10px] tracking-[0.32em] uppercase accent mb-3">25 · 06 · 2026</p>
-            <p class="display text-arctic font-bold text-2xl leading-tight">El momento<br><span class="accent" style="font-weight: 500;">es ahora.</span></p>
+            <p class="font-semibold text-arctic text-2xl leading-tight">Nos vemos<br><span class="accent" style="font-weight: 500;">adentro.</span></p>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: emotional headline + form -->
       <div class="lg:col-span-7 order-1 lg:order-2">
 
-        <p class="eyebrow mb-3"><span data-counter-remaining>653</span> plazas restantes · cierra el 25 jun</p>
+        <p class="eyebrow mb-3"><span data-counter-remaining>653</span> plazas restantes</p>
         <h2 class="h2 mb-5">
-          ¿Vas a entrar antes que los otros <span class="accent" data-counter-remaining>653</span>,
-          o vas a <span class="accent">llegar al lanzamiento</span> sin nada?
+          ¿Vas a ser uno de los <span class="accent">1,000 dueños</span>
+          o vas a quedarte como un cliente más?
         </h2>
         <p class="body-text mb-8 max-w-xl">
-          Apartar tu plaza toma menos de 30 segundos. No pedimos tarjeta, no pedimos pago.
-          Sólo tu registro — y te ganas un asiento permanente en lo que viene.
+          Una vez que entren los 1,000, esto se cierra para siempre. No habrá Founders #1,001.
+          Tu equity, tu voz, tu comunidad — todo se decide aquí.
+          <span class="text-arctic font-semibold">Es ahora o nunca.</span>
         </p>
 
         <form id="foundersForm" class="space-y-3 max-w-md" novalidate>
@@ -1031,20 +964,9 @@
           <p id="formMsg" class="hidden text-[13px] text-center mt-3" role="status"></p>
         </form>
 
-        <p class="mt-5 text-[12px] muted flex items-center gap-3 flex-wrap">
-          <span class="flex items-center gap-1.5">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            Sin costo
-          </span>
-          <span class="text-white/15">·</span>
-          <span class="flex items-center gap-1.5">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5F7F78" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            Sin tarjeta
-          </span>
-          <span class="text-white/15">·</span>
-          <span class="flex items-center gap-1.5 accent font-semibold">
-            <span data-counter="founders">347</span>/1,000
-          </span>
+        <p class="mt-5 text-[12px] muted flex items-center gap-2.5">
+          <span class="pulse-dot" style="width:7px;height:7px;"></span>
+          <span><span class="accent font-semibold"><span data-counter="founders">347</span></span>/1,000 founders ya adentro</span>
         </p>
 
       </div>
@@ -1057,7 +979,7 @@
 <!-- FOOTER -->
 <footer class="px-6 py-6 border-t border-white/5">
   <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] muted">
-    <span class="display font-bold tracking-[0.14em] uppercase text-arctic/80">Meridian · Built for you to win.</span>
+    <span class="tracking-[0.14em] uppercase font-semibold text-arctic/80">Meridian · Built for you to win.</span>
     <span>© 2026 · All rights reserved.</span>
   </div>
 </footer>
@@ -1123,7 +1045,7 @@
     console.log('[Founders List v3] POST /api/founders →', payload);
     msg.textContent = '✓ Apartando tu plaza…';
     msg.classList.remove('hidden');
-    msg.style.color = '#5F7F78';
+    msg.style.color = '#52716E';
     setTimeout(() => {
       window.location.href = `/v3/thank-you/?n=${currentFounders + 1}`;
     }, 1000);
