@@ -120,16 +120,19 @@
   .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
   @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
 
-  /* INLINE LOGO with 2-half animation */
-  .meridian-mark { width: clamp(220px, 28vw, 320px); height: auto; display: block; }
+  /* INLINE LOGO — continuous orbital animation */
+  .meridian-mark {
+    width: clamp(220px, 28vw, 320px); height: auto; display: block;
+    animation: mark-breathe 7s ease-in-out 2s infinite;
+  }
   .meridian-mark .half-white, .meridian-mark .half-patina { transform-box: fill-box; transform-origin: center; }
   .meridian-mark .half-white { fill: #FFFFFF; opacity: 0;
     animation: half-white-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) forwards,
-               half-white-float 6s ease-in-out 2.0s infinite;
+               half-white-orbit 9s ease-in-out 2.0s infinite;
   }
   .meridian-mark .half-patina { fill: #52716E; opacity: 0;
     animation: half-patina-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) 0.18s forwards,
-               half-patina-float 6s ease-in-out 2.2s infinite;
+               half-patina-orbit 9s ease-in-out 2.18s infinite;
   }
   @keyframes half-white-in {
     0% { opacity: 0; transform: translate(-80px, -80px) rotate(-22deg) scale(0.7); }
@@ -141,20 +144,54 @@
     60% { opacity: 1; transform: translate(-5px, -5px) rotate(-2deg) scale(1.04); }
     100% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
   }
-  @keyframes half-white-float { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(0, -4px) rotate(-1deg); } }
-  @keyframes half-patina-float { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(0, 4px) rotate(1deg); } }
+  @keyframes half-white-orbit {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(3px, -4px) rotate(-2deg); }
+    50%  { transform: translate(0, -6px) rotate(0deg); }
+    75%  { transform: translate(-3px, -4px) rotate(2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  @keyframes half-patina-orbit {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(-3px, 4px) rotate(2deg); }
+    50%  { transform: translate(0, 6px) rotate(0deg); }
+    75%  { transform: translate(3px, 4px) rotate(-2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  @keyframes mark-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 8px 28px rgba(82,113,110,0.42)); }
+    50%      { transform: scale(1.018); filter: drop-shadow(0 14px 38px rgba(82,113,110,0.62)); }
+  }
   .meridian-mark-wrap { position: relative; display: inline-block; }
   .meridian-mark-wrap::after {
     content: ''; position: absolute; top: 50%; left: 50%;
     width: 160%; height: 160%;
     transform: translate(-50%, -50%) scale(0); border-radius: 50%;
-    background: radial-gradient(circle, rgba(82,113,110,0.42) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(82,113,110,0.50) 0%, transparent 60%);
     z-index: -1; opacity: 0;
     animation: mark-glow 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards,
-               mark-glow-pulse 5s ease-in-out 2.4s infinite;
+               mark-glow-pulse 3.5s ease-in-out 2.4s infinite;
   }
-  @keyframes mark-glow { to { opacity: 0.7; transform: translate(-50%, -50%) scale(1); } }
-  @keyframes mark-glow-pulse { 0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); } }
+  @keyframes mark-glow { to { opacity: 0.65; transform: translate(-50%, -50%) scale(1); } }
+  @keyframes mark-glow-pulse {
+    0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 0.95; transform: translate(-50%, -50%) scale(1.12); }
+  }
+  .meridian-mark-wrap::before {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    width: 130%; height: 130%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(82,113,110,0.22);
+    z-index: -1; opacity: 0;
+    animation: halo-fade 1.4s ease-out 1.0s forwards,
+               halo-spin 28s linear 2.4s infinite;
+  }
+  @keyframes halo-fade { to { opacity: 0.7; } }
+  @keyframes halo-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
   .lockup-text { margin-top: 1rem; opacity: 0; transform: translateY(8px);
     animation: lockup-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 1.6s forwards; }
   @keyframes lockup-rise { to { opacity: 1; transform: translateY(0); } }
@@ -320,7 +357,7 @@
         </div>
 
         <h1 class="h1">
-          Sé <span class="accent">dueño</span><br class="hidden sm:block">
+          Sé <span class="accent">Founder</span><br class="hidden sm:block">
           del broker que siempre<br class="hidden sm:block">
           quisiste tener.
         </h1>
@@ -328,7 +365,7 @@
         <p class="body-text mt-6 max-w-xl mx-auto lg:mx-0">
           Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span>.
           Recibe equity real, voz directa en lo que construimos, una comunidad
-          de traders dueños — y la libertad total para operar como tú quieras.
+          de traders Founders — y la libertad total para operar como tú quieras.
         </p>
 
         <div class="mt-7 flex items-center gap-3 flex-wrap justify-center lg:justify-start">
@@ -395,7 +432,7 @@
       </h2>
       <p class="body-text mt-5">
         Meridian es un broker <span class="text-arctic font-semibold">100% A-book honesto</span>.
-        No tradeamos contra ti, no te limitamos la estrategia, y te tratamos como dueño —
+        No tradeamos contra ti, no te limitamos la estrategia, y te tratamos como Founder —
         porque eso es exactamente lo que eres.
       </p>
     </div>
@@ -436,7 +473,7 @@
       <span class="inline-block w-6 h-px bg-patina-light align-middle ml-3"></span>
     </p>
     <h3 class="font-semibold text-arctic leading-[0.95]" style="font-size: clamp(2.4rem, 7vw, 4.5rem); letter-spacing: -0.03em; text-shadow: 0 4px 32px rgba(0,0,0,0.7);">
-      Lo que recibes<br><span class="accent-light" style="font-weight: 400;">como dueño.</span>
+      Lo que recibes<br><span class="accent-light" style="font-weight: 400;">como Founder.</span>
     </h3>
   </div>
 </section>
@@ -450,9 +487,9 @@
       <p class="eyebrow mb-3">Los 5 pilares de un Founder</p>
       <h2 class="h2">
         Lo que recibes por ser uno<br class="hidden sm:block">
-        de los <span class="accent">1,000 dueños.</span>
+        de los <span class="accent">1,000 Founders.</span>
       </h2>
-      <p class="body-text mt-5">No es lista de espera, no es acceso anticipado. Es ser <span class="text-arctic font-semibold">dueño parcial</span> de la primera generación de Meridian.</p>
+      <p class="body-text mt-5">No es lista de espera, no es acceso anticipado. Es ser <span class="text-arctic font-semibold">Founder parcial</span> de la primera generación de Meridian.</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -632,9 +669,9 @@
     </div>
 
     <div class="space-y-3">
-      <details class="faq-pill"><summary>¿Qué significa "ser dueño" del broker?</summary><div class="faq-body">Que recibes equity real del broker antes del lanzamiento público. Tu participación queda documentada legalmente. Cuando Meridian crece, tú creces como parte de la empresa — no como cliente.</div></details>
+      <details class="faq-pill"><summary>¿Qué significa "ser Founder" del broker?</summary><div class="faq-body">Que recibes equity real del broker antes del lanzamiento público. Tu participación queda documentada legalmente. Cuando Meridian crece, tú creces como parte de la empresa — no como cliente.</div></details>
       <details class="faq-pill"><summary>¿Qué estrategias puedo usar para operar?</summary><div class="faq-body">Cualquiera. Scalping, HFT, arbitraje, news trading, swing, position trading, hedging, grid, algorítmico, copy trading — todo permitido. Sin volumen mínimo. Sin máximos de retiro. Sin "letra pequeña".</div></details>
-      <details class="faq-pill"><summary>¿Cómo funciona la voz en el roadmap?</summary><div class="faq-body">Cada Founder tiene 1 voto. Cada trimestre votamos qué features se construyen. Y si una mayoría de Founders pide algo, se construye. Es así de simple — porque ustedes son los dueños.</div></details>
+      <details class="faq-pill"><summary>¿Cómo funciona la voz en el roadmap?</summary><div class="faq-body">Cada Founder tiene 1 voto. Cada trimestre votamos qué features se construyen. Y si una mayoría de Founders pide algo, se construye. Es así de simple — porque ustedes son los Founders.</div></details>
       <details class="faq-pill"><summary>¿Qué pasa si quiero algo personalizado?</summary><div class="faq-body">Si es una feature que sólo a ti te sirve, hablamos directo con el equipo en el Telegram privado. Muchas de las features de Meridian nacieron de un Founder que la pidió primero. <span class="text-arctic font-medium">Tu feedback construye el broker.</span></div></details>
       <details class="faq-pill"><summary>¿Qué necesito para empezar?</summary><div class="faq-body">Email, nombre y país. Después recibes el link al Telegram privado y tu posición en la lista. Tu Founder Account se activa el 25 de junio en la sesión en vivo (7 PM CDMX).</div></details>
       <details class="faq-pill"><summary>¿Qué pasa después del 25 de junio?</summary><div class="faq-body">Después del lanzamiento general, los 5 pilares (equity, voz, gala, comunidad, Founder Account) ya no se ofrecen. Sólo los 1,000 Founders los mantienen. Para siempre.</div></details>
@@ -687,7 +724,7 @@
 
         <p class="eyebrow mb-3"><span data-counter-remaining>653</span> plazas restantes</p>
         <h2 class="h2 mb-5">
-          ¿Vas a ser uno de los <span class="accent">1,000 dueños</span>
+          ¿Vas a ser uno de los <span class="accent">1,000 Founders</span>
           o vas a quedarte como un cliente más?
         </h2>
         <p class="body-text mb-8 max-w-xl">

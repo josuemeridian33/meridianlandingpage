@@ -10,15 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --arctic: #FFFFFF; --patina: #5F7F78; --midnight: #0B1220;
-    --steel: #172231; --slate: #2A3440; --pewter: #6B717C;
+    --arctic: #FFFFFF; --patina: #52716E; --patina-light: #7D9A96;
+    --midnight: #0B1220; --steel: #172231; --slate: #2A3440; --pewter: #6B717C;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { overflow-x: hidden; }
   body {
     font-family: 'Inter', sans-serif;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(95,127,120,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(82,113,110,0.12) 0%, transparent 60%),
       var(--midnight);
     color: var(--arctic);
     min-height: 100vh;
@@ -27,13 +27,27 @@
   }
   .container { max-width: 1100px; margin: 0 auto; }
   header { text-align: center; margin-bottom: 56px; }
+
+  /* Logo mark */
+  .root-logo {
+    width: 70px; height: 70px; margin: 0 auto 22px;
+    display: block;
+    animation: root-breathe 6s ease-in-out infinite;
+  }
+  .root-logo .half-white { fill: #FFFFFF; }
+  .root-logo .half-patina { fill: #52716E; }
+  @keyframes root-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 6px 20px rgba(82,113,110,0.35)); }
+    50%      { transform: scale(1.03); filter: drop-shadow(0 10px 28px rgba(82,113,110,0.55)); }
+  }
+
   .eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: 0.28em;
     text-transform: uppercase; color: var(--patina); margin-bottom: 14px;
   }
   h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; }
-  h1 .accent { color: var(--patina); font-style: italic; font-family: Georgia, 'Times New Roman', serif; }
-  .subtitle { color: var(--pewter); font-size: 15px; margin-top: 14px; line-height: 1.6; max-width: 560px; margin-left: auto; margin-right: auto; }
+  h1 .accent { color: var(--patina); }
+  .subtitle { color: var(--pewter); font-size: 15px; margin-top: 14px; line-height: 1.6; max-width: 620px; margin-left: auto; margin-right: auto; }
 
   .grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -51,19 +65,20 @@
   }
   .card:hover {
     transform: translateY(-3px);
-    border-color: rgba(95,127,120,0.4);
-    box-shadow: 0 24px 48px rgba(95,127,120,0.15);
+    border-color: rgba(82,113,110,0.45);
+    box-shadow: 0 24px 48px rgba(82,113,110,0.18);
   }
   .card-badge {
     align-self: flex-start;
     font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
     padding: 4px 10px; border-radius: 100px;
-    background: rgba(95,127,120,0.12); color: var(--patina);
-    border: 1px solid rgba(95,127,120,0.25);
+    background: rgba(82,113,110,0.14); color: var(--patina);
+    border: 1px solid rgba(82,113,110,0.30);
     margin-bottom: 6px;
   }
   .card-badge.cine { background: rgba(245,128,77,0.10); color: #F5804D; border-color: rgba(245,128,77,0.25); }
-  .card-badge.short { background: rgba(127,164,153,0.12); color: #7FA499; border-color: rgba(127,164,153,0.30); }
+  .card-badge.short { background: rgba(125,154,150,0.14); color: var(--patina-light); border-color: rgba(125,154,150,0.32); }
+  .card-badge.vsl { background: rgba(255,200,87,0.10); color: #FFC857; border-color: rgba(255,200,87,0.25); }
 
   .card h2 { font-size: 19px; font-weight: 600; color: var(--arctic); letter-spacing: -0.01em; }
   .card p { font-size: 13.5px; color: var(--pewter); line-height: 1.55; }
@@ -72,13 +87,14 @@
     font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--pewter);
   }
   .card-meta a {
-    color: var(--patina); text-decoration: none;
+    color: var(--patina-light); text-decoration: none;
     padding: 4px 10px; border-radius: 4px;
-    background: rgba(95,127,120,0.08);
-    border: 1px solid rgba(95,127,120,0.18);
+    background: rgba(82,113,110,0.10);
+    border: 1px solid rgba(82,113,110,0.22);
     transition: all 0.2s;
   }
-  .card-meta a:hover { background: rgba(95,127,120,0.18); }
+  .card-meta a:hover { background: rgba(82,113,110,0.20); }
+
   footer {
     text-align: center; margin-top: 80px; padding-top: 32px;
     border-top: 1px solid rgba(255,255,255,0.06);
@@ -91,57 +107,71 @@
 <div class="container">
 
   <header>
-    <p class="eyebrow">Meridian · Internal · Versions Index</p>
-    <h1>Founders List Landing — <span class="accent">3 versiones.</span></h1>
+    <svg class="root-logo" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
+      <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+      <path class="half-patina" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+    </svg>
+    <p class="eyebrow">Meridian · Founders List · Versions</p>
+    <h1>Sé <span class="accent">Founder</span> del broker que siempre quisiste tener.</h1>
     <p class="subtitle">
-      Cada versión tiene un sabor distinto. Compara aquí abajo y úsalas para A/B test
-      o decide la final.
+      Una sola promesa, varias formas de contarla. Compara aquí abajo —
+      VSL corto, landing larga, cinematic edition — y úsalas para A/B test o decide la final.
     </p>
   </header>
 
   <div class="grid">
 
-    <!-- V1 -->
-    <a href="/v1/" class="card">
-      <span class="card-badge">V1 · Long</span>
-      <h2>Original Non-Cinematic</h2>
-      <p>Estructura larga estándar — Hero + 5 pilares + VS + Testimonios + Urgencia + Skin + FAQ + Form.</p>
+    <!-- V3 VSL -->
+    <a href="/v3/vsl/" class="card">
+      <span class="card-badge vsl">V3 · VSL</span>
+      <h2>VSL Edition</h2>
+      <p>Hero con video player + Por qué es distinto + Tu libertad + Skin in the game. La versión que vende con video.</p>
       <div class="card-meta">
-        <a href="/v1/" onclick="event.stopPropagation()">Landing →</a>
-        <a href="/v1/thank-you/" onclick="event.stopPropagation()">Thank-you →</a>
+        <a href="/v3/vsl/" onclick="event.stopPropagation()">Landing →</a>
       </div>
     </a>
 
-    <!-- V2 -->
-    <a href="/v2/" class="card">
-      <span class="card-badge cine">V2 · Long Cinematic</span>
-      <h2>Cinematic Edition</h2>
-      <p>Misma estructura larga + Mountain peak hero + "El Momento" cinematográfico + vignette + film grain.</p>
-      <div class="card-meta">
-        <a href="/v2/" onclick="event.stopPropagation()">Landing →</a>
-        <a href="/v2/thank-you/" onclick="event.stopPropagation()">Thank-you →</a>
-      </div>
-    </a>
-
-    <!-- V3 non-cine -->
+    <!-- V3 short -->
     <a href="/v3/" class="card">
       <span class="card-badge short">V3 · Short</span>
-      <h2>En-Vivo Short</h2>
-      <p>Una sola pantalla. Logo crown + headline + countdown + form. Patrón "en vivo" / live class.</p>
+      <h2>Founders Short</h2>
+      <p>8 secciones — Hero, problema, 5 pilares, acceso, bio Josué, garantía, FAQ, registro. Hero 2-col con logo animado.</p>
       <div class="card-meta">
         <a href="/v3/" onclick="event.stopPropagation()">Landing →</a>
         <a href="/v3/thank-you/" onclick="event.stopPropagation()">Thank-you →</a>
       </div>
     </a>
 
-    <!-- V3 cine -->
+    <!-- V3 cinematic -->
     <a href="/v3/cinematic/" class="card">
-      <span class="card-badge cine">V3 · Short Cinematic</span>
-      <h2>En-Vivo Cinematic</h2>
-      <p>Misma una-pantalla de v3 + Mountain peak backdrop + film grain + vignette.</p>
+      <span class="card-badge cine">V3 · Cinematic</span>
+      <h2>Founders Cinematic</h2>
+      <p>Misma estructura de 8 secciones + mountain peak hero con ken burns + grain overlay + intercuts cinematográficos.</p>
       <div class="card-meta">
         <a href="/v3/cinematic/" onclick="event.stopPropagation()">Landing →</a>
         <a href="/v3/thank-you-cinematic/" onclick="event.stopPropagation()">Thank-you →</a>
+      </div>
+    </a>
+
+    <!-- V1 (long original) -->
+    <a href="/v1/" class="card">
+      <span class="card-badge">V1 · Long</span>
+      <h2>Long Edition (Original)</h2>
+      <p>11 secciones — Hero + 5 pilares en bento + VS industria + Testimonios + Urgencia + Skin + FAQ + CTA final.</p>
+      <div class="card-meta">
+        <a href="/v1/" onclick="event.stopPropagation()">Landing →</a>
+        <a href="/v1/thank-you/" onclick="event.stopPropagation()">Thank-you →</a>
+      </div>
+    </a>
+
+    <!-- V2 (long cinematic) -->
+    <a href="/v2/" class="card">
+      <span class="card-badge cine">V2 · Long Cinematic</span>
+      <h2>Long Cinematic</h2>
+      <p>Misma estructura larga de v1 + Mountain peak hero + "El Momento" cinematográfico + vignette + film grain.</p>
+      <div class="card-meta">
+        <a href="/v2/" onclick="event.stopPropagation()">Landing →</a>
+        <a href="/v2/thank-you/" onclick="event.stopPropagation()">Thank-you →</a>
       </div>
     </a>
 

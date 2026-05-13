@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founders List · Meridian — Sé dueño del broker</title>
-<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity, voz, comunidad y libertad total. Trade como quieras, donde quieras. Sé dueño del broker.">
+<title>Founders List · Meridian — Sé Founder del broker</title>
+<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity, voz, comunidad y libertad total. Trade como quieras, donde quieras. Sé Founder del broker.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,11 +114,12 @@
   .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
   @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
 
-  /* ══════════════ INLINE LOGO with 2-half animation ══════════════ */
+  /* ══════════════ INLINE LOGO — continuous orbital animation ══════════════ */
   .meridian-mark {
     width: clamp(110px, 13vw, 160px);
     height: auto;
     display: block;
+    animation: mark-breathe 7s ease-in-out 2s infinite;
   }
   .meridian-mark .half-white, .meridian-mark .half-patina {
     transform-box: fill-box;
@@ -126,15 +127,15 @@
   }
   .meridian-mark .half-white {
     fill: #FFFFFF;
-    animation: half-white-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) forwards,
-               half-white-float 6s ease-in-out 2.0s infinite;
     opacity: 0;
+    animation: half-white-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) forwards,
+               half-white-orbit 9s ease-in-out 2.0s infinite;
   }
   .meridian-mark .half-patina {
     fill: #52716E;
-    animation: half-patina-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) 0.18s forwards,
-               half-patina-float 6s ease-in-out 2.2s infinite;
     opacity: 0;
+    animation: half-patina-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) 0.18s forwards,
+               half-patina-orbit 9s ease-in-out 2.18s infinite;
   }
   @keyframes half-white-in {
     0%   { opacity: 0; transform: translate(-60px, -60px) rotate(-18deg) scale(0.7); }
@@ -146,13 +147,23 @@
     60%  { opacity: 1; transform: translate(-4px, -4px) rotate(-2deg) scale(1.04); }
     100% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
   }
-  @keyframes half-white-float {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50%      { transform: translate(0, -3px) rotate(-1deg); }
+  @keyframes half-white-orbit {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(2px, -3px) rotate(-2deg); }
+    50%  { transform: translate(0, -5px) rotate(0deg); }
+    75%  { transform: translate(-2px, -3px) rotate(2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
   }
-  @keyframes half-patina-float {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50%      { transform: translate(0, 3px) rotate(1deg); }
+  @keyframes half-patina-orbit {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(-2px, 3px) rotate(2deg); }
+    50%  { transform: translate(0, 5px) rotate(0deg); }
+    75%  { transform: translate(2px, 3px) rotate(-2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  @keyframes mark-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 6px 20px rgba(82,113,110,0.30)); }
+    50%      { transform: scale(1.018); filter: drop-shadow(0 10px 28px rgba(82,113,110,0.50)); }
   }
   .meridian-mark-wrap {
     position: relative;
@@ -164,18 +175,31 @@
     width: 160%; height: 160%;
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(82,113,110,0.32) 0%, transparent 60%);
-    z-index: -1;
+    background: radial-gradient(circle, rgba(82,113,110,0.34) 0%, transparent 60%);
+    z-index: -1; opacity: 0;
     animation: mark-glow 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards,
-               mark-glow-pulse 5s ease-in-out 2.4s infinite;
-    opacity: 0;
+               mark-glow-pulse 3.5s ease-in-out 2.4s infinite;
   }
-  @keyframes mark-glow {
-    to { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
-  }
+  @keyframes mark-glow { to { opacity: 0.55; transform: translate(-50%, -50%) scale(1); } }
   @keyframes mark-glow-pulse {
-    0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: 0.85; transform: translate(-50%, -50%) scale(1.08); }
+    0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 0.85; transform: translate(-50%, -50%) scale(1.12); }
+  }
+  .meridian-mark-wrap::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    width: 130%; height: 130%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(82,113,110,0.18);
+    z-index: -1; opacity: 0;
+    animation: halo-fade 1.4s ease-out 1.0s forwards,
+               halo-spin 28s linear 2.4s infinite;
+  }
+  @keyframes halo-fade { to { opacity: 0.65; } }
+  @keyframes halo-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
   /* Brand lockup text under mark */
@@ -425,13 +449,13 @@
 
     <!-- HEADLINE — NEW OFFER -->
     <h1 class="h1 max-w-3xl mx-auto">
-      Sé <span class="accent">dueño</span> del broker<br class="hidden sm:block">
+      Sé <span class="accent">Founder</span> del broker<br class="hidden sm:block">
       que siempre quisiste tener.
     </h1>
 
     <p class="body-text mt-6 max-w-2xl mx-auto">
       Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span> y recibe
-      equity real, voz en lo que construimos, una comunidad de traders dueños del proyecto —
+      equity real, voz en lo que construimos, una comunidad de traders Founders del proyecto —
       y la libertad de tradear como tú quieras, con la estrategia que quieras.
     </p>
 
@@ -540,7 +564,7 @@
             <path d="M3 21h18M5 21V8m4 13V5m4 16V9m4 12V7M3 3v18"/>
           </svg>
         </div>
-        <h3 class="h3 text-arctic mb-2">Eres dueño del broker</h3>
+        <h3 class="h3 text-arctic mb-2">Eres Founder del broker</h3>
         <p class="body-text !text-[14.5px]">
           Recibes equity real del broker antes del lanzamiento. Tu nombre queda registrado
           como uno de los <span class="accent font-semibold">1,000 fundadores</span>.
@@ -700,7 +724,7 @@
         </h2>
         <p class="body-text mt-6 max-w-xl">
           Queremos que entres no como cliente, sino como
-          <span class="text-arctic font-semibold">dueño parcial</span> de un broker que se construye
+          <span class="text-arctic font-semibold">Founder parcial</span> de un broker que se construye
           contigo adentro. Vas a tener voz, vas a tener equity, vas a tener comunidad — y vas a
           poder operar con la libertad que mereces.
         </p>
