@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casi listo · Founders List Meridian</title>
+<title>Casi listo · Founders Hub Meridian</title>
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,13 +13,8 @@
 
 <style>
   :root {
-    --arctic: #FFFFFF;
-    --patina: #52716E;
-    --patina-light: #7D9A96;
-    --midnight: #0B1220;
-    --steel: #172231;
-    --slate: #2A3440;
-    --pewter: #6B717C;
+    --arctic: #FFFFFF; --patina: #52716E; --patina-light: #7D9A96;
+    --midnight: #0B1220; --steel: #172231; --slate: #2A3440; --pewter: #6B717C;
   }
   * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
   html, body { overflow-x: hidden; margin: 0; max-width: 100%; }
@@ -33,9 +28,20 @@
     display: flex; flex-direction: column;
   }
 
-  .h1 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
-  .h2 { font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+  }
+
+  .h1 { font-size: clamp(2rem, 4.4vw, 3.4rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; }
+  .h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 600; letter-spacing: -0.015em; line-height: 1.12; }
+  .h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.005em; }
   .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
+  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.76); font-weight: 400; }
   .muted { color: var(--pewter); }
   .accent { color: var(--patina); }
   .accent-light { color: var(--patina-light); }
@@ -53,6 +59,7 @@
     border-radius: 100px;
     transition: width 3.2s cubic-bezier(0.22, 0.72, 0.22, 1);
     position: relative; overflow: hidden;
+    box-shadow: 0 0 12px rgba(82,113,110,0.45);
   }
   .progress-fill::after {
     content: ''; position: absolute; inset: 0;
@@ -84,6 +91,12 @@
     backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255,255,255,0.06);
   }
+  .glass-soft {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .glass-soft:hover { border-color: rgba(82,113,110,0.32); transform: translateY(-2px); }
 
   .phase-2 {
     opacity: 0; transform: translateY(20px);
@@ -92,7 +105,6 @@
   }
   .phase-2.in { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
-  /* Logo (compact mark with breathe) */
   .ty-mark { width: 92px; height: 92px; display: block; margin: 0 auto;
     animation: ty-mark-breathe 6s ease-in-out infinite;
   }
@@ -103,24 +115,67 @@
     50%      { transform: scale(1.03); filter: drop-shadow(0 12px 32px rgba(82,113,110,0.52)); }
   }
 
+  /* Pillar mini-card */
+  .pillar-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 1.1rem 1rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .pillar-card:hover { border-color: rgba(82,113,110,0.32); transform: translateY(-2px); }
+  .pillar-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px;
+    border-radius: 7px;
+    background: rgba(82,113,110,0.14);
+    border: 1px solid rgba(82,113,110,0.32);
+    color: var(--patina-light);
+    font-weight: 600; font-size: 0.78rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Roadmap timeline */
+  .road-row {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .road-row:last-child { border-bottom: none; }
+  .road-step {
+    width: 28px; height: 28px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; font-weight: 600;
+    background: rgba(82,113,110,0.16);
+    border: 1px solid rgba(82,113,110,0.36);
+    color: var(--patina-light);
+  }
+  .road-step.done { background: var(--patina); border-color: var(--patina); color: #FFF; }
+  .road-step.active { background: rgba(82,113,110,0.32); border-color: var(--patina-light); color: var(--arctic); }
+
   @media (prefers-reduced-motion: reduce) {
     .progress-fill, .progress-fill::after, .pulse-dot::before, .ty-mark { animation: none !important; transition: none !important; }
   }
 </style>
 </head>
-<body>
+<body class="relative">
 
-<header class="px-6 py-5 lg:py-6 flex items-center justify-center border-b border-white/5">
+<div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
+
+<header class="relative z-10 px-6 py-5 lg:py-6 flex items-center justify-center border-b border-white/5">
   <a href="/v1/" class="flex items-center gap-3" aria-label="Volver al inicio">
     <span class="text-[11px] font-semibold uppercase tracking-[0.3em] text-arctic">Meridian</span>
-    <span class="text-[10px] tracking-[0.22em] uppercase text-patina">Founders List</span>
+    <span class="text-[10px] tracking-[0.22em] uppercase text-patina">Long Edition · Founders</span>
   </a>
 </header>
 
-<main class="flex-1 flex items-center justify-center px-6 py-12 lg:py-16">
-  <div class="w-full max-w-xl mx-auto">
+<main class="relative z-10 flex-1 px-6 py-12 lg:py-16">
+  <div class="w-full max-w-4xl mx-auto">
 
-    <section class="text-center">
+    <!-- ─── HERO ─── -->
+    <section class="text-center max-w-xl mx-auto">
       <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-7"
            style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.32);">
         <span class="pulse-dot"></span>
@@ -153,8 +208,14 @@
       </div>
     </section>
 
+    <!-- ─── PHASE 2 — Telegram CTA + extras ─── -->
     <section class="phase-2 mt-12 lg:mt-14" id="phase2">
-      <div class="glass rounded-2xl p-7 lg:p-8 text-center relative overflow-hidden">
+
+      <!-- Telegram card -->
+      <div class="glass rounded-2xl p-7 lg:p-9 text-center relative overflow-hidden max-w-xl mx-auto">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full pointer-events-none"
+             style="background: radial-gradient(circle, rgba(82,113,110,0.18) 0%, transparent 70%);"></div>
+
         <p class="eyebrow !text-[10.5px]">Último paso</p>
         <h2 class="h2 mt-3 text-arctic">
           Únete al <span class="accent">Telegram de los Founders.</span>
@@ -178,16 +239,96 @@
         </p>
       </div>
 
-      <div class="mt-10 text-center">
-        <p class="eyebrow !text-[10px]">Welcome to the</p>
-        <p class="text-[26px] lg:text-[32px] font-semibold accent mt-2" style="letter-spacing: -0.015em;">Founders Hub.</p>
+      <!-- 5 pilares reminder -->
+      <div class="mt-16 lg:mt-20">
+        <div class="text-center mb-8">
+          <p class="eyebrow">Esto es lo que te llevas como Founder</p>
+          <h2 class="h2 mt-3 max-w-2xl mx-auto">
+            Los <span class="accent">5 pilares</span> que sólo los 1,000 reciben.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div class="pillar-card">
+            <span class="pillar-num">01</span>
+            <h3 class="h3 text-arctic mb-1">Equity</h3>
+            <p class="text-[13px] muted leading-relaxed">Participación documentada del broker.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">02</span>
+            <h3 class="h3 text-arctic mb-1">Voz</h3>
+            <p class="text-[13px] muted leading-relaxed">1 Founder · 1 voto. Decides el roadmap.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">03</span>
+            <h3 class="h3 text-arctic mb-1">Libertad</h3>
+            <p class="text-[13px] muted leading-relaxed">Cualquier estrategia. Sin restricciones.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">04</span>
+            <h3 class="h3 text-arctic mb-1">Comunidad</h3>
+            <p class="text-[13px] muted leading-relaxed">Telegram privado de los 1,000.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-num">05</span>
+            <h3 class="h3 text-arctic mb-1">Eventos</h3>
+            <p class="text-[13px] muted leading-relaxed">Trader Gala + Expo anuales.</p>
+          </div>
+        </div>
       </div>
+
+      <!-- Roadmap -->
+      <div class="mt-16 lg:mt-20 max-w-xl mx-auto">
+        <div class="text-center mb-7">
+          <p class="eyebrow">Qué sigue</p>
+          <h2 class="h2 mt-3">
+            Tu camino al <span class="accent">25 de junio.</span>
+          </h2>
+        </div>
+        <div class="glass-soft rounded-2xl p-6">
+          <div class="road-row">
+            <span class="road-step done">✓</span>
+            <div class="flex-1">
+              <p class="font-semibold text-arctic text-[14.5px]">Registro completado</p>
+              <p class="text-[12.5px] muted mt-0.5">Tu Founder ID #<span id="roadFounderNum">348</span> está reservado.</p>
+            </div>
+          </div>
+          <div class="road-row">
+            <span class="road-step active">2</span>
+            <div class="flex-1">
+              <p class="font-semibold text-arctic text-[14.5px]">Entra al Telegram</p>
+              <p class="text-[12.5px] muted mt-0.5">Te conectas con los otros 347 founders y el equipo.</p>
+            </div>
+          </div>
+          <div class="road-row">
+            <span class="road-step">3</span>
+            <div class="flex-1">
+              <p class="font-semibold text-arctic text-[14.5px]">Sesión en vivo · 7 PM CDMX</p>
+              <p class="text-[12.5px] muted mt-0.5">25 jun 2026 — activación de tu Founder Account.</p>
+            </div>
+          </div>
+          <div class="road-row">
+            <span class="road-step">4</span>
+            <div class="flex-1">
+              <p class="font-semibold text-arctic text-[14.5px]">Lanzamiento Meridian</p>
+              <p class="text-[12.5px] muted mt-0.5">Eres uno de los 1,000 — para siempre.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Welcome -->
+      <div class="mt-16 text-center">
+        <p class="eyebrow !text-[10px]">Welcome to the</p>
+        <p class="text-[32px] lg:text-[42px] font-semibold accent mt-2" style="letter-spacing: -0.02em;">Founders Hub.</p>
+      </div>
+
     </section>
 
   </div>
 </main>
 
-<footer class="px-6 py-5 border-t border-white/5">
+<footer class="relative z-10 px-6 py-5 border-t border-white/5">
   <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] muted">
     <span class="tracking-[0.14em] uppercase">Meridian · Built for you to win.</span>
     <span>© 2026 · All rights reserved.</span>
@@ -198,6 +339,7 @@
   const params = new URLSearchParams(window.location.search);
   const founderNum = params.get('n') || '348';
   document.getElementById('founderNum').textContent = founderNum;
+  document.getElementById('roadFounderNum').textContent = founderNum;
 
   const isPreview = params.get('preview') === '1';
   const bar = document.getElementById('progressBar');
@@ -209,7 +351,7 @@
   const duration = 3200;
   const statusMessages = [
     { at: 0,  text: 'Iniciando confirmación…' },
-    { at: 22, text: 'Apartando tu lugar en el grupo…' },
+    { at: 22, text: 'Apartando tu lugar entre los 1,000…' },
     { at: 48, text: 'Generando tu Founder ID…' },
     { at: 68, text: 'Registrando tu equity en el sistema…' },
     { at: 82, text: 'Casi listo — falta un paso tuyo' },
