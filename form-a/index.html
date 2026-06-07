@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicación Founders · Meridian</title>
+<meta name="description" content="Conocemos a quienes están entrando a la comunidad para construir el broker que el trading serio necesita. 3-5 minutos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        arctic: '#FFFFFF', patina: '#52716E', 'patina-light': '#7D9A96',
+        midnight: '#0B1220', steel: '#172231', slate: '#2A3440', pewter: '#6B717C',
+      },
+      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+    }}
+  }
+</script>
+
+<style>
+  :root {
+    --arctic:#FFFFFF; --patina:#52716E; --patina-light:#7D9A96;
+    --midnight:#0B1220; --steel:#172231; --slate:#2A3440; --pewter:#6B717C;
+  }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; margin: 0; scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif; background: var(--midnight); color: var(--arctic);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(82,113,110,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(82,113,110,0.12) 0%, transparent 60%);
+  }
+
+  .grain-overlay {
+    position: fixed; inset: 0; pointer-events: none; z-index: 9991;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.07; mix-blend-mode: overlay;
+  }
+
+  .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina-light); }
+  .h1 { font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.08; }
+  .h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
+  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.78); }
+  .muted { color: var(--pewter); font-size: 0.875rem; }
+
+  .glass-card {
+    background: rgba(23,34,49,0.55);
+    border: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 22px;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.55);
+  }
+
+  .progress-track {
+    height: 3px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--patina) 0%, var(--patina-light) 100%);
+    transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .step { display: none; animation: fade-in 0.5s ease-out; }
+  .step.active { display: block; }
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* INPUTS */
+  .input-base {
+    width: 100%; background: rgba(11,18,32,0.55); color: var(--arctic);
+    border: 1px solid rgba(255,255,255,0.10); border-radius: 12px;
+    padding: 14px 16px; font-size: 1rem; font-family: inherit;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .input-base:focus {
+    outline: none; border-color: var(--patina);
+    background: rgba(11,18,32,0.75);
+    box-shadow: 0 0 0 4px rgba(82,113,110,0.18);
+  }
+  .input-base::placeholder { color: rgba(255,255,255,0.32); }
+  textarea.input-base { resize: vertical; min-height: 110px; }
+  select.input-base {
+    appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%237D9A96' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px;
+  }
+
+  /* PILL OPTIONS (radio) */
+  .pill-option {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(11,18,32,0.4); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 14px 16px; cursor: pointer;
+    transition: all 0.2s; font-size: 0.97rem;
+  }
+  .pill-option:hover { border-color: rgba(125,154,150,0.45); background: rgba(11,18,32,0.65); }
+  .pill-option input[type="radio"], .pill-option input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 18px; height: 18px; min-width: 18px;
+    border: 1.6px solid rgba(255,255,255,0.25); background: transparent;
+    position: relative; cursor: pointer; transition: all 0.2s;
+  }
+  .pill-option input[type="radio"] { border-radius: 50%; }
+  .pill-option input[type="checkbox"] { border-radius: 5px; }
+  .pill-option input:checked { border-color: var(--patina-light); background: var(--patina); }
+  .pill-option input[type="radio"]:checked::after {
+    content: ''; position: absolute; inset: 4px; background: var(--arctic); border-radius: 50%;
+  }
+  .pill-option input[type="checkbox"]:checked::after {
+    content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px;
+    border: solid var(--arctic); border-width: 0 2px 2px 0; transform: rotate(45deg);
+  }
+  .pill-option:has(input:checked) {
+    background: rgba(82,113,110,0.16); border-color: var(--patina);
+    box-shadow: 0 0 0 1px rgba(82,113,110,0.3) inset;
+  }
+  .options-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  @media (min-width: 640px) { .options-grid.two-col { grid-template-columns: 1fr 1fr; } }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-weight: 600; font-size: 0.95rem; padding: 14px 28px;
+    border-radius: 12px; cursor: pointer; transition: all 0.2s;
+    font-family: inherit; border: none;
+  }
+  .btn-primary {
+    background: var(--patina); color: var(--arctic);
+    box-shadow: 0 8px 24px -8px rgba(82,113,110,0.6);
+  }
+  .btn-primary:hover { background: var(--patina-light); transform: translateY(-1px); box-shadow: 0 12px 28px -8px rgba(82,113,110,0.7); }
+  .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+  .btn-ghost {
+    background: transparent; color: var(--pewter); border: 1px solid rgba(255,255,255,0.10);
+  }
+  .btn-ghost:hover { color: var(--arctic); border-color: rgba(255,255,255,0.25); }
+
+  .field-label { font-size: 0.92rem; color: rgba(255,255,255,0.75); margin-bottom: 8px; display: block; font-weight: 500; }
+  .field-hint { font-size: 0.82rem; color: var(--pewter); margin-top: 6px; }
+  .error-msg { color: #FF8A80; font-size: 0.82rem; margin-top: 6px; min-height: 1.1em; }
+
+  .logo-mark {
+    display: inline-flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: 0.04em;
+  }
+  .logo-mark .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--patina-light); box-shadow: 0 0 10px var(--patina-light); }
+
+  .keyboard-hint { font-size: 0.75rem; color: var(--pewter); letter-spacing: 0.06em; }
+  .kbd {
+    display: inline-block; padding: 2px 7px; font-size: 0.7rem;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 5px; font-family: 'SF Mono', Menlo, monospace; color: var(--arctic);
+  }
+
+  /* WHATSAPP COMBINED */
+  .phone-group { display: grid; grid-template-columns: 130px 1fr; gap: 10px; }
+  @media (max-width: 480px) { .phone-group { grid-template-columns: 110px 1fr; } }
+
+  /* SUCCESS STATE */
+  .success-mark {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--patina) 0%, var(--patina-light) 100%);
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;
+    box-shadow: 0 20px 50px -10px rgba(82,113,110,0.6);
+    animation: scale-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes scale-in { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+
+  .footer-line { color: var(--pewter); font-size: 0.78rem; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+
+<div class="grain-overlay"></div>
+
+<!-- HEADER -->
+<header class="max-w-3xl mx-auto px-6 pt-8 pb-4 flex items-center justify-between">
+  <div class="logo-mark text-sm">
+    <span class="dot"></span>
+    <span>MERIDIAN</span>
+  </div>
+  <div id="step-counter" class="muted hidden sm:block">Pregunta <span id="step-current">1</span> de <span id="step-total">15</span></div>
+</header>
+
+<!-- PROGRESS -->
+<div class="max-w-3xl mx-auto px-6">
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<!-- MAIN -->
+<main class="max-w-3xl mx-auto px-6 py-10 sm:py-14">
+
+  <!-- INTRO -->
+  <div id="intro" class="text-center mb-10">
+    <p class="eyebrow mb-5">Aplicación Founders</p>
+    <h1 class="h1 mb-5">Queremos conocerte<br>antes de abrirte la puerta.</h1>
+    <p class="body-text max-w-xl mx-auto">15 preguntas. 3 a 5 minutos. Las usamos para construir un broker que entienda cómo operas realmente — no cómo el sistema asume que deberías operar.</p>
+    <button type="button" class="btn btn-primary mt-8" onclick="startForm()">Comenzar
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <p class="keyboard-hint mt-5 hidden sm:block">Usa <span class="kbd">Enter</span> para avanzar</p>
+  </div>
+
+  <!-- FORM -->
+  <form id="trader-form"
+        data-webhook="REEMPLAZAR_CON_TU_GHL_WEBHOOK_URL"
+        class="hidden"
+        autocomplete="on"
+        novalidate>
+
+    <!-- 1. NOMBRE -->
+    <div class="step" data-step="1" data-required="name">
+      <p class="eyebrow mb-3">Datos básicos · 1 de 4</p>
+      <h2 class="h2 mb-2">¿Cómo te llamas?</h2>
+      <p class="body-text mb-7">Tu nombre completo, como te identificarías ante un broker.</p>
+      <input class="input-base" type="text" name="name" placeholder="Tu nombre completo" required>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 2. EMAIL -->
+    <div class="step" data-step="2" data-required="email">
+      <p class="eyebrow mb-3">Datos básicos · 2 de 4</p>
+      <h2 class="h2 mb-2">¿A qué email te escribimos?</h2>
+      <p class="body-text mb-7">Aquí enviaremos tu confirmación y el acceso a la comunidad.</p>
+      <input class="input-base" type="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 3. WHATSAPP -->
+    <div class="step" data-step="3" data-required="phone">
+      <p class="eyebrow mb-3">Datos básicos · 3 de 4</p>
+      <h2 class="h2 mb-2">Tu WhatsApp</h2>
+      <p class="body-text mb-7">Para avisarte cuando se abra tu lugar de Founder. Nada de spam.</p>
+      <div class="phone-group">
+        <select class="input-base" name="phone_code" required>
+          <option value="+52">🇲🇽 +52</option>
+          <option value="+57">🇨🇴 +57</option>
+          <option value="+51">🇵🇪 +51</option>
+          <option value="+54">🇦🇷 +54</option>
+          <option value="+56">🇨🇱 +56</option>
+          <option value="+58">🇻🇪 +58</option>
+          <option value="+593">🇪🇨 +593</option>
+          <option value="+591">🇧🇴 +591</option>
+          <option value="+595">🇵🇾 +595</option>
+          <option value="+598">🇺🇾 +598</option>
+          <option value="+507">🇵🇦 +507</option>
+          <option value="+506">🇨🇷 +506</option>
+          <option value="+502">🇬🇹 +502</option>
+          <option value="+503">🇸🇻 +503</option>
+          <option value="+504">🇭🇳 +504</option>
+          <option value="+505">🇳🇮 +505</option>
+          <option value="+34">🇪🇸 +34</option>
+          <option value="+1">🇺🇸 +1</option>
+          <option value="+55">🇧🇷 +55</option>
+        </select>
+        <input class="input-base" type="tel" name="phone" placeholder="Número (solo dígitos)" required>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 4. PAÍS -->
+    <div class="step" data-step="4" data-required="country">
+      <p class="eyebrow mb-3">Datos básicos · 4 de 4</p>
+      <h2 class="h2 mb-2">¿Desde dónde operas?</h2>
+      <p class="body-text mb-7">Tu país de residencia. Nos ayuda a entender en qué jurisdicción te encuentras.</p>
+      <select class="input-base" name="country" required>
+        <option value="">Selecciona tu país</option>
+        <option>México</option><option>Colombia</option><option>Perú</option>
+        <option>Argentina</option><option>Chile</option><option>Venezuela</option>
+        <option>Ecuador</option><option>Bolivia</option><option>Paraguay</option>
+        <option>Uruguay</option><option>Panamá</option><option>Costa Rica</option>
+        <option>Guatemala</option><option>El Salvador</option><option>Honduras</option>
+        <option>Nicaragua</option><option>República Dominicana</option><option>Puerto Rico</option>
+        <option>España</option><option>Estados Unidos</option><option>Brasil</option>
+        <option>Otro</option>
+      </select>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 5. OCUPACIÓN -->
+    <div class="step" data-step="5" data-required="occupation">
+      <p class="eyebrow mb-3">Perfil</p>
+      <h2 class="h2 mb-2">¿A qué te dedicas hoy?</h2>
+      <p class="body-text mb-7">Tu actividad principal — entendemos que la mayoría compagina varias cosas.</p>
+      <div class="options-grid two-col">
+        <label class="pill-option"><input type="radio" name="occupation" value="trading_ft" required><span>Trading a tiempo completo</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="trading_pt"><span>Trading a tiempo parcial</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="empleado_ft"><span>Empleado a tiempo completo</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="empleado_pt"><span>Empleado a tiempo parcial</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="emprendedor"><span>Emprendedor / dueño de negocio</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="estudiante"><span>Estudiante</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="creador"><span>Creador de contenido</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="ib_afiliado"><span>IB, afiliado o gestor</span></label>
+        <label class="pill-option"><input type="radio" name="occupation" value="otro"><span>Otro</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 6. EXPERIENCIA -->
+    <div class="step" data-step="6" data-required="experience">
+      <p class="eyebrow mb-3">Experiencia · 1 de 4</p>
+      <h2 class="h2 mb-2">¿Hace cuánto operas con constancia?</h2>
+      <p class="body-text mb-7">Tiempo real de mercado, no cuándo abriste tu primera cuenta demo.</p>
+      <div class="options-grid">
+        <label class="pill-option"><input type="radio" name="experience" value="none" required><span>Aún no opero</span></label>
+        <label class="pill-option"><input type="radio" name="experience" value="lt_6m"><span>Menos de 6 meses</span></label>
+        <label class="pill-option"><input type="radio" name="experience" value="6m_1y"><span>Entre 6 meses y 1 año</span></label>
+        <label class="pill-option"><input type="radio" name="experience" value="1_2y"><span>Entre 1 y 2 años</span></label>
+        <label class="pill-option"><input type="radio" name="experience" value="2_4y"><span>Entre 2 y 4 años</span></label>
+        <label class="pill-option"><input type="radio" name="experience" value="gt_4y"><span>Más de 4 años</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 7. NIVEL -->
+    <div class="step" data-step="7" data-required="level">
+      <p class="eyebrow mb-3">Experiencia · 2 de 4</p>
+      <h2 class="h2 mb-2">¿Cómo describirías tu nivel?</h2>
+      <p class="body-text mb-7">Sé honesto — esto solo lo usamos para que recibas contenido a tu medida.</p>
+      <div class="options-grid">
+        <label class="pill-option"><input type="radio" name="level" value="basico" required><span>Estoy aprendiendo los conceptos básicos</span></label>
+        <label class="pill-option"><input type="radio" name="level" value="analizo"><span>Ya sé analizar, pero todavía opero poco</span></label>
+        <label class="pill-option"><input type="radio" name="level" value="busco_consistencia"><span>Opero constantemente, sigo buscando consistencia</span></label>
+        <label class="pill-option"><input type="radio" name="level" value="estrategia_definida"><span>Tengo una estrategia definida y opero de manera constante</span></label>
+        <label class="pill-option"><input type="radio" name="level" value="sistemas_avanzados"><span>Uso sistemas avanzados, bots o algoritmos</span></label>
+        <label class="pill-option"><input type="radio" name="level" value="gestiono_capital"><span>Gestiono capital propio o de terceros</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 8. FRECUENCIA -->
+    <div class="step" data-step="8" data-required="frequency">
+      <p class="eyebrow mb-3">Experiencia · 3 de 4</p>
+      <h2 class="h2 mb-2">¿Con qué frecuencia operas?</h2>
+      <p class="body-text mb-7">Tu ritmo real de las últimas semanas.</p>
+      <div class="options-grid">
+        <label class="pill-option"><input type="radio" name="frequency" value="no_opero" required><span>Aún no opero</span></label>
+        <label class="pill-option"><input type="radio" name="frequency" value="lt_month"><span>Menos de una vez al mes</span></label>
+        <label class="pill-option"><input type="radio" name="frequency" value="few_month"><span>Algunas veces al mes</span></label>
+        <label class="pill-option"><input type="radio" name="frequency" value="1_2_week"><span>1 a 2 días por semana</span></label>
+        <label class="pill-option"><input type="radio" name="frequency" value="3_4_week"><span>3 a 4 días por semana</span></label>
+        <label class="pill-option"><input type="radio" name="frequency" value="daily"><span>Prácticamente todos los días</span></label>
+        <label class="pill-option"><input type="radio" name="frequency" value="automatic"><span>Operativa automática (bots / algoritmos)</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 9. ESTILO + METODOLOGÍA -->
+    <div class="step" data-step="9" data-required="style_multi">
+      <p class="eyebrow mb-3">Experiencia · 4 de 4</p>
+      <h2 class="h2 mb-2">¿Qué estilo o metodología usas?</h2>
+      <p class="body-text mb-7">Selecciona todas las que apliquen.</p>
+      <div class="options-grid two-col">
+        <label class="pill-option"><input type="checkbox" name="style" value="scalping"><span>Scalping</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="day_trading"><span>Day trading</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="swing"><span>Swing trading</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="position"><span>Position trading</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="ict"><span>ICT</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="smc"><span>Smart Money Concepts</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="price_action"><span>Price Action</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="algo"><span>Trading algorítmico / bots</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="copy"><span>Copy trading</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="signals"><span>Señales de terceros</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="none"><span>Aún no tengo una metodología</span></label>
+        <label class="pill-option"><input type="checkbox" name="style" value="otro"><span>Otro</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 10. MERCADOS -->
+    <div class="step" data-step="10" data-required="markets_multi">
+      <p class="eyebrow mb-3">Operativa · 1 de 2</p>
+      <h2 class="h2 mb-2">¿Qué mercados operas?</h2>
+      <p class="body-text mb-7">Selecciona todos los que operes de forma habitual.</p>
+      <div class="options-grid two-col">
+        <label class="pill-option"><input type="checkbox" name="markets" value="forex"><span>Forex</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="oro"><span>Oro</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="indices"><span>Índices</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="acciones"><span>Acciones</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="cripto"><span>Criptomonedas</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="futuros"><span>Futuros</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="materias"><span>Materias primas</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="cfds"><span>CFDs</span></label>
+        <label class="pill-option"><input type="checkbox" name="markets" value="otro"><span>Otro</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 11. PLATAFORMA -->
+    <div class="step" data-step="11" data-required="platform_multi">
+      <p class="eyebrow mb-3">Operativa · 2 de 2</p>
+      <h2 class="h2 mb-2">¿En qué plataforma operas?</h2>
+      <p class="body-text mb-7">Marca las que usas hoy.</p>
+      <div class="options-grid two-col">
+        <label class="pill-option"><input type="checkbox" name="platform" value="mt4"><span>MetaTrader 4</span></label>
+        <label class="pill-option"><input type="checkbox" name="platform" value="mt5"><span>MetaTrader 5</span></label>
+        <label class="pill-option"><input type="checkbox" name="platform" value="tradingview"><span>TradingView</span></label>
+        <label class="pill-option"><input type="checkbox" name="platform" value="ctrader"><span>cTrader</span></label>
+        <label class="pill-option"><input type="checkbox" name="platform" value="ninja"><span>NinjaTrader</span></label>
+        <label class="pill-option"><input type="checkbox" name="platform" value="otra"><span>Otra</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 12. CAPITAL / FONDEO -->
+    <div class="step" data-step="12" data-required="capital_type">
+      <p class="eyebrow mb-3">Capital y brokers · 1 de 3</p>
+      <h2 class="h2 mb-2">¿Cómo operas hoy?</h2>
+      <p class="body-text mb-7">Tu fuente de capital y cuántas cuentas de fondeo tienes activas.</p>
+      <label class="field-label">Fuente de capital</label>
+      <div class="options-grid mb-6">
+        <label class="pill-option"><input type="radio" name="capital_type" value="propio" required><span>Solo capital propio</span></label>
+        <label class="pill-option"><input type="radio" name="capital_type" value="fondeo"><span>Solo cuentas de fondeo</span></label>
+        <label class="pill-option"><input type="radio" name="capital_type" value="ambos"><span>Capital propio + cuentas de fondeo</span></label>
+        <label class="pill-option"><input type="radio" name="capital_type" value="terceros"><span>Capital de clientes / inversionistas</span></label>
+        <label class="pill-option"><input type="radio" name="capital_type" value="ninguno"><span>Actualmente no opero capital real</span></label>
+      </div>
+      <label class="field-label">Cuentas de fondeo activas hoy</label>
+      <select class="input-base" name="funded_active">
+        <option value="">Selecciona</option>
+        <option value="0">Ninguna</option>
+        <option value="1">1</option>
+        <option value="2_3">Entre 2 y 3</option>
+        <option value="4_5">Entre 4 y 5</option>
+        <option value="gt_5">Más de 5</option>
+      </select>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 13. BROKERS + PROBLEMAS -->
+    <div class="step" data-step="13" data-required="brokers">
+      <p class="eyebrow mb-3">Capital y brokers · 2 de 3</p>
+      <h2 class="h2 mb-2">¿Con qué brokers operas y qué problemas has tenido?</h2>
+      <p class="body-text mb-7">Esto nos dice de qué te tenemos que diferenciar.</p>
+      <label class="field-label">Brokers o firmas de fondeo que usas</label>
+      <textarea class="input-base mb-6" name="brokers" placeholder="Ej. IC Markets, FundedNext, FTMO..." required></textarea>
+      <label class="field-label">Problemas que has tenido (marca todos los que apliquen)</label>
+      <div class="options-grid two-col">
+        <label class="pill-option"><input type="checkbox" name="broker_issues" value="retiro_lento"><span>Retraso en un retiro</span></label>
+        <label class="pill-option"><input type="checkbox" name="broker_issues" value="cuenta_bloqueada"><span>Cuenta bloqueada o suspendida</span></label>
+        <label class="pill-option"><input type="checkbox" name="broker_issues" value="estrategia_restringida"><span>Estrategia restringida</span></label>
+        <label class="pill-option"><input type="checkbox" name="broker_issues" value="bots_limitados"><span>Bots o scalping limitados</span></label>
+        <label class="pill-option"><input type="checkbox" name="broker_issues" value="soporte_malo"><span>Soporte lento o inexistente</span></label>
+        <label class="pill-option"><input type="checkbox" name="broker_issues" value="ninguno"><span>No he tenido problemas</span></label>
+        <label class="pill-option"><input type="checkbox" name="broker_issues" value="otro"><span>Otro</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 14. CAPITAL MENSUAL -->
+    <div class="step" data-step="14" data-required="monthly_capital">
+      <p class="eyebrow mb-3">Capital y brokers · 3 de 3</p>
+      <h2 class="h2 mb-2">¿Cuánto destinas al trading cada mes?</h2>
+      <p class="body-text mb-7">Incluye depósitos, evaluaciones, herramientas, bots o tecnología.</p>
+      <div class="options-grid two-col">
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="0" required><span>No destino capital</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="lt_100"><span>Menos de 100 USD</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="100_300"><span>Entre 100 y 300 USD</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="301_500"><span>Entre 301 y 500 USD</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="501_1000"><span>Entre 501 y 1,000 USD</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="1001_3000"><span>Entre 1,001 y 3,000 USD</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="gt_3000"><span>Más de 3,000 USD</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="depende"><span>Depende del mes</span></label>
+        <label class="pill-option"><input type="radio" name="monthly_capital" value="na"><span>Prefiero no responder</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- 15. MERIDIAN INTEREST -->
+    <div class="step" data-step="15" data-required="founder_interest">
+      <p class="eyebrow mb-3">Meridian</p>
+      <h2 class="h2 mb-2">Tu interés en Meridian</h2>
+      <p class="body-text mb-7">Última pregunta. Última oportunidad para ser parte de los primeros.</p>
+      <label class="field-label">¿Te interesaría ser uno de los primeros Founders?</label>
+      <div class="options-grid mb-6">
+        <label class="pill-option"><input type="radio" name="founder_interest" value="si" required><span>Sí</span></label>
+        <label class="pill-option"><input type="radio" name="founder_interest" value="tal_vez"><span>Tal vez, necesito más información</span></label>
+        <label class="pill-option"><input type="radio" name="founder_interest" value="no"><span>No por ahora</span></label>
+      </div>
+      <label class="field-label">¿Qué te atrajo más? (marca las que apliquen)</label>
+      <div class="options-grid two-col">
+        <label class="pill-option"><input type="checkbox" name="attraction" value="control_fondos"><span>Mantener control de mis fondos</span></label>
+        <label class="pill-option"><input type="checkbox" name="attraction" value="bots"><span>Usar bots o algoritmos</span></label>
+        <label class="pill-option"><input type="checkbox" name="attraction" value="sin_restricciones"><span>Operar sin restricciones</span></label>
+        <label class="pill-option"><input type="checkbox" name="attraction" value="founder"><span>Ser parte de los Founders</span></label>
+        <label class="pill-option"><input type="checkbox" name="attraction" value="comunidad"><span>La comunidad privada</span></label>
+        <label class="pill-option"><input type="checkbox" name="attraction" value="alternativa"><span>Una alternativa a los brokers tradicionales</span></label>
+      </div>
+      <p class="error-msg" data-error></p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="flex items-center justify-between mt-10">
+      <button type="button" class="btn btn-ghost" id="btn-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Anterior
+      </button>
+      <button type="button" class="btn btn-primary" id="btn-next">
+        Siguiente
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS -->
+  <div id="success" class="hidden text-center py-16">
+    <div class="success-mark">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <p class="eyebrow mb-4">Recibido</p>
+    <h2 class="h2 mb-3">Gracias. Estás en la lista.</h2>
+    <p class="body-text max-w-md mx-auto">Te escribimos por WhatsApp en las próximas 24h para confirmar tu cupo de Founder y compartirte el siguiente paso.</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="max-w-3xl mx-auto px-6 py-10 text-center">
+  <p class="footer-line">MERIDIAN · El broker que respeta el trading serio</p>
+</footer>
+
+<script>
+(function() {
+  const form = document.getElementById('trader-form');
+  const intro = document.getElementById('intro');
+  const success = document.getElementById('success');
+  const steps = Array.from(form.querySelectorAll('.step'));
+  const progressFill = document.getElementById('progress-fill');
+  const stepCurrent = document.getElementById('step-current');
+  const stepCounter = document.getElementById('step-counter');
+  const btnNext = document.getElementById('btn-next');
+  const btnBack = document.getElementById('btn-back');
+  const totalSteps = steps.length;
+  document.getElementById('step-total').textContent = totalSteps;
+
+  let current = 0;
+
+  function updateUI() {
+    steps.forEach((s, i) => s.classList.toggle('active', i === current));
+    progressFill.style.width = `${((current + 1) / totalSteps) * 100}%`;
+    stepCurrent.textContent = current + 1;
+    btnBack.style.visibility = current === 0 ? 'hidden' : 'visible';
+    btnNext.innerHTML = current === totalSteps - 1
+      ? 'Enviar aplicación <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+      : 'Siguiente <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+    // focus first input
+    const firstInput = steps[current].querySelector('input:not([type="radio"]):not([type="checkbox"]), textarea, select');
+    if (firstInput) setTimeout(() => firstInput.focus({ preventScroll: true }), 100);
+  }
+
+  function validate() {
+    const step = steps[current];
+    const required = step.dataset.required;
+    const errEl = step.querySelector('[data-error]');
+    errEl.textContent = '';
+
+    if (required === 'style_multi' || required === 'markets_multi' || required === 'platform_multi') {
+      const checked = step.querySelectorAll('input[type="checkbox"]:checked').length;
+      if (checked === 0) { errEl.textContent = 'Selecciona al menos una opción.'; return false; }
+      return true;
+    }
+    if (required === 'capital_type') {
+      const radio = step.querySelector('input[name="capital_type"]:checked');
+      if (!radio) { errEl.textContent = 'Selecciona tu fuente de capital.'; return false; }
+      return true;
+    }
+    if (required === 'brokers') {
+      const txt = step.querySelector('textarea[name="brokers"]').value.trim();
+      if (!txt) { errEl.textContent = 'Cuéntanos con qué brokers operas.'; return false; }
+      return true;
+    }
+    if (required === 'founder_interest') {
+      const radio = step.querySelector('input[name="founder_interest"]:checked');
+      if (!radio) { errEl.textContent = 'Cuéntanos tu nivel de interés.'; return false; }
+      return true;
+    }
+    if (required === 'phone') {
+      const code = step.querySelector('select[name="phone_code"]').value;
+      const num = step.querySelector('input[name="phone"]').value.trim();
+      if (!code || !num) { errEl.textContent = 'Necesitamos código de país y número.'; return false; }
+      if (!/^\d{6,15}$/.test(num)) { errEl.textContent = 'El número debe tener entre 6 y 15 dígitos.'; return false; }
+      return true;
+    }
+    if (required === 'email') {
+      const v = step.querySelector('input[name="email"]').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { errEl.textContent = 'Email inválido.'; return false; }
+      return true;
+    }
+    // generic radio / input
+    const radio = step.querySelector('input[type="radio"]:checked');
+    if (radio) return true;
+    const input = step.querySelector('input[type="text"], input[type="email"], select');
+    if (input && input.value.trim()) return true;
+    errEl.textContent = 'Esta pregunta es necesaria.';
+    return false;
+  }
+
+  function next() {
+    if (!validate()) return;
+    if (current === totalSteps - 1) { submit(); return; }
+    current++; updateUI();
+  }
+  function back() {
+    if (current === 0) return;
+    current--; updateUI();
+  }
+
+  async function submit() {
+    btnNext.disabled = true; btnNext.textContent = 'Enviando...';
+    const data = new FormData(form);
+    const payload = {};
+    for (const [k, v] of data.entries()) {
+      if (payload[k]) {
+        payload[k] = Array.isArray(payload[k]) ? [...payload[k], v] : [payload[k], v];
+      } else { payload[k] = v; }
+    }
+    payload._source = 'meridian-form-a';
+    payload._submitted_at = new Date().toISOString();
+
+    const webhook = form.dataset.webhook;
+    try {
+      if (webhook && !webhook.startsWith('REEMPLAZAR')) {
+        await fetch(webhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      } else {
+        console.log('[Meridian Form A] Payload (webhook no configurado):', payload);
+      }
+      form.classList.add('hidden');
+      document.querySelector('header .muted')?.classList.add('hidden');
+      progressFill.style.width = '100%';
+      success.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      console.error(e);
+      btnNext.disabled = false; btnNext.textContent = 'Reintentar';
+    }
+  }
+
+  window.startForm = function() {
+    intro.classList.add('hidden');
+    form.classList.remove('hidden');
+    updateUI();
+  };
+
+  btnNext.addEventListener('click', next);
+  btnBack.addEventListener('click', back);
+
+  // Enter to advance (except in textarea)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey && e.target.tagName !== 'TEXTAREA' && !form.classList.contains('hidden')) {
+      e.preventDefault(); next();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
