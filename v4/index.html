@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clase Gratuita · Meridian — Domina la técnica del broker que te paga</title>
-<meta name="description" content="Clase online y 100% gratuita. Domina la técnica para tradear con un broker honesto que SÍ te paga — y del que puedes ser Founder. Cupos limitados.">
+<title>Founders · Meridian — Sé dueño del broker que SÍ te paga</title>
+<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity real, voz en el producto, comunidad y libertad total para tradear. Registro gratuito · plazas limitadas.">
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -167,6 +167,13 @@
     content: ''; position: absolute; inset: 0;
     background: linear-gradient(180deg, transparent 55%, rgba(11,18,32,0.92) 100%);
   }
+  .result-card .tag {
+    position: absolute; top: 0.85rem; right: 0.85rem; z-index: 2;
+    padding: 0.3rem 0.65rem; background: rgba(11,18,32,0.82);
+    border: 1px solid rgba(82,113,110,0.40); backdrop-filter: blur(8px);
+    border-radius: 999px; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--patina-light); font-weight: 600;
+  }
   .result-card .quote {
     position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
     padding: 1rem 1rem 1.1rem; text-align: center;
@@ -174,7 +181,7 @@
   .result-card .quote p { color: var(--arctic); font-size: 0.85rem; font-weight: 600; line-height: 1.3; }
   .result-card .quote span { color: var(--patina-light); font-size: 0.7rem; letter-spacing: 0.05em; }
 
-  /* ── Date chip ── */
+  /* ── Scarcity chip ── */
   .date-chip {
     display: inline-flex; align-items: center; gap: 0.6rem;
     padding: 0.55rem 0.95rem;
@@ -182,6 +189,10 @@
     border-radius: 999px; font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.88);
   }
   .date-chip svg { color: var(--patina-light); flex-shrink: 0; }
+
+  /* ── Seats progress bar ── */
+  .seats-track { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 100px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+  .seats-fill { height: 100%; background: linear-gradient(90deg, var(--patina) 0%, var(--patina-light) 100%); border-radius: 100px; transition: width 1s ease; }
 
   /* ── FAQ ── */
   .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
@@ -220,99 +231,122 @@
 <section id="hero" class="relative px-6 pt-12 pb-16 lg:pt-16 lg:pb-20">
   <div class="relative max-w-3xl mx-auto text-center">
 
-    <div class="meridian-mark-wrap mx-auto mb-4 inline-block">
+    <div class="mx-auto mb-4 inline-block">
       <svg class="meridian-mark mx-auto" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
         <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
         <path class="half-patina" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
       </svg>
     </div>
 
-    <!-- Free + date strip (CrisBalloons: "Online y 100% gratuita | Lunes 25 de Mayo") -->
+    <!-- Free + scarcity strip (CrisBalloons pattern: "Online y 100% gratuita | ...") -->
     <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-6"
          style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.32);">
       <span class="pulse-dot"></span>
-      <span class="eyebrow !text-[10.5px]">Online y 100% gratuita · Lunes 29 de junio</span>
+      <span class="eyebrow !text-[10.5px]">Registro gratuito · Solo 1,000 plazas Founders</span>
     </div>
 
     <!-- HEADLINE -->
     <h1 class="h1 max-w-3xl mx-auto">
-      Domina la técnica para tradear con un broker
-      que <span class="accent">SÍ te paga</span> — y del que puedes ser dueño.
+      Sé <span class="accent">Founder</span> del broker que
+      <span class="accent">SÍ te paga</span> — y que te pertenece.
     </h1>
 
     <p class="body-text mt-6 max-w-2xl mx-auto">
-      Clase en vivo, online y gratuita donde te enseñamos cómo operar con
-      <span class="text-arctic font-semibold">libertad total</span> en un broker honesto, A-book real —
-      y cómo entrar a los <span class="text-arctic font-semibold">1,000 Founders</span> que están
-      construyendo Meridian desde adentro.
+      Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span> y recibe
+      equity real, voz en lo que construimos, una comunidad privada de traders —
+      y la libertad de operar como tú quieras. Sin letra chiquita, sin estrategias prohibidas.
     </p>
 
-    <!-- Email-first capture (lowest friction — the CrisBalloons secret) -->
-    <form id="leadForm" class="mt-9 max-w-md mx-auto space-y-3" novalidate>
-      <input id="f-name" name="name" type="text" required placeholder="Tu nombre"
+    <!-- Low-friction capture (the CrisBalloons secret) -->
+    <form id="leadForm"
+          data-webhook="REEMPLAZAR_CON_TU_GHL_WEBHOOK_URL"
+          class="mt-9 max-w-md mx-auto space-y-3" novalidate>
+      <input id="f-name" name="name" type="text" required placeholder="Tu nombre completo"
              class="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none transition-colors text-[15px]"/>
       <input id="f-email" name="email" type="email" required placeholder="Tu mejor email"
              class="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none transition-colors text-[15px]"/>
+      <div class="flex gap-2">
+        <select id="f-code" name="phone_code" class="px-3 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic focus:border-patina focus:outline-none text-[15px]" style="max-width:120px">
+          <option value="+52" class="bg-midnight">🇲🇽 +52</option>
+          <option value="+57" class="bg-midnight">🇨🇴 +57</option>
+          <option value="+51" class="bg-midnight">🇵🇪 +51</option>
+          <option value="+54" class="bg-midnight">🇦🇷 +54</option>
+          <option value="+56" class="bg-midnight">🇨🇱 +56</option>
+          <option value="+58" class="bg-midnight">🇻🇪 +58</option>
+          <option value="+34" class="bg-midnight">🇪🇸 +34</option>
+          <option value="+1" class="bg-midnight">🇺🇸 +1</option>
+        </select>
+        <input id="f-phone" name="phone" type="tel" required placeholder="Tu WhatsApp"
+               inputmode="tel" autocomplete="tel-national"
+               class="flex-1 px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none text-[15px]"/>
+      </div>
       <button type="submit" class="btn-pill w-full">
-        Quiero registrarme gratis
+        Quiero ser Founder
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
       <p id="formMsg" class="hidden text-[13px] text-center" role="status"></p>
     </form>
 
-    <!-- Date / time / live chips -->
+    <!-- Proof chips -->
     <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
       <span class="date-chip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Lunes 29 de junio
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 8v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V8z"/><path d="M9 12l2 2 4-4"/></svg>
+        Broker A-book real
       </span>
       <span class="date-chip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        7:00 PM · CDMX
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        Equity real para los 1,000
       </span>
       <span class="date-chip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-        100% en vivo
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        Comunidad en Telegram
       </span>
     </div>
 
-    <p class="mt-6 text-[12px] muted flex items-center justify-center gap-2.5">
-      <span class="pulse-dot" style="width:7px;height:7px;"></span>
-      <span><span class="accent font-semibold" data-counter="seats">412</span> personas registradas · cupos limitados</span>
-    </p>
+    <!-- Live founders counter + scarcity bar -->
+    <div class="mt-7 max-w-xs mx-auto">
+      <div class="flex items-center justify-between mb-2 text-[12px]">
+        <span class="muted"><span class="accent font-semibold" data-counter="founders">347</span> Founders adentro</span>
+        <span class="muted">1,000 plazas</span>
+      </div>
+      <div class="seats-track"><div class="seats-fill" id="seatsFill" style="width:34.7%"></div></div>
+      <p class="mt-2.5 text-[11px] muted flex items-center justify-center gap-2">
+        <span class="pulse-dot" style="width:7px;height:7px;"></span> Las plazas se están llenando rápido
+      </p>
+    </div>
 
   </div>
 </section>
 
 
-<!-- ════════════════════════ 2 · CÓMO PARTICIPAR (2 pasos) ════════════════════════ -->
+<!-- ════════════════════════ 2 · CÓMO ENTRAR (2 pasos) ════════════════════════ -->
 <section id="pasos" class="px-6 py-14 lg:py-16" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-10">
-      <p class="eyebrow mb-3">Cómo participar</p>
-      <h2 class="h2">Solo <span class="accent">2 pasos</span> y estás dentro.</h2>
+      <p class="eyebrow mb-3">Cómo entrar</p>
+      <h2 class="h2">Solo <span class="accent">2 pasos</span> y eres Founder.</h2>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
       <div class="glass rounded-2xl p-6 flex items-start gap-4">
         <span class="step-num">1</span>
         <div>
-          <h3 class="h3 text-arctic mb-1.5">Regístrate con tu email</h3>
-          <p class="body-text !text-[14px]">Déjanos tu nombre y tu mejor correo aquí arriba. Toma 10 segundos y es gratis.</p>
+          <h3 class="h3 text-arctic mb-1.5">Reserva tu plaza</h3>
+          <p class="body-text !text-[14px]">Déjanos tu nombre, email y WhatsApp aquí arriba. Toma 20 segundos y es gratis.</p>
         </div>
       </div>
       <div class="glass rounded-2xl p-6 flex items-start gap-4">
         <span class="step-num">2</span>
         <div>
-          <h3 class="h3 text-arctic mb-1.5">Únete al grupo de WhatsApp</h3>
-          <p class="body-text !text-[14px]">Ahí recibirás el enlace de acceso, los recordatorios y las sorpresas del evento.</p>
+          <h3 class="h3 text-arctic mb-1.5">Únete al Telegram de los Founders</h3>
+          <p class="body-text !text-[14px]">Ahí confirmamos tu plaza, te damos acceso y decidimos juntos qué se construye.</p>
         </div>
       </div>
     </div>
 
     <div class="text-center mt-9">
       <a href="#hero" class="btn-pill">
-        Quiero unirme gratis a la clase
+        Quiero mi plaza de Founder
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -320,43 +354,43 @@
 </section>
 
 
-<!-- ════════════════════════ 3 · QUÉ VAS A APRENDER ════════════════════════ -->
-<section id="aprenderas" class="px-6 py-16 lg:py-20 relative overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.04);">
+<!-- ════════════════════════ 3 · QUÉ RECIBES COMO FOUNDER ════════════════════════ -->
+<section id="recibes" class="px-6 py-16 lg:py-20 relative overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="absolute bottom-0 right-0 w-[400px] h-[400px] hex-bg pointer-events-none opacity-50"
        style="-webkit-mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%); mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%);"></div>
 
   <div class="max-w-3xl mx-auto relative">
     <div class="text-center mb-8">
-      <p class="eyebrow mb-3">Qué vas a aprender</p>
-      <h2 class="h2">No es una clase más.<br class="hidden sm:block"> Es la técnica que <span class="accent">sí se traduce en dinero.</span></h2>
+      <p class="eyebrow mb-3">Qué recibes como Founder</p>
+      <h2 class="h2">No entras como cliente.<br class="hidden sm:block"> Entras como <span class="accent">dueño parcial.</span></h2>
       <p class="body-text mt-5 max-w-2xl mx-auto">
-        En esta clase en vivo te enseñamos cómo operar con una técnica clara, en un broker que no
-        te pone trampas — y cómo convertir eso en una verdadera oportunidad de negocio siendo Founder.
+        Meridian se construye con los traders adentro. Por eso los primeros 1,000 reciben lo que
+        ningún otro cliente va a recibir jamás:
       </p>
     </div>
 
     <div class="max-w-xl mx-auto">
       <div class="free-item">
         <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-        <span>La <span class="text-arctic font-semibold">técnica de entrada y gestión de riesgo</span> que usan los traders que sí retiran.</span>
+        <span><span class="text-arctic font-semibold">Equity real del broker</span> — tu nombre queda registrado como uno de los 1,000 fundadores. Cuando Meridian crece, tú creces.</span>
       </div>
       <div class="free-item">
         <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-        <span>Cómo identificar un <span class="text-arctic font-semibold">broker honesto (A-book real)</span> y huir de los que congelan tus ganancias.</span>
+        <span><span class="text-arctic font-semibold">Voz y voto en el roadmap</span> — pides una feature, la construimos. 1 Founder · 1 voto.</span>
       </div>
       <div class="free-item">
         <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-        <span>Por qué la <span class="text-arctic font-semibold">libertad total de estrategia</span> (scalping, HFT, news) cambia tus resultados.</span>
+        <span><span class="text-arctic font-semibold">Libertad total para operar</span> — scalping, HFT, arbitraje, news, bots. Sin volumen mínimo, sin estrategias prohibidas.</span>
       </div>
       <div class="free-item">
         <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-        <span>Cómo entrar a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span> y recibir equity real del broker.</span>
+        <span><span class="text-arctic font-semibold">Comunidad privada + eventos</span> — el Telegram de los 999 otros Founders y el equipo, más la Trader Gala anual sin costo.</span>
       </div>
     </div>
 
     <div class="text-center mt-10">
       <a href="#hero" class="btn-pill">
-        Quiero mi acceso gratuito
+        Quiero todo esto
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -364,40 +398,40 @@
 </section>
 
 
-<!-- ════════════════════════ 4 · POR QUÉ NO TE LA PUEDES PERDER ════════════════════════ -->
+<!-- ════════════════════════ 4 · POR QUÉ NO TE LO PUEDES PERDER ════════════════════════ -->
 <section id="porque" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-10 max-w-2xl mx-auto">
-      <p class="eyebrow mb-3">Por qué no te la puedes perder</p>
-      <h2 class="h2">Porque no es una clase más…<br class="hidden sm:block"> es una <span class="accent">experiencia única.</span></h2>
+      <p class="eyebrow mb-3">Por qué no te lo puedes perder</p>
+      <h2 class="h2">Porque no es un broker más…<br class="hidden sm:block"> es <span class="accent">tu broker.</span></h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div class="reason-card">
         <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></span>
-        <h3 class="h3 text-arctic mb-1.5">100% online</h3>
-        <p class="body-text !text-[14px]">Participas en vivo desde cualquier lugar, solo necesitas tu teléfono.</p>
+        <h3 class="h3 text-arctic mb-1.5">100% online y global</h3>
+        <p class="body-text !text-[14px]">Te registras y operas desde cualquier lugar. Solo necesitas tu dispositivo.</p>
       </div>
       <div class="reason-card">
-        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7a3.5 3.5 0 1 0-3.5-3.5C8.5 5 12 7 12 7zM12 7a3.5 3.5 0 1 1 3.5-3.5C15.5 5 12 7 12 7z"/></svg></span>
-        <h3 class="h3 text-arctic mb-1.5">Gratis y con cupos limitados</h3>
-        <p class="body-text !text-[14px]">No cuesta nada, pero los lugares son contados. Reserva el tuyo hoy.</p>
+        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 8v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V8z"/></svg></span>
+        <h3 class="h3 text-arctic mb-1.5">Gratis y plazas limitadas</h3>
+        <p class="body-text !text-[14px]">Registrarte no cuesta nada, pero solo hay 1,000 plazas Founder. Reserva la tuya hoy.</p>
       </div>
       <div class="reason-card">
         <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
         <h3 class="h3 text-arctic mb-1.5">Comunidad exclusiva</h3>
-        <p class="body-text !text-[14px]">Entras al grupo privado con todas las novedades y los demás Founders.</p>
+        <p class="body-text !text-[14px]">Telegram privado con los demás Founders, el equipo y todas las novedades.</p>
       </div>
       <div class="reason-card">
-        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 8.5 22 9.5 17 14.5 18.5 21.5 12 18 5.5 21.5 7 14.5 2 9.5 9 8.5 12 2"/></svg></span>
-        <h3 class="h3 text-arctic mb-1.5">Sorpresas en vivo</h3>
-        <p class="body-text !text-[14px]">Habrá regalos y oportunidades exclusivas solo para quienes asistan.</p>
+        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <h3 class="h3 text-arctic mb-1.5">Se cierra para siempre</h3>
+        <p class="body-text !text-[14px]">Cuando entren los 1,000, esto se cierra. No habrá Founder #1,001.</p>
       </div>
     </div>
 
     <div class="text-center mt-10">
       <a href="#hero" class="btn-pill">
-        Quiero unirme gratis a la clase
+        Quiero mi plaza de Founder
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -405,8 +439,8 @@
 </section>
 
 
-<!-- ════════════════════════ 5 · GALERÍA DE RESULTADOS (prueba social) ════════════════════════ -->
-<section id="resultados" class="px-6 py-16 lg:py-20" style="border-top: 1px solid rgba(255,255,255,0.04);">
+<!-- ════════════════════════ 5 · PRUEBA SOCIAL ════════════════════════ -->
+<section id="founders" class="px-6 py-16 lg:py-20" style="border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-10 max-w-2xl mx-auto">
       <p class="eyebrow mb-3">Lo que dicen los Founders</p>
@@ -416,18 +450,21 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
       <div class="result-card">
         <div class="photo">
+          <span class="tag">Founder</span>
           <img src="/assets/testimonial-ana.png" alt="Founder de Meridian" loading="lazy" decoding="async"/>
           <div class="quote"><p>"Por fin un broker que me paga sin trabas."</p><span>Ana · 🇲🇽 Founder</span></div>
         </div>
       </div>
       <div class="result-card">
         <div class="photo">
+          <span class="tag">Founder</span>
           <img src="/assets/testimonial-luis.png" alt="Founder de Meridian" loading="lazy" decoding="async"/>
           <div class="quote"><p>"Tradeo como quiero, sin restricciones."</p><span>Luis · 🇨🇴 Founder</span></div>
         </div>
       </div>
       <div class="result-card">
         <div class="photo">
+          <span class="tag">Founder</span>
           <img src="/assets/testimonial-roberto.png" alt="Founder de Meridian" loading="lazy" decoding="async"/>
           <div class="quote"><p>"Ser Founder cambió mi forma de operar."</p><span>Roberto · 🇵🇪 Founder</span></div>
         </div>
@@ -436,7 +473,7 @@
 
     <div class="text-center mt-10">
       <a href="#hero" class="btn-pill">
-        Quiero unirme gratis a la clase
+        Quiero ser Founder
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -444,8 +481,8 @@
 </section>
 
 
-<!-- ════════════════════════ 6 · INSTRUCTOR ════════════════════════ -->
-<section id="instructor" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
+<!-- ════════════════════════ 6 · EL FUNDADOR ════════════════════════ -->
+<section id="fundador" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-5xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
@@ -461,20 +498,20 @@
       </div>
 
       <div class="lg:col-span-7">
-        <p class="eyebrow mb-3">Tu instructor</p>
+        <p class="eyebrow mb-3">Quién está detrás</p>
         <h2 class="h2">Josué Melero,<br class="hidden sm:block"> <span class="accent">fundador de Meridian.</span></h2>
         <p class="body-text mt-5">
-          Trader y emprendedor que se cansó de los brokers que ponen letra chiquita para no pagar.
-          Por eso construyó Meridian: un broker honesto, A-book real, hecho con los traders adentro.
+          Trader y emprendedor que se cansó de los brokers que ponen letra chiquita para no pagar,
+          congelan ganancias y prohíben estrategias. Por eso construyó Meridian: un broker honesto,
+          A-book real, hecho con los traders adentro.
         </p>
         <p class="body-text mt-4">
-          En esta clase comparte la misma técnica y los principios con los que ayuda a una comunidad
-          creciente de traders a operar con libertad total — y a convertir el trading en una
-          verdadera oportunidad de negocio si así lo deciden.
+          Su misión con los 1,000 Founders es simple: que tengas un broker que te pertenezca, donde
+          operes con libertad total y tu voz decida el rumbo del producto.
         </p>
         <div class="mt-8">
           <a href="#hero" class="btn-pill">
-            Quiero mi lugar gratis
+            Quiero mi plaza de Founder
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -485,22 +522,22 @@
 </section>
 
 
-<!-- ════════════════════════ 7 · CIERRE CON FECHA ════════════════════════ -->
+<!-- ════════════════════════ 7 · CIERRE CON ESCASEZ ════════════════════════ -->
 <section id="cierre" class="px-6 py-16 lg:py-20 text-center" style="border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-2xl mx-auto">
     <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-6"
          style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.32);">
       <span class="pulse-dot"></span>
-      <span class="eyebrow !text-[10.5px]">Lunes 29 de junio · 7:00 PM CDMX</span>
+      <span class="eyebrow !text-[10.5px]"><span data-counter="founders">347</span>/1,000 plazas ocupadas</span>
     </div>
-    <h2 class="h2">No te pierdas esta<br class="hidden sm:block"> <span class="accent">experiencia única.</span></h2>
+    <h2 class="h2">Es <span class="accent">ahora, o nunca.</span></h2>
     <p class="body-text mt-5 max-w-xl mx-auto">
-      Es gratis, es en vivo y los cupos son limitados. Registra tu email ahora y asegura tu lugar
-      antes de que se llene.
+      Una vez que entren los 1,000, esto se cierra para siempre. Registra tu plaza de Founder ahora
+      — es gratis y los lugares se agotan.
     </p>
     <div class="mt-8 flex justify-center">
       <a href="#hero" class="btn-pill">
-        Quiero unirme gratis a la clase
+        Quiero ser Founder
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -518,30 +555,30 @@
 
     <div id="faqList">
       <div class="faq-item">
-        <button class="faq-q">¿Tiene algún costo? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">No, la clase es completamente gratuita. Solo necesitas registrarte con tu email y unirte al grupo de WhatsApp.</div></div>
+        <button class="faq-q">¿Tiene algún costo registrarme? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Reservar tu plaza de Founder es completamente gratuito. Solo necesitas registrarte y unirte al grupo de Telegram.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">¿Necesito experiencia previa en trading? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Para nada. La clase está diseñada para que la entiendas desde cero, y también aporta valor si ya operas.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. Ser Founder está abierto tanto a traders con experiencia como a quienes están empezando. Lo importante es que quieras un broker que te respete.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">¿Necesito invertir dinero para asistir? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">No. Asistir a la clase no tiene ningún costo ni te pide depositar nada. Es 100% informativa.</div></div>
+        <button class="faq-q">¿Qué significa recibir equity como Founder? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Significa que tu nombre queda registrado como uno de los 1,000 fundadores del broker, con participación real en su crecimiento. Los detalles te los explicamos dentro del grupo de Telegram.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">¿Cómo accedo a la clase? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Recibirás el enlace de acceso a través del grupo privado de WhatsApp. Por eso es importante que te unas después de registrarte.</div></div>
+        <button class="faq-q">¿Cómo accedo después de registrarme? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Al registrarte te llevamos al grupo privado de Telegram, donde confirmamos tu plaza y te damos los siguientes pasos. Por eso es importante que te unas justo después.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">¿La clase queda grabada? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">La clase es en vivo y los accesos son por tiempo limitado. Te recomendamos conectarte en directo para no perderte nada.</div></div>
+        <button class="faq-q">¿Hasta cuándo está abierto el registro? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Hasta que se llenen las 1,000 plazas. Una vez completas, el registro de Founders se cierra para siempre — no habrá Founder #1,001.</div></div>
       </div>
     </div>
 
     <div class="text-center mt-10">
       <a href="#hero" class="btn-pill">
-        Quiero mi acceso gratuito
+        Quiero mi plaza de Founder
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -555,8 +592,8 @@
     <p class="text-[11px] leading-relaxed muted">
       Este sitio no está afiliado ni avalado por Meta, Facebook, Instagram ni WhatsApp. El trading
       conlleva riesgo y los resultados dependen del esfuerzo, la dedicación y las condiciones de mercado
-      de cada persona. Esta clase es de carácter educativo e informativo y no constituye asesoría
-      financiera ni garantía de resultados.
+      de cada persona. La información de esta página es de carácter educativo e informativo y no
+      constituye asesoría financiera ni garantía de resultados.
     </p>
     <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-2 text-[11px] muted">
       <span class="tracking-[0.14em] uppercase font-semibold text-arctic/80">Meridian · Built for you to win.</span>
@@ -570,22 +607,30 @@
 <!-- Sticky mobile CTA -->
 <div class="sticky-cta sm:hidden" id="stickyCta">
   <a href="#hero" class="btn-pill w-full">
-    Registrarme gratis
+    Quiero ser Founder
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
   </a>
 </div>
 
 
 <script>
-  // ── LIVE SEAT COUNTER ──
-  let seats = 412;
-  function syncSeats() { document.querySelectorAll('[data-counter="seats"]').forEach(el => el.textContent = seats.toLocaleString()); }
-  syncSeats();
-  function bumpSeats() {
-    seats += 1; syncSeats();
-    setTimeout(bumpSeats, 6000 + Math.random() * 14000);
+  // ── LIVE FOUNDER COUNTER + scarcity bar ──
+  let founders = 347;
+  const TOTAL = 1000;
+  function syncFounders() {
+    document.querySelectorAll('[data-counter="founders"]').forEach(el => el.textContent = founders.toLocaleString());
+    const fill = document.getElementById('seatsFill');
+    if (fill) fill.style.width = ((founders / TOTAL) * 100).toFixed(1) + '%';
   }
-  setTimeout(bumpSeats, 7000);
+  syncFounders();
+  function bumpFounders() {
+    if (founders >= TOTAL) return;
+    founders += 1; syncFounders();
+    setTimeout(bumpFounders, 7000 + Math.random() * 14000);
+  }
+  setTimeout(bumpFounders, 8000);
+
+  // ── PHONE PREFIX persists in payload via select value ──
 
   // ── FAQ accordion ──
   document.querySelectorAll('.faq-item').forEach(item => {
@@ -607,21 +652,40 @@
   }, { threshold: 0 });
   if (hero) io.observe(hero);
 
-  // ── FORM SUBMIT → thank-you (WhatsApp group step) ──
+  // ── FORM SUBMIT → GHL webhook, then thank-you (Telegram step) ──
   const form = document.getElementById('leadForm');
   const msg = document.getElementById('formMsg');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const payload = { name: form.name.value.trim(), email: form.email.value.trim() };
-    if (!payload.name || !payload.email) {
-      msg.textContent = 'Completa tu nombre y email.';
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !phone) {
+      msg.textContent = 'Completa tu nombre, un email válido y tu WhatsApp.';
       msg.classList.remove('hidden'); msg.style.color = '#6B717C';
       return;
     }
-    console.log('[Clase Gratuita v4] POST /api/leads →', payload);
-    msg.textContent = '✓ Registrando tu lugar…';
+    const payload = {
+      name, email,
+      phone: form.phone_code.value + ' ' + phone,
+      _source: 'meridian-v4-founders',
+      _submitted_at: new Date().toISOString(),
+    };
+    msg.textContent = '✓ Reservando tu plaza…';
     msg.classList.remove('hidden'); msg.style.color = '#52716E';
-    setTimeout(() => { window.location.href = '/v4/thank-you/'; }, 900);
+
+    const webhook = form.dataset.webhook;
+    try {
+      if (webhook && !webhook.startsWith('REEMPLAZAR')) {
+        await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      } else {
+        console.log('[Meridian v4 Founders] webhook no configurado · payload →', payload);
+      }
+    } catch (err) {
+      console.error('[Meridian v4 Founders] error enviando lead:', err);
+    } finally {
+      window.location.href = '/v4/thank-you/';
+    }
   });
 </script>
 
