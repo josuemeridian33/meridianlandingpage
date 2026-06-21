@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founders · Meridian — Sé dueño del broker que sí te paga</title>
+<meta name="description" content="Únete a los 500 Founders de Meridian. Acceso anticipado de por vida, voz en el producto, grupo privado y libertad total para tradear. Registro gratuito, plazas limitadas.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          canvas: '#0d0f0f',
+          hero: '#111414',
+          card: '#161a19',
+          hover: '#232928',
+          line: '#242a29',
+          'line-strong': '#323a38',
+          sage: '#7a9d96',
+          'sage-hover': '#8fb3ab',
+          'sage-press': '#62847d',
+          ink: '#ffffff',
+          muted: '#9ea1a3',
+          subtle: '#6b7176',
+        },
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --canvas: #0d0f0f;
+    --hero: #111414;
+    --card: #161a19;
+    --hover: #232928;
+    --line: #242a29;
+    --line-strong: #323a38;
+    --sage: #7a9d96;
+    --sage-hover: #8fb3ab;
+    --sage-press: #62847d;
+    --sage-glow: rgba(122, 157, 150, 0.14);
+    --ink: #ffffff;
+    --muted: #9ea1a3;
+    --subtle: #6b7176;
+  }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; margin: 0; scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--canvas); color: var(--ink); min-height: 100vh; }
+
+  .ambient-bg {
+    background:
+      radial-gradient(ellipse 75% 55% at 50% 0%, var(--sage-glow) 0%, transparent 60%),
+      var(--canvas);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 85%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 85%);
+  }
+
+  .h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.07; }
+  .h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; }
+  .h3 { font-size: 1.12rem; font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--sage); }
+  .body-text { font-size: 1rem; line-height: 1.65; color: var(--muted); font-weight: 400; }
+  .subtle { color: var(--subtle); }
+  .accent { color: var(--sage); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--line-strong); background: var(--hover); }
+
+  .btn-pill {
+    background: var(--sage);
+    color: #0d0f0f;
+    padding: 1.05rem 2.4rem;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 0.92rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 14px 40px rgba(122,157,150,0.28);
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.65rem;
+    border: none; cursor: pointer; text-decoration: none; white-space: nowrap;
+  }
+  .btn-pill:hover { background: var(--sage-hover); transform: translateY(-1px); box-shadow: 0 18px 50px rgba(122,157,150,0.4); }
+  .btn-pill:active { background: var(--sage-press); }
+  .btn-pill:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+
+  .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; flex-shrink: 0; }
+  .pulse-dot::before { content: ''; position: absolute; inset: 0; background: var(--sage); border-radius: 50%; animation: pulse-ring 2s ease-out infinite; opacity: 0.6; }
+  .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--sage); border-radius: 50%; }
+  @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+
+  /* Hero photo */
+  .hero-photo {
+    position: relative; border-radius: 22px; overflow: hidden;
+    border: 1px solid var(--line-strong);
+    box-shadow: 0 40px 90px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(122,157,150,0.08);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(13,15,15,0.85) 100%);
+  }
+  .hero-badge {
+    position: absolute; left: 1rem; bottom: 1rem; z-index: 2;
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.5rem 0.85rem; border-radius: 999px;
+    background: rgba(13,15,15,0.78); border: 1px solid var(--line-strong);
+    backdrop-filter: blur(10px); font-size: 0.78rem; color: var(--ink);
+  }
+
+  .input {
+    width: 100%; padding: 0.95rem 1rem;
+    background: #0d0f0f; color: var(--ink);
+    border: 1px solid var(--line-strong); border-radius: 12px;
+    font-size: 15px; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .input::placeholder { color: var(--subtle); }
+  .input:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 4px var(--sage-glow); }
+
+  .step-num {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.05rem; color: var(--sage);
+    background: var(--sage-glow); border: 1px solid var(--sage-press); flex-shrink: 0;
+  }
+
+  .commit-ico {
+    width: 46px; height: 46px; border-radius: 13px;
+    background: var(--sage-glow); border: 1px solid var(--sage-press);
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+    color: var(--sage);
+  }
+  .chip {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.4rem 0.8rem; border-radius: 999px;
+    background: var(--sage-glow); border: 1px solid var(--sage-press);
+    font-size: 0.78rem; color: var(--sage-hover); font-weight: 500;
+  }
+
+  .proof-card { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+  .proof-card .photo { aspect-ratio: 4/5; overflow: hidden; position: relative; }
+  .proof-card .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .proof-card .photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 52%, rgba(13,15,15,0.94) 100%); }
+  .proof-card .tag { position: absolute; top: 0.8rem; right: 0.8rem; z-index: 2; padding: 0.28rem 0.6rem; background: rgba(13,15,15,0.82); border: 1px solid var(--sage-press); border-radius: 999px; font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-hover); font-weight: 600; }
+  .proof-card .quote { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 1rem; text-align: center; }
+  .proof-card .quote p { color: var(--ink); font-size: 0.85rem; font-weight: 600; line-height: 1.3; }
+  .proof-card .quote span { color: var(--sage-hover); font-size: 0.7rem; }
+
+  .seats-track { width: 100%; height: 8px; background: #0d0f0f; border-radius: 100px; overflow: hidden; border: 1px solid var(--line-strong); }
+  .seats-fill { height: 100%; background: linear-gradient(90deg, var(--sage-press) 0%, var(--sage-hover) 100%); border-radius: 100px; transition: width 1s ease; }
+
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-q { width: 100%; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; font-size: 1rem; font-weight: 500; color: var(--ink); background: none; border: none; }
+  .faq-q svg { flex-shrink: 0; color: var(--sage); transition: transform 0.3s ease; }
+  .faq-item.open .faq-q svg { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .faq-a-inner { padding: 0 0 1.25rem; color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+
+  .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom)); background: rgba(13,15,15,0.94); backdrop-filter: blur(12px); border-top: 1px solid var(--line); transform: translateY(110%); transition: transform 0.35s ease; }
+  .sticky-cta.show { transform: translateY(0); }
+
+  /* Announcement bar */
+  .ann-bar { width:100%; background: var(--sage-glow); border-bottom:1px solid var(--sage-press); text-align:center; padding:0.55rem 1rem; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage-hover); font-weight:600; }
+
+  /* VSL frame */
+  .vsl-frame { position:relative; aspect-ratio:4/5; border-radius:22px; overflow:hidden; border:1px solid var(--line-strong); box-shadow:0 40px 90px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(122,157,150,0.08); background:#0d0f0f; }
+  .vsl-frame iframe { width:100%; height:100%; display:block; border:0; }
+  .vsl-poster { position:absolute; inset:0; }
+  .vsl-poster img { width:100%; height:100%; object-fit:cover; filter:brightness(0.62); }
+  .vsl-poster::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 42%, rgba(13,15,15,0.92) 100%); }
+  .vsl-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:84px; height:84px; border-radius:50%; background:var(--sage); border:2px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 14px 40px rgba(122,157,150,0.5); z-index:3; transition:transform 0.2s; }
+  .vsl-play:hover { transform:translate(-50%,-50%) scale(1.06); }
+  .vsl-play::before { content:''; position:absolute; inset:-12px; border-radius:50%; border:1px solid var(--sage-press); animation:pulse-ring 2.4s ease-out infinite; }
+  .vsl-play svg { color:#0d0f0f; margin-left:4px; }
+  .vsl-pill { position:absolute; z-index:3; display:inline-flex; align-items:center; gap:0.5rem; padding:0.38rem 0.75rem; background:rgba(13,15,15,0.8); border:1px solid var(--line-strong); backdrop-filter:blur(10px); border-radius:999px; font-size:0.6rem; font-weight:600; color:var(--ink); letter-spacing:0.16em; text-transform:uppercase; top:1rem; left:1rem; }
+  .vsl-name { position:absolute; bottom:1rem; left:1rem; right:1rem; z-index:3; display:flex; align-items:center; justify-content:space-between; font-size:0.78rem; color:rgba(255,255,255,0.9); }
+
+  @media (prefers-reduced-motion: reduce) { .pulse-dot::before, .vsl-play::before { animation: none; } }
+</style>
+</head>
+<body class="ambient-bg">
+
+<div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
+
+<div class="ann-bar">Meridian · Pre-launch · Founders List <span data-counter="founders">218</span>/500 · 25 jun · 7PM CDMX</div>
+
+
+<!-- ════════════════════════ 1 · HERO ════════════════════════ -->
+<section id="hero" class="relative px-6 pt-10 pb-16 lg:pt-14 lg:pb-20" style="background: linear-gradient(180deg, var(--hero) 0%, var(--canvas) 100%);">
+  <div class="relative max-w-6xl mx-auto">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+      <!-- LEFT: copy + form -->
+      <div class="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-6"
+             style="background: var(--sage-glow); border: 1px solid var(--sage-press);">
+          <span class="pulse-dot"></span>
+          <span class="eyebrow !text-[10.5px]">Pre-launch · Solo 500 plazas Founders</span>
+        </div>
+
+        <h1 class="h1 max-w-2xl mx-auto lg:mx-0">
+          ¿Pasaste el challenge? Ahora viene la verdadera prueba:
+          <span class="accent">que te paguen.</span>
+        </h1>
+
+        <p class="body-text mt-6 max-w-xl mx-auto lg:mx-0">
+          El primer broker en la historia del Forex que <strong style="color:var(--ink);font-weight:600;">tecnológicamente no puede</strong> bloquear tus cuentas, tus estrategias ni tus retiros. Conviértete en uno de los 500 Founders que lo están construyendo desde el día cero.
+        </p>
+
+        <form id="leadForm"
+              data-webhook="REEMPLAZAR_CON_TU_GHL_WEBHOOK_URL"
+              class="mt-8 max-w-md mx-auto lg:mx-0 space-y-3" novalidate>
+          <input id="f-name" name="name" type="text" required placeholder="Tu nombre completo" class="input"/>
+          <input id="f-email" name="email" type="email" required placeholder="Tu mejor email" class="input"/>
+          <div class="flex gap-2">
+            <select id="f-code" name="phone_code" class="input" style="max-width:118px">
+              <option value="+52">🇲🇽 +52</option>
+              <option value="+57">🇨🇴 +57</option>
+              <option value="+51">🇵🇪 +51</option>
+              <option value="+54">🇦🇷 +54</option>
+              <option value="+56">🇨🇱 +56</option>
+              <option value="+58">🇻🇪 +58</option>
+              <option value="+34">🇪🇸 +34</option>
+              <option value="+1">🇺🇸 +1</option>
+            </select>
+            <input id="f-phone" name="phone" type="tel" required placeholder="Tu WhatsApp" inputmode="tel" autocomplete="tel-national" class="input flex-1"/>
+          </div>
+          <button type="submit" class="btn-pill w-full">
+            Quiero ser Founder
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <p id="formMsg" class="hidden text-[13px] text-center" role="status"></p>
+        </form>
+
+        <div class="mt-7 max-w-md mx-auto lg:mx-0">
+          <div class="flex items-center justify-between mb-2 text-[12px]">
+            <span class="subtle"><span class="accent font-semibold" data-counter="founders">218</span> Founders adentro</span>
+            <span class="subtle">500 plazas</span>
+          </div>
+          <div class="seats-track"><div class="seats-fill" id="seatsFill" style="width:43.6%"></div></div>
+          <p class="mt-2.5 text-[11px] subtle flex items-center justify-center lg:justify-start gap-2">
+            <span class="pulse-dot" style="width:7px;height:7px;"></span> Las plazas se están llenando
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: VSL (poster = Josué) -->
+      <div class="lg:col-span-5 order-1 lg:order-2">
+        <div class="vsl-frame max-w-sm mx-auto" id="vslFrame">
+          <span class="vsl-pill"><span class="pulse-dot" style="width:6px;height:6px;"></span> Meridian · Pre-launch</span>
+          <div class="vsl-poster">
+            <img src="/assets/josue-conference.jpg" alt="Josué Melero presentando en conferencia" fetchpriority="high" decoding="async" style="object-position:30% center;"/>
+          </div>
+          <button class="vsl-play" id="vslPlay" aria-label="Reproducir video">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
+          </button>
+          <div class="vsl-name">
+            <span>Josué Melero · Fundador</span>
+            <span style="font-family:ui-monospace,monospace;">04:32</span>
+          </div>
+        </div>
+        <p class="mt-4 text-[13px] subtle text-center max-w-sm mx-auto leading-relaxed">
+          Mira el video. Vas a entender por qué los brokers tradicionales no son la solución, y cómo construimos uno donde no podemos tocarte.
+        </p>
+        <div class="mt-4 flex items-center justify-center gap-2 flex-wrap">
+          <span class="chip">25 jun · 2026</span>
+          <span class="chip">7:00 PM · CDMX</span>
+          <span class="chip">Sesión en vivo</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 2 · CÓMO ENTRAR ════════════════════════ -->
+<section id="pasos" class="px-6 py-14 lg:py-16" style="background: var(--hero); border-top: 1px solid var(--line);">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <p class="eyebrow mb-3">Cómo entrar</p>
+      <h2 class="h2">Solo <span class="accent">2 pasos</span> y eres Founder.</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+      <div class="card p-6 flex items-start gap-4">
+        <span class="step-num">1</span>
+        <div>
+          <h3 class="h3 mb-1.5">Reserva tu plaza</h3>
+          <p class="body-text !text-[14px]">Déjanos tu nombre, email y WhatsApp aquí arriba. Toma 20 segundos y es gratis.</p>
+        </div>
+      </div>
+      <div class="card p-6 flex items-start gap-4">
+        <span class="step-num">2</span>
+        <div>
+          <h3 class="h3 mb-1.5">Únete al Telegram de los Founders</h3>
+          <p class="body-text !text-[14px]">Ahí confirmamos tu plaza, te damos acceso y decidimos juntos qué se construye.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-9">
+      <a href="#hero" class="btn-pill">Quiero mi plaza de Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 3 · COMPROMISOS FOUNDER ════════════════════════ -->
+<section id="compromisos" class="px-6 py-16 lg:py-20" style="border-top: 1px solid var(--line);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12 max-w-2xl mx-auto">
+      <p class="eyebrow mb-3">Compromisos Founder</p>
+      <h2 class="h2">Nuestra promesa a los <span class="accent">500</span> que nos ayudan a construir desde cero.</h2>
+      <p class="body-text mt-5">No entras como cliente. Entras como fundador, y esto es lo que recibes de por vida:</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <div class="card p-7">
+        <span class="commit-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+        <h3 class="h3 mb-2">Acceso anticipado, siempre</h3>
+        <p class="body-text !text-[14.5px]">Cada nueva función que lanzamos, la recibes primero. Sin esperas y sin listas. Los founders están de forma permanente al frente de la fila. Lo que viene:</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="chip">Tarjetas desde tus cuentas</span>
+          <span class="chip">Mayor apalancamiento (Q4)</span>
+          <span class="chip">Comisiones más bajas (Q4)</span>
+        </div>
+      </div>
+
+      <div class="card p-7">
+        <span class="commit-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <h3 class="h3 mb-2">Acceso permanente al equipo</h3>
+        <p class="body-text !text-[14.5px]">Queremos escucharte a ti primero: en las funciones, en los avances y sobre todo cuando algo esté mal. Al ser founder tienes nuestro oído, y queremos que dirijas el producto a largo plazo.</p>
+      </div>
+
+      <div class="card p-7">
+        <span class="commit-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3 class="h3 mb-2">Grupo privado de Founders</h3>
+        <p class="body-text !text-[14.5px]">Un grupo de Telegram solo para el equipo de Meridian y nuestros primeros 500 miembros. Piénsalo como el clubhouse de Meridian, una línea directa entre tú y nosotros.</p>
+      </div>
+
+      <div class="card p-7">
+        <span class="commit-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></span>
+        <h3 class="h3 mb-2">Acceso gratis a eventos de por vida</h3>
+        <p class="body-text !text-[14.5px]">Entrada de cortesía a todas las galas y eventos anuales de Meridian, de por vida, con tu distinción de founder reconocida en la puerta.</p>
+      </div>
+
+      <div class="card p-7">
+        <span class="commit-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg></span>
+        <h3 class="h3 mb-2">Reconocimiento como trader fundador</h3>
+        <p class="body-text !text-[14.5px]">Reconocido como trader fundador en nuestras comunidades de Telegram y Discord. Una marca permanente de dónde estuviste cuando importó.</p>
+      </div>
+
+      <div class="card p-7">
+        <span class="commit-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span>
+        <h3 class="h3 mb-2">Impulso en el ecosistema</h3>
+        <p class="body-text !text-[14.5px]">Si algún día quieres ser influencer o educador, te respaldamos. Los founders pueden tener su contenido patrocinado por el equipo de Meridian y promovido dentro del ecosistema, a veces compartido directamente por nosotros.</p>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#hero" class="btn-pill">Quiero todo esto
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 4 · PRUEBA SOCIAL ════════════════════════ -->
+<section id="founders" class="px-6 py-16 lg:py-20" style="background: var(--hero); border-top: 1px solid var(--line);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 max-w-2xl mx-auto">
+      <p class="eyebrow mb-3">Lo que dicen los Founders</p>
+      <h2 class="h2">Traders reales que ya operan con <span class="accent">libertad.</span></h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+      <div class="proof-card"><div class="photo"><span class="tag">Founder</span><img src="/assets/testimonial-ana.png" alt="Founder de Meridian" loading="lazy" decoding="async"/><div class="quote"><p>"Por fin un broker que me paga sin trabas."</p><span>Ana · 🇲🇽 Founder</span></div></div></div>
+      <div class="proof-card"><div class="photo"><span class="tag">Founder</span><img src="/assets/testimonial-luis.png" alt="Founder de Meridian" loading="lazy" decoding="async"/><div class="quote"><p>"Tradeo como quiero, sin restricciones."</p><span>Luis · 🇨🇴 Founder</span></div></div></div>
+      <div class="proof-card"><div class="photo"><span class="tag">Founder</span><img src="/assets/testimonial-roberto.png" alt="Founder de Meridian" loading="lazy" decoding="async"/><div class="quote"><p>"Ser Founder cambió mi forma de operar."</p><span>Roberto · 🇵🇪 Founder</span></div></div></div>
+    </div>
+    <div class="text-center mt-10">
+      <a href="#hero" class="btn-pill">Quiero ser Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 5 · CARTA DEL FUNDADOR ════════════════════════ -->
+<section id="fundador" class="px-6 py-16 lg:py-24" style="border-top: 1px solid var(--line);">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div class="lg:col-span-5">
+        <div class="hero-photo aspect-[4/5] max-w-sm mx-auto">
+          <img src="/assets/josue-portrait.jpg" alt="Josué Melero, fundador de Meridian" loading="lazy" decoding="async"/>
+          <span class="hero-badge"><span class="text-[11px]">@josuemelero · 🇲🇽</span></span>
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-3">La historia detrás</p>
+        <h2 class="h2">Construí Meridian porque a mí <span class="accent">no me pagaron.</span></h2>
+        <p class="body-text mt-5">
+          ¡Hola, soy Josué! Llevo 7 años haciendo trading y tardé 4 años en ser rentable. Llegué a
+          manejar más de 2.5 millones de dólares en fondeo, y aun así me cerraron mis cuentas y no me
+          pagaron mis fondos.
+        </p>
+        <p class="body-text mt-4">
+          Ahí entendí algo: el problema no eres tú, el problema es dónde estás operando. Por eso
+          construí Meridian, un broker que tecnológicamente no puede congelar tus cuentas ni bloquear
+          tus retiros. Y quiero que los primeros 500 lo construyan conmigo.
+        </p>
+        <p class="mt-5 text-[15px]" style="color: var(--sage-hover); font-weight: 600;">Josué Melero, fundador de Meridian</p>
+        <div class="mt-8">
+          <a href="#hero" class="btn-pill">Quiero mi plaza de Founder
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 6 · CIERRE CON ESCASEZ ════════════════════════ -->
+<section id="cierre" class="px-6 py-16 lg:py-20 text-center" style="background: var(--hero); border-top: 1px solid var(--line);">
+  <div class="max-w-2xl mx-auto">
+    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-6" style="background: var(--sage-glow); border: 1px solid var(--sage-press);">
+      <span class="pulse-dot"></span>
+      <span class="eyebrow !text-[10.5px]"><span data-counter="founders">218</span>/500 plazas ocupadas</span>
+    </div>
+    <h2 class="h2">Es <span class="accent">ahora, o nunca.</span></h2>
+    <p class="body-text mt-5 max-w-xl mx-auto">
+      Cuando entren los 500, esto se cierra para siempre. No habrá founder número 501. Registra tu
+      plaza ahora, es gratis y los lugares se agotan.
+    </p>
+    <div class="mt-8 flex justify-center">
+      <a href="#hero" class="btn-pill">Quiero ser Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 7 · FAQ ════════════════════════ -->
+<section id="faq" class="px-6 py-16 lg:py-20" style="border-top: 1px solid var(--line);">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-8">
+      <p class="eyebrow mb-3">Preguntas frecuentes</p>
+      <h2 class="h2">Todo lo que <span class="accent">necesitas saber.</span></h2>
+    </div>
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">¿Tiene algún costo registrarme? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Reservar tu plaza de Founder es completamente gratuito. Solo necesitas registrarte y unirte al grupo de Telegram.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Necesito experiencia previa en trading? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Ser founder está abierto tanto a traders con experiencia como a quienes están empezando. Lo importante es que quieras un broker que te respete.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Qué significa ser uno de los 500 founders? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Significa que entras desde el día cero con beneficios de por vida: acceso anticipado a todo, voz en el producto, grupo privado con el equipo, eventos gratis y reconocimiento como trader fundador. Los detalles te los damos dentro del Telegram.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo accedo después de registrarme? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Al registrarte te llevamos al grupo privado de Telegram, donde confirmamos tu plaza y te damos los siguientes pasos. Por eso es importante que te unas justo después.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Hasta cuándo está abierto el registro? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Hasta que se llenen las 500 plazas. Una vez completas, el registro de founders se cierra para siempre. No habrá founder número 501.</div></div>
+      </div>
+    </div>
+    <div class="text-center mt-10">
+      <a href="#hero" class="btn-pill">Quiero mi plaza de Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="px-6 py-10" style="border-top: 1px solid var(--line);">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="text-[11px] leading-relaxed subtle">
+      Este sitio no está afiliado ni avalado por Meta, Facebook, Instagram ni WhatsApp. El trading
+      conlleva riesgo y los resultados dependen del esfuerzo, la dedicación y las condiciones de mercado
+      de cada persona. La información de esta página es de carácter educativo e informativo y no
+      constituye asesoría financiera ni garantía de resultados.
+    </p>
+    <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-2 text-[11px] subtle">
+      <span class="tracking-[0.14em] uppercase font-semibold" style="color: rgba(255,255,255,0.8);">Meridian · Built for you to win.</span>
+      <span class="hidden sm:inline">·</span>
+      <span>© 2026 · All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+
+<div class="sticky-cta sm:hidden" id="stickyCta">
+  <a href="#hero" class="btn-pill w-full">Quiero ser Founder
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+</div>
+
+
+<script>
+  const vslPlay = document.getElementById('vslPlay');
+  if (vslPlay) vslPlay.addEventListener('click', () => {
+    document.getElementById('vslFrame').innerHTML = '<iframe src="https://player.mux.com/iKfAC27mF01edHhMQjUnIjvMIYHZbIblKQVSbqNRXUCs?autoplay=1&video-title=VSL_josue" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="VSL Meridian"></iframe>';
+  });
+
+  let founders = 218;
+  const TOTAL = 500;
+  function syncFounders() {
+    document.querySelectorAll('[data-counter="founders"]').forEach(el => el.textContent = founders.toLocaleString());
+    const fill = document.getElementById('seatsFill');
+    if (fill) fill.style.width = ((founders / TOTAL) * 100).toFixed(1) + '%';
+  }
+  syncFounders();
+  function bumpFounders() {
+    if (founders >= TOTAL) return;
+    founders += 1; syncFounders();
+    setTimeout(bumpFounders, 8000 + Math.random() * 16000);
+  }
+  setTimeout(bumpFounders, 9000);
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  const sticky = document.getElementById('stickyCta');
+  const hero = document.getElementById('hero');
+  const io = new IntersectionObserver(([e]) => { e.isIntersecting ? sticky.classList.remove('show') : sticky.classList.add('show'); }, { threshold: 0 });
+  if (hero) io.observe(hero);
+
+  const form = document.getElementById('leadForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !phone) {
+      msg.textContent = 'Completa tu nombre, un email válido y tu WhatsApp.';
+      msg.classList.remove('hidden'); msg.style.color = '#9ea1a3';
+      return;
+    }
+    const payload = { name, email, phone: form.phone_code.value + ' ' + phone, _source: 'meridian-v4-founders', _submitted_at: new Date().toISOString() };
+    msg.textContent = '✓ Reservando tu plaza…';
+    msg.classList.remove('hidden'); msg.style.color = '#7a9d96';
+    const webhook = form.dataset.webhook;
+    try {
+      if (webhook && !webhook.startsWith('REEMPLAZAR')) {
+        await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      } else { console.log('[Meridian v4 Founders] webhook no configurado · payload →', payload); }
+    } catch (err) { console.error('[Meridian v4 Founders] error:', err); }
+    finally { window.location.href = '/v4/thank-you/'; }
+  });
+</script>
+
+</body>
+</html>

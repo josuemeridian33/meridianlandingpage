@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Casi listo! Únete al Telegram — Founders Meridian</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --arctic: #FFFFFF; --patina: #7a9d96; --patina-light: #8fb3ab;
+    --midnight: #0d0f0f; --steel: #111414; --slate: #161a19; --pewter: #9ea1a3;
+  }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { overflow-x: hidden; margin: 0; max-width: 100%; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(122,157,150,0.12) 0%, transparent 60%), var(--midnight);
+    color: var(--arctic); min-height: 100vh; display: flex; flex-direction: column;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+  }
+  .h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.08; }
+  .h2 { font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
+  .muted { color: var(--pewter); }
+  .accent { color: var(--patina); }
+
+  .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; }
+  .pulse-dot::before { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; animation: pr 2s ease-out infinite; opacity: 0.6; }
+  .pulse-dot::after  { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
+  @keyframes pr { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+
+  .btn-primary {
+    background: linear-gradient(180deg, #7a9d96 0%, #62847d 100%);
+    color: #FFFFFF; padding: 1.1rem 2rem; border-radius: 999px;
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.86rem;
+    transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.7rem;
+    text-decoration: none; cursor: pointer; border: none;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(122,157,150,0.32);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(122,157,150,0.45); }
+  .btn-primary:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
+
+  .glass {
+    background: linear-gradient(180deg, rgba(42,52,64,0.6) 0%, rgba(23,34,49,0.5) 100%);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .step-num {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem; color: var(--arctic);
+    background: rgba(122,157,150,0.20); border: 1px solid rgba(122,157,150,0.48); flex-shrink: 0;
+  }
+  .ty-mark { width: 70px; height: 70px; display: block; margin: 0 auto; animation: ty-breathe 6s ease-in-out infinite; }
+  .ty-mark .half-white { fill: #FFFFFF; } .ty-mark .half-patina { fill: #7a9d96; }
+  @keyframes ty-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 8px 24px rgba(122,157,150,0.32)); }
+    50%      { transform: scale(1.03); filter: drop-shadow(0 12px 32px rgba(122,157,150,0.52)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .pulse-dot::before, .ty-mark { animation: none !important; } }
+</style>
+</head>
+<body class="relative">
+
+<div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
+
+<header class="relative z-10 px-6 py-5 lg:py-6 flex items-center justify-center border-b border-white/5">
+  <a href="/v4/" class="flex items-center gap-3" aria-label="Volver al inicio">
+    <span class="text-[11px] font-semibold uppercase tracking-[0.3em] text-arctic">Meridian</span>
+    <span class="text-[10px] tracking-[0.22em] uppercase text-patina">Founders</span>
+  </a>
+</header>
+
+<main class="relative z-10 flex-1 px-6 py-12 lg:py-16">
+  <div class="w-full max-w-xl mx-auto text-center">
+
+    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-7"
+         style="background: rgba(122,157,150,0.10); border: 1px solid rgba(122,157,150,0.32);">
+      <span class="pulse-dot"></span>
+      <span class="eyebrow !text-[10.5px]">Paso 02 de 02 · Último paso</span>
+    </div>
+
+    <svg class="ty-mark mb-7" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
+      <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+      <path class="half-patina" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+    </svg>
+
+    <h1 class="h1">¡Tu plaza de Founder está <span class="accent">casi reservada!</span></h1>
+    <p class="mt-5 text-[15px] text-arctic/78 max-w-md mx-auto leading-relaxed">
+      Falta <span class="text-arctic font-medium">un solo paso</span>: únete al Telegram de los Founders
+      para confirmar tu plaza, recibir tu acceso y los siguientes pasos.
+    </p>
+
+    <!-- Telegram group CTA card -->
+    <div class="glass rounded-2xl p-7 lg:p-8 mt-10 text-center">
+      <p class="eyebrow !text-[10.5px]">Último paso para confirmar</p>
+      <h2 class="h2 mt-3 text-arctic">Únete al <span class="accent">Telegram de los Founders.</span></h2>
+      <p class="mt-3 text-[14px] text-arctic/78 max-w-sm mx-auto leading-relaxed">
+        Tu plaza se confirma cuando entras al grupo. Ahí decidimos juntos qué se construye y te damos tu acceso.
+      </p>
+
+      <a id="telegramCta" href="https://t.me/+founders_meridian_placeholder"
+         target="_blank" rel="noopener" class="btn-primary mt-6 mx-auto">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        Entrar al Telegram
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <p class="mt-4 text-[11px] muted">✓ Acceso inmediato · <span class="accent font-semibold">347 founders adentro</span></p>
+    </div>
+
+    <!-- What's next -->
+    <div class="mt-10 text-left max-w-md mx-auto space-y-4">
+      <div class="flex items-start gap-4">
+        <span class="step-num">1</span>
+        <div><p class="text-[14px] font-semibold text-arctic">Entra al Telegram de los Founders</p><p class="text-[12.5px] muted">Toca el botón de arriba para unirte ahora.</p></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="step-num">2</span>
+        <div><p class="text-[14px] font-semibold text-arctic">Confirma tu plaza adentro</p><p class="text-[12.5px] muted">Ahí te damos tu acceso y los siguientes pasos como Founder.</p></div>
+      </div>
+    </div>
+
+    <p class="mt-10 text-[12px] muted">📩 También te enviamos un correo de confirmación. Revisa spam por si acaso.</p>
+
+  </div>
+</main>
+
+<footer class="relative z-10 px-6 py-5 border-t border-white/5">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] muted">
+    <span class="tracking-[0.14em] uppercase">Meridian · Built for you to win.</span>
+    <span>© 2026 · All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
