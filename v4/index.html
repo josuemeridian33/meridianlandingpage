@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clase Gratuita · Meridian — Domina la técnica del broker que te paga</title>
+<meta name="description" content="Clase online y 100% gratuita. Domina la técnica para tradear con un broker honesto que SÍ te paga — y del que puedes ser Founder. Cupos limitados.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          arctic: '#FFFFFF',
+          patina: '#52716E',
+          'patina-light': '#7D9A96',
+          midnight: '#0B1220',
+          steel: '#172231',
+          slate: '#2A3440',
+          pewter: '#6B717C',
+        },
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --arctic: #FFFFFF;
+    --patina: #52716E;
+    --patina-light: #7D9A96;
+    --midnight: #0B1220;
+    --steel: #172231;
+    --slate: #2A3440;
+    --pewter: #6B717C;
+  }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; margin: 0; scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--midnight); color: var(--arctic); min-height: 100vh; }
+
+  .ambient-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(82,113,110,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(82,113,110,0.05) 0%, transparent 60%),
+      var(--midnight);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+  }
+  .hex-bg {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'><polygon points='30,1 58,16 58,42 30,52 1,42 1,16' fill='none' stroke='%2352716E' stroke-opacity='0.10' stroke-width='1'/></svg>");
+    background-size: 60px 52px;
+  }
+
+  .h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.08; }
+  .h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; }
+  .h3 { font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
+  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.76); font-weight: 400; }
+  .muted { color: var(--pewter); }
+  .accent { color: var(--patina); }
+  .accent-light { color: var(--patina-light); }
+  .glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
+
+  .btn-pill {
+    background: linear-gradient(180deg, #52716E 0%, #42605D 100%);
+    color: #FFFFFF;
+    padding: 1.1rem 2.5rem;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.84rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32);
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
+    border: none; cursor: pointer; text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-pill:hover { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(82,113,110,0.45); }
+  .btn-pill:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
+
+  .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; flex-shrink: 0; }
+  .pulse-dot::before { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; animation: pulse-ring 2s ease-out infinite; opacity: 0.6; }
+  .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
+  @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+
+  /* ── Animated logo mark (from brand system) ── */
+  .meridian-mark {
+    width: clamp(72px, 9vw, 96px);
+    height: auto;
+    display: block;
+    animation: mark-breathe 7s ease-in-out infinite;
+  }
+  .meridian-mark .half-white { fill: #FFFFFF; }
+  .meridian-mark .half-patina { fill: #52716E; }
+  @keyframes mark-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 6px 20px rgba(82,113,110,0.30)); }
+    50%      { transform: scale(1.018); filter: drop-shadow(0 10px 28px rgba(82,113,110,0.50)); }
+  }
+
+  /* ── Numbered step ── */
+  .step-num {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.1rem; color: var(--arctic);
+    background: rgba(82,113,110,0.20);
+    border: 1px solid rgba(82,113,110,0.48);
+    flex-shrink: 0;
+  }
+
+  /* ── Freedom / benefit checklist ── */
+  .free-item {
+    display: flex; align-items: flex-start; gap: 0.85rem;
+    padding: 0.7rem 0;
+    font-size: 0.98rem; line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+  }
+  .free-check {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(82,113,110,0.20);
+    border: 1px solid rgba(82,113,110,0.42);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--patina-light); margin-top: 0.1rem;
+  }
+
+  /* ── Reason cards ── */
+  .reason-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 1.6rem 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .reason-card:hover { transform: translateY(-3px); border-color: rgba(82,113,110,0.35); }
+  .reason-ico {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+  }
+
+  /* ── Result / proof cards ── */
+  .result-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .result-card:hover { transform: translateY(-3px); border-color: rgba(82,113,110,0.35); }
+  .result-card .photo { aspect-ratio: 4 / 5; overflow: hidden; position: relative; }
+  .result-card .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .result-card .photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(11,18,32,0.92) 100%);
+  }
+  .result-card .quote {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+    padding: 1rem 1rem 1.1rem; text-align: center;
+  }
+  .result-card .quote p { color: var(--arctic); font-size: 0.85rem; font-weight: 600; line-height: 1.3; }
+  .result-card .quote span { color: var(--patina-light); font-size: 0.7rem; letter-spacing: 0.05em; }
+
+  /* ── Date chip ── */
+  .date-chip {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.55rem 0.95rem;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px; font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.88);
+  }
+  .date-chip svg { color: var(--patina-light); flex-shrink: 0; }
+
+  /* ── FAQ ── */
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .faq-q {
+    width: 100%; text-align: left; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1.25rem 0; font-size: 1rem; font-weight: 500; color: var(--arctic);
+    background: none; border: none;
+  }
+  .faq-q svg { flex-shrink: 0; color: var(--patina-light); transition: transform 0.3s ease; }
+  .faq-item.open .faq-q svg { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .faq-a-inner { padding: 0 0 1.25rem; color: rgba(255,255,255,0.72); font-size: 0.95rem; line-height: 1.6; }
+
+  /* ── Sticky bottom CTA (mobile) ── */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgba(11,18,32,0.92); backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    transform: translateY(110%); transition: transform 0.35s ease;
+  }
+  .sticky-cta.show { transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot::before, .meridian-mark { animation: none; }
+  }
+</style>
+</head>
+<body class="ambient-bg">
+
+<div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
+
+
+<!-- ════════════════════════ 1 · HERO ════════════════════════ -->
+<section id="hero" class="relative px-6 pt-12 pb-16 lg:pt-16 lg:pb-20">
+  <div class="relative max-w-3xl mx-auto text-center">
+
+    <div class="meridian-mark-wrap mx-auto mb-4 inline-block">
+      <svg class="meridian-mark mx-auto" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
+        <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+        <path class="half-patina" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+      </svg>
+    </div>
+
+    <!-- Free + date strip (CrisBalloons: "Online y 100% gratuita | Lunes 25 de Mayo") -->
+    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-6"
+         style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.32);">
+      <span class="pulse-dot"></span>
+      <span class="eyebrow !text-[10.5px]">Online y 100% gratuita · Lunes 29 de junio</span>
+    </div>
+
+    <!-- HEADLINE -->
+    <h1 class="h1 max-w-3xl mx-auto">
+      Domina la técnica para tradear con un broker
+      que <span class="accent">SÍ te paga</span> — y del que puedes ser dueño.
+    </h1>
+
+    <p class="body-text mt-6 max-w-2xl mx-auto">
+      Clase en vivo, online y gratuita donde te enseñamos cómo operar con
+      <span class="text-arctic font-semibold">libertad total</span> en un broker honesto, A-book real —
+      y cómo entrar a los <span class="text-arctic font-semibold">1,000 Founders</span> que están
+      construyendo Meridian desde adentro.
+    </p>
+
+    <!-- Email-first capture (lowest friction — the CrisBalloons secret) -->
+    <form id="leadForm" class="mt-9 max-w-md mx-auto space-y-3" novalidate>
+      <input id="f-name" name="name" type="text" required placeholder="Tu nombre"
+             class="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none transition-colors text-[15px]"/>
+      <input id="f-email" name="email" type="email" required placeholder="Tu mejor email"
+             class="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none transition-colors text-[15px]"/>
+      <button type="submit" class="btn-pill w-full">
+        Quiero registrarme gratis
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <p id="formMsg" class="hidden text-[13px] text-center" role="status"></p>
+    </form>
+
+    <!-- Date / time / live chips -->
+    <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
+      <span class="date-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Lunes 29 de junio
+      </span>
+      <span class="date-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        7:00 PM · CDMX
+      </span>
+      <span class="date-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        100% en vivo
+      </span>
+    </div>
+
+    <p class="mt-6 text-[12px] muted flex items-center justify-center gap-2.5">
+      <span class="pulse-dot" style="width:7px;height:7px;"></span>
+      <span><span class="accent font-semibold" data-counter="seats">412</span> personas registradas · cupos limitados</span>
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 2 · CÓMO PARTICIPAR (2 pasos) ════════════════════════ -->
+<section id="pasos" class="px-6 py-14 lg:py-16" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <p class="eyebrow mb-3">Cómo participar</p>
+      <h2 class="h2">Solo <span class="accent">2 pasos</span> y estás dentro.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+      <div class="glass rounded-2xl p-6 flex items-start gap-4">
+        <span class="step-num">1</span>
+        <div>
+          <h3 class="h3 text-arctic mb-1.5">Regístrate con tu email</h3>
+          <p class="body-text !text-[14px]">Déjanos tu nombre y tu mejor correo aquí arriba. Toma 10 segundos y es gratis.</p>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-6 flex items-start gap-4">
+        <span class="step-num">2</span>
+        <div>
+          <h3 class="h3 text-arctic mb-1.5">Únete al grupo de WhatsApp</h3>
+          <p class="body-text !text-[14px]">Ahí recibirás el enlace de acceso, los recordatorios y las sorpresas del evento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-9">
+      <a href="#hero" class="btn-pill">
+        Quiero unirme gratis a la clase
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 3 · QUÉ VAS A APRENDER ════════════════════════ -->
+<section id="aprenderas" class="px-6 py-16 lg:py-20 relative overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.04);">
+  <div class="absolute bottom-0 right-0 w-[400px] h-[400px] hex-bg pointer-events-none opacity-50"
+       style="-webkit-mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%); mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%);"></div>
+
+  <div class="max-w-3xl mx-auto relative">
+    <div class="text-center mb-8">
+      <p class="eyebrow mb-3">Qué vas a aprender</p>
+      <h2 class="h2">No es una clase más.<br class="hidden sm:block"> Es la técnica que <span class="accent">sí se traduce en dinero.</span></h2>
+      <p class="body-text mt-5 max-w-2xl mx-auto">
+        En esta clase en vivo te enseñamos cómo operar con una técnica clara, en un broker que no
+        te pone trampas — y cómo convertir eso en una verdadera oportunidad de negocio siendo Founder.
+      </p>
+    </div>
+
+    <div class="max-w-xl mx-auto">
+      <div class="free-item">
+        <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+        <span>La <span class="text-arctic font-semibold">técnica de entrada y gestión de riesgo</span> que usan los traders que sí retiran.</span>
+      </div>
+      <div class="free-item">
+        <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+        <span>Cómo identificar un <span class="text-arctic font-semibold">broker honesto (A-book real)</span> y huir de los que congelan tus ganancias.</span>
+      </div>
+      <div class="free-item">
+        <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+        <span>Por qué la <span class="text-arctic font-semibold">libertad total de estrategia</span> (scalping, HFT, news) cambia tus resultados.</span>
+      </div>
+      <div class="free-item">
+        <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+        <span>Cómo entrar a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span> y recibir equity real del broker.</span>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#hero" class="btn-pill">
+        Quiero mi acceso gratuito
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 4 · POR QUÉ NO TE LA PUEDES PERDER ════════════════════════ -->
+<section id="porque" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 max-w-2xl mx-auto">
+      <p class="eyebrow mb-3">Por qué no te la puedes perder</p>
+      <h2 class="h2">Porque no es una clase más…<br class="hidden sm:block"> es una <span class="accent">experiencia única.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="reason-card">
+        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></span>
+        <h3 class="h3 text-arctic mb-1.5">100% online</h3>
+        <p class="body-text !text-[14px]">Participas en vivo desde cualquier lugar, solo necesitas tu teléfono.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7a3.5 3.5 0 1 0-3.5-3.5C8.5 5 12 7 12 7zM12 7a3.5 3.5 0 1 1 3.5-3.5C15.5 5 12 7 12 7z"/></svg></span>
+        <h3 class="h3 text-arctic mb-1.5">Gratis y con cupos limitados</h3>
+        <p class="body-text !text-[14px]">No cuesta nada, pero los lugares son contados. Reserva el tuyo hoy.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3 class="h3 text-arctic mb-1.5">Comunidad exclusiva</h3>
+        <p class="body-text !text-[14px]">Entras al grupo privado con todas las novedades y los demás Founders.</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 8.5 22 9.5 17 14.5 18.5 21.5 12 18 5.5 21.5 7 14.5 2 9.5 9 8.5 12 2"/></svg></span>
+        <h3 class="h3 text-arctic mb-1.5">Sorpresas en vivo</h3>
+        <p class="body-text !text-[14px]">Habrá regalos y oportunidades exclusivas solo para quienes asistan.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#hero" class="btn-pill">
+        Quiero unirme gratis a la clase
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 5 · GALERÍA DE RESULTADOS (prueba social) ════════════════════════ -->
+<section id="resultados" class="px-6 py-16 lg:py-20" style="border-top: 1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 max-w-2xl mx-auto">
+      <p class="eyebrow mb-3">Lo que dicen los Founders</p>
+      <h2 class="h2">Traders reales que ya<br class="hidden sm:block"> <span class="accent">operan con libertad.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+      <div class="result-card">
+        <div class="photo">
+          <img src="/assets/testimonial-ana.png" alt="Founder de Meridian" loading="lazy" decoding="async"/>
+          <div class="quote"><p>"Por fin un broker que me paga sin trabas."</p><span>Ana · 🇲🇽 Founder</span></div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="photo">
+          <img src="/assets/testimonial-luis.png" alt="Founder de Meridian" loading="lazy" decoding="async"/>
+          <div class="quote"><p>"Tradeo como quiero, sin restricciones."</p><span>Luis · 🇨🇴 Founder</span></div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="photo">
+          <img src="/assets/testimonial-roberto.png" alt="Founder de Meridian" loading="lazy" decoding="async"/>
+          <div class="quote"><p>"Ser Founder cambió mi forma de operar."</p><span>Roberto · 🇵🇪 Founder</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#hero" class="btn-pill">
+        Quiero unirme gratis a la clase
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 6 · INSTRUCTOR ════════════════════════ -->
+<section id="instructor" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+      <div class="lg:col-span-5">
+        <div class="relative aspect-[4/5] rounded-2xl overflow-hidden max-w-sm mx-auto glass-strong">
+          <img src="/assets/josue-portrait.png" alt="Josué Melero, fundador de Meridian"
+               class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async"/>
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight via-midnight/40 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-midnight/80 backdrop-blur border border-white/10">
+            <span class="text-[11px] tracking-wide text-pewter">@josuemelero · 🇲🇽</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-3">Tu instructor</p>
+        <h2 class="h2">Josué Melero,<br class="hidden sm:block"> <span class="accent">fundador de Meridian.</span></h2>
+        <p class="body-text mt-5">
+          Trader y emprendedor que se cansó de los brokers que ponen letra chiquita para no pagar.
+          Por eso construyó Meridian: un broker honesto, A-book real, hecho con los traders adentro.
+        </p>
+        <p class="body-text mt-4">
+          En esta clase comparte la misma técnica y los principios con los que ayuda a una comunidad
+          creciente de traders a operar con libertad total — y a convertir el trading en una
+          verdadera oportunidad de negocio si así lo deciden.
+        </p>
+        <div class="mt-8">
+          <a href="#hero" class="btn-pill">
+            Quiero mi lugar gratis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 7 · CIERRE CON FECHA ════════════════════════ -->
+<section id="cierre" class="px-6 py-16 lg:py-20 text-center" style="border-top: 1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-2xl mx-auto">
+    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mb-6"
+         style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.32);">
+      <span class="pulse-dot"></span>
+      <span class="eyebrow !text-[10.5px]">Lunes 29 de junio · 7:00 PM CDMX</span>
+    </div>
+    <h2 class="h2">No te pierdas esta<br class="hidden sm:block"> <span class="accent">experiencia única.</span></h2>
+    <p class="body-text mt-5 max-w-xl mx-auto">
+      Es gratis, es en vivo y los cupos son limitados. Registra tu email ahora y asegura tu lugar
+      antes de que se llene.
+    </p>
+    <div class="mt-8 flex justify-center">
+      <a href="#hero" class="btn-pill">
+        Quiero unirme gratis a la clase
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 8 · FAQ ════════════════════════ -->
+<section id="faq" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-8">
+      <p class="eyebrow mb-3">Preguntas frecuentes</p>
+      <h2 class="h2">Todo lo que <span class="accent">necesitas saber.</span></h2>
+    </div>
+
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">¿Tiene algún costo? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">No, la clase es completamente gratuita. Solo necesitas registrarte con tu email y unirte al grupo de WhatsApp.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Necesito experiencia previa en trading? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Para nada. La clase está diseñada para que la entiendas desde cero, y también aporta valor si ya operas.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Necesito invertir dinero para asistir? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Asistir a la clase no tiene ningún costo ni te pide depositar nada. Es 100% informativa.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo accedo a la clase? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Recibirás el enlace de acceso a través del grupo privado de WhatsApp. Por eso es importante que te unas después de registrarte.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿La clase queda grabada? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">La clase es en vivo y los accesos son por tiempo limitado. Te recomendamos conectarte en directo para no perderte nada.</div></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#hero" class="btn-pill">
+        Quiero mi acceso gratuito
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER + DISCLAIMER -->
+<footer class="px-6 py-10 border-t border-white/5">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="text-[11px] leading-relaxed muted">
+      Este sitio no está afiliado ni avalado por Meta, Facebook, Instagram ni WhatsApp. El trading
+      conlleva riesgo y los resultados dependen del esfuerzo, la dedicación y las condiciones de mercado
+      de cada persona. Esta clase es de carácter educativo e informativo y no constituye asesoría
+      financiera ni garantía de resultados.
+    </p>
+    <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-2 text-[11px] muted">
+      <span class="tracking-[0.14em] uppercase font-semibold text-arctic/80">Meridian · Built for you to win.</span>
+      <span class="hidden sm:inline">·</span>
+      <span>© 2026 · All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-cta sm:hidden" id="stickyCta">
+  <a href="#hero" class="btn-pill w-full">
+    Registrarme gratis
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+
+<script>
+  // ── LIVE SEAT COUNTER ──
+  let seats = 412;
+  function syncSeats() { document.querySelectorAll('[data-counter="seats"]').forEach(el => el.textContent = seats.toLocaleString()); }
+  syncSeats();
+  function bumpSeats() {
+    seats += 1; syncSeats();
+    setTimeout(bumpSeats, 6000 + Math.random() * 14000);
+  }
+  setTimeout(bumpSeats, 7000);
+
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  // ── Sticky CTA: show after scrolling past hero ──
+  const sticky = document.getElementById('stickyCta');
+  const hero = document.getElementById('hero');
+  const io = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) sticky.classList.remove('show');
+    else sticky.classList.add('show');
+  }, { threshold: 0 });
+  if (hero) io.observe(hero);
+
+  // ── FORM SUBMIT → thank-you (WhatsApp group step) ──
+  const form = document.getElementById('leadForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const payload = { name: form.name.value.trim(), email: form.email.value.trim() };
+    if (!payload.name || !payload.email) {
+      msg.textContent = 'Completa tu nombre y email.';
+      msg.classList.remove('hidden'); msg.style.color = '#6B717C';
+      return;
+    }
+    console.log('[Clase Gratuita v4] POST /api/leads →', payload);
+    msg.textContent = '✓ Registrando tu lugar…';
+    msg.classList.remove('hidden'); msg.style.color = '#52716E';
+    setTimeout(() => { window.location.href = '/v4/thank-you/'; }, 900);
+  });
+</script>
+
+</body>
+</html>
