@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Founders · Deivin — Un broker que gana cuando tú ganas</title>
+<meta name="description" content="El 25 de agosto te quiero mostrar Meridian: el neo-broker para traders que quieren operar sin restricciones y sin que nadie juegue en tu contra. Sesión en vivo, 7 PM CDMX.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/meridian-icon.svg">
+
+<!-- LCP: el navegador elige la variante según el ancho antes de parsear el CSS -->
+<link rel="preload" as="image" type="image/webp" href="/assets/hero-deivin-meridian-m.webp" media="(max-width: 860px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="/assets/hero-deivin-meridian.webp" media="(min-width: 861px)" fetchpriority="high">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1770734543558202');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1770734543558202&ev=PageView&noscript=1"></noscript>
+
+<!-- PostHog -->
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_LPfQesdsK807igXPYF051nCAJpaqsmU5MbbHmTFtdnD',{api_host:'https://us.i.posthog.com'});
+</script>
+
+<style>
+:root{
+  /* surfaces */
+  --canvas:#0d0f0f;--elev:#111414;--card:#161a19;--hover:#232928;
+  --bd:#242a29;--bd-strong:#323a38;
+  /* sage accent */
+  --sage:#7a9d96;--sage-hi:#8fb3ab;--sage-lo:#62847d;--sage-glow:rgba(122,157,150,0.14);
+  /* text */
+  --txt:#ffffff;--muted:#9ea1a3;--subtle:#6b7176;
+  /* terracotta — micro-accents only */
+  --terra:#b87351;--terra-hi:#cf8a66;
+  /* semantic */
+  --sell:#ef4533
+}
+*,*::before,*::after{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{overflow-x:hidden;margin:0;scroll-behavior:smooth;background:var(--canvas)}
+body{font-family:'Inter',system-ui,sans-serif;color:#fff;min-height:100vh}
+
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);align-items:center;gap:clamp(1.5rem,4vw,3rem);padding:clamp(100px,14vh,130px) clamp(1.25rem,5vw,4rem) clamp(2rem,5vh,3rem);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:var(--canvas);z-index:0}
+
+.binary-left{position:absolute;left:0;top:0;width:90px;height:100%;z-index:2;pointer-events:none;overflow:hidden}
+.binary-col{position:absolute;top:0;font-size:11px;font-family:'Courier New',monospace;color:#62847d;line-height:2;white-space:pre;animation:binaryFall linear infinite;user-select:none}
+@keyframes binaryFall{from{transform:translateY(-100%)}to{transform:translateY(110vh)}}
+
+.hero-photo{position:absolute;left:38%;top:0;right:0;bottom:0;z-index:1;display:block;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,#0d0f0f 0%,rgba(13,15,15,0.78) 14%,rgba(13,15,15,0.2) 38%,transparent 62%);z-index:2}
+.hero-photo::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,#0d0f0f 0%,transparent 100%);z-index:3}
+.hero-glow{position:absolute;inset:0;z-index:3;background:radial-gradient(ellipse 60% 70% at 55% 45%,rgba(122,157,150,0.14) 0%,transparent 65%);pointer-events:none}
+
+.hero-content{position:relative;z-index:10;padding:0;max-width:520px;width:100%}
+
+.top-bar{position:absolute;top:clamp(16px,3vw,28px);left:clamp(1.25rem,5vw,4rem);z-index:20}
+.brand-logo{display:inline-flex;align-items:center;gap:12px;padding:9px 20px 9px 14px;background:rgba(17,20,20,0.72);border:1px solid rgba(50,58,56,0.9);border-radius:999px;backdrop-filter:blur(10px)}
+.brand-icon{width:28px;height:28px;flex-shrink:0}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;gap:3px}
+.brand-name{font-size:16px;font-weight:600;letter-spacing:-0.01em;color:#fff}
+.brand-sub{font-size:9px;font-weight:600;letter-spacing:0.32em;color:#7a9d96;text-transform:uppercase}
+
+.hero-title{font-size:clamp(28px,3.8vw,48px);font-weight:800;color:#fff;line-height:1.1;margin:0 0 16px;letter-spacing:-0.01em;text-shadow:0 2px 18px rgba(0,0,0,0.55)}
+.hero-title em{font-style:normal;color:#8fb3ab}
+.hero-sub{font-size:clamp(14px,1.6vw,15px);color:#9ea1a3;font-weight:400;line-height:1.65;margin:0 0 20px;max-width:100%}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:26px;font-size:clamp(11px,1.2vw,12px);font-weight:600;color:#9ea1a3;letter-spacing:0.05em}
+.meta-live{display:flex;align-items:center;gap:6px;color:#cf8a66}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#b87351;animation:livePulse 1.6s ease-in-out infinite;box-shadow:0 0 8px rgba(184,115,81,0.85)}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(184,115,81,0.7)}50%{box-shadow:0 0 0 6px rgba(184,115,81,0)}}
+
+.hero-form{display:flex;flex-direction:column;gap:10px;max-width:100%;width:100%}
+.form-input,.form-select{background:rgba(255,255,255,0.035);border:1px solid #242a29;color:#fff;font-family:'Inter',sans-serif;font-size:14px;padding:14px 18px;outline:none;transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;border-radius:4px}
+.form-input:hover,.form-select:hover{border-color:#323a38;background:rgba(255,255,255,0.05)}
+.form-input:focus,.form-select:focus{border-color:#7a9d96;box-shadow:0 0 0 3px rgba(122,157,150,0.14)}
+.form-input::placeholder{color:#6b7176}
+.form-select{color:rgba(158,161,163,0.9);appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(122,157,150,0.7)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+.form-select option{background:#161a19;color:#fff}
+.field-error{border-color:#ef4533!important;animation:shake .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.frm-err{display:none;align-items:center;gap:.5rem;padding:.7rem .9rem;background:rgba(239,69,51,.08);border:1px solid rgba(239,69,51,.35);border-radius:6px;color:#f0a79c;font-size:.84rem;margin-bottom:.25rem}
+.btn-submit{background:linear-gradient(180deg,#7a9d96 0%,#5d7f78 100%);border:none;color:#0d0f0f;font-family:'Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.13em;text-transform:uppercase;padding:17px 24px;cursor:pointer;border-radius:4px;transition:opacity 0.2s,transform 0.1s,box-shadow 0.2s;box-shadow:0 4px 24px rgba(122,157,150,0.28)}
+.btn-submit:hover{opacity:0.94;transform:translateY(-1px);box-shadow:0 6px 32px rgba(122,157,150,0.42)}
+.btn-submit:active{transform:translateY(0);background:linear-gradient(180deg,#7a9d96 0%,#62847d 100%)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+
+.bottom-banner{background:linear-gradient(90deg,#161a19 0%,#62847d 38%,#7a9d96 50%,#62847d 62%,#161a19 100%);border-top:1px solid rgba(184,115,81,0.35);text-align:center;padding:18px 20px;font-size:14px;font-weight:700;letter-spacing:0.07em;color:#0d0f0f;position:relative;z-index:10}
+
+.teacher-section{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--canvas)}
+.teacher-photo{position:absolute;left:0;top:0;right:40%;bottom:0;z-index:1;display:block;overflow:hidden}
+.teacher-photo img{width:100%;height:100%;object-fit:cover;object-position:left center;display:block}
+.teacher-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to left,#0d0f0f 0%,rgba(13,15,15,0.8) 12%,rgba(13,15,15,0.3) 40%,rgba(13,15,15,0) 65%);z-index:2}
+.teacher-photo::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,#0d0f0f 0%,transparent 100%);z-index:3}
+.teacher-dots{position:absolute;inset:0;z-index:2;background-image:radial-gradient(circle,rgba(122,157,150,0.07) 1px,transparent 1px);background-size:38px 38px;pointer-events:none}
+.teacher-name-tag{position:absolute;bottom:28%;left:38%;z-index:10;background:rgba(17,20,20,0.55);border:1px solid #242a29;border-left:2px solid #b87351;padding:10px 22px;font-size:14px;font-weight:500;color:#9ea1a3;backdrop-filter:blur(12px);border-radius:3px;white-space:nowrap}
+.teacher-name-tag strong{font-weight:800;color:#fff}
+.float-num{position:absolute;font-family:'Courier New',monospace;color:#7a9d96;pointer-events:none;z-index:3;user-select:none}
+.float-num.terra{color:#b87351}
+.teacher-content{position:relative;z-index:10;margin-left:auto;padding:80px 7% 80px 0;max-width:450px;width:44%}
+.teacher-rule{display:block;width:32px;height:2px;background:#b87351;margin-bottom:20px;border-radius:2px}
+.teacher-content h2{font-size:clamp(22px,2.8vw,32px);font-weight:800;color:#fff;margin:0 0 26px;line-height:1.15;text-shadow:0 0 30px rgba(122,157,150,0.25)}
+.teacher-content p{font-size:14px;color:#9ea1a3;line-height:1.78;margin:0 0 16px}
+.teacher-content p strong{color:rgba(255,255,255,0.82)}
+.teacher-content p:last-of-type{margin-bottom:32px}
+@keyframes ctaGlow{0%,100%{box-shadow:0 0 0 0 rgba(122,157,150,0.5),0 4px 18px rgba(122,157,150,0.28)}50%{box-shadow:0 0 0 12px rgba(122,157,150,0),0 8px 28px rgba(122,157,150,0.4)}}
+@keyframes ctaShine{0%{transform:translateX(-120%) skewX(-22deg)}55%,100%{transform:translateX(220%) skewX(-22deg)}}
+.btn-cta-outline{display:inline-block;background:linear-gradient(180deg,#7a9d96 0%,#5d7f78 100%);border:1px solid rgba(143,179,171,0.55);color:#0d0f0f;font-size:11px;font-weight:800;letter-spacing:0.13em;text-transform:uppercase;padding:16px 28px;cursor:pointer;text-decoration:none;border-radius:4px;position:relative;overflow:hidden;animation:ctaGlow 2.4s ease-in-out infinite;transition:transform 0.2s}
+.btn-cta-outline::after{content:'';position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.45) 50%,transparent 100%);animation:ctaShine 3.2s ease-in-out 1.2s infinite;pointer-events:none}
+.btn-cta-outline:hover{transform:translateY(-2px) scale(1.02)}
+.btn-cta-outline span{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.btn-cta-outline,.btn-cta-outline::after{animation:none}}
+
+/* Placeholder de copy pendiente — visible a propósito para que nadie
+   lance ads con la trayectoria sin llenar. Borrar la clase al pegar el texto real. */
+.todo{color:#cf8a66!important;font-style:italic;border-left:2px solid #b87351;padding-left:12px}
+
+.footer-disclaimer{background:var(--canvas);border-top:1px solid #242a29;text-align:center;padding:48px 60px}
+.footer-disclaimer p{font-size:13px;color:#6b7176;line-height:1.7;max-width:720px;margin:0 auto}
+
+@media(max-width:860px){
+  /* Móvil = stack vertical (foto arriba, form abajo) */
+  .top-bar{position:absolute;left:50%;top:18px;transform:translateX(-50%);z-index:30}
+  .brand-logo{padding:8px 18px 8px 12px}
+  .hero{display:flex;flex-direction:column;grid-template-columns:none;padding:0;min-height:0;align-items:stretch;gap:0}
+  .hero-photo{position:relative;left:0;right:0;top:0;bottom:auto;width:100%;height:56vh;min-height:340px;max-height:520px;z-index:1}
+  .hero-photo img{object-position:center 22%}
+  .hero-photo::before{background:linear-gradient(to bottom,transparent 0%,rgba(13,15,15,0.10) 60%,rgba(13,15,15,0.78) 88%,#0d0f0f 100%)}
+  .hero-photo::after{display:none}
+  .hero-glow{display:none}
+  .binary-left{width:60px;opacity:0.22}
+  .hero-content{width:100%;max-width:100%;padding:0 22px 56px;text-align:center;margin-top:-72px;position:relative;z-index:10}
+  .hero-title{font-size:clamp(28px,7vw,36px);line-height:1.12;margin:0 auto 14px;max-width:340px}
+  .hero-sub{font-size:14.5px;line-height:1.55;max-width:340px;margin:0 auto 22px}
+  .hero-meta{justify-content:center;margin-bottom:22px}
+  .hero-form{align-items:stretch;text-align:left}
+  .frm-err{text-align:left}
+
+  .bottom-banner{padding:14px 18px;font-size:11.5px;letter-spacing:0.06em;line-height:1.4}
+
+  .teacher-section{display:flex;flex-direction:column;min-height:0;align-items:stretch}
+  .teacher-photo{position:relative;width:100%;height:48vh;min-height:320px;max-height:480px;right:auto;left:auto}
+  .teacher-photo img{object-position:center 18%}
+  .teacher-photo::before{background:linear-gradient(to bottom,transparent 0%,rgba(13,15,15,0.10) 55%,rgba(13,15,15,0.85) 92%,#0d0f0f 100%)}
+  .teacher-photo::after{display:none}
+  .teacher-dots{display:none}
+  .teacher-name-tag{display:none}
+  .float-num{display:none}
+  .teacher-content{width:100%;max-width:100%;padding:0 22px 56px;margin:0;text-align:center;margin-top:-72px;position:relative;z-index:10}
+  .teacher-rule{margin-left:auto;margin-right:auto}
+  .teacher-content h2{text-align:center}
+  .teacher-content p{text-align:left;max-width:none}
+  .btn-cta-outline{display:block;text-align:center}
+
+  .footer-disclaimer{padding:36px 22px}
+}
+@media(prefers-reduced-motion:reduce){.live-dot,.binary-col{animation:none}}
+</style>
+</head>
+<body>
+
+<section class="hero" id="hero">
+  <picture class="hero-photo">
+    <source media="(max-width: 860px)" srcset="/assets/hero-deivin-meridian-m.webp" type="image/webp">
+    <img src="/assets/hero-deivin-meridian.webp" alt="" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero-glow"></div>
+  <div class="binary-left" id="binaryLeft"></div>
+
+  <div class="top-bar">
+    <div class="brand-logo">
+      <svg class="brand-icon" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
+        <path fill="#FFFFFF" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+        <path fill="#7a9d96" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-name">Meridian</span>
+        <span class="brand-sub">FOUNDERS 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">Por primera vez, un broker que <em>gana cuando tú ganas</em>.</h1>
+    <p class="hero-sub">
+      El 25 de agosto te quiero mostrar Meridian: el neo-broker para traders que quieren operar sin restricciones y sin que nadie juegue en tu contra.
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta-live"><span class="live-dot"></span>EN VIVO</div>
+      <span>25 DE AGOSTO A LAS 7 PM CDMX</span>
+    </div>
+
+    <form class="hero-form" id="founderForm" novalidate>
+      <div class="frm-err">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Completa los campos requeridos para asegurar tu plaza.
+      </div>
+      <input class="form-input" type="text" name="name" required placeholder="Tu nombre completo">
+      <div style="display:flex;gap:.5rem">
+        <select class="form-select" name="country" style="max-width:140px">
+          <option value="MX">🇲🇽 México</option>
+          <option value="CO">🇨🇴 Colombia</option>
+          <option value="PE">🇵🇪 Perú</option>
+          <option value="CL">🇨🇱 Chile</option>
+          <option value="AR">🇦🇷 Argentina</option>
+          <option value="ES">🇪🇸 España</option>
+          <option value="OTHER">Otro</option>
+        </select>
+        <input class="form-input" type="tel" name="phone" required placeholder="55 1234 5678" style="flex:1">
+      </div>
+      <button class="btn-submit" type="submit">QUIERO SER FOUNDER DE MERIDIAN</button>
+    </form>
+  </div>
+</section>
+
+<div class="bottom-banner">
+  25 DE AGOSTO &middot; 100% EN VIVO, ONLINE Y SIN COSTO &middot; 7 PM CDMX
+</div>
+
+<section class="teacher-section" id="quien">
+  <picture class="teacher-photo">
+    <source media="(max-width: 860px)" srcset="/assets/deivin-chart-meridian-m.webp" type="image/webp">
+    <img src="/assets/deivin-chart-meridian.webp" alt="" loading="lazy" decoding="async">
+  </picture>
+  <div class="teacher-dots"></div>
+
+  <span class="float-num" style="left:28%;top:12%;font-size:15px;opacity:.3">7362</span>
+  <span class="float-num" style="left:20%;top:36%;font-size:13px;opacity:.28">7150<br><span style="font-size:11px">664</span></span>
+  <span class="float-num" style="left:24%;top:62%;font-size:13px;opacity:.25">3503</span>
+  <span class="float-num terra" style="right:6%;bottom:22%;font-size:22px;opacity:.3">1.52%</span>
+
+  <!-- TODO: agregar apellido de Deivin cuando lo tengamos -->
+  <div class="teacher-name-tag"><strong>Deivin</strong></div>
+
+  <div class="teacher-content">
+    <span class="teacher-rule"></span>
+    <h2>¿Quién soy y por qué<br>te hablo de Meridian?</h2>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         PENDIENTE: trayectoria real de Deivin.
+         Reemplazar los 3 párrafos con class="todo" respetando el formato de
+         la página de Josué, que es lo que convierte:
+           P1 → saludo + quién es + desde cuándo opera
+           P2 → la parte cruda: años operando, cuánto tardó en ser rentable,
+                una cifra concreta (fondeo / cuenta / resultado) y qué le hizo
+                el broker (cuentas cerradas, retiro no pagado, etc.)
+           P3 → el patrón que vio en otros traders (bloqueos, retiros que no
+                llegan, «estrategias prohibidas»)
+         Al pegar el texto real, quitar class="todo" de cada <p>.
+         El P4 (el cierre de 2 puntos) ya es definitivo, no toca cambiarlo.
+    ───────────────────────────────────────────────────────────────────── -->
+    <p class="todo">¡Hola, soy Deivin! [PENDIENTE — presentación: quién eres y desde cuándo operas.]</p>
+    <p class="todo">[PENDIENTE — la parte cruda: años operando, cuánto tardaste en ser rentable, una cifra concreta y qué te hizo el broker.]</p>
+    <p class="todo">[PENDIENTE — el patrón que has visto en otros traders: cuentas bloqueadas, retiros que nunca llegan, «estrategias prohibidas».]</p>
+    <p>1. El problema no eres tú. El problema es dónde estás operando.<br><br>2. Por eso te hablo de Meridian: un broker 100% transparente, sin conflicto de interés, construido para traders que merecen ganar de verdad.</p>
+    <a href="#hero" class="btn-cta-outline" id="ctaScroll"><span>QUIERO SER FOUNDER DE MERIDIAN</span></a>
+  </div>
+</section>
+
+<div class="footer-disclaimer">
+  <p>Este evento es 100% educativo y gratuito. El contenido presentado tiene fines informativos y no constituye asesoría financiera ni recomendación de inversión. El trading implica riesgo de pérdida de capital. Los resultados en los mercados financieros dependen de múltiples factores individuales y no están garantizados.</p>
+</div>
+
+<script>
+(function () {
+  var VARIANT = 'deivin-vsl-c-sage'
+  var SOURCE  = 'deivin-vsl-meta-c-sage'
+  var CREATOR = 'deivin'
+  var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id']
+
+  // ── UTMs: se guardan en sessionStorage para que sobrevivan la navegación ──
+  var params = new URLSearchParams(location.search)
+  UTM_KEYS.forEach(function (k) {
+    if (params.has(k)) { try { sessionStorage.setItem(k, params.get(k)) } catch (e) {} }
+  })
+  function utms() {
+    var out = {}
+    UTM_KEYS.forEach(function (k) {
+      var v = params.get(k) || (function () { try { return sessionStorage.getItem(k) } catch (e) { return null } })()
+      if (v) out[k] = v
+    })
+    // Sin utm_content el lead se atribuiría a nadie: esta página siempre es de Deivin.
+    if (!out.utm_content) out.utm_content = CREATOR
+    return out
+  }
+
+  // ── Contador de founders (mismo comportamiento que el hook de React) ──
+  var founderCount = 312
+  ;(function tick() {
+    setTimeout(function () {
+      if (founderCount < 500) founderCount += Math.random() < 0.3 ? 2 : 1
+      tick()
+    }, 5000 + Math.random() * 7000)
+  })()
+
+  // ── Lluvia binaria ──
+  var rain = document.getElementById('binaryLeft')
+  if (rain) {
+    for (var i = 0; i < 4; i++) {
+      var col = document.createElement('div')
+      col.className = 'binary-col'
+      col.style.left = i * 18 + 8 + 'px'
+      col.style.animationDuration = 12 + Math.random() * 10 + 's'
+      col.style.animationDelay = -Math.random() * 20 + 's'
+      col.style.opacity = 0.25 + Math.random() * 0.2
+      var txt = ''
+      for (var j = 0; j < 50; j++) txt += (Math.random() > 0.5 ? '1' : '0') + '\n'
+      col.textContent = txt
+      rain.appendChild(col)
+    }
+  }
+
+  document.getElementById('ctaScroll').addEventListener('click', function (e) {
+    e.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  })
+
+  // ── Form ──
+  var form = document.getElementById('founderForm')
+  var btn = form.querySelector('.btn-submit')
+  var errBox = form.querySelector('.frm-err')
+  var submitting = false
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault()
+    if (submitting) return
+
+    var required = Array.prototype.slice.call(form.querySelectorAll('input[required],select[required]'))
+    var invalid = required.filter(function (f) {
+      if (f.type === 'tel') return f.value.replace(/\D/g, '').length < 7
+      if (f.type === 'text') return f.value.trim().length < 4
+      return !f.value.trim()
+    })
+
+    if (invalid.length) {
+      errBox.style.display = 'flex'
+      invalid.forEach(function (f) {
+        f.classList.remove('field-error')
+        void f.offsetWidth
+        f.classList.add('field-error')
+        f.addEventListener('input', function () {
+          f.classList.remove('field-error')
+          if (required.every(function (x) { return x.value.trim() })) errBox.style.display = 'none'
+        }, { once: true })
+      })
+      return
+    }
+
+    submitting = true
+    btn.disabled = true
+    btn.textContent = 'ENVIANDO...'
+
+    var name = form.name.value.trim()
+    var payload = Object.assign({
+      firstName: name.split(' ')[0],
+      lastName: name.split(' ').slice(1).join(' ') || undefined,
+      phone: form.phone.value,
+      country: form.country.value,
+      source: SOURCE,
+      hero_text: VARIANT,
+      url: location.href
+    }, utms())
+
+    try { if (window.fbq) fbq('track', 'Lead') } catch (e) {}
+    try { if (window.posthog) posthog.capture('founder_form_submitted', { hero_variant: VARIANT, vsl_variant: 'static' }) } catch (e) {}
+    try { sessionStorage.setItem('founder_source', SOURCE); sessionStorage.setItem('founder_gate', '1') } catch (e) {}
+
+    var go = function () { location.href = './thank-you?n=' + founderCount }
+
+    // El lead nunca bloquea el funnel: si /api/lead falla, igual pasa al thank-you.
+    var done = false
+    var finish = function () { if (!done) { done = true; go() } }
+    setTimeout(finish, 4000)
+
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      if (!r.ok) console.error('[lead] HTTP', r.status)
+    }).catch(function (err) {
+      console.error('[lead] falló', err)
+    }).finally(finish)
+  })
+})()
+</script>
+</body>
+</html>
