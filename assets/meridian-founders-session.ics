@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Meridian//Founders Session//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:meridian-founders-session-2026-06-25@meridian.broker
+DTSTAMP:20260515T160000Z
+DTSTART:20260626T010000Z
+DTEND:20260626T030000Z
+SUMMARY:Sesión Founders · Meridian
+DESCRIPTION:Sesión en vivo exclusiva para los 1\,000 Founders de Meridian. Activación de cuenta Founder\, presentación del roadmap y Q&A con Josué Melero.\n\nHora local: 7:00 PM CDMX (25 jun 2026)\nUbicación: Online (link enviado por Telegram)\n\n— Meridian. Built for you to win.
+LOCATION:Online (Telegram privado)
+URL:https://project-zy5ef.vercel.app
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sesión Founders Meridian en 1 hora
+TRIGGER:-PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sesión Founders Meridian mañana
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
