@@ -82,8 +82,8 @@ footer p{margin:0;font-size:14px;line-height:20px;color:var(--muted)}
   <p class="lead">Inicia sesión o regístrate para acceder a todo el contenido y los servicios de Meridian.</p>
 
   <div class="actions">
-    <a class="btn btn-primary" href="https://app.trademeridian.co/" data-app>Regístrate</a>
-    <a class="btn btn-soft" href="https://app.trademeridian.co/" data-app>Iniciar sesión</a>
+    <a class="btn btn-primary" href="/crear-cuenta" data-local>Regístrate</a>
+    <a class="btn btn-soft" href="/crear-cuenta?tab=login" data-local>Iniciar sesión</a>
   </div>
 
   <a class="mail" href="mailto:support@trademeridian.co">support@trademeridian.co</a>
@@ -97,14 +97,18 @@ footer p{margin:0;font-size:14px;line-height:20px;color:var(--muted)}
 <script>
 (function(){
   'use strict';
-  var APP='https://app.trademeridian.co/?utm_source=Direto&utm_medium=Organico&utm_campaign=Direto&utm_content=Home&utm_term=';
   var qs=new URLSearchParams(location.search);
   var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
-  /* los UTM de la visita sobreescriben los del link base para no perder atribucion */
-  var u=new URL(APP);
-  KEYS.forEach(function(k){var v=qs.get(k); if(v) u.searchParams.set(k,v);});
-  var href=u.toString();
-  Array.prototype.forEach.call(document.querySelectorAll('[data-app]'),function(a){a.href=href;});
+  /* arrastra los UTM/click-ids de la visita a /crear-cuenta, que luego los pasa al app real */
+  var keep=new URLSearchParams();
+  KEYS.forEach(function(k){var v=qs.get(k); if(v) keep.set(k,v);});
+  if(qs.get('ref')) keep.set('ref',qs.get('ref'));
+  Array.prototype.forEach.call(document.querySelectorAll('[data-local]'),function(a){
+    if(!keep.toString()) return;
+    var u=new URL(a.getAttribute('href'),location.origin);
+    keep.forEach(function(v,k){u.searchParams.set(k,v);});
+    a.href=u.pathname+u.search;
+  });
 })();
 </script>
 </body>

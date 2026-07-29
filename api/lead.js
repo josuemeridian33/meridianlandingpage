@@ -50,12 +50,16 @@ module.exports = async function handler(req, res) {
   }
 
   const {
-    firstName, lastName, phone, country, source, url, hero_text,
+    firstName, lastName, phone, email, country, source, url, hero_text,
     utm_source, utm_medium, utm_campaign, utm_content, utm_term, utm_id,
   } = body
 
-  if (!phone || String(phone).replace(/\D/g, '').length < 7) {
-    return res.status(400).json({ error: 'Teléfono requerido' })
+  // Las landings de founders mandan teléfono; las páginas de portal/registro
+  // (login, register, crear-cuenta) mandan correo. Basta con uno de los dos.
+  const phoneOk = phone && String(phone).replace(/\D/g, '').length >= 7
+  const emailOk = email && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email))
+  if (!phoneOk && !emailOk) {
+    return res.status(400).json({ error: 'Teléfono o correo requerido' })
   }
 
   const apiKey = process.env.GHL_API_KEY
@@ -96,7 +100,8 @@ module.exports = async function handler(req, res) {
     locationId,
     firstName,
     lastName,
-    phone,
+    ...(phoneOk ? { phone } : {}),
+    ...(emailOk ? { email } : {}),
     country: ISO[String(country || '').toUpperCase()] || 'MX',
     source,
     tags,
