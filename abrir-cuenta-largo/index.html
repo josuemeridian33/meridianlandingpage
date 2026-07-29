@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian · Opera en MetaTrader 5. Tu dinero sigue siendo tuyo.</title>
+<meta name="description" content="El primer neo-broker de Forex: ejecución en mercado real desde MetaTrader 5, sin dealing desk y sin entregar la custodia de tus fondos. Abre tu cuenta.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Meridian · Opera en MetaTrader 5. Tu dinero sigue siendo tuyo.">
+<meta property="og:description" content="Ejecución en mercado real, sin mesa de operaciones y sin custodia de tus fondos.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/meridian-icon.svg">
+
+<style>
+:root{
+  --canvas:#0d0f0f;--elev:#111414;--card:#161a19;--hover:#232928;
+  --bd:#242a29;--bd-strong:#323a38;
+  --sage:#7a9d96;--sage-hi:#8fb3ab;--sage-lo:#62847d;--sage-glow:rgba(122,157,150,0.14);
+  --txt:#ffffff;--muted:#9ea1a3;--subtle:#6b7176;
+  --buy:#24a759;--sell:#ef4533;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --nav-h:66px;
+  --gut:clamp(1.15rem,5vw,4.5rem);
+  --maxw:1240px;
+}
+*,*::before,*::after{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+html,body{margin:0;overflow-x:hidden;background:var(--canvas)}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--txt);font-size:16px;line-height:1.55}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;letter-spacing:-0.022em;line-height:1.1;font-weight:800}
+p{margin:0}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* grano: rompe el degradado plano tipico de plantilla */
+.grain{position:fixed;inset:0;z-index:900;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:600;display:flex;align-items:center;
+  transition:background .28s ease,border-color .28s ease,backdrop-filter .28s ease;
+  border-bottom:1px solid transparent}
+.nav.stuck{background:rgba(13,15,15,.82);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--bd)}
+.nav-in{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand img{width:26px;height:26px}
+.brand-name{font-size:16.5px;font-weight:700;letter-spacing:-0.01em}
+.brand-sub{display:block;font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.3em;color:var(--sage);text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,1.8vw,26px);margin-left:auto}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .18s;white-space:nowrap}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.link-login{font-size:13.5px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap}
+.link-login:hover{color:var(--sage-hi)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;cursor:pointer;
+  border:none;border-radius:5px;font-weight:700;letter-spacing:.01em;transition:transform .14s,box-shadow .22s,background .2s}
+.btn-primary{background:linear-gradient(180deg,var(--sage) 0%,#5d7f78 100%);color:#0b0d0d;
+  box-shadow:0 3px 18px rgba(122,157,150,.24),inset 0 1px 0 rgba(255,255,255,.18)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 26px rgba(122,157,150,.38),inset 0 1px 0 rgba(255,255,255,.22)}
+.btn-primary:active{transform:translateY(0);background:linear-gradient(180deg,var(--sage) 0%,var(--sage-lo) 100%)}
+.btn-sm{padding:10px 17px;font-size:13.5px}
+.btn-lg{padding:16px 26px;font-size:15px}
+.btn-ghost{border:1px solid var(--bd-strong);background:rgba(255,255,255,.02);color:#fff}
+.btn-ghost:hover{border-color:var(--sage);background:rgba(122,157,150,.07)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding-top:calc(var(--nav-h) + clamp(38px,7vh,74px));padding-bottom:clamp(42px,6vh,72px);overflow:hidden}
+.hero::before{content:'';position:absolute;top:-14%;left:52%;width:820px;height:820px;transform:translateX(-32%);
+  background:radial-gradient(circle at center,rgba(122,157,150,.13) 0%,rgba(122,157,150,.05) 42%,transparent 70%);
+  pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(122,157,150,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(122,157,150,.045) 1px,transparent 1px);
+  background-size:78px 78px;mask-image:radial-gradient(ellipse 78% 62% at 50% 30%,#000 0%,transparent 78%)}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+  gap:clamp(28px,4.5vw,64px);align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin-bottom:20px}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--sage);opacity:.65}
+h1{font-size:clamp(30px,4.35vw,55px);margin-bottom:20px}
+h1 .alt{color:var(--sage-hi)}
+.lede{font-size:clamp(15px,1.55vw,17.5px);color:var(--muted);line-height:1.62;max-width:50ch;margin-bottom:28px}
+.lede b{color:rgba(255,255,255,.9);font-weight:600}
+
+.signup{max-width:470px}
+.signup-row{display:flex;gap:9px}
+.signup input{flex:1;min-width:0;background:rgba(255,255,255,.035);border:1px solid var(--bd);border-radius:5px;
+  padding:15px 17px;font-size:14.5px;transition:border-color .2s,box-shadow .2s,background .2s}
+.signup input::placeholder{color:var(--subtle)}
+.signup input:hover{border-color:var(--bd-strong);background:rgba(255,255,255,.05)}
+.signup input:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px var(--sage-glow)}
+.signup input.err{border-color:var(--sell);animation:shake .34s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.signup-note{display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:15px;font-size:12.5px;color:var(--muted)}
+.signup-note span{display:inline-flex;align-items:center;gap:6px}
+.tick{width:13px;height:13px;flex-shrink:0;color:var(--sage)}
+.hero-alt{margin-top:16px;font-size:13px;color:var(--subtle)}
+.hero-alt a{color:#fff;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(122,157,150,.5);padding-bottom:1px}
+.hero-alt a:hover{color:var(--sage-hi)}
+
+/* ---------- terminal mockup ---------- */
+.term{position:relative}
+.term-card{background:linear-gradient(168deg,#141817 0%,#101413 100%);border:1px solid var(--bd-strong);
+  border-radius:9px;overflow:hidden;box-shadow:0 26px 70px -22px rgba(0,0,0,.9),0 0 0 1px rgba(122,157,150,.06)}
+.term-bar{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--bd);background:rgba(255,255,255,.015)}
+.dots{display:flex;gap:5px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#2b3230;display:block}
+.term-title{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+.term-live{margin-left:auto;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:pulse 1.9s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(122,157,150,.65)}55%{box-shadow:0 0 0 6px rgba(122,157,150,0)}}
+.term-body{padding:16px 16px 14px}
+.sym{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:12px}
+.sym-name{font-size:15px;font-weight:700;letter-spacing:.01em}
+.sym-tag{font-family:var(--mono);font-size:10px;color:var(--subtle);letter-spacing:.14em;text-transform:uppercase;margin-top:3px}
+.spark{width:100%;height:74px;margin-bottom:14px;overflow:hidden}
+.spark path.line{fill:none;stroke:var(--sage);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.spark path.area{fill:url(#sgrad);stroke:none}
+.book{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.book div{border:1px solid var(--bd);border-radius:5px;padding:10px 12px;background:rgba(255,255,255,.018)}
+.book span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--subtle);margin-bottom:4px}
+.book b{font-family:var(--mono);font-size:16.5px;font-weight:500;font-variant-numeric:tabular-nums}
+.book .b-sell b{color:#e8827a}
+.book .b-buy b{color:#6fc490}
+.rows{border-top:1px solid var(--bd);padding-top:11px;display:grid;gap:8px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px}
+.row span{color:var(--subtle);font-size:11.5px}
+.row b{font-family:var(--mono);font-weight:500;color:var(--muted);font-size:11.5px}
+.route{position:absolute;left:-18px;bottom:-24px;display:flex;align-items:center;gap:10px;
+  background:rgba(17,20,20,.92);border:1px solid var(--bd-strong);border-left:2px solid var(--sage);
+  border-radius:6px;padding:10px 14px;backdrop-filter:blur(10px);box-shadow:0 14px 34px -12px rgba(0,0,0,.85);
+  animation:float 6.5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.route small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:3px}
+.route p{font-size:12.5px;font-weight:600;color:#fff}
+.term-cap{margin-top:40px;text-align:right;font-size:11px;color:var(--subtle)}
+
+/* ---------- marquee ---------- */
+.strip{border-block:1px solid var(--bd);background:var(--elev);overflow:hidden;padding:13px 0}
+.strip-track{display:flex;gap:0;width:max-content;animation:slide 46s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.strip-item{display:flex;align-items:center;gap:11px;padding:0 26px;border-right:1px solid var(--bd);white-space:nowrap}
+.strip-item em{font-family:var(--mono);font-size:10px;font-style:normal;letter-spacing:.18em;text-transform:uppercase;color:var(--sage)}
+.strip-item span{font-size:13px;color:var(--muted)}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.sec{padding-block:clamp(56px,8.5vh,104px)}
+.sec-alt{background:var(--elev);border-block:1px solid var(--bd)}
+.sec-head{max-width:60ch;margin-bottom:clamp(30px,4.5vh,50px)}
+.sec-head.mid{margin-inline:auto;text-align:center}
+.kicker{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
+h2{font-size:clamp(24px,3.1vw,40px);margin-bottom:16px}
+.sec-head p{font-size:clamp(14.5px,1.4vw,16.5px);color:var(--muted);line-height:1.62}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--bd);border-radius:8px;overflow:hidden;background:var(--card)}
+.stat{padding:24px clamp(16px,2vw,26px);border-right:1px solid var(--bd)}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-family:var(--mono);font-size:clamp(25px,3.1vw,36px);font-weight:500;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;margin-bottom:7px}
+.stat p{font-size:12.5px;color:var(--muted);line-height:1.45}
+
+/* mercados */
+.mkts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:8px;overflow:hidden}
+.mkt{background:var(--canvas);padding:22px 22px 20px;transition:background .22s}
+.mkt:hover{background:var(--hover)}
+.mkt-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}
+.mkt h3{font-size:15.5px;font-weight:700}
+.mkt-ico{width:20px;height:20px;color:var(--sage);opacity:.85;flex-shrink:0}
+.mkt p{font-size:12.5px;color:var(--muted);line-height:1.55;margin-bottom:13px}
+.mkt-ticks{display:flex;flex-wrap:wrap;gap:6px}
+.mkt-ticks i{font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.08em;color:var(--sage);
+  border:1px solid rgba(122,157,150,.28);background:rgba(122,157,150,.06);border-radius:3px;padding:3px 7px}
+.mkt.hl{background:linear-gradient(150deg,rgba(122,157,150,.1) 0%,var(--canvas) 62%)}
+.mkt.hl:hover{background:linear-gradient(150deg,rgba(122,157,150,.15) 0%,var(--hover) 62%)}
+.fine{margin-top:18px;font-size:11.5px;color:var(--subtle);line-height:1.6}
+
+/* por que */
+.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.8vw,22px)}
+.why-card{border:1px solid var(--bd);border-radius:8px;padding:clamp(22px,2.6vw,32px);background:var(--card);
+  position:relative;overflow:hidden;transition:border-color .24s,transform .24s}
+.why-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(122,157,150,.55),transparent);opacity:0;transition:opacity .3s}
+.why-card:hover{border-color:var(--bd-strong);transform:translateY(-2px)}
+.why-card:hover::after{opacity:1}
+.why-n{font-family:var(--mono);font-size:11px;color:var(--sage);letter-spacing:.2em;margin-bottom:16px}
+.why-card h3{font-size:clamp(17px,1.9vw,21px);margin-bottom:11px;letter-spacing:-.015em}
+.why-card p{font-size:13.8px;color:var(--muted);line-height:1.66}
+.why-card p+p{margin-top:9px}
+
+/* tabla comparativa */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--bd);border-radius:8px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:620px;background:var(--card)}
+th,td{text-align:left;padding:14px clamp(14px,1.8vw,22px);border-bottom:1px solid var(--bd);font-size:13.5px;vertical-align:top}
+thead th{background:var(--elev);font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap;position:sticky;top:0}
+thead th:last-child{color:var(--sage)}
+tbody tr{transition:background .18s}
+tbody tr:hover{background:rgba(255,255,255,.022)}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{color:rgba(255,255,255,.92);font-weight:600;width:32%}
+td.trad{color:var(--subtle)}
+td.mer{color:#fff;font-weight:500;background:rgba(122,157,150,.045)}
+td.mer::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--sage);
+  margin-right:9px;vertical-align:middle;transform:translateY(-1px)}
+
+/* plataforma */
+.plat{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(28px,4.5vw,60px);align-items:center}
+.plat-list{display:grid;gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin-top:26px}
+.plat-list div{background:var(--canvas);padding:15px 20px;display:flex;align-items:flex-start;gap:13px}
+.plat-list b{font-size:13.5px;font-weight:600;display:block;margin-bottom:3px}
+.plat-list p{font-size:12.5px;color:var(--muted);line-height:1.5}
+.win{border:1px solid var(--bd-strong);border-radius:9px;overflow:hidden;background:var(--card);
+  box-shadow:0 26px 70px -26px rgba(0,0,0,.9)}
+.win-bar{display:flex;align-items:center;gap:9px;padding:10px 13px;border-bottom:1px solid var(--bd);background:rgba(255,255,255,.015)}
+.win-tabs{display:flex;gap:0;border-bottom:1px solid var(--bd)}
+.win-tabs i{font-family:var(--mono);font-style:normal;font-size:10.5px;letter-spacing:.1em;padding:9px 15px;
+  color:var(--subtle);border-right:1px solid var(--bd)}
+.win-tabs i.on{color:var(--sage);background:rgba(122,157,150,.07);box-shadow:inset 0 -1px 0 var(--sage)}
+.win-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd)}
+.win-cell{background:var(--canvas);padding:14px}
+.win-cell em{display:block;font-family:var(--mono);font-style:normal;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--subtle);margin-bottom:9px}
+.bars{display:flex;align-items:flex-end;gap:4px;height:56px}
+.bars i{flex:1;background:linear-gradient(180deg,rgba(122,157,150,.75),rgba(122,157,150,.14));border-radius:1px}
+.mini{display:grid;gap:7px}
+.mini div{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.win-foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--bd);border-top:1px solid var(--bd)}
+.win-foot div{background:var(--canvas);padding:12px 13px}
+.win-foot em{display:block;font-family:var(--mono);font-style:normal;font-size:9px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--subtle);margin-bottom:5px}
+.win-foot b{font-size:11.5px;font-weight:600;color:var(--sage-hi);letter-spacing:-.01em}
+@media(max-width:520px){.win-foot{grid-template-columns:1fr 1fr}}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,30px);counter-reset:s}
+.step{position:relative;padding-top:26px;border-top:1px solid var(--bd-strong)}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;top:-1px;left:0;
+  font-family:var(--mono);font-size:11px;color:var(--sage);background:var(--canvas);padding-right:12px;transform:translateY(-50%)}
+.step h3{font-size:17px;margin-bottom:10px}
+.step p{font-size:13.5px;color:var(--muted);line-height:1.62}
+
+/* cta final */
+.cta{position:relative;overflow:hidden;padding-block:clamp(62px,9vh,110px);text-align:center;
+  background:radial-gradient(ellipse 68% 120% at 50% 108%,rgba(122,157,150,.16) 0%,transparent 68%),var(--canvas);
+  border-top:1px solid var(--bd)}
+.cta blockquote{margin:0 auto 14px;max-width:22ch;font-size:clamp(26px,4.1vw,50px);font-weight:800;letter-spacing:-.024em;line-height:1.08}
+.cta blockquote .alt{color:var(--sage-hi)}
+.cta p{max-width:56ch;margin:0 auto 32px;font-size:clamp(14.5px,1.4vw,16.5px);color:var(--muted);line-height:1.62}
+.cta-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* footer */
+footer{background:var(--elev);border-top:1px solid var(--bd)}
+.f-top{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:clamp(24px,3.5vw,48px);
+  padding-block:clamp(44px,6vh,64px)}
+.f-brand p{font-size:13px;color:var(--muted);line-height:1.62;max-width:34ch;margin-top:16px}
+.f-col h4{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--subtle);margin-bottom:15px}
+.f-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.f-col a{font-size:13.5px;color:var(--muted);text-decoration:none;transition:color .18s}
+.f-col a:hover{color:#fff}
+.legal{border-top:1px solid var(--bd);padding-block:clamp(30px,4.5vh,44px)}
+.legal-block+.legal-block{margin-top:20px}
+.legal p{font-size:11.8px;line-height:1.72;color:var(--subtle);max-width:92ch}
+.legal p strong{color:var(--muted);font-weight:600}
+.legal-ent{font-size:12.5px;color:var(--muted);margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--bd)}
+.f-bot{border-top:1px solid var(--bd);padding-block:20px;display:flex;flex-wrap:wrap;gap:10px 24px;
+  align-items:center;justify-content:space-between}
+.f-bot p{font-size:11.8px;color:var(--subtle)}
+.f-bot nav{display:flex;flex-wrap:wrap;gap:18px}
+.f-bot a{font-size:11.8px;color:var(--subtle);text-decoration:none}
+.f-bot a:hover{color:var(--muted)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .62s cubic-bezier(.22,.61,.36,1),transform .62s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .hero-in{grid-template-columns:1fr;gap:40px}
+  .signup{max-width:520px}
+  .term{max-width:520px}
+  .plat{grid-template-columns:1fr;gap:34px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--bd)}
+  .mkts{grid-template-columns:1fr 1fr}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .nav-links{display:none}
+  .nav-in{gap:12px}
+  .nav-cta{margin-left:auto}
+}
+@media(max-width:700px){
+  .why{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:26px}
+  .mkts{grid-template-columns:1fr}
+  .signup-row{flex-direction:column}
+  .signup-row .btn{width:100%;padding-block:15px}
+  .route{position:static;left:auto;right:auto;bottom:auto;margin-top:14px;animation:none}
+  .term-cap{margin-top:14px;text-align:left}
+  .hero::after{background-size:56px 56px}
+  .f-top{grid-template-columns:1fr;gap:32px}
+  .cta blockquote{max-width:16ch}
+}
+@media(max-width:420px){
+  .brand-sub{display:none}
+  .link-login{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <img src="/assets/meridian-icon.svg" alt="" width="26" height="26">
+      <span>
+        <span class="brand-name">Meridian</span>
+        <span class="brand-sub">Brokerage</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#mercados">Mercados</a>
+      <a href="#por-que">Por qué Meridian</a>
+      <a href="#comparativa">Comparativa</a>
+      <a href="#plataforma">Plataforma</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="link-login" href="https://app.trademeridian.co/" data-app>Iniciar sesión</a>
+      <a class="btn btn-primary btn-sm" href="https://app.trademeridian.co/" data-app>Abrir cuenta</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <p class="eyebrow">Brokerage de precisión · Mercados globales</p>
+      <h1>Opera en MetaTrader 5.<br><span class="alt">Tu dinero sigue siendo tuyo.</span></h1>
+      <p class="lede">Meridian es el primer neo-broker de Forex: ejecución en mercado real, <b>sin mesa de operaciones</b> y sin entregar la custodia de tus fondos. Tus órdenes salen de MT5 y se rutean al libro del venue — nosotros nunca somos tu contraparte.</p>
+
+      <form class="signup" id="su" novalidate>
+        <div class="signup-row">
+          <input type="email" id="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" aria-label="Correo electrónico">
+          <button class="btn btn-primary btn-lg" type="submit">Abrir cuenta</button>
+        </div>
+        <p class="signup-note">
+          <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.1L13 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Sin depósito mínimo</span>
+          <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.1L13 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Retiros automáticos</span>
+          <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.1L13 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Sin dealing desk</span>
+        </p>
+      </form>
+      <p class="hero-alt">¿Ya tienes cuenta? <a href="https://app.trademeridian.co/" data-app>Iniciar sesión</a></p>
+    </div>
+
+    <!-- terminal -->
+    <div class="term rv">
+      <div class="term-card">
+        <div class="term-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="term-title">MetaTrader 5 — Meridian</span>
+          <span class="term-live"><span class="pulse"></span>Ruteo activo</span>
+        </div>
+        <div class="term-body">
+          <div class="sym">
+            <div>
+              <p class="sym-name">XAUUSD</p>
+              <p class="sym-tag">Oro / Dólar · Spot</p>
+            </div>
+            <p class="sym-tag">Ejecución en libro</p>
+          </div>
+          <svg class="spark" viewBox="0 0 320 74" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="sgrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7a9d96" stop-opacity=".28"/>
+              <stop offset="100%" stop-color="#7a9d96" stop-opacity="0"/>
+            </linearGradient></defs>
+            <path class="area" d="M0,58 L16,52 L32,55 L48,44 L64,47 L80,38 L96,41 L112,31 L128,35 L144,26 L160,30 L176,22 L192,27 L208,18 L224,23 L240,15 L256,20 L272,12 L288,17 L304,9 L320,13 L320,74 L0,74 Z"/>
+            <path class="line" d="M0,58 L16,52 L32,55 L48,44 L64,47 L80,38 L96,41 L112,31 L128,35 L144,26 L160,30 L176,22 L192,27 L208,18 L224,23 L240,15 L256,20 L272,12 L288,17 L304,9 L320,13"/>
+          </svg>
+          <div class="book">
+            <div><span>Volumen</span><b>1.00</b></div>
+            <div><span>Tipo de orden</span><b>Mercado</b></div>
+          </div>
+          <div class="rows">
+            <div class="row"><span>Contraparte</span><b>Libro del venue</b></div>
+            <div class="row"><span>Custodia del margen</span><b>Tu wallet</b></div>
+            <div class="row"><span>Estrategias restringidas</span><b>Ninguna</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="route">
+        <div>
+          <small>Orden ruteada</small>
+          <p>Sin intermediario · Registro público</p>
+        </div>
+      </div>
+      <p class="term-cap">Vista ilustrativa de la interfaz.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track" id="strip">
+    <div class="strip-item"><em>Forex</em><span>Mayores · menores · exóticos</span></div>
+    <div class="strip-item"><em>Índices</em><span>US100 · US500 · GER40</span></div>
+    <div class="strip-item"><em>Metales</em><span>XAUUSD · XAGUSD</span></div>
+    <div class="strip-item"><em>Cripto</em><span>BTC · ETH con apalancamiento</span></div>
+    <div class="strip-item"><em>Acciones US</em><span>Large cap</span></div>
+    <div class="strip-item"><em>Pre-IPO</em><span>SpaceX · OpenAI · Anthropic</span></div>
+    <div class="strip-item"><em>Plataforma</em><span>MetaTrader 5 nativo</span></div>
+    <div class="strip-item"><em>Depósito</em><span>USDT · USDC</span></div>
+  </div>
+</div>
+
+<!-- ===== STATS ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="stat"><b data-count="2000" data-suffix="+">0</b><p>Traders en la comunidad Meridian</p></div>
+      <div class="stat"><b data-count="347">0</b><p>Founders ya dentro del programa</p></div>
+      <div class="stat"><b>4</b><p>Venues de ejecución descentralizados</p></div>
+      <div class="stat"><b>24/5</b><p>Soporte en español por chat y correo</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MERCADOS ===== -->
+<section class="sec sec-alt" id="mercados">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Mercados</p>
+      <h2>Todo lo que ya operas, en una sola cuenta.</h2>
+      <p>Forex, índices, metales, cripto y acciones desde la misma plataforma que ya conoces. Sin volumen mínimo y sin máximos de retiro.</p>
+    </div>
+    <div class="mkts rv">
+      <div class="mkt">
+        <div class="mkt-top"><h3>Forex</h3>
+          <svg class="mkt-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/></svg>
+        </div>
+        <p>Pares mayores, menores y exóticos con ejecución continua.</p>
+        <div class="mkt-ticks"><i>EURUSD</i><i>GBPJPY</i><i>USDMXN</i></div>
+      </div>
+      <div class="mkt">
+        <div class="mkt-top"><h3>Índices</h3>
+          <svg class="mkt-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V9M9 19V5M14 19v-7M19 19v-11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <p>Los índices globales que mueven las sesiones de Nueva York y Europa.</p>
+        <div class="mkt-ticks"><i>US100</i><i>US500</i><i>GER40</i></div>
+      </div>
+      <div class="mkt">
+        <div class="mkt-top"><h3>Metales</h3>
+          <svg class="mkt-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 4.5v9L12 21l-7-4.5v-9L12 3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 8.5l3.5 2.2v4.4L12 17.3l-3.5-2.2v-4.4L12 8.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <p>Oro, plata y metales — el bloque favorito del trader latino.</p>
+        <div class="mkt-ticks"><i>XAUUSD</i><i>XAGUSD</i></div>
+      </div>
+      <div class="mkt">
+        <div class="mkt-top"><h3>Cripto</h3>
+          <svg class="mkt-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M9.5 7.5v9M8 9.5h4.6a2.2 2.2 0 010 4.4H8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <p>Cripto con apalancamiento, sin salir de MetaTrader.</p>
+        <div class="mkt-ticks"><i>BTCUSD</i><i>ETHUSD</i></div>
+      </div>
+      <div class="mkt">
+        <div class="mkt-top"><h3>Acciones US</h3>
+          <svg class="mkt-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 16.5l5-5 3.5 3L20 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 7H20v4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p>Las compañías más líquidas del mercado estadounidense.</p>
+        <div class="mkt-ticks"><i>NVDA</i><i>AAPL</i><i>TSLA</i></div>
+      </div>
+      <div class="mkt hl">
+        <div class="mkt-top"><h3>Pre-IPO</h3>
+          <svg class="mkt-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s4.5 2.4 4.5 8c0 3.2-1.6 5.6-4.5 9-2.9-3.4-4.5-5.8-4.5-9C7.5 5.4 12 3 12 3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="10" r="1.8" stroke="currentColor" stroke-width="1.3"/></svg>
+        </div>
+        <p>Exposición a compañías privadas que ningún broker tradicional te da.</p>
+        <div class="mkt-ticks"><i>SpaceX</i><i>OpenAI</i><i>Anthropic</i></div>
+      </div>
+    </div>
+    <p class="fine">La disponibilidad de instrumentos y el apalancamiento máximo varían por mercado y condiciones de liquidez. Operar productos apalancados implica un riesgo alto de pérdida.</p>
+  </div>
+</section>
+
+<!-- ===== POR QUÉ ===== -->
+<section class="sec" id="por-que">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Por qué Meridian</p>
+      <h2>El riesgo debería ser el mercado, no tu broker.</h2>
+      <p>Hay dos riesgos en el trading: el visible —el mercado— y el invisible —el broker—. Meridian está construido para eliminar el segundo, por arquitectura y no por promesa.</p>
+    </div>
+    <div class="why">
+      <article class="why-card rv">
+        <p class="why-n">01</p>
+        <h3>Tu capital no pasa por nosotros</h3>
+        <p>No custodiamos, no agrupamos ni retenemos saldos. No podemos congelar cuentas ni bloquear retiros porque no existe ningún mecanismo interno para pausar un pago.</p>
+        <p>Si Meridian desapareciera mañana, tu posición en el protocolo seguiría existiendo.</p>
+      </article>
+      <article class="why-card rv">
+        <p class="why-n">02</p>
+        <h3>Tu estrategia no necesita permiso</h3>
+        <p>Scalping, bots, EAs, HFT, news trading, grid, hedge, copy, arbitraje. Si el mercado acepta tu ejecución, Meridian no la bloquea.</p>
+        <p>Sin volumen mínimo, sin máximos de retiro, sin cláusulas que aparecen justo cuando empiezas a ganar.</p>
+      </article>
+      <article class="why-card rv">
+        <p class="why-n">03</p>
+        <h3>Ejecución que puedes auditar</h3>
+        <p>Cada ejecución, cada spread y cada comisión quedan en un registro público que revisas tú mismo.</p>
+        <p>No existe una versión de los hechos que controlemos nosotros y tú no.</p>
+      </article>
+      <article class="why-card rv">
+        <p class="why-n">04</p>
+        <h3>No ganamos cuando pierdes</h3>
+        <p>Nuestro ingreso es el spread y el fee de ruteo, no tu pérdida. Meridian nunca es la contraparte de tu operación.</p>
+        <p>Sin B-book, sin mesa de operaciones decidiendo del otro lado de tu orden.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARATIVA ===== -->
+<section class="sec sec-alt" id="comparativa">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Comparativa</p>
+      <h2>La diferencia es estructural, no de marketing.</h2>
+    </div>
+    <div class="tbl-wrap rv">
+      <table>
+        <thead><tr><th scope="col">&nbsp;</th><th scope="col">Broker tradicional</th><th scope="col">Meridian</th></tr></thead>
+        <tbody>
+          <tr><td>¿Dónde está mi capital?</td><td class="trad">En sus servidores, bajo su control</td><td class="mer">Controlado por tu wallet</td></tr>
+          <tr><td>¿Quién es mi contraparte?</td><td class="trad">El broker</td><td class="mer">El protocolo / mercado real</td></tr>
+          <tr><td>¿Gana el broker si pierdo?</td><td class="trad">Sí (B-book)</td><td class="mer">No — cobra spread y ruteo</td></tr>
+          <tr><td>¿Puede restringir estrategias?</td><td class="trad">Sí</td><td class="mer">No hay mecanismo para hacerlo</td></tr>
+          <tr><td>¿Pueden frenar un retiro?</td><td class="trad">Sí</td><td class="mer">No existe el mecanismo</td></tr>
+          <tr><td>¿Puedo verificar mi ejecución?</td><td class="trad">No</td><td class="mer">Sí, registro público</td></tr>
+          <tr><td>¿Si el broker quiebra?</td><td class="trad">Eres acreedor no garantizado</td><td class="mer">Tu posición existe igual</td></tr>
+          <tr><td>¿Plataforma?</td><td class="trad">MT4 / MT5</td><td class="mer">MetaTrader 5 nativo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLATAFORMA ===== -->
+<section class="sec" id="plataforma">
+  <div class="wrap plat">
+    <div>
+      <p class="kicker">Plataforma</p>
+      <h2>MetaTrader 5. Nada nuevo que aprender.</h2>
+      <p class="lede" style="margin-bottom:0">Sin plataforma propietaria y sin caja negra: la misma terminal estándar de la industria, con tus indicadores, tus plantillas y tus EAs tal como los tienes hoy.</p>
+      <div class="plat-list">
+        <div><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="margin-top:3px"><path d="M3 8.4l3.2 3.1L13 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Desktop, web y móvil</b><p>La misma cuenta desde donde estés.</p></span></div>
+        <div><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="margin-top:3px"><path d="M3 8.4l3.2 3.1L13 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>+80 indicadores y EAs sin restricción</b><p>Tu automatización corre sin pedir autorización.</p></span></div>
+        <div><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="margin-top:3px"><path d="M3 8.4l3.2 3.1L13 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Depósito y retiro en USDT / USDC</b><p>Retiros automáticos, sin cola de aprobación humana.</p></span></div>
+      </div>
+    </div>
+    <div class="win rv">
+      <div class="win-bar">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="term-title">Terminal · Meridian</span>
+      </div>
+      <div class="win-tabs" aria-hidden="true"><i class="on">Mercado</i><i>Órdenes</i><i>Historial</i><i>Ruteo</i></div>
+      <div class="win-grid" aria-hidden="true">
+        <div class="win-cell">
+          <em>Volumen por sesión</em>
+          <div class="bars"><i style="height:38%"></i><i style="height:56%"></i><i style="height:31%"></i><i style="height:72%"></i><i style="height:48%"></i><i style="height:88%"></i><i style="height:61%"></i><i style="height:44%"></i><i style="height:76%"></i><i style="height:52%"></i></div>
+        </div>
+        <div class="win-cell">
+          <em>Estado del ruteo</em>
+          <div class="mini">
+            <div><span>Venue</span><span style="color:#7a9d96">Descentralizado</span></div>
+            <div><span>Requotes</span><span>0</span></div>
+            <div><span>Mesa de operaciones</span><span>—</span></div>
+            <div><span>Registro</span><span style="color:#7a9d96">Público</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="win-foot" aria-hidden="true">
+        <div><em>Plataforma</em><b>MT5</b></div>
+        <div><em>EAs y bots</em><b>Sin restricción</b></div>
+        <div><em>Depósito</em><b>USDT / USDC</b></div>
+        <div><em>Retiro</em><b>Automático</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PASOS ===== -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="kicker">Cómo empiezas</p>
+      <h2>Tres pasos y estás operando.</h2>
+    </div>
+    <div class="steps rv">
+      <div class="step">
+        <h3>Abre tu acceso</h3>
+        <p>Registras tu correo y entras al onboarding de Meridian. Sin depósito mínimo para empezar.</p>
+      </div>
+      <div class="step">
+        <h3>Acepta los términos</h3>
+        <p>Lees y confirmas las condiciones del servicio. Todo queda documentado, sin letra pequeña que cambie después.</p>
+      </div>
+      <div class="step">
+        <h3>Conecta MT5 y opera</h3>
+        <p>Vinculas tu MetaTrader 5, depositas en USDT o USDC y tu primera orden sale al mercado real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="wrap">
+    <blockquote>La garantía está en la <span class="alt">arquitectura</span>.</blockquote>
+    <p>No garantizamos ganancias — nadie serio debería hacerlo. Lo que garantizamos es que si ganas, el dinero es tuyo y nadie tiene el botón para retenerlo.</p>
+    <div class="cta-btns">
+      <a class="btn btn-primary btn-lg" href="https://app.trademeridian.co/" data-app>Abrir cuenta</a>
+      <a class="btn btn-ghost btn-lg" href="#comparativa">Ver la comparativa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap f-top">
+    <div class="f-brand">
+      <a class="brand" href="#top">
+        <img src="/assets/meridian-icon.svg" alt="" width="26" height="26">
+        <span><span class="brand-name">Meridian</span><span class="brand-sub">Brokerage</span></span>
+      </a>
+      <p>El neo-broker construido para traders que ya no quieren pedir permiso. Claridad. Transparencia. Ejecución.</p>
+    </div>
+    <div class="f-col">
+      <h4>Producto</h4>
+      <ul>
+        <li><a href="#mercados">Mercados</a></li>
+        <li><a href="#plataforma">Plataforma MT5</a></li>
+        <li><a href="#comparativa">Comparativa</a></li>
+        <li><a href="https://app.trademeridian.co/" data-app>Abrir cuenta</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="https://www.trademeridian.co">Sobre Meridian</a></li>
+        <li><a href="https://www.trademeridian.co/contact">Contacto</a></li>
+        <li><a href="mailto:support@trademeridian.co">Soporte</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://app.trademeridian.co/legal/2026-06-20/terms">Términos de servicio</a></li>
+        <li><a href="https://app.trademeridian.co/legal/2026-06-20/privacy">Política de privacidad</a></li>
+        <li><a href="https://app.trademeridian.co/legal/2026-06-20/risk">Aviso de riesgo</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap legal">
+    <p class="legal-ent">Meridian · Trading de futuros perpetuos y CFDs sobre índices, materias primas y acciones. Registrada en San Vicente y las Granadinas.</p>
+
+    <div class="legal-block">
+      <p><strong>Advertencia de riesgo:</strong> Operar con productos derivados apalancados como los Contratos por Diferencia (CFDs) y los futuros perpetuos conlleva un alto nivel de riesgo para tu capital y puede no ser adecuado para todos los inversores. Los precios pueden moverse rápidamente en tu contra y el apalancamiento puede amplificar tanto las ganancias como las pérdidas, por lo que podrías perder parte o la totalidad del capital que destines. No debes operar con dinero que no puedas permitirte perder. Antes de operar, considera cuidadosamente tus objetivos de inversión, tu nivel de experiencia y tu tolerancia al riesgo, y busca asesoría financiera o profesional independiente si tienes cualquier duda. Meridian no garantiza ningún beneficio ni resultado de trading, y los resultados pasados no son indicativos de resultados futuros. Meridian es una plataforma de trading autodirigida y no custodia, agrupa ni mantiene tus fondos. Tus órdenes se envían directamente al libro de órdenes del exchange, sin mesa de operaciones, intermediario ni proveedor de liquidez de por medio, y Meridian nunca es la contraparte de tus operaciones. Dado que una posición se liquida una vez agotado su margen, tu pérdida se limita al capital que destines a esa posición y tu cuenta no puede caer por debajo de cero. Toda estrategia, operación y decisión de riesgo es tu propia responsabilidad.</p>
+    </div>
+
+    <div class="legal-block">
+      <p><strong>Registro:</strong> Meridian LLC está registrada en San Vicente y las Granadinas como International Business Company con número de registro 4403 LLC 2026. La dirección registrada de la empresa es Euro House, Richmond Hill Road, Kingstown, St. Vincent and the Grenadines. La dirección física de operaciones de la empresa es Signal House, Off Fairbanks Rd, George Town, Grand Cayman, Cayman Islands, KY1-9012.</p>
+    </div>
+
+    <div class="legal-block">
+      <p><strong>Jurisdicciones restringidas:</strong> No ofrecemos nuestros servicios a residentes de ciertas jurisdicciones, incluidos los Estados Unidos, Irán, Nigeria, ni a ninguna jurisdicción incluida en la “lista negra” del GAFI/FATF o sujeta a sanciones de EE. UU., la UE o la ONU, ni a ninguna otra jurisdicción donde la prestación de nuestros productos o servicios esté prohibida, restringida o sea de otro modo incompatible con las leyes, regulaciones o requisitos regulatorios aplicables. Es tu responsabilidad asegurarte de que tu acceso y uso de la plataforma cumpla con las leyes que te resulten aplicables.</p>
+    </div>
+  </div>
+
+  <div class="wrap f-bot">
+    <p>© 2026 Meridian LLC. Todos los derechos reservados.</p>
+    <nav aria-label="Legal">
+      <a href="https://app.trademeridian.co/legal/2026-06-20/terms">Términos</a>
+      <a href="https://app.trademeridian.co/legal/2026-06-20/privacy">Privacidad</a>
+      <a href="https://app.trademeridian.co/legal/2026-06-20/risk">Riesgo</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var APP='https://app.trademeridian.co/?utm_source=Direto&utm_medium=Organico&utm_campaign=Direto&utm_content=Home&utm_term=';
+
+  /* todos los CTA apuntan al registro real; los UTM de la visita SOBREESCRIBEN
+     los del link base (si no, quedarian duplicados y ganaria el default) */
+  var qs=new URLSearchParams(location.search);
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  function appUrl(email){
+    var u=new URL(APP);
+    KEYS.forEach(function(k){var v=qs.get(k); if(v) u.searchParams.set(k,v);});
+    if(email) u.searchParams.set('email',email);
+    return u.toString();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-app]'),function(a){a.href=appUrl('');});
+
+  /* hero form -> registro real con el correo prellenado */
+  var f=document.getElementById('su'), inp=document.getElementById('email');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=inp.value.trim();
+    if(v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){
+      inp.classList.add('err'); inp.focus();
+      setTimeout(function(){inp.classList.remove('err');},400);
+      return;
+    }
+    location.href=appUrl(v);
+  });
+  inp.addEventListener('input',function(){inp.classList.remove('err');});
+
+  /* nav con borde al hacer scroll */
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('stuck',window.scrollY>40);}
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+
+  /* marquee: duplicar el track para que el loop no corte */
+  var strip=document.getElementById('strip');
+  strip.innerHTML+=strip.innerHTML;
+
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* reveal escalonado */
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.12});
+    Array.prototype.forEach.call(document.querySelectorAll('.rv'),function(el,i){
+      el.style.transitionDelay=(i%4)*70+'ms';
+      io.observe(el);
+    });
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll('.rv'),function(el){el.classList.add('in');});
+  }
+
+  /* conteo de las cifras reales (solo una vez, al entrar en pantalla) */
+  var nums=document.querySelectorAll('[data-count]');
+  function fmt(n){return n.toLocaleString('es-MX');}
+  if('IntersectionObserver' in window && !reduce){
+    var io2=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var el=en.target, end=+el.dataset.count, sfx=el.dataset.suffix||'', t0=null;
+        function step(ts){
+          if(!t0) t0=ts;
+          var p=Math.min((ts-t0)/1100,1), e=1-Math.pow(1-p,3);
+          el.textContent=fmt(Math.round(end*e))+(p===1?sfx:'');
+          if(p<1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step); io2.unobserve(el);
+      });
+    },{threshold:.5});
+    Array.prototype.forEach.call(nums,function(el){io2.observe(el);});
+  } else {
+    Array.prototype.forEach.call(nums,function(el){el.textContent=fmt(+el.dataset.count)+(el.dataset.suffix||'');});
+  }
+})();
+</script>
+</body>
+</html>
