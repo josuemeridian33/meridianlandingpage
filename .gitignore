@@ -8,3 +8,9 @@ node_modules/
 .vercel/
 .vercel
 .env*.local
+.env.*
+!.env.example
+.next/
+out/
+__pycache__/
+logs/

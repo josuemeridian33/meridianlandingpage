@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro Meridian — Crea tu cuenta</title>
+<meta name="description" content="Crea tu cuenta de Meridian. Opera en MetaTrader 5 con ejecución en mercado real y sin custodia de tus fondos.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/meridian-icon.svg">
+
+<style>
+:root{
+  --canvas:#0d0f0f;--elev:#111414;--card:#161a19;
+  --bd:#242a29;--bd-strong:#323a38;
+  --sage:#7a9d96;--sage-hi:#8fb3ab;--sage-lo:#62847d;
+  --txt:#ffffff;--muted:#9ea1a3;--subtle:#6b7176;
+  --sell:#ef4533;--ok:#7a9d96;
+  --w:392px;
+}
+*,*::before,*::after{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{margin:0}
+body{background:var(--canvas);color:var(--txt);font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:14px;line-height:20px;min-height:100svh}
+a{color:var(--sage-hi)}
+button{font:inherit;color:inherit}
+
+/* ---- barra superior ---- */
+.top{height:57px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;border-bottom:1px solid var(--bd);background:var(--canvas)}
+.lang{display:inline-flex;align-items:center;gap:6px;background:none;border:0;cursor:pointer;
+  color:var(--muted);font-size:12px;font-weight:500;letter-spacing:.04em;padding:8px}
+.lang:hover{color:#fff}
+.lang svg{width:18px;height:18px}
+
+/* ---- tarjeta central ---- */
+main{width:100%;max-width:var(--w);margin:0 auto;padding:23px 0 64px}
+h1{margin:0 0 24px;font-size:24px;line-height:28px;font-weight:600;letter-spacing:-.02em}
+
+.tabs{display:flex;border-bottom:1px solid var(--bd);margin-bottom:32px}
+.tab{flex:1;height:56px;background:none;border:0;cursor:pointer;font-size:16px;line-height:24px;
+  color:var(--subtle);position:relative;transition:color .18s}
+.tab:hover{color:var(--muted)}
+.tab[aria-selected="true"]{color:#fff}
+.tab[aria-selected="true"]::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--sage)}
+
+.field{margin-bottom:24px}
+.field label{display:block;font-size:12px;line-height:16px;color:var(--muted);margin-bottom:8px}
+.ctrl{position:relative}
+.ctrl input{width:100%;height:40px;background:var(--elev);color:#fff;
+  border:1px solid var(--bd);border-radius:4px;padding:10px 16px;font-size:14px;line-height:20px;
+  transition:border-color .18s,box-shadow .18s}
+.ctrl input::placeholder{color:var(--subtle)}
+.ctrl input:hover{border-color:var(--bd-strong)}
+.ctrl input:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px rgba(122,157,150,.14)}
+.ctrl input.bad{border-color:var(--sell)}
+.ctrl.has-eye input{padding-right:46px}
+.eye{position:absolute;top:0;right:0;height:40px;width:44px;display:grid;place-items:center;
+  background:none;border:0;cursor:pointer;color:var(--subtle)}
+.eye:hover{color:var(--muted)}
+.eye svg{width:18px;height:18px}
+.err{display:none;margin-top:8px;font-size:12px;line-height:16px;color:#f0a79c}
+.err.on{display:block}
+
+/* ---- reglas de contraseña ---- */
+.rules{display:grid;gap:4px;margin:-14px 0 24px;padding:0;list-style:none}
+.rules-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.count{font-size:12px;line-height:16px;color:var(--subtle);font-variant-numeric:tabular-nums}
+.rule{display:flex;align-items:center;gap:8px;font-size:12px;line-height:16px;color:var(--subtle);transition:color .2s}
+.rule i{width:6px;height:6px;border-radius:50%;border:1px solid var(--subtle);flex-shrink:0;transition:background .2s,border-color .2s}
+.rule.ok{color:var(--muted)}
+.rule.ok i{background:var(--ok);border-color:var(--ok)}
+
+/* ---- codigo de referido ---- */
+.disc{margin-bottom:24px}
+.disc-btn{display:flex;align-items:center;gap:8px;background:none;border:0;cursor:pointer;
+  padding:0;font-size:14px;line-height:20px;color:#fff}
+.disc-btn svg{width:14px;height:14px;color:var(--muted);transition:transform .2s}
+.disc-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.disc-body{display:none;margin-top:12px}
+.disc-body.on{display:block}
+
+/* ---- checkbox ---- */
+.check{display:flex;align-items:flex-start;gap:12px;margin-bottom:32px;cursor:pointer}
+.check input{position:absolute;opacity:0;width:0;height:0}
+.box{width:20px;height:20px;flex-shrink:0;border:1px solid var(--bd-strong);border-radius:4px;
+  background:var(--elev);display:grid;place-items:center;transition:background .16s,border-color .16s}
+.box svg{width:12px;height:12px;color:#0d0f0f;opacity:0;transition:opacity .16s}
+.check input:checked+.box{background:var(--sage);border-color:var(--sage)}
+.check input:checked+.box svg{opacity:1}
+.check input:focus-visible+.box{outline:2px solid var(--sage);outline-offset:2px}
+.check span{font-size:14px;line-height:20px;color:var(--txt)}
+
+.submit{width:100%;height:40px;border:1px solid transparent;border-radius:4px;cursor:pointer;
+  background:var(--sage);color:#0d0f0f;font-size:14px;line-height:20px;font-weight:600;
+  transition:background .18s,transform .1s}
+.submit:hover{background:var(--sage-hi)}
+.submit:active{transform:translateY(1px);background:var(--sage-lo)}
+.submit[disabled]{opacity:.55;cursor:not-allowed}
+
+.forgot{display:block;margin:-8px 0 24px;text-align:right;font-size:12px;line-height:16px;
+  color:var(--sage-hi);text-decoration:none}
+.forgot:hover{text-decoration:underline}
+
+.fine{margin:24px 0 0;font-size:12px;line-height:16px;color:var(--muted)}
+.fine.strong{margin-top:16px;color:var(--muted)}
+.fine a{color:var(--sage-hi);text-decoration:none}
+.fine a:hover{text-decoration:underline}
+
+:focus-visible{outline:2px solid var(--sage);outline-offset:2px;border-radius:3px}
+[hidden]{display:none!important}
+
+@media(max-width:520px){
+  main{padding:20px 20px 48px}
+  h1{font-size:22px}
+  .tab{font-size:15px;height:52px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="/abrir-cuenta" aria-label="Meridian">
+    <svg width="152" height="29" viewBox="0 0 168 32" fill="none" role="img" aria-label="Meridian">
+      <svg x="0" y="0" width="32" height="32" viewBox="0 0 432 432" overflow="visible">
+        <path fill="#FEFEFF" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4
+          c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5
+          c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+        <path fill="#7a9d96" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4
+          c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5
+          c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+      </svg>
+      <rect x="42" y="7" width="1" height="18" fill="#323a38"/>
+      <text x="52" y="22" fill="#FEFEFF" font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        font-size="14" font-weight="600" letter-spacing="3.2">MERIDIAN</text>
+    </svg>
+  </a>
+  <button class="lang" type="button" aria-label="Idioma: español">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18" stroke="currentColor" stroke-width="1.4"/>
+    </svg>
+    ES
+  </button>
+</header>
+
+<main>
+  <h1>Bienvenido a Meridian</h1>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" type="button" role="tab" id="tab-in"  aria-selected="false" aria-controls="panel-in">Iniciar sesión</button>
+    <button class="tab" type="button" role="tab" id="tab-up" aria-selected="true"  aria-controls="panel-up">Crear una cuenta</button>
+  </div>
+
+  <!-- ===== crear cuenta ===== -->
+  <form id="panel-up" role="tabpanel" aria-labelledby="tab-up" novalidate>
+    <div class="field">
+      <label for="up-email">Dirección de correo electrónico</label>
+      <div class="ctrl"><input id="up-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+      <p class="err" id="up-email-err">Escribe un correo válido.</p>
+    </div>
+
+    <div class="field">
+      <label for="up-pass">Contraseña</label>
+      <div class="ctrl has-eye">
+        <input id="up-pass" name="password" type="password" autocomplete="new-password">
+        <button class="eye" type="button" data-eye="up-pass" aria-label="Mostrar contraseña">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+    <ul class="rules" id="rules">
+      <li class="rules-head">
+        <span class="rule" data-rule="len"><i></i>Entre 8-15 caracteres</span>
+        <span class="count" id="count">0</span>
+      </li>
+      <li class="rule" data-rule="case"><i></i>Al menos una mayúscula y una minúscula</li>
+      <li class="rule" data-rule="num"><i></i>Al menos un número</li>
+      <li class="rule" data-rule="sym"><i></i>Al menos un carácter especial</li>
+    </ul>
+
+    <div class="disc">
+      <button class="disc-btn" type="button" id="ref-btn" aria-expanded="false" aria-controls="ref-body">
+        Código de referido (opcional)
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="disc-body" id="ref-body">
+        <div class="ctrl"><input id="up-ref" name="ref" type="text" placeholder="Ej. JOSUE" autocomplete="off"></div>
+      </div>
+    </div>
+
+    <label class="check">
+      <input type="checkbox" id="up-us" checked>
+      <span class="box"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.1L13 4.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Confirmo y declaro que no soy ciudadano ni residente de los EE. UU. a efectos fiscales.</span>
+    </label>
+
+    <button class="submit" type="submit" id="up-submit">Registrarse</button>
+
+    <p class="fine">Te estás registrando con Meridian LLC, registrada en San Vicente y las Granadinas con número 4403 LLC 2026.</p>
+    <p class="fine strong">Al hacer clic en Registrarse, confirmas que has leído, comprendido y aceptado toda la información del
+      <a href="https://app.trademeridian.co/legal/2026-06-20/terms">Contrato del cliente</a>, los
+      <a href="https://app.trademeridian.co/legal/2026-06-20/privacy">términos de privacidad</a> y el
+      <a href="https://app.trademeridian.co/legal/2026-06-20/risk">aviso de riesgo</a>.</p>
+  </form>
+
+  <!-- ===== iniciar sesion ===== -->
+  <form id="panel-in" role="tabpanel" aria-labelledby="tab-in" novalidate hidden>
+    <div class="field">
+      <label for="in-email">Dirección de correo electrónico</label>
+      <div class="ctrl"><input id="in-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+      <p class="err" id="in-email-err">Escribe un correo válido.</p>
+    </div>
+
+    <div class="field">
+      <label for="in-pass">Contraseña</label>
+      <div class="ctrl has-eye">
+        <input id="in-pass" name="password" type="password" autocomplete="current-password">
+        <button class="eye" type="button" data-eye="in-pass" aria-label="Mostrar contraseña">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+    <a class="forgot" href="https://app.trademeridian.co/">¿Olvidaste tu contraseña?</a>
+
+    <button class="submit" type="submit">Iniciar sesión</button>
+
+    <p class="fine">Meridian LLC está registrada en San Vicente y las Granadinas con número 4403 LLC 2026.
+      Operar conlleva riesgo de pérdida de capital.</p>
+  </form>
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var APP='https://app.trademeridian.co/?utm_source=Direto&utm_medium=Organico&utm_campaign=Direto&utm_content=Home&utm_term=';
+  var qs=new URLSearchParams(location.search);
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  function appUrl(email){
+    var u=new URL(APP);
+    KEYS.forEach(function(k){var v=qs.get(k); if(v) u.searchParams.set(k,v);});
+    if(email) u.searchParams.set('email',email);
+    return u.toString();
+  }
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  /* ---- tabs ---- */
+  var tabs={in:document.getElementById('tab-in'),up:document.getElementById('tab-up')};
+  var panels={in:document.getElementById('panel-in'),up:document.getElementById('panel-up')};
+  function show(which){
+    Object.keys(tabs).forEach(function(k){
+      tabs[k].setAttribute('aria-selected', String(k===which));
+      panels[k].hidden = (k!==which);
+    });
+  }
+  tabs.in.addEventListener('click',function(){show('in');});
+  tabs.up.addEventListener('click',function(){show('up');});
+  if((qs.get('tab')||'')==='login') show('in');
+
+  /* ---- ver/ocultar contraseña ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-eye]'),function(b){
+    b.addEventListener('click',function(){
+      var i=document.getElementById(b.dataset.eye);
+      var showing = i.type==='text';
+      i.type = showing ? 'password' : 'text';
+      b.setAttribute('aria-label', showing ? 'Mostrar contraseña' : 'Ocultar contraseña');
+    });
+  });
+
+  /* ---- reglas de contraseña en vivo ---- */
+  var pass=document.getElementById('up-pass'), count=document.getElementById('count');
+  var RULES={
+    len:function(v){return v.length>=8 && v.length<=15;},
+    case:function(v){return /[a-z]/.test(v) && /[A-Z]/.test(v);},
+    num:function(v){return /\d/.test(v);},
+    sym:function(v){return /[^A-Za-z0-9]/.test(v);}
+  };
+  function checkRules(){
+    var v=pass.value;
+    count.textContent=String(v.length);
+    var all=true;
+    Object.keys(RULES).forEach(function(k){
+      var ok=RULES[k](v); if(!ok) all=false;
+      var el=document.querySelector('[data-rule="'+k+'"]');
+      el.classList.toggle('ok',ok);
+    });
+    return all;
+  }
+  pass.addEventListener('input',checkRules);
+
+  /* ---- referido: abre solo si viene ?ref= ---- */
+  var refBtn=document.getElementById('ref-btn'), refBody=document.getElementById('ref-body'), refInp=document.getElementById('up-ref');
+  refBtn.addEventListener('click',function(){
+    var open=refBtn.getAttribute('aria-expanded')==='true';
+    refBtn.setAttribute('aria-expanded',String(!open));
+    refBody.classList.toggle('on',!open);
+    if(!open) refInp.focus();
+  });
+  var refQ=qs.get('ref')||qs.get('utm_content');
+  if(qs.get('ref')){refInp.value=refQ;refBtn.click();}
+
+  function mark(input,errEl,bad){
+    input.classList.toggle('bad',bad);
+    if(errEl) errEl.classList.toggle('on',bad);
+  }
+
+  /* ---- alta: guarda el lead y sigue al onboarding real ---- */
+  var up=document.getElementById('panel-up'), upBtn=document.getElementById('up-submit');
+  var upEmail=document.getElementById('up-email'), upEmailErr=document.getElementById('up-email-err');
+  var upUs=document.getElementById('up-us');
+  up.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=upEmail.value.trim();
+    var okEmail=EMAIL.test(em);
+    mark(upEmail,upEmailErr,!okEmail);
+    var okPass=checkRules();
+    if(!okPass) pass.classList.add('bad'); else pass.classList.remove('bad');
+    if(!okEmail){upEmail.focus();return;}
+    if(!okPass){pass.focus();return;}
+    if(!upUs.checked){upUs.focus();return;}
+
+    upBtn.disabled=true; upBtn.textContent='Creando tu cuenta…';
+    var payload={
+      email:em, source:'crear-cuenta', url:location.href,
+      ref:refInp.value.trim()||undefined
+    };
+    KEYS.forEach(function(k){if(qs.get(k)) payload[k]=qs.get(k);});
+    var done=false;
+    function go(){ if(!done){done=true; location.href=appUrl(em);} }
+    setTimeout(go,2500); /* si el endpoint tarda, el usuario no se queda atorado */
+    fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(go).catch(go);
+  });
+
+  /* ---- login: al app real ---- */
+  var inF=document.getElementById('panel-in'), inEmail=document.getElementById('in-email'), inErr=document.getElementById('in-email-err');
+  inF.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=inEmail.value.trim();
+    if(em && !EMAIL.test(em)){mark(inEmail,inErr,true);inEmail.focus();return;}
+    mark(inEmail,inErr,false);
+    location.href=appUrl(em);
+  });
+})();
+</script>
+</body>
+</html>

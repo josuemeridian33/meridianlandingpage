@@ -92,22 +92,27 @@
 
   /* PRIMARY CTA */
   .btn-primary {
-    background: linear-gradient(180deg, #52716E 0%, #4F6B65 100%);
+    background: linear-gradient(180deg, #6AADA8 0%, #52716E 100%);
     color: #FFFFFF;
     padding: 0.95rem 1.7rem;
     border-radius: 6px;
     font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.875rem;
-    transition: all 0.25s ease;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 0 0 0 rgba(82,113,110,0);
+    transition: transform 0.25s ease;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 24px rgba(82,113,110,0.28);
     display: inline-flex; align-items: center; gap: 0.55rem; white-space: nowrap;
+    animation: ctaPulse 2.4s ease-in-out infinite;
   }
   .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 8px 32px rgba(82,113,110,0.18);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 12px 36px rgba(82,113,110,0.42);
   }
   .btn-primary:focus-visible {
     outline: 2px solid var(--patina);
     outline-offset: 3px;
+  }
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 24px rgba(82,113,110,0.28), 0 0 0 0 rgba(106,173,168,0.45); }
+    50%       { box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 24px rgba(82,113,110,0.28), 0 0 0 12px rgba(106,173,168,0); }
   }
   .btn-ghost {
     border: 1px solid rgba(255,255,255,0.14);
@@ -391,7 +396,7 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-10 h-8 flex items-center gap-6 text-[11px] font-medium tracking-wide">
     <div class="flex items-center gap-2 flex-shrink-0 text-patina">
       <span class="w-1.5 h-1.5 rounded-full bg-patina animate-pulse"></span>
-      <span class="uppercase tracking-[0.18em]">Live · On-chain</span>
+      <span class="uppercase tracking-[0.18em]">Live · Sin conflicto</span>
     </div>
     <div class="hidden md:block w-px h-3 bg-white/10 flex-shrink-0"></div>
     <div class="relative flex-1 overflow-hidden mask-fade">
@@ -575,10 +580,10 @@
       </span>
       <span class="text-[11px] uppercase tracking-[0.22em] accent font-semibold">Registro activo</span>
       <span class="text-[11px] text-pewter">·</span>
-      <span class="text-[11px] text-pewter">Hace <span class="text-arctic font-semibold">2 min</span></span>
+      <span class="text-[11px] text-pewter">Hace <span id="heroPillTime" class="text-arctic font-semibold">2 min</span></span>
     </div>
 
-    <p class="eyebrow reveal">Founders List · 1,000 plazas únicas</p>
+    <p class="eyebrow reveal">Founders List · <span data-counter="founders">347</span>/1,000 plazas</p>
 
     <h1 class="h1 mt-6 reveal" style="transition-delay:0.1s">
       <span class="accent">Founder.</span> No cliente.
@@ -586,7 +591,7 @@
 
     <p class="body-text mt-7 max-w-2xl mx-auto reveal" style="transition-delay:0.2s">
       Sé uno de los <span class="text-arctic font-medium">1,000 que reciben equity real, voz directa en lo que construimos</span>
-      y libertad total para operar como tú quieras. El primer broker A-book honesto — construido contigo adentro.
+      y libertad total para operar como tú quieras. El primer broker sin conflicto de interés — construido contigo adentro.
     </p>
 
     <div class="mt-10 flex flex-col items-center gap-4 reveal" style="transition-delay:0.3s">
@@ -611,16 +616,16 @@
           <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">Founders</p>
         </div>
         <div class="bg-midnight/80 backdrop-blur px-5 py-4 text-center">
-          <p class="text-[20px] font-semibold text-arctic counter-num">$20M</p>
+          <p class="text-[20px] font-semibold text-arctic counter-num" data-countup-target="20" data-countup-prefix="$" data-countup-suffix="M">$20M</p>
           <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">Valuación</p>
         </div>
         <div class="bg-midnight/80 backdrop-blur px-5 py-4 text-center">
-          <p class="text-[20px] font-semibold text-arctic counter-num">12</p>
+          <p class="text-[20px] font-semibold text-arctic counter-num" data-countup-target="12">12</p>
           <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">Países LATAM</p>
         </div>
         <div class="bg-midnight/80 backdrop-blur px-5 py-4 text-center">
           <p class="text-[20px] font-semibold accent">100%</p>
-          <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">A-book</p>
+          <p class="text-[10px] tracking-[0.18em] uppercase text-pewter mt-1">Sin conflicto</p>
         </div>
       </div>
     </div>
@@ -733,7 +738,7 @@
       <article class="glass rounded-2xl p-7 reveal card-tilt relative overflow-hidden" style="transition-delay:0.24s">
         <span class="absolute top-5 right-5 flex items-center gap-1.5 text-[9px] tracking-[0.2em] uppercase text-patina/70">
           <span class="w-1 h-1 rounded-full bg-patina animate-pulse"></span>
-          <span>On-chain</span>
+          <span>Sin conflicto</span>
         </span>
         <div class="flex items-start justify-between mb-5">
           <div class="ring-icon">
@@ -822,7 +827,7 @@
         </div>
         <ul class="space-y-4">
           <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Cualquier estrategia: scalping, HFT, news, arbitraje</li>
-          <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>100% A-book honesto. Nunca contra ti.</li>
+          <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>100% transparente. Nunca contra ti.</li>
           <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Retiros en minutos, sin trabas, sin excusas</li>
           <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Voz directa en el roadmap (1 Founder · 1 voto)</li>
           <li class="flex gap-3 text-[15px] leading-relaxed text-white/92"><span class="mt-1 inline-block w-1 h-1 rounded-full bg-patina flex-shrink-0"></span>Eres Founder, no cliente. Para siempre.</li>
@@ -1092,7 +1097,7 @@
         </h2>
         <p class="body-text mt-6 reveal" style="transition-delay:0.2s">
           Llevo años cambiando de broker porque siempre había una trampa: te limitan la estrategia,
-          te bloquean el retiro, te tratan como un número. Meridian es lo opuesto — A-book honesto,
+          te bloquean el retiro, te tratan como un número. Meridian es lo opuesto — transparente, sin conflicto de interés,
           <span class="text-arctic font-medium">y sus traders son los dueños.</span> Por eso estoy aquí como fundador, no como afiliado.
         </p>
         <div class="mt-9 reveal" style="transition-delay:0.3s">
@@ -1171,6 +1176,57 @@
     </div>
   </div>
 </section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 9.5 — BONUS STACK (Founder extras)
+═════════════════════════════════════════════════ -->
+<section id="bonos" class="bg-midnight py-24 lg:py-32 section-divider relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(82,113,110,0.06) 0%, transparent 60%);"></div>
+  </div>
+  <div class="relative max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <p class="eyebrow reveal">Bonos exclusivos Founder</p>
+      <h2 class="h2 mt-5 reveal" style="transition-delay:0.1s">
+        Además de equity y libertad,<br class="hidden sm:block">
+        recibes <span class="accent">3 bonos</span> que nadie más tiene.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <article class="reveal rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="transition-delay:0.15s; background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
+        <div class="ring-icon mb-5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="eyebrow text-[10px] accent mb-2">BONO · 01</p>
+        <h3 class="text-arctic font-semibold text-[1.15rem] mb-3" style="letter-spacing:-0.01em">PLAZA PARA UN AMIGO</h3>
+        <p class="body-text !text-[14px]">Regalas una plaza Founder a un trader de tu elección. Ambos entran. <em class="accent">Si quieres ir lejos, ve acompañado.</em></p>
+        <p class="mt-5 text-[10.5px] tracking-[0.2em] text-patina font-semibold uppercase">Valor · 1 plaza de 1,000</p>
+      </article>
+
+      <article class="reveal rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="transition-delay:0.25s; background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
+        <div class="ring-icon mb-5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <p class="eyebrow text-[10px] accent mb-2">BONO · 02</p>
+        <h3 class="text-arctic font-semibold text-[1.15rem] mb-3" style="letter-spacing:-0.01em">ACCESO VITALICIO</h3>
+        <p class="body-text !text-[14px]">Tu plaza no caduca. Tu equity no se diluye sin tu voto. Todas las features futuras del producto, incluidas. Para siempre.</p>
+        <p class="mt-5 text-[10.5px] tracking-[0.2em] text-patina font-semibold uppercase">Valor · ciclo de vida del broker</p>
+      </article>
+
+      <article class="reveal rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="transition-delay:0.35s; background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
+        <div class="ring-icon mb-5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <p class="eyebrow text-[10px] accent mb-2">BONO · 03</p>
+        <h3 class="text-arctic font-semibold text-[1.15rem] mb-3" style="letter-spacing:-0.01em">TRADER GALA + MASTERMINDS</h3>
+        <p class="body-text !text-[14px]">Evento físico anual con los 1,000 Founders + masterminds trimestrales online con traders pro como invitados. Todo incluido.</p>
+        <p class="mt-5 text-[10.5px] tracking-[0.2em] text-patina font-semibold uppercase">Valor · 4 eventos premium/año</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 
 <!-- ════════════════════════════════════════════════
      🎬 EL MOMENTO (cinematic outro before final CTA)
@@ -1272,7 +1328,24 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
       </div>
-      <p class="text-[12px] tracking-wide muted mt-5">
+      <div class="mt-5 mb-3">
+        <div class="flex justify-between text-[11px] mb-2">
+          <span class="text-pewter flex items-center gap-1.5">
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-patina opacity-60"></span>
+              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-patina"></span>
+            </span>
+            <span data-counter="founders">347</span>/1,000 founders ya adentro
+          </span>
+          <span class="accent font-semibold"><span data-counter="remaining">653</span> disponibles</span>
+        </div>
+        <div class="relative h-1.5 bg-white/5 rounded-full overflow-hidden">
+          <div id="founderBar2" class="absolute inset-y-0 left-0 bg-gradient-to-r from-patina to-patina/70 rounded-full transition-[width] duration-1500 ease-out" style="width: 34.7%;">
+            <div class="absolute inset-0 bar-sheen"></div>
+          </div>
+        </div>
+      </div>
+      <p class="text-[12px] tracking-wide muted">
         <span class="accent">✓</span> Sin costo
         <span class="mx-2 text-white/15">·</span>
         <span class="accent">✓</span> Equity real
@@ -1342,7 +1415,7 @@
         <span class="text-[14px] font-semibold tracking-wordmark uppercase text-arctic">Meridian</span>
       </div>
       <p class="text-[14.5px] text-arctic/82 leading-relaxed max-w-md">
-        Meridian — el primer broker A-book honesto construido por sus traders.<br>
+        Meridian — el primer broker sin conflicto de interés construido por sus traders.<br>
         <span class="accent font-medium">Built for you to win.</span>
       </p>
     </div>
@@ -1374,7 +1447,7 @@
       <p class="text-[12px] muted leading-relaxed max-w-5xl">
         El trading de divisas implica riesgo y puede no ser adecuado para todos los inversionistas.
         Los resultados pasados no garantizan resultados futuros. Meridian opera con tecnología
-        A-book — la ejecución es directa al mercado real, sin libro propio contra el cliente. Antes de operar,
+        Ejecución directa al mercado real, sin libro propio contra el cliente. Antes de operar,
         asegúrate de entender los riesgos.
       </p>
       <p class="mt-5 text-[11px] tracking-[0.15em] uppercase muted">© Meridian 2026 — All rights reserved.</p>
@@ -1516,11 +1589,11 @@
       }
     });
 
-    const bar = document.getElementById('founderBar');
-    if (bar) {
-      const pct = (currentFounders / FOUNDERS_TOTAL) * 100;
-      bar.style.width = pct.toFixed(2) + '%';
-    }
+    const pct = (currentFounders / FOUNDERS_TOTAL) * 100;
+    ['founderBar', 'founderBar2'].forEach(id => {
+      const bar = document.getElementById(id);
+      if (bar) bar.style.width = pct.toFixed(2) + '%';
+    });
   }
 
   // First-paint count-up animation for the big urgency counter
@@ -1582,12 +1655,17 @@
     }, 3400);
   }
 
+  const pillTimes = ['1 min', '2 min', '3 min', '4 min', '5 min', '7 min'];
+  function updateHeroPillTime() {
+    const el = document.getElementById('heroPillTime');
+    if (el) el.textContent = pillTimes[Math.floor(Math.random() * pillTimes.length)];
+  }
   function liveIncrement() {
     if (currentFounders >= FOUNDERS_TOTAL) return;
     currentFounders += 1;
-    syncCounters(true);   // ← triggers odometer roll on every counter
+    syncCounters(true);
     showToast();
-    // Random next delay between 5s and 14s (faster cadence than before)
+    updateHeroPillTime();
     const nextDelay = 5000 + Math.random() * 9000;
     setTimeout(liveIncrement, nextDelay);
   }
@@ -1605,6 +1683,28 @@
       notifs[nIdx].classList.remove('hidden-rot');
     }, 6500);
   }
+
+  /* ─── 4.5. COUNT-UP for static metrics ─── */
+  const metricObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.countupTarget, 10);
+      const prefix = el.dataset.countupPrefix || '';
+      const suffix = el.dataset.countupSuffix || '';
+      const dur = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-countup-target]').forEach(el => metricObs.observe(el));
 
   /* ─── 5. FAQ — only one open at a time ─── */
   const allDetails = document.querySelectorAll('#faqList details');

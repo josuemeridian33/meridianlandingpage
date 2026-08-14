@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founders List · Meridian — Sé Founder del broker</title>
-<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity, voz, comunidad y libertad total. Trade como quieras, donde quieras. Sé Founder del broker.">
+<title>Eres rentable. Y aún así no puedes retirar · Meridian Founders List</title>
+<meta name="description" content="Tu estrategia genera resultados reales. El problema no es tu trading — es que el sistema que te rodea no fue construido para que cobres lo que ganas. Únete a los 1,000 Founders de Meridian.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,6 @@
     background-size: 60px 52px;
   }
 
-  /* ── Typography (Inter only, per brand sheet) ── */
   .h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.1rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
   .h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; }
   .h3 { font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
@@ -74,6 +73,7 @@
   .accent-light { color: var(--patina-light); }
   .glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); }
   .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
+
   /* FOUNDER TOAST */
   #founderToast.toast-in { opacity: 1; transform: translateY(0); }
   #founderToast.toast-out { opacity: 0; transform: translateY(12px); }
@@ -83,7 +83,6 @@
   }
   .counter-flash { animation: counterFlash 0.7s ease-out; }
 
-  /* ── Pill CTA ── */
   @keyframes ctaPulse {
     0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 0 rgba(106,173,168,0.45); }
     50%       { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 14px rgba(106,173,168,0); }
@@ -107,37 +106,20 @@
   }
   .btn-pill:hover { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(106,173,168,0.55), 0 0 0 0 rgba(106,173,168,0); animation: none; }
   .btn-pill:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
-  .btn-ghost {
-    background: transparent;
-    color: var(--arctic);
-    padding: 1.1rem 2rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.18);
-    font-family: 'Inter', sans-serif; font-weight: 600;
-    letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.84rem;
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.65rem;
-    cursor: pointer; text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-ghost:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.32); }
 
-  /* ── Pulse dot ── */
   .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; flex-shrink: 0; }
   .pulse-dot::before { content: ''; position: absolute; inset: 0; background: #6AADA8; border-radius: 50%; animation: pulse-ring 2s ease-out infinite; opacity: 0.7; }
   .pulse-dot::after { content: ''; position: absolute; inset: 0; background: #6AADA8; border-radius: 50%; }
 
-  /* ── Progress bar ── */
   .founders-progress { background: rgba(255,255,255,0.06); border-radius: 999px; height: 5px; overflow: hidden; }
   .founders-progress-fill { height: 100%; background: linear-gradient(90deg, #52716E, #6AADA8); border-radius: 999px; transition: width 0.6s ease; }
 
-  /* ── Countdown ── */
   .countdown-wrap { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
   .cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 44px;
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.45rem 0.6rem; }
   .cd-unit .cd-num { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.03em; color: #FFFFFF; line-height: 1; font-variant-numeric: tabular-nums; }
   .cd-unit .cd-label { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-top: 0.2rem; }
 
-  /* ── VSL text overlay ── */
   .vsl-text-overlay {
     position: absolute; bottom: 3.6rem; left: 1.4rem; right: 5rem; z-index: 2;
     pointer-events: none;
@@ -146,7 +128,7 @@
   .vsl-text-overlay span { display: block; margin-top: 0.35rem; color: rgba(255,255,255,0.65); font-size: 0.72rem; letter-spacing: 0.1em; }
   @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
 
-  /* ══════════════ INLINE LOGO — continuous orbital animation ══════════════ */
+  /* INLINE LOGO */
   .meridian-mark {
     width: clamp(72px, 8vw, 96px);
     height: auto;
@@ -234,7 +216,6 @@
     to   { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
-  /* Brand lockup text under mark */
   .lockup-text {
     margin-top: 1rem;
     opacity: 0;
@@ -243,7 +224,7 @@
   @keyframes lockup-rise { to { opacity: 1; transform: translateY(0); } }
   .lockup-text { transform: translateY(8px); }
 
-  /* ══════════════ VSL VIDEO FRAME ══════════════ */
+  /* VSL VIDEO FRAME */
   .vsl-frame {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -322,7 +303,6 @@
     font-size: 0.7rem;
   }
 
-  /* Scroll cue */
   .scroll-cue {
     width: 36px; height: 36px;
     border-radius: 50%;
@@ -334,78 +314,6 @@
   }
   @keyframes bounce-cue { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
-  /* ── Founder cards (social proof) ── */
-  .founder-card {
-    position: relative;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-  .founder-card:hover { transform: translateY(-3px); border-color: rgba(82,113,110,0.35); }
-  .founder-card .photo {
-    aspect-ratio: 4 / 5;
-    overflow: hidden; position: relative;
-  }
-  .founder-card .photo img { width: 100%; height: 100%; object-fit: cover; }
-  .founder-card .photo::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 55%, rgba(11,18,32,0.92) 100%);
-  }
-  .founder-card .founder-tag {
-    position: absolute; top: 0.85rem; right: 0.85rem;
-    padding: 0.3rem 0.65rem;
-    background: rgba(11,18,32,0.82);
-    border: 1px solid rgba(82,113,110,0.40);
-    backdrop-filter: blur(8px);
-    border-radius: 999px;
-    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--patina-light);
-    font-weight: 600;
-    z-index: 2;
-  }
-  .founder-card .quote {
-    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-    padding: 1rem 1rem 1.1rem;
-    text-align: center;
-  }
-  .founder-card .quote p { color: var(--arctic); font-size: 0.85rem; font-weight: 600; line-height: 1.3; }
-  .founder-card .quote span { color: var(--patina-light); font-size: 0.7rem; letter-spacing: 0.05em; }
-
-  /* ── Freedom checklist ── */
-  .free-item {
-    display: flex; align-items: flex-start; gap: 0.85rem;
-    padding: 0.7rem 0;
-    font-size: 0.98rem;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.88);
-  }
-  .free-check {
-    flex-shrink: 0;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: rgba(82,113,110,0.20);
-    border: 1px solid rgba(82,113,110,0.42);
-    display: inline-flex; align-items: center; justify-content: center;
-    color: var(--patina-light);
-    margin-top: 0.1rem;
-  }
-
-  /* ── Strategy chip grid ── */
-  .strat-chip {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    padding: 0.45rem 0.85rem;
-    background: rgba(82,113,110,0.10);
-    border: 1px solid rgba(82,113,110,0.32);
-    border-radius: 999px;
-    font-size: 0.78rem;
-    color: var(--arctic);
-    font-weight: 500;
-  }
-  .strat-chip svg { color: var(--patina-light); flex-shrink: 0; }
-
-  /* ── Notification cards ── */
   .notif-card {
     background: rgba(11,18,32,0.94);
     border: 1px solid rgba(255,255,255,0.10);
@@ -426,7 +334,6 @@
     font-weight: 600; font-size: 0.72rem;
   }
 
-  /* ── Date chip ── */
   .date-chip {
     display: inline-flex; align-items: center; gap: 0.6rem;
     padding: 0.55rem 0.95rem;
@@ -439,8 +346,25 @@
   }
   .date-chip svg { color: var(--patina-light); flex-shrink: 0; }
 
-  /* ── Section divider ── */
   .section-divider { border-top: 1px solid rgba(255,255,255,0.04); }
+
+  .free-item {
+    display: flex; align-items: flex-start; gap: 0.85rem;
+    padding: 0.7rem 0;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+  }
+  .free-check {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(82,113,110,0.20);
+    border: 1px solid rgba(82,113,110,0.42);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--patina-light);
+    margin-top: 0.1rem;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .pulse-dot::before, .vsl-play-btn::before, .scroll-cue,
@@ -475,7 +399,6 @@
 <section id="hero" class="relative px-6 pt-10 pb-14 lg:pt-14 lg:pb-20">
   <div class="relative max-w-4xl mx-auto text-center">
 
-    <!-- Inline animated logo (two halves animate from opposite directions) -->
     <div class="meridian-mark-wrap mx-auto mb-1">
       <svg class="meridian-mark" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
         <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
@@ -494,16 +417,18 @@
       <span class="eyebrow !text-[11px]">Founders List · <span data-counter="founders">347</span>/1,000 plazas</span>
     </div>
 
-    <!-- HEADLINE — NEW OFFER -->
+    <!-- HEADLINE -->
     <h1 class="h1 max-w-3xl mx-auto">
-      Sé <span class="accent">Founder</span> del broker<br class="hidden sm:block">
-      que siempre quisiste tener.
+      Eres rentable. Y aún así no<br class="hidden sm:block">
+      <span class="accent">puedes cobrar.</span>
     </h1>
 
-    <p class="body-text mt-6 max-w-2xl mx-auto">
-      Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span> y recibe
-      equity real, voz en lo que construimos, una comunidad de traders Founders del proyecto —
-      y la libertad de tradear como tú quieras, con la estrategia que quieras.
+    <p class="body-text mt-4 max-w-xl mx-auto text-[1.05rem] font-medium" style="color: rgba(255,255,255,0.92);">
+      Ganar en el lugar equivocado es peor que no ganar.
+    </p>
+
+    <p class="body-text mt-4 max-w-2xl mx-auto">
+      Tu estrategia genera resultados reales. El problema no es tu trading — es que el sistema que te rodea no fue construido para que cobres lo que ganas. Cuanto mejor tradeas, <span class="text-arctic font-semibold">más te bloquea.</span>
     </p>
 
     <!-- VSL video -->
@@ -523,8 +448,8 @@
 
         <div class="vsl-poster" aria-hidden="true"></div>
         <div class="vsl-text-overlay" id="vslOverlay">
-          <p>Por qué los 1,000 Founders reciben<br>lo que nadie más va a recibir</p>
-          <span>▶ &nbsp;4:32 min</span>
+          <p>Por qué ganar en el broker equivocado<br>es peor que no ganar</p>
+          <span>▶ &nbsp;4:47 min</span>
         </div>
         <button class="vsl-play-btn" id="vslPlayBtn" aria-label="Reproducir video">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
@@ -534,25 +459,24 @@
 
         <video id="vslVideo" preload="none" controls playsinline poster="/assets/cinematic/01c-hero-peak.png" class="hidden">
           <!-- Drop your VSL video file here, e.g.: -->
-          <!-- <source src="/assets/vsl/meridian-founders-vsl.mp4" type="video/mp4"> -->
+          <!-- <source src="/assets/vsl/meridian-founders-v7-vsl.mp4" type="video/mp4"> -->
         </video>
 
         <div class="vsl-bottom-bar">
           <span class="opacity-80">Josué Melero · Fundador de Meridian</span>
-          <span class="duration">04:32</span>
+          <span class="duration">04:47</span>
         </div>
       </div>
     </div>
 
     <p class="mt-7 body-text !text-[14px] max-w-xl mx-auto">
-      Mira el video y entiende por qué los primeros 1,000 reciben lo que el resto del mundo
-      nunca va a recibir.
+      Mira el video. Entiende por qué ser rentable en el sistema equivocado te convierte en un blanco — y qué construimos para resolverlo.
     </p>
 
     <!-- Primary CTA -->
     <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
       <a href="#registro" class="btn-pill">
-        Quiero ser Founder
+        Quiero operar donde puedo cobrar
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -580,7 +504,7 @@
     </div>
 
     <div class="mt-10 flex justify-center">
-      <a href="#porque" class="scroll-cue" aria-label="Continuar">
+      <a href="#problema" class="scroll-cue" aria-label="Continuar">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
       </a>
     </div>
@@ -593,71 +517,58 @@
 <section id="metricas" class="px-6 pt-8 pb-12 lg:pt-8 lg:pb-14" style="border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-5xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 text-center">
-      <div class="py-8 px-4 md:border-r border-white/05" style="border-color: rgba(255,255,255,0.06);">
+      <div class="py-8 px-4 md:border-r" style="border-color: rgba(255,255,255,0.06);">
         <div class="text-[clamp(2.4rem,4.5vw,3.6rem)] font-bold leading-none" style="background: linear-gradient(180deg, #FFFFFF 0%, #7D9A96 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">
           <span data-counter="founders" data-metric="347">347</span>/1K
         </div>
         <p class="mt-3 text-[14px]" style="color: rgba(255,255,255,0.66); line-height: 1.4;">Founders ya adentro · de 1,000 plazas totales</p>
       </div>
-      <div class="py-8 px-4 md:border-r border-white/05" style="border-color: rgba(255,255,255,0.06);">
+      <div class="py-8 px-4 md:border-r" style="border-color: rgba(255,255,255,0.06);">
         <div class="text-[clamp(2.4rem,4.5vw,3.6rem)] font-bold leading-none" style="background: linear-gradient(180deg, #FFFFFF 0%, #7D9A96 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;"><span data-metric="23">23</span></div>
-        <p class="mt-3 text-[14px]" style="color: rgba(255,255,255,0.66); line-height: 1.4;">Países LATAM con traders Founders</p>
+        <p class="mt-3 text-[14px]" style="color: rgba(255,255,255,0.66); line-height: 1.4;">Países con traders Founders que no podían retirar</p>
       </div>
       <div class="py-8 px-4">
         <div class="text-[clamp(2.4rem,4.5vw,3.6rem)] font-bold leading-none" style="background: linear-gradient(180deg, #FFFFFF 0%, #7D9A96 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;"><span data-metric="100">100</span>%</div>
-        <p class="mt-3 text-[14px]" style="color: rgba(255,255,255,0.66); line-height: 1.4;">Sin conflicto de interés · transparencia total</p>
+        <p class="mt-3 text-[14px]" style="color: rgba(255,255,255,0.66); line-height: 1.4;">Sin conflicto de interés · sin incentivos para bloquearte</p>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ════════════════════════ 2 · POR QUÉ MERIDIAN ES DISTINTO ════════════════════════ -->
-<section id="porque" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
+<!-- ════════════════════════ 2 · PROBLEMA ════════════════════════ -->
+<section id="problema" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-5xl mx-auto">
 
     <div class="text-center mb-12 max-w-3xl mx-auto">
-      <p class="eyebrow mb-3">Por qué Meridian es distinto</p>
+      <p class="eyebrow mb-3">El patrón que nadie te explicó</p>
       <h2 class="h2">
-        Un broker <span class="accent">honesto, sin conflicto de interés</span><br class="hidden sm:block">
-        — y construido contigo adentro.
+        El sistema está diseñado para<br class="hidden sm:block">
+        <span class="accent">no pagarte cuando ganas de más.</span>
       </h2>
-      <p class="body-text mt-5">
-        No estás aquí para ser otro cliente más. Estás aquí para ser parte de la primera generación
-        de traders que <span class="text-arctic font-medium">tienen un broker que les pertenece.</span>
-      </p>
     </div>
 
-    <!-- 3 differentiator cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
       <div class="rounded-2xl p-6 lg:p-7 relative overflow-hidden glass">
         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
              style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3 21h18M5 21V8m4 13V5m4 16V9m4 12V7M3 3v18"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
         </div>
-        <h3 class="h3 text-arctic mb-2">Eres Founder del broker</h3>
+        <h3 class="h3 text-arctic mb-2">Aprobaste la prop firm. No te pagaron.</h3>
         <p class="body-text !text-[14.5px]">
-          Recibes equity real del broker antes del lanzamiento. Tu nombre queda registrado
-          como uno de los <span class="accent font-semibold">1,000 fundadores</span>.
-          Cuando Meridian crece, tú creces.
+          Pasaste el challenge. Solicitaste el retiro. Y empezó: "cuenta bajo revisión", "operativa tóxica", "violación de consistencia". Una regla que no existía cuando empezaste. La inventaron cuando vieron que sí ganabas. Ellos venden evaluaciones — no ganan cuando tú ganas.
         </p>
       </div>
 
       <div class="rounded-2xl p-6 lg:p-7 relative overflow-hidden glass">
         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
              style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64A9 9 0 1 1 5.64 17.36"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
         </div>
-        <h3 class="h3 text-arctic mb-2">Tu voz construye el producto</h3>
+        <h3 class="h3 text-arctic mb-2">Tu broker cerró tu cuenta cuando más ganabas.</h3>
         <p class="body-text !text-[14.5px]">
-          Pides una feature, la construimos. Quieres ver algo en el dashboard, lo agregamos.
-          Los Founders <span class="text-arctic font-semibold">deciden el rumbo</span>
-          — no el equipo de marketing.
+          Meses de resultados positivos. Equity creciendo. Y de repente: cuenta suspendida, fondos retenidos, email genérico. No hiciste nada prohibido. Simplemente ganabas demasiado para ser rentable para ellos.
         </p>
       </div>
 
@@ -665,29 +576,25 @@
            style="background: linear-gradient(180deg, rgba(82,113,110,0.18) 0%, rgba(82,113,110,0.06) 100%); border: 1px solid rgba(82,113,110,0.40);">
         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
              style="background: rgba(82,113,110,0.30); border: 1px solid rgba(82,113,110,0.55);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2L4 8v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V8z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3 class="h3 text-arctic mb-2">Libertad total para operar</h3>
+        <h3 class="h3 text-arctic mb-2">El retiro lleva 45 días "en proceso".</h3>
         <p class="body-text !text-[14.5px]">
-          Scalping, HFT, arbitraje, news trading, swing — todo permitido. Sin volumen mínimo,
-          sin estrategia restringida. <span class="text-arctic font-semibold">Tradea como tú quieras.</span>
+          Solicitaste el retiro. Dos semanas después: "necesitamos documentación adicional". Otras dos: "la transferencia fue rechazada por el banco". Tus ganancias son reales. Acceder a ellas no.
         </p>
       </div>
 
     </div>
 
     <p class="text-center mt-12 text-[15px] lg:text-[17px] max-w-3xl mx-auto" style="color: rgba(255,255,255,0.86); font-weight: 500;">
-      Esto no es un broker más. Es <span class="accent">tu casa</span> — la que tú ayudaste a construir.
+      Ser rentable en el sistema equivocado no es una ventaja — es un <span class="accent">blanco.</span>
     </p>
   </div>
 </section>
 
 
-<!-- ════════════════════════ 3 · TU LIBERTAD ════════════════════════ -->
-<section id="libertad" class="px-6 py-16 lg:py-24 relative overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.04);">
+<!-- ════════════════════════ 3 · SOLUCIÓN / LIBERTAD ════════════════════════ -->
+<section id="solucion" class="px-6 py-16 lg:py-24 relative overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.04);">
 
   <div class="absolute bottom-0 right-0 w-[400px] h-[400px] hex-bg pointer-events-none opacity-50"
        style="-webkit-mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%); mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%);"></div>
@@ -695,85 +602,52 @@
   <div class="max-w-6xl mx-auto relative">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-      <!-- LEFT: free-style trading visual -->
+      <!-- LEFT: checklist -->
       <div class="lg:col-span-6 order-2 lg:order-1">
-        <div class="relative">
-          <!-- Strategy chip cloud -->
-          <div class="rounded-2xl p-6 lg:p-7 glass-strong">
-            <p class="eyebrow mb-4 !text-[10.5px]">Estrategias permitidas</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="strat-chip">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
-                Scalping
-              </span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> HFT</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Arbitraje</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> News Trading</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Swing</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Position</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Hedging</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Grid</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Algo trading</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Copy trading</span>
+        <div class="rounded-2xl p-6 lg:p-7 glass-strong">
+          <p class="eyebrow mb-4 !text-[10.5px]">Por qué Meridian es distinto</p>
+          <div class="space-y-0">
+            <div class="free-item">
+              <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+              <span><span class="text-arctic font-semibold">Sin conflicto de interés</span> — el broker gana del spread, no de tus pérdidas. Sin incentivos para bloquearte.</span>
             </div>
-            <div class="mt-5 pt-5 border-t" style="border-color: rgba(255,255,255,0.06);">
-              <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(82,113,110,0.22); border: 1px solid rgba(82,113,110,0.45);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
-                </div>
-                <div>
-                  <p class="text-[14px] font-semibold text-arctic">Cero restricciones de volumen</p>
-                  <p class="text-[11.5px] muted">Tradea lo que quieras, cuando quieras.</p>
-                </div>
-              </div>
+            <div class="free-item">
+              <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+              <span><span class="text-arctic font-semibold">Ejecución directa al mercado</span> — cada operación va al mercado real. No hay trastienda.</span>
+            </div>
+            <div class="free-item">
+              <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+              <span><span class="text-arctic font-semibold">Retiros sin excusas</span> — sin periodos de retención, sin revisiones arbitrarias, sin letras pequeñas.</span>
+            </div>
+            <div class="free-item">
+              <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+              <span><span class="text-arctic font-semibold">Sin restricciones de estrategia</span> — scalping, HFT, arbitraje, news trading. Todo permitido.</span>
+            </div>
+            <div class="free-item">
+              <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+              <span><span class="text-arctic font-semibold">Equity real del broker</span> — eres co-propietario. Cuando Meridian crece, tú creces.</span>
+            </div>
+            <div class="free-item">
+              <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+              <span><span class="text-arctic font-semibold">Voz en el roadmap</span> — los traders que más ganan deciden cómo funciona el broker. 1 Founder · 1 voto.</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: copy + checklist -->
+      <!-- RIGHT: copy -->
       <div class="lg:col-span-6 order-1 lg:order-2">
-        <p class="eyebrow mb-3">Tu libertad como Founder</p>
+        <p class="eyebrow mb-3">La solución real</p>
         <h2 class="h2">
-          Aquí tú <span class="accent">decides</span> cómo<br class="hidden sm:block">
-          quieres operar. Punto.
+          Meridian existe para el trader que ya sabe operar<br class="hidden sm:block">
+          y necesita un lugar que <span class="accent">le deje cobrar.</span>
         </h2>
         <p class="body-text mt-5 mb-6">
-          Estamos cansados de brokers que prohíben estrategias, congelan ganancias o ponen
-          letras chiquitas para no pagarte. En Meridian no hay nada de eso — y nunca lo habrá,
-          porque <span class="text-arctic font-semibold">tú eres parte del broker.</span>
+          Un broker sin conflicto de interés no puede retener tus fondos arbitrariamente. No puede mover el spread contra tus posiciones. No puede banear tu cuenta porque eres demasiado rentable. La transparencia no es una promesa — es la estructura.
         </p>
-
-        <div class="space-y-0">
-          <div class="free-item">
-            <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Cualquier estrategia</span> — scalping, HFT, arbitraje, news, lo que sea.</span>
-          </div>
-          <div class="free-item">
-            <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Sin volumen mínimo</span>, sin máximos de retiro, sin letra pequeña.</span>
-          </div>
-          <div class="free-item">
-            <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span>Si quieres una <span class="text-arctic font-semibold">feature específica</span>, la construimos para ti.</span>
-          </div>
-          <div class="free-item">
-            <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span>Acceso a la <span class="text-arctic font-semibold">comunidad privada</span> de los 999 otros founders + el equipo.</span>
-          </div>
-          <div class="free-item">
-            <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Voz directa</span> en el roadmap — 1 Founder · 1 voto.</span>
-          </div>
-          <div class="free-item">
-            <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Trader Gala + eventos privados</span> anuales, sin costo, para los 1,000.</span>
-          </div>
-        </div>
-
         <div class="mt-8">
           <a href="#registro" class="btn-pill">
-            Sí, quiero esa libertad
+            Quiero operar donde puedo cobrar
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -784,23 +658,20 @@
 </section>
 
 
-<!-- ════════════════════════ 4 · SKIN IN THE GAME + REGISTRO ════════════════════════ -->
+<!-- ════════════════════════ 4 · REGISTRO + FORM ════════════════════════ -->
 <section id="registro" class="px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-6xl mx-auto">
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
       <div class="lg:col-span-7 order-2 lg:order-1">
-        <p class="eyebrow mb-3">Skin In The Game</p>
+        <p class="eyebrow mb-3">Founders List · <span data-counter-remaining>653</span> plazas restantes</p>
         <h2 class="h2">
-          Meridian fue creado para traders<br class="hidden sm:block">
-          que quieren <span class="accent">más que ganar trades.</span>
+          Tus ganancias son reales.<br class="hidden sm:block">
+          Es hora de que también sean <span class="accent">tuyas.</span>
         </h2>
         <p class="body-text mt-6 max-w-xl">
-          Queremos que entres no como cliente, sino como
-          <span class="text-arctic font-semibold">Founder parcial</span> de un broker que se construye
-          contigo adentro. Vas a tener voz, vas a tener equity, vas a tener comunidad — y vas a
-          poder operar con la libertad que mereces.
+          Construido para que ganes. Los Founders entran antes del lanzamiento general — con los 5 pilares que el lanzamiento nunca va a tener: equity real, voz en el código, comunidad, título Founder y acceso a los eventos.
         </p>
         <p class="body-text mt-4 max-w-xl">
           Una vez que entren los 1,000, esto se cierra para siempre. No habrá Founders #1,001.
@@ -847,7 +718,7 @@
           </div>
 
           <button type="submit" class="btn-pill w-full mt-2">
-            ¡SÍ! Quiero ser Founder
+            Quiero ser Founder
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </button>
 
@@ -881,28 +752,28 @@
 
         <div class="absolute top-6 -left-2 sm:-left-4 hidden sm:block">
           <div class="notif-card">
-            <span class="av">JM</span>
+            <span class="av">MR</span>
             <div class="min-w-0">
-              <p class="text-arctic font-medium truncate"><span class="font-semibold">Juan M.</span> entró como Founder</p>
-              <p class="text-[10px] muted">hace 4 min · 🇲🇽</p>
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Miguel R.</span> era rentable, no podía retirar</p>
+              <p class="text-[10px] muted">hoy · ahora es Founder · 🇲🇽</p>
             </div>
           </div>
         </div>
         <div class="absolute top-28 -right-2 sm:-right-4 hidden sm:block">
           <div class="notif-card">
-            <span class="av">AC</span>
+            <span class="av">LC</span>
             <div class="min-w-0">
-              <p class="text-arctic font-medium truncate"><span class="font-semibold">Andrea C.</span> es Founder #348</p>
-              <p class="text-[10px] muted">hace 12 min · 🇨🇴</p>
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Laura C.</span> es Founder #348</p>
+              <p class="text-[10px] muted">hace 9 min · 🇨🇴</p>
             </div>
           </div>
         </div>
         <div class="absolute bottom-6 -left-2 sm:-left-6 hidden sm:block">
           <div class="notif-card">
-            <span class="av">RG</span>
+            <span class="av">AC</span>
             <div class="min-w-0">
-              <p class="text-arctic font-medium truncate"><span class="font-semibold">Roberto G.</span> entró al Telegram</p>
-              <p class="text-[10px] muted">hace 21 min · 🇵🇪</p>
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Andrés C.</span> entró al Telegram</p>
+              <p class="text-[10px] muted">hace 18 min · 🇵🇪</p>
             </div>
           </div>
         </div>
@@ -939,7 +810,7 @@
       } else {
         const msg = document.createElement('div');
         msg.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,18,32,0.92);color:#7D9A96;font-size:14px;text-align:center;padding:2rem;';
-        msg.innerHTML = '<div><p style="margin:0 0 0.5rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;font-size:11px;">Video VSL</p><p style="opacity:0.7;font-size:13px;">Por integrar — agrega <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px;">/assets/vsl/meridian-vsl.mp4</code> en el &lt;source&gt; del &lt;video&gt;.</p></div>';
+        msg.innerHTML = '<div><p style="margin:0 0 0.5rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;font-size:11px;">Video VSL</p><p style="opacity:0.7;font-size:13px;">Por integrar — agrega <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px;">/assets/vsl/meridian-v7-vsl.mp4</code> en el &lt;source&gt; del &lt;video&gt;.</p></div>';
         vslFrame.appendChild(msg);
       }
     });
@@ -960,13 +831,14 @@
   const toastNum = document.getElementById('toastNum');
   const toastTime = document.getElementById('toastTime');
   const toastTimes = ['hace un instante', 'hace 1 min', 'hace 2 min', 'hace 3 min', 'hace 4 min'];
-  function syncCounter() {
+  function syncCounters() {
     document.querySelectorAll('[data-counter="founders"]').forEach(el => {
       el.textContent = currentFounders.toLocaleString();
       el.classList.remove('counter-flash');
       void el.offsetWidth;
       el.classList.add('counter-flash');
     });
+    document.querySelectorAll('[data-counter-remaining]').forEach(el => el.textContent = (FOUNDERS_TOTAL - currentFounders).toLocaleString());
     const fill = document.getElementById('progressFill');
     if (fill) fill.style.width = ((currentFounders / FOUNDERS_TOTAL) * 100).toFixed(1) + '%';
   }
@@ -978,11 +850,11 @@
     toast.classList.add('toast-in');
     setTimeout(() => { toast.classList.remove('toast-in'); toast.classList.add('toast-out'); }, 3500);
   }
-  syncCounter();
+  syncCounters();
   function liveIncrement() {
     if (currentFounders >= FOUNDERS_TOTAL) return;
     currentFounders += 1;
-    syncCounter();
+    syncCounters();
     showToast();
     setTimeout(liveIncrement, 5000 + Math.random() * 12000);
   }
@@ -1065,12 +937,12 @@
       msg.style.color = '#6B717C';
       return;
     }
-    console.log('[Founders List v3 VSL] POST /api/founders →', payload);
+    console.log('[Founders List v7 VSL] POST /api/founders →', payload);
     msg.textContent = '✓ Apartando tu plaza…';
     msg.classList.remove('hidden');
     msg.style.color = '#52716E';
     setTimeout(() => {
-      window.location.href = `/v3/vsl/thank-you/?n=${currentFounders + 1}`;
+      window.location.href = `/v7/vsl/thank-you/?n=${currentFounders + 1}`;
     }, 1000);
   });
 </script>

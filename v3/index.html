@@ -73,7 +73,7 @@
 
   /* ── Pill button ── */
   .btn-pill {
-    background: linear-gradient(180deg, #52716E 0%, #42605D 100%);
+    background: linear-gradient(180deg, #6AADA8 0%, #52716E 100%);
     color: #FFFFFF;
     padding: 1.1rem 2.5rem;
     border-radius: 999px;
@@ -87,9 +87,14 @@
     display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
     border: none; cursor: pointer; text-decoration: none;
     white-space: nowrap;
+    animation: ctaPulse 2.4s ease-in-out infinite;
   }
   .btn-pill:hover { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(82,113,110,0.45); }
   .btn-pill:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 0 rgba(106,173,168,0.45); }
+    50%       { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 14px rgba(106,173,168,0); }
+  }
 
   /* ── Form fields ── */
   .field {
@@ -114,7 +119,7 @@
 
   /* ══════════════ INLINE LOGO — continuous orbital animation ══════════════ */
   .meridian-mark {
-    width: clamp(220px, 28vw, 320px);
+    width: clamp(140px, 18vw, 180px);
     height: auto;
     display: block;
     animation: mark-breathe 7s ease-in-out 2s infinite;
@@ -415,6 +420,31 @@
   }
   .strat-chip svg { color: var(--patina-light); flex-shrink: 0; }
 
+  /* ── Trust signals under logo ── */
+  .trust-stack {
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    margin-top: 1rem;
+  }
+  .trust-stack span {
+    font-size: 0.72rem; color: rgba(255,255,255,0.60);
+    letter-spacing: 0.04em; font-weight: 500;
+  }
+  .trust-stack span::first-letter { color: var(--patina-light); }
+
+  /* ── Display numbers for problem cards ── */
+  .display-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 4.5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(180deg, #6AADA8 0%, rgba(106,173,168,0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.04em;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .pulse-dot::before, .progress-fill::after,
     .wax-seal .seal-text, .guarantee-center-seal::before,
@@ -484,10 +514,10 @@
             Quiero ser Founder
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <p class="text-[12px] muted flex items-center gap-2">
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full" style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.22);">
             <span class="pulse-dot" style="width:7px;height:7px;"></span>
-            <span><span class="accent font-semibold"><span data-counter="founders">347</span></span>/1,000 ya adentro</span>
-          </p>
+            <span class="text-[11.5px]"><span class="accent font-bold"><span data-counter="founders">347</span></span><span class="muted">/1,000</span> · <span class="text-arctic font-semibold"><span data-counter-remaining>653</span> disponibles</span></span>
+          </div>
         </div>
 
       </div>
@@ -502,6 +532,11 @@
           <div class="lockup-text">
             <p class="text-arctic font-semibold tracking-[0.40em] text-[20px] lg:text-[24px]">MERIDIAN</p>
             <p class="text-[10.5px] tracking-[0.28em] uppercase accent mt-2">Built for you to win</p>
+          </div>
+          <div class="trust-stack">
+            <span>✓ Sin conflicto de interés</span>
+            <span>✓ Retiros automáticos</span>
+            <span>✓ Sin KYC obligatorio</span>
           </div>
         </div>
       </div>
@@ -523,7 +558,7 @@
         <span class="accent">te limitan, te bloquean y te ignoran.</span>
       </h2>
       <p class="body-text mt-5">
-        Meridian es un broker <span class="text-arctic font-semibold">100% A-book honesto</span>.
+        Meridian es un broker <span class="text-arctic font-semibold">100% transparente, sin conflicto de interés</span>.
         No tradeamos contra ti, no te limitamos la estrategia, y te tratamos como Founder —
         porque eso es exactamente lo que eres.
       </p>
@@ -532,7 +567,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
       <div class="pcard v1">
-        <span class="badge-sq dark">1</span>
+        <div class="display-num">1</div>
         <h3 class="h3 text-arctic mb-2">Te prohíben estrategias</h3>
         <p class="text-[14.5px] leading-relaxed">
           "Sin scalping". "Sin HFT". "Sin news trading". El resto te corta las estrategias
@@ -541,7 +576,7 @@
       </div>
 
       <div class="pcard v2">
-        <span class="badge-sq cream">2</span>
+        <div class="display-num">2</div>
         <h3 class="h3 text-arctic mb-2">Ganan cuando pierdes</h3>
         <p class="text-[14.5px] leading-relaxed">
           El modelo B-book hace que el broker gane cada vez que tu cuenta se vacía.
@@ -550,7 +585,7 @@
       </div>
 
       <div class="pcard v3">
-        <span class="badge-sq cream">3</span>
+        <div class="display-num">3</div>
         <h3 class="h3 text-arctic mb-2">Sin voz, sin equity</h3>
         <p class="text-[14.5px] leading-relaxed">
           Eres una cuenta más en su libro. Nunca decides nada, nunca participas del éxito
@@ -562,7 +597,7 @@
 
     <p class="text-center mt-12 font-medium text-[15px] lg:text-[17px] max-w-3xl mx-auto" style="color: rgba(255,255,255,0.88);">
       Nosotros construimos <span class="accent">lo opuesto.</span> Un broker que es 100% honesto,
-      100% A-book, y donde tú eres uno de los 1,000 que lo posee.
+      sin conflicto de interés, y donde tú eres uno de los 1,000 que lo posee.
     </p>
   </div>
 </section>
@@ -798,7 +833,7 @@
           Soy <span class="text-arctic font-semibold">Josué Melero</span>. Llevo años diciendo que
           el problema del trader latinoamericano no es la estrategia — es el broker. Las
           restricciones, los bloqueos, el modelo B-book. Cuando entendí que se podía hacer
-          un broker <span class="text-arctic font-medium">100% A-book honesto y construido por sus traders</span>,
+          un broker <span class="text-arctic font-medium">100% transparente, sin conflicto de interés, construido por sus traders</span>,
           decidí hacerlo.
         </p>
         <p class="body-text mt-4">
@@ -829,6 +864,49 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 5.5 · BONUS STACK ════════════════════════ -->
+<section id="bonos" class="section-divider px-6 py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 max-w-3xl mx-auto">
+      <p class="eyebrow mb-3">Bonos exclusivos Founder</p>
+      <h2 class="h2">Además de equity y libertad,<br class="hidden sm:block">recibes <span class="accent">3 bonos</span> que nadie más tiene.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <article class="rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-[10px] tracking-[0.22em] accent font-semibold uppercase mb-2">BONO · 01</p>
+        <h3 class="text-arctic font-semibold text-[1.2rem] mb-3" style="letter-spacing:-0.01em">PLAZA PARA UN AMIGO</h3>
+        <p class="body-text !text-[14px]">Regalas una plaza Founder a un trader de tu elección. Ambos entran. <em class="accent-light">Si quieres ir lejos, ve acompañado.</em></p>
+        <p class="mt-5 text-[10.5px] tracking-[0.2em] accent font-semibold uppercase">Valor · 1 plaza de 1,000</p>
+      </article>
+
+      <article class="rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <p class="text-[10px] tracking-[0.22em] accent font-semibold uppercase mb-2">BONO · 02</p>
+        <h3 class="text-arctic font-semibold text-[1.2rem] mb-3" style="letter-spacing:-0.01em">ACCESO VITALICIO</h3>
+        <p class="body-text !text-[14px]">Tu plaza no caduca. Tu equity no se diluye sin tu voto. Todas las features futuras del producto, incluidas. Para siempre.</p>
+        <p class="mt-5 text-[10.5px] tracking-[0.2em] accent font-semibold uppercase">Valor · ciclo de vida del broker</p>
+      </article>
+
+      <article class="rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <p class="text-[10px] tracking-[0.22em] accent font-semibold uppercase mb-2">BONO · 03</p>
+        <h3 class="text-arctic font-semibold text-[1.2rem] mb-3" style="letter-spacing:-0.01em">TRADER GALA + MASTERMINDS</h3>
+        <p class="body-text !text-[14px]">Evento físico anual con los 1,000 Founders + masterminds trimestrales online con traders pro como invitados. Todo incluido.</p>
+        <p class="mt-5 text-[10.5px] tracking-[0.2em] accent font-semibold uppercase">Valor · 4 eventos premium/año</p>
+      </article>
     </div>
   </div>
 </section>
@@ -938,9 +1016,9 @@
 
       <div class="lg:col-span-5 order-2 lg:order-1">
         <div class="relative aspect-[4/5] rounded-2xl overflow-hidden max-w-sm mx-auto">
-          <img src="/assets/cinematic/04-outro-moment.png" alt="" aria-hidden="true"
-               class="absolute inset-0 w-full h-full object-cover"
-               style="filter: brightness(0.78) saturate(0.95) contrast(1.05);" />
+          <img src="/assets/josue-portrait.png" alt="Josué Melero, fundador de Meridian"
+               class="absolute inset-0 w-full h-full object-cover object-top"
+               style="filter: brightness(0.88) saturate(0.95);" />
           <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-midnight via-midnight/30 to-transparent pointer-events-none"></div>
           <div class="absolute bottom-6 left-6 right-6 text-left">
             <p class="font-mono text-[10px] tracking-[0.32em] uppercase accent mb-3">25 · 06 · 2026</p>
@@ -996,10 +1074,18 @@
           <p id="formMsg" class="hidden text-[13px] text-center mt-3" role="status"></p>
         </form>
 
-        <p class="mt-5 text-[12px] muted flex items-center gap-2.5">
-          <span class="pulse-dot" style="width:7px;height:7px;"></span>
-          <span><span class="accent font-semibold"><span data-counter="founders">347</span></span>/1,000 founders ya adentro</span>
-        </p>
+        <div class="mt-5">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[11px] muted flex items-center gap-2">
+              <span class="pulse-dot" style="width:7px;height:7px;"></span>
+              <span><span class="accent font-semibold"><span data-counter="founders">347</span></span>/1,000 founders ya adentro</span>
+            </span>
+            <span class="text-[11px] accent font-semibold"><span data-counter="founders">347</span> / 1,000</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill" style="width: 34.7%"></div>
+          </div>
+        </div>
 
       </div>
 

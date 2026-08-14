@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian</title>
+<meta name="description" content="Inicia sesión o regístrate para acceder a todo el contenido y los servicios de Meridian.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/meridian-icon.svg">
+
+<style>
+:root{
+  --canvas:#0d0f0f;
+  --sage:#7a9d96;--sage-hi:#8fb3ab;--sage-lo:#62847d;
+  --txt:#ffffff;--muted:#9ea1a3;
+  --bd:#242a29;
+  --soft:rgba(158,161,163,.09);--soft-hi:rgba(158,161,163,.15);
+}
+*,*::before,*::after{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{margin:0;height:100%}
+body{background:var(--canvas);color:var(--txt);
+  font-family:'Inter',system-ui,-apple-system,'Helvetica Neue',sans-serif;
+  font-size:16px;line-height:24px;font-weight:400;
+  min-height:100svh;display:flex;flex-direction:column}
+img{display:block;max-width:100%}
+
+/* bloque central: mismo ritmo que el original (gaps de 48px, centrado en el area libre) */
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:48px;text-align:center;padding:56px 20px 24px}
+.logo{width:168px;height:32px}
+.lead{margin:0;max-width:680px;color:var(--muted)}
+.actions{display:flex;flex-direction:column;gap:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;
+  width:216px;max-width:100%;min-height:48px;padding:8px 24px;
+  border-radius:4px;font-size:16px;line-height:24px;font-weight:600;
+  text-decoration:none;transition:background-color .18s ease,color .18s ease}
+.btn-primary{background:var(--sage);color:#0d0f0f}
+.btn-primary:hover{background:var(--sage-hi)}
+.btn-primary:active{background:var(--sage-lo)}
+.btn-soft{background:var(--soft);color:var(--txt)}
+.btn-soft:hover{background:var(--soft-hi)}
+.mail{font-size:14px;line-height:20px;color:var(--txt);text-decoration:underline;text-underline-offset:2px}
+.mail:hover{color:var(--sage-hi)}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px;border-radius:4px}
+
+/* pie: separador + linea de registro */
+footer{padding:0 84px clamp(56px,13vh,128px);text-align:center}
+footer hr{width:100%;height:1px;border:0;background:var(--bd);margin:0 0 24px}
+footer p{margin:0;font-size:14px;line-height:20px;color:var(--muted)}
+
+@media(max-width:860px){
+  main{gap:40px;padding:48px 20px 24px}
+  footer{padding:0 20px clamp(40px,8vh,72px)}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<main>
+  <!-- lockup del sitio en produccion (public/logo.svg), inline para que el wordmark use Inter -->
+  <svg class="logo" width="168" height="32" viewBox="0 0 168 32" fill="none" role="img" aria-label="Meridian">
+    <svg x="0" y="0" width="32" height="32" viewBox="0 0 432 432" overflow="visible">
+      <path fill="#FEFEFF" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5
+        c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9
+        c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4
+        c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+      <path fill="#7a9d96" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5
+        c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9
+        c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4
+        c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+    </svg>
+    <rect x="42" y="7" width="1" height="18" fill="#323a38"/>
+    <text x="52" y="22" fill="#FEFEFF" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+      font-size="14" font-weight="600" letter-spacing="3.2">MERIDIAN</text>
+  </svg>
+
+  <p class="lead">Inicia sesión o regístrate para acceder a todo el contenido y los servicios de Meridian.</p>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="/crear-cuenta" data-local>Regístrate</a>
+    <a class="btn btn-soft" href="/crear-cuenta?tab=login" data-local>Iniciar sesión</a>
+  </div>
+
+  <a class="mail" href="mailto:support@trademeridian.co">support@trademeridian.co</a>
+</main>
+
+<footer>
+  <hr>
+  <p>Meridian LLC es una empresa registrada en San Vicente y las Granadinas como International Business Company con número de registro 4403 LLC 2026 y domicilio registrado en Euro House, Richmond Hill Road, Kingstown, St. Vincent and the Grenadines.</p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var qs=new URLSearchParams(location.search);
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+  /* arrastra los UTM/click-ids de la visita a /crear-cuenta, que luego los pasa al app real */
+  var keep=new URLSearchParams();
+  KEYS.forEach(function(k){var v=qs.get(k); if(v) keep.set(k,v);});
+  if(qs.get('ref')) keep.set('ref',qs.get('ref'));
+  Array.prototype.forEach.call(document.querySelectorAll('[data-local]'),function(a){
+    if(!keep.toString()) return;
+    var u=new URL(a.getAttribute('href'),location.origin);
+    keep.forEach(function(v,k){u.searchParams.set(k,v);});
+    a.href=u.pathname+u.search;
+  });
+})();
+</script>
+</body>
+</html>
