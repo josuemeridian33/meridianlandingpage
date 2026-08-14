@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founders List · Meridian — Cinematic Edition</title>
-<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity real, voz, comunidad y libertad total. Sesión en vivo 25 jun · 7PM CDMX.">
+<title>Tu psicología nunca fue el problema · Meridian Founders List</title>
+<meta name="description" content="Te vendieron el problema equivocado. A propósito. Únete a los 1,000 Founders de Meridian — el broker que el sistema nunca quiso que tuvieras.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,6 +92,7 @@
   .accent { color: var(--patina); }
   .accent-light { color: var(--patina-light); }
   .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
+
   /* FOUNDER TOAST */
   #founderToast.toast-in { opacity: 1; transform: translateY(0); }
   #founderToast.toast-out { opacity: 0; transform: translateY(12px); }
@@ -100,6 +101,10 @@
     100% { color: inherit; text-shadow: none; transform: scale(1); }
   }
   .counter-flash { animation: counterFlash 0.7s ease-out; }
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 0 rgba(106,173,168,0.45); }
+    50%      { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 14px rgba(106,173,168,0); }
+  }
 
   .btn-pill {
     background: linear-gradient(180deg, #6AADA8 0%, #52716E 100%);
@@ -114,10 +119,6 @@
   }
   .btn-pill:hover { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(82,113,110,0.45); }
   .btn-pill:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
-  @keyframes ctaPulse {
-    0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 12px 28px rgba(0,0,0,0.35), 0 0 0 0 rgba(106,173,168,0.45); }
-    50%       { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 12px 28px rgba(0,0,0,0.35), 0 0 0 14px rgba(106,173,168,0); }
-  }
 
   .field {
     width: 100%; padding: 0.95rem 1rem;
@@ -133,7 +134,6 @@
   .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
   @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
 
-  /* INLINE LOGO — continuous orbital animation */
   .meridian-mark {
     width: clamp(140px, 18vw, 180px); height: auto; display: block;
     animation: mark-breathe 7s ease-in-out 2s infinite;
@@ -222,16 +222,6 @@
     backdrop-filter: blur(8px);
   }
   @keyframes seal-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-  .badge-sq {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 44px; height: 44px; border-radius: 10px;
-    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.05rem;
-    margin-bottom: 1.1rem;
-  }
-  .badge-sq.dark { background: var(--midnight); color: var(--arctic); border: 1px solid rgba(255,255,255,0.10); }
-  .badge-sq.cream { background: rgba(255,255,255,0.92); color: var(--midnight); }
-  .badge-sq.patina { background: rgba(82,113,110,0.95); color: var(--arctic); }
 
   .pcard {
     position: relative; border-radius: 16px; padding: 1.8rem 1.5rem;
@@ -340,7 +330,6 @@
   }
   .strat-chip svg { color: var(--patina-light); flex-shrink: 0; }
 
-  /* ── Trust signals + Display nums ── */
   .trust-stack { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; margin-top: 1rem; }
   .trust-stack span { font-size: 0.72rem; color: rgba(255,255,255,0.60); letter-spacing: 0.04em; font-weight: 500; }
   .display-num {
@@ -395,47 +384,29 @@
         </div>
 
         <h1 class="h1">
-          Sé <span class="accent">Founder</span><br class="hidden sm:block">
-          del broker que siempre<br class="hidden sm:block">
-          quisiste tener.
+          Tu psicología<br class="hidden sm:block">
+          nunca fue el<br class="hidden sm:block">
+          <span class="accent">problema.</span>
         </h1>
 
-        <p class="body-text mt-6 max-w-xl mx-auto lg:mx-0">
-          Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span>.
-          Recibe equity real, voz directa en lo que construimos, una comunidad
-          de traders Founders — y la libertad total para operar como tú quieras.
+        <p class="body-text mt-5 max-w-xl mx-auto lg:mx-0" style="font-size: 1.1rem; color: rgba(255,255,255,0.92);">
+          Te vendieron el problema equivocado. A propósito.
         </p>
 
-        <div class="mt-7 flex items-center gap-3 flex-wrap justify-center lg:justify-start">
-          <span class="date-chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
-            </svg>
-            25 jun · 2026
-          </span>
-          <span class="date-chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-            </svg>
-            7:00 PM · CDMX
-          </span>
-          <span class="date-chip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/>
-            </svg>
-            Sesión en vivo
-          </span>
-        </div>
+        <p class="body-text mt-4 max-w-xl mx-auto lg:mx-0">
+          Compraste el curso de mentalidad. Leíste los libros. Trabajaste tu disciplina durante meses. Y sigues sin poder retirar lo que ganaste. Porque el problema nunca estuvo adentro de ti — estuvo en el sistema donde operabas.
+        </p>
 
-        <div class="mt-9 flex flex-col sm:flex-row items-center sm:items-center gap-4">
+        <div class="mt-9 flex flex-col sm:flex-row items-center sm:items-center gap-4 justify-center lg:justify-start">
           <a href="#registro" class="btn-pill">
-            Quiero ser Founder
+            Quiero operar en un sistema justo
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full" style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.22); backdrop-filter: blur(8px);">
-            <span class="pulse-dot" style="width:7px;height:7px;"></span>
-            <span class="text-[11.5px]"><span class="accent-light font-bold"><span data-counter="founders">347</span></span><span class="muted">/1,000</span> · <span class="text-arctic font-semibold"><span data-counter-remaining>653</span> disponibles</span></span>
-          </div>
+        </div>
+
+        <div class="mt-4 flex items-center gap-2 px-3 py-1.5 rounded-full w-fit mx-auto lg:mx-0" style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.22); backdrop-filter: blur(8px);">
+          <span class="pulse-dot" style="width:7px;height:7px;"></span>
+          <span class="text-[11.5px]"><span class="accent-light font-bold"><span data-counter="founders">347</span></span>/1,000 · <span class="text-arctic font-semibold"><span data-counter-remaining>653</span> disponibles</span></span>
         </div>
 
       </div>
@@ -452,8 +423,8 @@
           </div>
           <div class="trust-stack">
             <span>✓ Sin conflicto de interés</span>
-            <span>✓ Retiros automáticos</span>
-            <span>✓ Sin KYC obligatorio</span>
+            <span>✓ Retiros sin restricción</span>
+            <span>✓ El broker no puede ir contra ti</span>
           </div>
         </div>
       </div>
@@ -463,44 +434,38 @@
 </section>
 
 
-<!-- ════════════════════════ 2 · POR QUÉ DISTINTO ════════════════════════ -->
-<section id="distinto" class="cine-section section-divider px-6 py-16 lg:py-24">
+<!-- ════════════════════════ 2 · PROBLEMA ════════════════════════ -->
+<section id="problema" class="cine-section section-divider px-6 py-16 lg:py-24">
   <div class="max-w-5xl mx-auto">
 
     <div class="text-center mb-14 max-w-3xl mx-auto">
-      <p class="eyebrow mb-3">Por qué Meridian es distinto</p>
+      <p class="eyebrow mb-3">El negocio más rentable de la industria</p>
       <h2 class="h2">
-        Estás cansado de brokers que<br class="hidden sm:block">
-        <span class="accent">te limitan, te bloquean y te ignoran.</span>
+        Mientras tú trabajabas tu psicología,<br class="hidden sm:block">
+        <span class="accent">ellos te cobraban por intentarlo.</span>
       </h2>
-      <p class="body-text mt-5">
-        Meridian es un broker <span class="text-arctic font-semibold">100% transparente, sin conflicto de interés</span>.
-        No tradeamos contra ti, no te limitamos la estrategia, y te tratamos como Founder —
-        porque eso es exactamente lo que eres.
-      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div class="pcard v1">
         <div class="display-num">1</div>
-        <h3 class="h3 text-arctic mb-2">Te prohíben estrategias</h3>
-        <p class="text-[14.5px] leading-relaxed">"Sin scalping". "Sin HFT". "Sin news trading". El resto te corta las estrategias que <span class="font-semibold">justamente funcionan</span> para que no ganes mucho.</p>
+        <h3 class="h3 text-arctic mb-2">La industria construyó un ciclo perfecto.</h3>
+        <p class="text-[14.5px] leading-relaxed">¿Perdiste la cuenta? Es tu psicología. ¿No puedes retirar? Te falta disciplina. ¿El precio tocó tu stop y fue exactamente donde esperabas? Son tus emociones. Mientras tanto, la prop firm cobra otra fee de evaluación. <span class="text-arctic font-medium">Ese es el negocio real — no necesitan que ganes.</span></p>
       </div>
       <div class="pcard v2">
         <div class="display-num">2</div>
-        <h3 class="h3 text-arctic mb-2">Ganan cuando pierdes</h3>
-        <p class="text-[14.5px] leading-relaxed">El modelo B-book hace que el broker gane cada vez que tu cuenta se vacía. Su negocio es que tú pierdas. Por eso te ponen trabas para retirar.</p>
+        <h3 class="h3 text-arctic mb-2">Traders rentables también pierden sus cuentas.</h3>
+        <p class="text-[14.5px] leading-relaxed">Aprendiste a no revenge-tradear. A cortar pérdidas sin dudar. Dos meses sin cometer un error — y te cerraron igual. Traders con disciplina impecable también tienen cuentas baneadas y retiros bloqueados. <span class="text-arctic font-medium">El perfil que ellos quieren es el trader que pierde despacio y no pide retiros.</span></p>
       </div>
       <div class="pcard v3">
         <div class="display-num">3</div>
-        <h3 class="h3 text-arctic mb-2">Sin voz, sin equity</h3>
-        <p class="text-[14.5px] leading-relaxed">Eres una cuenta más en su libro. Nunca decides nada, nunca participas del éxito del broker que ayudaste a crecer con tu volumen.</p>
+        <h3 class="h3 text-arctic mb-2">Compraste otro curso. El ciclo continuó.</h3>
+        <p class="text-[14.5px] leading-relaxed">Cada vez que el sistema te falla, la industria tiene una respuesta: necesitas más formación. Más psicología. Mejor mentalidad. Y tú lo crees, porque nadie te explicó que el problema no era tuyo — era el ambiente donde operabas.</p>
       </div>
     </div>
 
     <p class="text-center mt-12 font-medium text-[15px] lg:text-[17px] max-w-3xl mx-auto" style="color: rgba(255,255,255,0.90);">
-      Nosotros construimos <span class="accent">lo opuesto.</span> Un broker que es 100% honesto,
-      sin conflicto de interés, y donde tú eres uno de los 1,000 que lo posee.
+      El problema no está en tu cabeza. Está en el <span class="accent">broker que elegiste.</span>
     </p>
   </div>
 </section>
@@ -512,37 +477,140 @@
   <div class="cine-copy">
     <p class="font-mono text-[11px] tracking-[0.32em] uppercase accent-light mb-5" style="text-shadow: 0 1px 12px rgba(0,0,0,0.7);">
       <span class="inline-block w-6 h-px bg-patina-light align-middle mr-3"></span>
-      Capítulo 02
+      El reencuadre
       <span class="inline-block w-6 h-px bg-patina-light align-middle ml-3"></span>
     </p>
     <h3 class="font-semibold text-arctic leading-[0.95]" style="font-size: clamp(2.4rem, 7vw, 4.5rem); letter-spacing: -0.03em; text-shadow: 0 4px 32px rgba(0,0,0,0.7);">
-      Lo que recibes<br><span class="accent-light" style="font-weight: 400;">como Founder.</span>
+      No necesitas más<br><span class="accent-light" style="font-weight: 400;">cursos de psicología.</span>
     </h3>
   </div>
 </section>
 
 
-<!-- ════════════════════════ 3 · 5 PILARES + COMMUNITY MOCKUP ════════════════════════ -->
+<!-- ════════════════════════ 3 · PIVOT ════════════════════════ -->
+<section id="pivot" class="cine-section section-divider px-6 py-16 lg:py-24">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <div>
+        <p class="eyebrow mb-3">El reencuadre</p>
+        <h2 class="h2 mb-6">
+          No necesitas más cursos de psicología.<br class="hidden sm:block">
+          Necesitas el <span class="accent">ambiente correcto.</span>
+        </h2>
+        <p class="body-text">
+          Meridian no gana cuando tú pierdes. Cada operación va al mercado real. El broker no puede tomar el lado contrario de tus trades — físicamente. Sin retiros bloqueados cuando ganas demasiado.
+        </p>
+        <p class="body-text mt-4">
+          El campo de juego que la industria nunca te dio.
+        </p>
+        <div class="mt-8">
+          <a href="#registro" class="btn-pill">
+            Quiero ese campo de juego
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-7 lg:p-8" style="background: linear-gradient(180deg, rgba(82,113,110,0.12) 0%, rgba(82,113,110,0.03) 100%); border: 1px solid rgba(82,113,110,0.35);">
+        <p class="eyebrow !text-[10.5px] mb-5">Por qué la arquitectura cambia todo</p>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(82,113,110,0.22); border: 1px solid rgba(82,113,110,0.45);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+            </div>
+            <div>
+              <p class="text-arctic font-semibold text-[15px]">Sin conflicto de interés</p>
+              <p class="text-[13.5px] leading-relaxed" style="color: rgba(255,255,255,0.72);">Cada trade va al mercado. El broker no puede estar al lado contrario de tu posición.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(82,113,110,0.22); border: 1px solid rgba(82,113,110,0.45);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+            </div>
+            <div>
+              <p class="text-arctic font-semibold text-[15px]">Ejecución directa</p>
+              <p class="text-[13.5px] leading-relaxed" style="color: rgba(255,255,255,0.72);">Cada operación va al mercado real. Sin trastienda. Sin manipulación. Verificable por cualquiera.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(82,113,110,0.22); border: 1px solid rgba(82,113,110,0.45);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+            </div>
+            <div>
+              <p class="text-arctic font-semibold text-[15px]">Sin retiros bloqueados</p>
+              <p class="text-[13.5px] leading-relaxed" style="color: rgba(255,255,255,0.72);">No hay modelo B-book que justifique bloquearte cuando ganas. Tu dinero es tu dinero.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(82,113,110,0.22); border: 1px solid rgba(82,113,110,0.45);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+            </div>
+            <div>
+              <p class="text-arctic font-semibold text-[15px]">Es diferencia de código, no de promesa</p>
+              <p class="text-[13.5px] leading-relaxed" style="color: rgba(255,255,255,0.72);">No es marketing. Es arquitectura. Meridian físicamente no puede manipular tus trades.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ 4 · 5 PILARES + COMMUNITY MOCKUP ════════════════════════ -->
 <section id="pilares" class="cine-section section-divider px-6 py-16 lg:py-24">
   <div class="max-w-6xl mx-auto">
 
     <div class="text-center mb-14 max-w-3xl mx-auto">
-      <p class="eyebrow mb-3">Los 5 pilares de un Founder</p>
+      <p class="eyebrow mb-3">Lo que recibes como Founder</p>
       <h2 class="h2">
-        Lo que recibes por ser uno<br class="hidden sm:block">
-        de los <span class="accent">1,000 Founders.</span>
+        Recibe los <span class="accent">5 pilares</span> completos.<br class="hidden sm:block">
+        Sin costo. Solo registro.
       </h2>
-      <p class="body-text mt-5">No es lista de espera, no es acceso anticipado. Es ser <span class="text-arctic font-semibold">Founder parcial</span> de la primera generación de Meridian.</p>
+      <p class="body-text mt-5">No es lista de espera, no es acceso anticipado. Es ser parte de los <span class="text-arctic font-semibold">primeros 1,000</span> que encontraron el ambiente correcto.</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
       <div>
-        <div class="step-row"><span class="step-num">01</span><div class="step-body"><h4>Equity real del broker</h4><p>Tu participación queda <span class="text-arctic font-medium">documentada legalmente</span> antes del lanzamiento público. Recibes equity como uno de los 1,000 fundadores. Cuando Meridian crece, tú creces.</p></div></div>
-        <div class="step-row"><span class="step-num">02</span><div class="step-body"><h4>Voz directa en el producto</h4><p>Pides una feature, la construimos. Quieres ver algo distinto en el dashboard, lo agregamos. <span class="text-arctic font-medium">1 Founder · 1 voto</span> en el roadmap.</p></div></div>
-        <div class="step-row"><span class="step-num">03</span><div class="step-body"><h4>Libertad total para operar</h4><p>Scalping, HFT, arbitraje, news trading, swing, grid, copy, algorítmico — <span class="text-arctic font-medium">todo permitido.</span> Sin volumen mínimo. Sin máximos de retiro.</p></div></div>
-        <div class="step-row"><span class="step-num">04</span><div class="step-body"><h4>Comunidad de los 1,000</h4><p>Telegram privado con los otros 999 Founders + el equipo de Meridian. Networking real con traders que comparten propiedad del proyecto.</p></div></div>
-        <div class="step-row"><span class="step-num">05</span><div class="step-body"><h4>Trader Gala + Expo anual</h4><p>Acceso anual a los eventos privados de Meridian. Networking + traders top de LATAM + el equipo, sin costo, todos los años.</p></div></div>
+        <div class="step-row">
+          <span class="step-num">01</span>
+          <div class="step-body">
+            <h4>EQUITY — Eres co-dueño. No conejillo de indias.</h4>
+            <p>Los Founders no son usuarios de prueba. Son co-propietarios de un broker valuado en $20M, construido para terminar con el sistema que lleva años convenciéndote de que el problema eres tú. Si Meridian crece, tú creces con Meridian.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num">02</span>
+          <div class="step-body">
+            <h4>VOZ EN EL CÓDIGO — Tu opinión construye el broker.</h4>
+            <p>Acceso directo al equipo de ingeniería. Cuando los Founders piden una feature, se construye. No es atención al cliente — es gobernanza real. Por primera vez, el trader decide qué se construye.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num">03</span>
+          <div class="step-body">
+            <h4>COMUNIDAD — El primer espacio donde nadie tiene que fingir.</h4>
+            <p>Una comunidad privada de los primeros 1,000 Founders. El lugar donde se habla sin filtro de lo que la industria le hizo a los traders que tenían todo para ser rentables — excepto el ambiente correcto.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num">04</span>
+          <div class="step-body">
+            <h4>TÍTULO FOUNDER — Founder. En tu dashboard. Para siempre.</h4>
+            <p>Cuando entres a tu cuenta va a decir "Founder Account" — no "Trader Premium", no "Cuenta Pro". Founder. El reconocimiento que la industria nunca te dio.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num">05</span>
+          <div class="step-body">
+            <h4>EVENTOS — El asiento que la industria nunca construyó para ti.</h4>
+            <p>Acceso a The Trader Gala y la Expo Meridian — los eventos que ningún broker se preocupó en hacer. Los Founders entran sin pagar. La industria entera va a querer estar ahí. Tú ya estás adentro.</p>
+          </div>
+        </div>
       </div>
 
       <div class="lg:sticky lg:top-12">
@@ -555,15 +623,15 @@
             <span class="channel-pill"><span class="pulse-dot" style="width: 6px; height: 6px;"></span>Live · <span data-counter="founders">347</span></span>
           </div>
 
-          <div class="chat-row"><span class="chat-av">JM</span><div class="chat-bubble"><p class="chat-name">Josué Melero <span class="role">Founder</span></p><p class="chat-text">¿Qué feature quieren ver primero en el dashboard? Voto sobre el roadmap esta semana 👇</p><p class="chat-time">10:24 AM</p></div></div>
-          <div class="chat-row"><span class="chat-av">LM</span><div class="chat-bubble"><p class="chat-name">Luis M. <span class="role">#018</span></p><p class="chat-text">Yo necesito vista de equity histórico para mi estrategia algorítmica. Es prioridad 1 para mí.</p><p class="chat-time">10:26 AM</p></div></div>
-          <div class="chat-row"><span class="chat-av">AC</span><div class="chat-bubble"><p class="chat-name">Andrea C. <span class="role">#134</span></p><p class="chat-text">+1 a lo de Luis. Y por favor mantengan el ejecutor de scalping rápido — eso me cambió el juego.</p><p class="chat-time">10:28 AM</p></div></div>
-          <div class="chat-row"><span class="chat-av">RG</span><div class="chat-bubble"><p class="chat-name">Roberto G. <span class="role">#289</span></p><p class="chat-text">Por mí, quiero el modo arbitraje cross-pair que mencionaron. Lo necesito para mi book diario.</p><p class="chat-time">10:31 AM</p></div></div>
-          <div class="chat-row"><span class="chat-av">JM</span><div class="chat-bubble"><p class="chat-name">Josué Melero <span class="role">Founder</span></p><p class="chat-text">Listo. Lo agrego al roadmap de este trimestre. Lo construimos para ustedes 🚀</p><p class="chat-time">10:33 AM</p></div></div>
+          <div class="chat-row"><span class="chat-av">JM</span><div class="chat-bubble"><p class="chat-name">Josué Melero <span class="role">Founder</span></p><p class="chat-text">Bienvenidos. Este es el lugar donde lo que la industria nunca quiso que supieras, se dice sin filtro. ¿Qué experiencia los trajo aquí? 👇</p><p class="chat-time">09:14 AM</p></div></div>
+          <div class="chat-row"><span class="chat-av">MC</span><div class="chat-bubble"><p class="chat-name">Miguel C. <span class="role">#042</span></p><p class="chat-text">A mí me banearon la cuenta de prop firm 3 veces con estrategia rentable. Me dijeron que era mi gestión del riesgo. Aquí entendí que era el sistema, no yo.</p><p class="chat-time">09:17 AM</p></div></div>
+          <div class="chat-row"><span class="chat-av">LR</span><div class="chat-bubble"><p class="chat-name">Laura R. <span class="role">#118</span></p><p class="chat-text">Gasté $4,000 en cursos de mentalidad en 2 años. Todo para descubrir que mi psicología estaba bien — el broker no.</p><p class="chat-time">09:21 AM</p></div></div>
+          <div class="chat-row"><span class="chat-av">CR</span><div class="chat-bubble"><p class="chat-name">Carlos R. <span class="role">#291</span></p><p class="chat-text">Por fin un lugar donde no me dicen que necesito "trabajar más mi mentalidad". El campo de juego importa.</p><p class="chat-time">09:24 AM</p></div></div>
+          <div class="chat-row"><span class="chat-av">JM</span><div class="chat-bubble"><p class="chat-name">Josué Melero <span class="role">Founder</span></p><p class="chat-text">Exacto. Y aquí vamos a construir el broker que el sistema nunca quiso que existiera. 🚀</p><p class="chat-time">09:26 AM</p></div></div>
 
           <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] muted tracking-wide">
             <span>Vista en vivo del Telegram privado</span>
-            <span class="accent-light">347 online</span>
+            <span class="accent-light"><span data-counter="founders">347</span> online</span>
           </div>
         </div>
 
@@ -587,13 +655,14 @@
 </section>
 
 
-<!-- ════════════════════════ 4 · ACCESO ════════════════════════ -->
+<!-- ════════════════════════ 5 · ACCESO / COUNTDOWN ════════════════════════ -->
 <section id="acceso" class="cine-section section-divider px-6 py-16 lg:py-24">
   <div class="max-w-3xl mx-auto text-center">
 
     <p class="eyebrow mb-3">Tu acceso al Founders List</p>
-    <h2 class="h2 mb-4">Recibe los <span class="accent">5 pilares</span> completos.<br class="hidden sm:block">Sin costo. Sólo registro.</h2>
-    <p class="body-text mb-12 max-w-2xl mx-auto">Lo que recibirías en cualquier otro lanzamiento como pago alto, en Meridian es el reconocimiento a los primeros 1,000 que creyeron antes que nadie.</p>
+    <h2 class="h2 mb-4">El sistema cambió.<br class="hidden sm:block"><span class="accent">El problema nunca fuiste tú.</span></h2>
+    <p class="body-text mb-4 max-w-2xl mx-auto">El broker abre el 25 de junio. Los Founders entran antes — con los 5 pilares que el lanzamiento general nunca va a tener.</p>
+    <p class="body-text mb-12 max-w-2xl mx-auto">Lo que recibirías en cualquier otro lanzamiento como pago alto, en Meridian es el reconocimiento a los primeros 1,000 que eligieron el ambiente correcto antes que nadie.</p>
 
     <div class="flex items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto mb-9">
       <div class="text-center"><div class="countdown-digit text-3xl sm:text-4xl text-arctic" id="cd-days">--</div><div class="text-[9px] eyebrow !tracking-[0.2em] mt-1.5">días</div></div>
@@ -614,26 +683,15 @@
     </div>
 
     <a href="#registro" class="btn-pill">
-      Apartar mi plaza ahora
+      Quiero ser Founder
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
-
-    <div class="mt-10 flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
-      <span class="eyebrow !text-[10px] mr-2">Operas con</span>
-      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Scalping</span>
-      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> HFT</span>
-      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Arbitraje</span>
-      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> News</span>
-      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Swing</span>
-      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Algo</span>
-      <span class="strat-chip"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Lo que quieras</span>
-    </div>
 
   </div>
 </section>
 
 
-<!-- ════════════════════════ 5 · JOSUÉ BIO ════════════════════════ -->
+<!-- ════════════════════════ 6 · JOSUÉ BIO ════════════════════════ -->
 <section id="josue" class="cine-section section-divider px-6 py-16 lg:py-24">
   <div class="max-w-5xl mx-auto">
 
@@ -642,18 +700,18 @@
       <div class="lg:col-span-7 order-1">
         <p class="eyebrow mb-3">¿Quién está detrás de <span class="accent">Meridian</span>?</p>
         <h2 class="h2">
-          Llevo <span class="accent">7 años</span> buscando un broker<br class="hidden sm:block">
-          que no jugara en mi contra.
+          Llevo <span class="accent">7 años</span> escuchando que<br class="hidden sm:block">
+          el problema era yo.
         </h2>
         <p class="body-text mt-6">
-          Soy <span class="text-arctic font-semibold">Josué Melero</span>. Llevo años diciendo que el problema del trader latinoamericano no es la estrategia — es el broker. Las restricciones, los bloqueos, el modelo B-book. Cuando entendí que se podía hacer un broker <span class="text-arctic font-medium">100% transparente, sin conflicto de interés, construido por sus traders</span>, decidí hacerlo.
+          Soy <span class="text-arctic font-semibold">Josué Melero</span>. Como tú, pasé años creyendo que necesitaba más disciplina, más mentalidad, más psicología. Hasta que entendí que los traders más rentables también tenían retiros bloqueados — y que el problema nunca fue la cabeza. Fue el broker.
         </p>
         <p class="body-text mt-4">
-          Por eso elegimos a los 1,000 primeros como Founders: ustedes son la mitad del proyecto. Su voz construye Meridian. Sus estrategias definen el dashboard. Su voto dirige el roadmap. Esto no es un broker — es <span class="text-arctic font-semibold">nuestra casa.</span>
+          Por eso construimos Meridian: un broker donde el modelo de negocio no depende de que tú pierdas. Donde la arquitectura hace imposible manipular tus trades. Donde los Founders son co-dueños — porque son la razón por la que existe. Esto no es un broker. Es <span class="text-arctic font-semibold">el ambiente que merecías desde el principio.</span>
         </p>
         <div class="mt-8">
           <a href="#registro" class="btn-pill">
-            Quiero ser parte
+            Quiero ese ambiente
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -678,50 +736,7 @@
 </section>
 
 
-<!-- ════════════════════════ 5.5 · BONUS STACK ════════════════════════ -->
-<section id="bonos" class="cine-section section-divider px-6 py-16 lg:py-24">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12 max-w-3xl mx-auto">
-      <p class="eyebrow mb-3">Bonos exclusivos Founder</p>
-      <h2 class="h2">Además de equity y libertad,<br class="hidden sm:block">recibes <span class="accent">3 bonos</span> que nadie más tiene.</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      <article class="rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="text-[10px] tracking-[0.22em] accent font-semibold uppercase mb-2">BONO · 01</p>
-        <h3 class="text-arctic font-semibold text-[1.2rem] mb-3" style="letter-spacing:-0.01em">PLAZA PARA UN AMIGO</h3>
-        <p class="body-text !text-[14px]">Regalas una plaza Founder a un trader de tu elección. Ambos entran.</p>
-        <p class="mt-5 text-[10.5px] tracking-[0.2em] accent font-semibold uppercase">Valor · 1 plaza de 1,000</p>
-      </article>
-
-      <article class="rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <p class="text-[10px] tracking-[0.22em] accent font-semibold uppercase mb-2">BONO · 02</p>
-        <h3 class="text-arctic font-semibold text-[1.2rem] mb-3" style="letter-spacing:-0.01em">ACCESO VITALICIO</h3>
-        <p class="body-text !text-[14px]">Tu plaza no caduca. Tu equity no se diluye sin tu voto. Todas las features futuras, incluidas.</p>
-        <p class="mt-5 text-[10.5px] tracking-[0.2em] accent font-semibold uppercase">Valor · ciclo de vida del broker</p>
-      </article>
-
-      <article class="rounded-2xl p-7 lg:p-8 relative overflow-hidden" style="background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); border: 1px solid rgba(82,113,110,0.32);">
-        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-        </div>
-        <p class="text-[10px] tracking-[0.22em] accent font-semibold uppercase mb-2">BONO · 03</p>
-        <h3 class="text-arctic font-semibold text-[1.2rem] mb-3" style="letter-spacing:-0.01em">TRADER GALA + MASTERMINDS</h3>
-        <p class="body-text !text-[14px]">Evento físico anual con los 1,000 Founders + masterminds trimestrales con traders pro. Todo incluido.</p>
-        <p class="mt-5 text-[10.5px] tracking-[0.2em] accent font-semibold uppercase">Valor · 4 eventos premium/año</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════ 6 · GARANTÍA ════════════════════════ -->
+<!-- ════════════════════════ 7 · GARANTÍA ════════════════════════ -->
 <section id="garantia" class="cine-section section-divider px-6 py-20 lg:py-28 text-center">
   <div class="max-w-3xl mx-auto">
 
@@ -745,7 +760,7 @@
 </section>
 
 
-<!-- ════════════════════════ 7 · FAQ ════════════════════════ -->
+<!-- ════════════════════════ 8 · FAQ ════════════════════════ -->
 <section id="faq" class="cine-section section-divider px-6 py-16 lg:py-24">
   <div class="max-w-2xl mx-auto">
 
@@ -755,10 +770,11 @@
     </div>
 
     <div class="space-y-3">
+      <details class="faq-pill"><summary>¿Por qué la industria me decía que era mi psicología?</summary><div class="faq-body">Porque es el modelo de negocio más rentable. Si el trader cree que el problema es interno, sigue comprando cursos, sigue pagando fees de evaluación, sigue siendo cliente. La verdad es que traders con psicología impecable también tienen retiros bloqueados y cuentas baneadas cuando son demasiado rentables.</div></details>
+      <details class="faq-pill"><summary>¿Cómo sé que Meridian es diferente?</summary><div class="faq-body">Porque la estructura no lo permite. En Meridian, tu orden va directamente al mercado real — el broker no puede manipular tus trades aunque quisiera. Es una diferencia de estructura, no de promesa.</div></details>
+      <details class="faq-pill"><summary>¿Sigo necesitando trabajar mi psicología para operar en Meridian?</summary><div class="faq-body">La disciplina y la gestión del riesgo siempre importan. Pero en Meridian, cuando ejecutas bien, el resultado es tuyo — no se lo queda el broker. El ambiente correcto no reemplaza tu trabajo. Lo hace valer.</div></details>
       <details class="faq-pill"><summary>¿Qué significa "ser Founder" del broker?</summary><div class="faq-body">Que recibes equity real del broker antes del lanzamiento público. Tu participación queda documentada legalmente. Cuando Meridian crece, tú creces como parte de la empresa — no como cliente.</div></details>
       <details class="faq-pill"><summary>¿Qué estrategias puedo usar para operar?</summary><div class="faq-body">Cualquiera. Scalping, HFT, arbitraje, news trading, swing, position trading, hedging, grid, algorítmico, copy trading — todo permitido. Sin volumen mínimo. Sin máximos de retiro. Sin "letra pequeña".</div></details>
-      <details class="faq-pill"><summary>¿Cómo funciona la voz en el roadmap?</summary><div class="faq-body">Cada Founder tiene 1 voto. Cada trimestre votamos qué features se construyen. Y si una mayoría de Founders pide algo, se construye. Es así de simple — porque ustedes son los Founders.</div></details>
-      <details class="faq-pill"><summary>¿Qué pasa si quiero algo personalizado?</summary><div class="faq-body">Si es una feature que sólo a ti te sirve, hablamos directo con el equipo en el Telegram privado. Muchas de las features de Meridian nacieron de un Founder que la pidió primero. <span class="text-arctic font-medium">Tu feedback construye el broker.</span></div></details>
       <details class="faq-pill"><summary>¿Qué necesito para empezar?</summary><div class="faq-body">Email, nombre y país. Después recibes el link al Telegram privado y tu posición en la lista. Tu Founder Account se activa el 25 de junio en la sesión en vivo (7 PM CDMX).</div></details>
       <details class="faq-pill"><summary>¿Qué pasa después del 25 de junio?</summary><div class="faq-body">Después del lanzamiento general, los 5 pilares (equity, voz, gala, comunidad, Founder Account) ya no se ofrecen. Sólo los 1,000 Founders los mantienen. Para siempre.</div></details>
     </div>
@@ -776,18 +792,18 @@
       <span class="inline-block w-6 h-px bg-patina-light align-middle ml-3"></span>
     </p>
     <h2 class="font-semibold text-arctic leading-[0.92]" style="font-size: clamp(3rem, 9vw, 6.5rem); letter-spacing: -0.035em; text-shadow: 0 4px 40px rgba(0,0,0,0.7);">
-      <span class="block">El momento</span>
-      <span class="block accent-light" style="font-weight: 400; letter-spacing: -0.02em;">es ahora.</span>
+      <span class="block">El problema</span>
+      <span class="block accent-light" style="font-weight: 400; letter-spacing: -0.02em;">nunca fuiste tú.</span>
     </h2>
     <p class="mt-7 text-[14px] lg:text-[16px] text-arctic max-w-md mx-auto leading-relaxed font-light" style="text-shadow: 0 2px 16px rgba(0,0,0,0.75);">
-      Las <span class="text-arctic font-semibold">1,000 puertas</span> se abren una sola vez.<br>
-      Después: lanzamiento general, sin Founders.
+      El sistema cambió. El campo de juego <span class="text-arctic font-semibold">ahora es justo.</span><br>
+      Los 1,000 Founders entran primero.
     </p>
   </div>
 </section>
 
 
-<!-- ════════════════════════ 8 · CTA FINAL ════════════════════════ -->
+<!-- ════════════════════════ 9 · CTA FINAL ════════════════════════ -->
 <section id="registro" class="cine-section section-divider px-6 py-16 lg:py-24 relative overflow-hidden">
 
   <div class="relative max-w-6xl mx-auto">
@@ -800,8 +816,8 @@
                style="filter: brightness(0.78) saturate(0.95) contrast(1.05);" />
           <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-midnight via-midnight/30 to-transparent pointer-events-none"></div>
           <div class="absolute bottom-6 left-6 right-6 text-left">
-            <p class="font-mono text-[10px] tracking-[0.32em] uppercase accent-light mb-3">25 · 06 · 2026</p>
-            <p class="font-semibold text-arctic text-2xl leading-tight">Nos vemos<br><span class="accent-light" style="font-weight: 500;">adentro.</span></p>
+            <p class="font-mono text-[10px] tracking-[0.32em] uppercase accent-light mb-3">Construido para que ganes.</p>
+            <p class="font-semibold text-arctic text-2xl leading-tight">El sistema<br><span class="accent-light" style="font-weight: 500;">siempre fue el problema.</span></p>
           </div>
         </div>
       </div>
@@ -810,12 +826,11 @@
 
         <p class="eyebrow mb-3"><span data-counter-remaining>653</span> plazas restantes</p>
         <h2 class="h2 mb-5">
-          ¿Vas a ser uno de los <span class="accent">1,000 Founders</span>
-          o vas a quedarte como un cliente más?
+          El problema nunca fuiste tú.<br class="hidden sm:block">
+          El <span class="accent">sistema siempre fue el problema.</span>
         </h2>
         <p class="body-text mb-8 max-w-xl">
-          Una vez que entren los 1,000, esto se cierra para siempre. No habrá Founders #1,001.
-          Tu equity, tu voz, tu comunidad — todo se decide aquí.
+          Construido para que ganes. Una vez que entren los 1,000 Founders, esto se cierra para siempre. El ambiente correcto te espera.
           <span class="text-arctic font-semibold">Es ahora o nunca.</span>
         </p>
 
@@ -846,7 +861,7 @@
           </div>
 
           <button type="submit" class="btn-pill w-full mt-2">
-            Apartar mi plaza
+            Quiero ser Founder →
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </button>
 
@@ -907,12 +922,11 @@
 
   let currentFounders = 347;
   const FOUNDERS_TOTAL = 1000;
-  const progressFill = document.getElementById('progress-fill');
   const toast = document.getElementById('founderToast');
   const toastNum = document.getElementById('toastNum');
   const toastTime = document.getElementById('toastTime');
   const toastTimes = ['hace un instante', 'hace 1 min', 'hace 2 min', 'hace 3 min', 'hace 4 min'];
-  function syncCounter() {
+  function syncCounters() {
     document.querySelectorAll('[data-counter="founders"]').forEach(el => {
       el.textContent = currentFounders.toLocaleString();
       el.classList.remove('counter-flash');
@@ -920,7 +934,8 @@
       el.classList.add('counter-flash');
     });
     document.querySelectorAll('[data-counter-remaining]').forEach(el => el.textContent = (FOUNDERS_TOTAL - currentFounders).toLocaleString());
-    if (progressFill) progressFill.style.width = ((currentFounders / FOUNDERS_TOTAL) * 100).toFixed(2) + '%';
+    const pf = document.getElementById('progress-fill');
+    if (pf) pf.style.width = ((currentFounders / FOUNDERS_TOTAL) * 100).toFixed(1) + '%';
   }
   function showToast() {
     if (!toast) return;
@@ -930,11 +945,11 @@
     toast.classList.add('toast-in');
     setTimeout(() => { toast.classList.remove('toast-in'); toast.classList.add('toast-out'); }, 3500);
   }
-  syncCounter();
+  syncCounters();
   function liveIncrement() {
     if (currentFounders >= FOUNDERS_TOTAL) return;
     currentFounders += 1;
-    syncCounter();
+    syncCounters();
     showToast();
     setTimeout(liveIncrement, 5000 + Math.random() * 12000);
   }
@@ -956,12 +971,12 @@
       msg.style.color = '#6B717C';
       return;
     }
-    console.log('[Founders List v3 cinematic] POST /api/founders →', payload);
+    console.log('[Founders List v6] POST /api/founders →', payload);
     msg.textContent = '✓ Apartando tu plaza…';
     msg.classList.remove('hidden');
     msg.style.color = '#52716E';
     setTimeout(() => {
-      window.location.href = `/v3/thank-you-cinematic/?n=${currentFounders + 1}`;
+      window.location.href = `/v6/thank-you/?n=${currentFounders + 1}`;
     }, 1000);
   });
 </script>

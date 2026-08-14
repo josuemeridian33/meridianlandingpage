@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founders List · Meridian — Sé Founder del broker</title>
+<meta name="description" content="Los 1,000 Founders de Meridian reciben equity, voz, comunidad y libertad total. Esta es la única oportunidad. Cuando se llena, se cierra para siempre.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          arctic: '#FFFFFF',
+          patina: '#52716E',
+          'patina-light': '#7D9A96',
+          midnight: '#0B1220',
+          steel: '#172231',
+          slate: '#2A3440',
+          pewter: '#6B717C',
+        },
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --arctic: #FFFFFF;
+    --patina: #52716E;
+    --patina-light: #7D9A96;
+    --midnight: #0B1220;
+    --steel: #172231;
+    --slate: #2A3440;
+    --pewter: #6B717C;
+  }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  html, body { overflow-x: hidden; max-width: 100%; margin: 0; scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--midnight); color: var(--arctic); min-height: 100vh; }
+
+  /* ── Backgrounds ── */
+  .ambient-bg {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(82,113,110,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(82,113,110,0.05) 0%, transparent 60%),
+      var(--midnight);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 85%);
+  }
+  .hex-bg {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'><polygon points='30,1 58,16 58,42 30,52 1,42 1,16' fill='none' stroke='%2352716E' stroke-opacity='0.10' stroke-width='1'/></svg>");
+    background-size: 60px 52px;
+  }
+  .section-band { background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04); }
+  .section-divider { border-top: 1px solid rgba(255,255,255,0.04); }
+
+  /* ── Typography ── */
+  .h-display { font-size: clamp(2.6rem, 6.5vw, 5rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.02; }
+  .h1 { font-size: clamp(2.1rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
+  .h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; }
+  .h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--patina); }
+  .body-text { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.76); font-weight: 400; }
+  .muted { color: var(--pewter); }
+  .accent { color: var(--patina); }
+  .accent-light { color: var(--patina-light); }
+  .num-tabular { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
+
+  .glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
+  /* FOUNDER TOAST */
+  #founderToast.toast-in { opacity: 1; transform: translateY(0); }
+  #founderToast.toast-out { opacity: 0; transform: translateY(12px); }
+  @keyframes counterFlash {
+    0%   { color: #52716E; text-shadow: 0 0 14px rgba(82,113,110,0.7); transform: scale(1.06); }
+    100% { color: inherit; text-shadow: none; transform: scale(1); }
+  }
+  .counter-flash { animation: counterFlash 0.7s ease-out; }
+
+  /* ── Pill CTA ── */
+  .btn-pill {
+    background: linear-gradient(180deg, #6AADA8 0%, #52716E 100%);
+    color: #FFFFFF;
+    padding: 1.1rem 2.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.84rem;
+    transition: transform 0.25s ease;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32);
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
+    border: none; cursor: pointer; text-decoration: none;
+    white-space: nowrap;
+    animation: ctaPulse 2.4s ease-in-out infinite;
+  }
+  .btn-pill:hover { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,0.14) inset, 0 18px 48px rgba(82,113,110,0.45); }
+  .btn-pill:focus-visible { outline: 2px solid var(--patina); outline-offset: 3px; }
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 0 rgba(106,173,168,0.45); }
+    50%       { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 14px rgba(106,173,168,0); }
+  }
+  .progress-track { width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #52716E 0%, #7D9A96 100%); border-radius: 999px; transition: width 0.8s cubic-bezier(0.2,0.7,0.2,1); position: relative; box-shadow: 0 0 10px rgba(82,113,110,0.50); }
+  .progress-fill::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 28px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38)); animation: shimmer 2.4s ease-in-out infinite; }
+  @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+  .btn-ghost {
+    background: transparent; color: var(--arctic);
+    padding: 0.85rem 1.6rem; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.78rem;
+    display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.32); }
+
+  /* ── Pulse dot ── */
+  .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; flex-shrink: 0; }
+  .pulse-dot::before { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; animation: pulse-ring 2s ease-out infinite; opacity: 0.6; }
+  .pulse-dot::after { content: ''; position: absolute; inset: 0; background: var(--patina); border-radius: 50%; }
+  @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+
+  /* ── Animated logo ── */
+  .meridian-mark {
+    width: clamp(96px, 11vw, 140px);
+    height: auto; display: block;
+    animation: mark-breathe 7s ease-in-out 2s infinite;
+  }
+  .meridian-mark .half-white, .meridian-mark .half-patina {
+    transform-box: fill-box; transform-origin: center;
+  }
+  .meridian-mark .half-white {
+    fill: #FFFFFF; opacity: 0;
+    animation: half-white-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) forwards,
+               half-white-orbit 9s ease-in-out 2.0s infinite;
+  }
+  .meridian-mark .half-patina {
+    fill: #52716E; opacity: 0;
+    animation: half-patina-in 1.4s cubic-bezier(0.22, 0.7, 0.18, 1) 0.18s forwards,
+               half-patina-orbit 9s ease-in-out 2.18s infinite;
+  }
+  @keyframes half-white-in { 0% { opacity: 0; transform: translate(-60px, -60px) rotate(-18deg) scale(0.7); } 60% { opacity: 1; transform: translate(4px, 4px) rotate(2deg) scale(1.04); } 100% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); } }
+  @keyframes half-patina-in { 0% { opacity: 0; transform: translate(60px, 60px) rotate(18deg) scale(0.7); } 60% { opacity: 1; transform: translate(-4px, -4px) rotate(-2deg) scale(1.04); } 100% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); } }
+  @keyframes half-white-orbit { 0%,100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(0, -5px) rotate(0deg); } }
+  @keyframes half-patina-orbit { 0%,100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(0, 5px) rotate(0deg); } }
+  @keyframes mark-breathe { 0%,100% { transform: scale(1); filter: drop-shadow(0 6px 20px rgba(82,113,110,0.30)); } 50% { transform: scale(1.018); filter: drop-shadow(0 10px 28px rgba(82,113,110,0.50)); } }
+
+  /* ── Countdown ── */
+  .countdown { display: inline-flex; gap: 0.65rem; align-items: stretch; }
+  .cd-cell {
+    background: rgba(11,18,32,0.85);
+    border: 1px solid rgba(82,113,110,0.30);
+    border-radius: 10px;
+    padding: 0.65rem 0.95rem;
+    min-width: 64px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+  }
+  .cd-num { font-size: 1.6rem; font-weight: 700; color: var(--arctic); line-height: 1; font-variant-numeric: tabular-nums; }
+  .cd-label { font-size: 0.6rem; color: var(--patina-light); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.35rem; font-weight: 600; }
+  .cd-sep { display: flex; align-items: center; color: var(--patina); font-size: 1.4rem; font-weight: 300; opacity: 0.5; }
+
+  /* ── VSL frame ── */
+  .vsl-frame {
+    position: relative; aspect-ratio: 16 / 9; max-width: 860px; width: 100%; margin: 0 auto;
+    border-radius: 18px; overflow: hidden;
+    background: linear-gradient(180deg, #0c1727 0%, #050a13 100%);
+    border: 1px solid rgba(82,113,110,0.32);
+    box-shadow: 0 30px 80px -10px rgba(0,0,0,0.7), 0 12px 40px -10px rgba(82,113,110,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .vsl-frame video, .vsl-frame iframe { width: 100%; height: 100%; display: block; object-fit: cover; background: var(--midnight); }
+  .vsl-poster { position: absolute; inset: 0; background: url('/assets/cinematic/01c-hero-peak.png') center/cover no-repeat; filter: brightness(0.42) saturate(0.92) contrast(1.05); }
+  .vsl-poster::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(11,18,32,0.15) 0%, rgba(11,18,32,0.80) 100%); }
+  .vsl-play-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 96px; height: 96px; border-radius: 50%;
+    background: rgba(82,113,110,0.94);
+    border: 2px solid rgba(255,255,255,0.20);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    box-shadow: 0 14px 40px rgba(82,113,110,0.50), inset 0 1px 0 rgba(255,255,255,0.20);
+    transition: transform 0.25s, box-shadow 0.25s; z-index: 3;
+  }
+  .vsl-play-btn:hover { transform: translate(-50%, -50%) scale(1.06); }
+  .vsl-play-btn::before { content: ''; position: absolute; inset: -12px; border-radius: 50%; border: 1px solid rgba(82,113,110,0.45); animation: ring-pulse 2.4s ease-out infinite; }
+  @keyframes ring-pulse { 0% { transform: scale(0.9); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+  .vsl-play-btn svg { color: #FFF; margin-left: 5px; }
+  .vsl-live-pill, .vsl-stats-pill {
+    position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 0.85rem; background: rgba(11,18,32,0.78);
+    border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(10px);
+    border-radius: 999px; font-size: 0.66rem; font-weight: 600; color: var(--arctic);
+  }
+  .vsl-live-pill { top: 1.2rem; left: 1.2rem; letter-spacing: 0.22em; text-transform: uppercase; }
+  .vsl-stats-pill { top: 1.2rem; right: 1.2rem; font-size: 0.7rem; }
+
+  /* ── Metric cards (social proof) ── */
+  .metric {
+    text-align: center;
+    padding: 2rem 1.2rem;
+  }
+  .metric .num {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 700; line-height: 1;
+    background: linear-gradient(180deg, #FFFFFF 0%, #7D9A96 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .metric .lbl { color: rgba(255,255,255,0.66); font-size: 0.92rem; margin-top: 0.6rem; line-height: 1.4; }
+  .metric + .metric { border-left: 1px solid rgba(255,255,255,0.06); }
+  @media (max-width: 768px) { .metric + .metric { border-left: 0; border-top: 1px solid rgba(255,255,255,0.06); } }
+
+  /* ── Transformation cards ── */
+  .trans-card {
+    border-radius: 18px; padding: 1.6rem 1.4rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative; overflow: hidden;
+  }
+  .trans-before { border-color: rgba(255,107,107,0.18); }
+  .trans-before::before { content: 'ANTES'; position: absolute; top: 1rem; right: 1rem; font-size: 0.6rem; letter-spacing: 0.22em; color: rgba(255,107,107,0.72); font-weight: 700; }
+  .trans-after { border-color: rgba(82,113,110,0.40); background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%); }
+  .trans-after::before { content: 'AHORA'; position: absolute; top: 1rem; right: 1rem; font-size: 0.6rem; letter-spacing: 0.22em; color: var(--patina-light); font-weight: 700; }
+
+  /* ── Plan cards ── */
+  .plan-card {
+    border-radius: 16px; padding: 1.6rem 1.4rem;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  .plan-card:hover { transform: translateY(-3px); border-color: rgba(82,113,110,0.40); background: rgba(82,113,110,0.06); }
+  .plan-card .icn {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(82,113,110,0.16);
+    border: 1px solid rgba(82,113,110,0.40);
+    display: inline-flex; align-items: center; justify-content: center; color: var(--patina-light);
+    margin-bottom: 1rem;
+  }
+  .plan-card .num { font-size: 0.66rem; letter-spacing: 0.22em; color: var(--patina); font-weight: 700; }
+
+  /* ── IG grid ── */
+  .ig-tile {
+    aspect-ratio: 1/1; border-radius: 12px; overflow: hidden;
+    background: linear-gradient(135deg, rgba(82,113,110,0.18) 0%, rgba(11,18,32,0.92) 100%);
+    border: 1px solid rgba(255,255,255,0.08); position: relative;
+    transition: transform 0.3s ease;
+  }
+  .ig-tile:hover { transform: scale(1.03); }
+  .ig-tile .ig-label {
+    position: absolute; bottom: 0.6rem; left: 0.6rem; right: 0.6rem;
+    font-size: 0.62rem; color: rgba(255,255,255,0.78);
+    letter-spacing: 0.04em;
+  }
+  .ig-tile .ig-icon { position: absolute; top: 0.6rem; right: 0.6rem; color: rgba(255,255,255,0.32); }
+
+  /* ── Comparison table ── */
+  .comp-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 0; }
+  .comp-cell { padding: 1.1rem 1.4rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .comp-cell.lbl { color: rgba(255,255,255,0.72); font-size: 0.94rem; }
+  .comp-cell.bad { color: rgba(255,255,255,0.4); font-size: 0.92rem; }
+  .comp-cell.bad svg { color: rgba(255,107,107,0.6); }
+  .comp-cell.good { color: var(--arctic); font-weight: 500; font-size: 0.94rem; background: rgba(82,113,110,0.06); }
+  .comp-cell.good svg { color: var(--patina-light); }
+  .comp-head { padding: 0.85rem 1.4rem; font-size: 0.66rem; letter-spacing: 0.22em; font-weight: 700; text-transform: uppercase; }
+
+  /* ── Accordion module ── */
+  .mod-item {
+    border-radius: 14px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden; transition: border-color 0.2s;
+  }
+  .mod-item.open { border-color: rgba(82,113,110,0.32); background: rgba(82,113,110,0.04); }
+  .mod-trigger { width: 100%; padding: 1.2rem 1.4rem; text-align: left; display: flex; align-items: center; gap: 1rem; cursor: pointer; background: none; border: none; color: var(--arctic); }
+  .mod-trigger .mod-num { font-size: 0.66rem; letter-spacing: 0.22em; color: var(--patina); font-weight: 700; min-width: 38px; }
+  .mod-trigger .mod-title { font-size: 1.05rem; font-weight: 600; flex: 1; }
+  .mod-trigger .mod-chev { transition: transform 0.3s; color: var(--patina-light); }
+  .mod-item.open .mod-chev { transform: rotate(180deg); }
+  .mod-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+  .mod-item.open .mod-body { max-height: 600px; }
+  .mod-content { padding: 0 1.4rem 1.4rem; color: rgba(255,255,255,0.76); font-size: 0.95rem; line-height: 1.65; }
+  .mod-quote { margin-top: 1rem; padding: 0.85rem 1.1rem; border-left: 2px solid var(--patina); font-style: italic; color: rgba(255,255,255,0.68); font-size: 0.88rem; background: rgba(255,255,255,0.02); border-radius: 0 8px 8px 0; }
+  .mod-quote .author { display: block; font-style: normal; color: var(--patina-light); font-size: 0.72rem; letter-spacing: 0.08em; margin-top: 0.4rem; text-transform: uppercase; font-weight: 600; }
+
+  /* ── Founder testimonial cards ── */
+  .founder-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .founder-card:hover { transform: translateY(-3px); border-color: rgba(82,113,110,0.35); }
+  .founder-card .photo { aspect-ratio: 4 / 5; overflow: hidden; position: relative; background: linear-gradient(135deg, rgba(82,113,110,0.20), rgba(11,18,32,0.95)); }
+  .founder-card .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .founder-card .photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(11,18,32,0.92) 100%); }
+  .founder-card .tag { position: absolute; top: 0.85rem; right: 0.85rem; padding: 0.3rem 0.65rem; background: rgba(11,18,32,0.82); border: 1px solid rgba(82,113,110,0.40); backdrop-filter: blur(8px); border-radius: 999px; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--patina-light); font-weight: 600; z-index: 2; }
+  .founder-card .quote { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 1rem; text-align: center; }
+  .founder-card .quote p { color: var(--arctic); font-size: 0.84rem; font-weight: 600; line-height: 1.3; }
+  .founder-card .quote span { color: var(--patina-light); font-size: 0.66rem; letter-spacing: 0.05em; margin-top: 0.4rem; display: block; }
+  .founder-card .initials { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: 2.4rem; font-weight: 700; color: rgba(255,255,255,0.16); letter-spacing: 0.05em; }
+
+  /* ── Video testimonial cards ── */
+  .vid-card {
+    aspect-ratio: 9/14; border-radius: 16px; overflow: hidden;
+    background: linear-gradient(135deg, rgba(82,113,110,0.20), rgba(11,18,32,0.92));
+    border: 1px solid rgba(255,255,255,0.08); position: relative;
+    transition: transform 0.3s;
+  }
+  .vid-card:hover { transform: translateY(-4px); }
+  .vid-card .vid-play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(82,113,110,0.94);
+    border: 2px solid rgba(255,255,255,0.20);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 30px rgba(82,113,110,0.50);
+  }
+  .vid-card .vid-meta { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.1rem; background: linear-gradient(0deg, rgba(11,18,32,0.95) 0%, transparent 100%); }
+  .vid-card .vid-meta .name { color: var(--arctic); font-weight: 600; font-size: 0.92rem; }
+  .vid-card .vid-meta .loc { color: var(--patina-light); font-size: 0.7rem; letter-spacing: 0.08em; margin-top: 0.25rem; }
+
+  /* ── Bonus cards ── */
+  .bonus-card {
+    border-radius: 18px; padding: 2rem 1.8rem;
+    background: linear-gradient(180deg, rgba(82,113,110,0.10) 0%, rgba(82,113,110,0.02) 100%);
+    border: 1px solid rgba(82,113,110,0.32);
+    position: relative; overflow: hidden;
+  }
+  .bonus-card::before { content: ''; position: absolute; top: 0; right: 0; width: 120px; height: 120px; background: radial-gradient(circle, rgba(82,113,110,0.16) 0%, transparent 70%); border-radius: 50%; transform: translate(40%, -40%); }
+  .bonus-card .bonus-num { display: inline-block; padding: 0.35rem 0.85rem; background: rgba(82,113,110,0.18); border: 1px solid rgba(82,113,110,0.42); border-radius: 999px; font-size: 0.66rem; letter-spacing: 0.22em; color: var(--patina-light); font-weight: 700; margin-bottom: 1.2rem; }
+  .bonus-card .bonus-name { font-size: 1.4rem; font-weight: 700; color: var(--arctic); letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 0.8rem; }
+  .bonus-card .bonus-value { color: var(--patina-light); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; margin-top: 1rem; }
+
+  /* ── Guarantee badge ── */
+  .guarantee-badge {
+    width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(82,113,110,0.35), rgba(11,18,32,0.95));
+    border: 2px solid rgba(82,113,110,0.55);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 20px 60px rgba(82,113,110,0.30), inset 0 2px 0 rgba(255,255,255,0.10);
+    text-align: center; padding: 1rem;
+  }
+  .guarantee-badge .gb-eyebrow { font-size: 0.58rem; letter-spacing: 0.28em; color: var(--patina-light); font-weight: 700; }
+  .guarantee-badge .gb-big { font-size: 2.6rem; font-weight: 700; color: var(--arctic); line-height: 1; letter-spacing: -0.02em; margin: 0.4rem 0; }
+  .guarantee-badge .gb-label { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--patina-light); font-weight: 600; text-transform: uppercase; }
+
+  /* ── Includes checklist ── */
+  .inc-item { display: flex; gap: 0.85rem; align-items: flex-start; padding: 0.8rem 0; font-size: 0.98rem; line-height: 1.55; color: rgba(255,255,255,0.88); border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .inc-item:last-child { border-bottom: 0; }
+  .inc-check { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: rgba(82,113,110,0.20); border: 1px solid rgba(82,113,110,0.42); display: inline-flex; align-items: center; justify-content: center; color: var(--patina-light); margin-top: 0.1rem; }
+
+  /* ── Strategy chip grid ── */
+  .strat-chip {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    padding: 0.45rem 0.85rem;
+    background: rgba(82,113,110,0.10);
+    border: 1px solid rgba(82,113,110,0.32);
+    border-radius: 999px;
+    font-size: 0.78rem; color: var(--arctic); font-weight: 500;
+  }
+  .strat-chip svg { color: var(--patina-light); flex-shrink: 0; }
+
+  /* ── Notification cards ── */
+  .notif-card {
+    background: rgba(11,18,32,0.94); border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 12px; padding: 0.7rem 0.85rem;
+    display: flex; align-items: center; gap: 0.65rem;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55); backdrop-filter: blur(10px);
+    font-size: 0.78rem; max-width: 260px;
+  }
+  .notif-card .av { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; background: rgba(82,113,110,0.24); border: 1px solid rgba(82,113,110,0.48); display: inline-flex; align-items: center; justify-content: center; color: var(--patina-light); font-weight: 600; font-size: 0.72rem; }
+
+  /* ── Date chip ── */
+  .date-chip { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.95rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.88); }
+  .date-chip svg { color: var(--patina-light); flex-shrink: 0; }
+
+  /* ── FAQ ── */
+  .faq-item {
+    border-radius: 12px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden; transition: border-color 0.2s;
+  }
+  .faq-item.open { border-color: rgba(82,113,110,0.32); }
+  .faq-trigger { width: 100%; padding: 1.1rem 1.3rem; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; background: none; border: none; color: var(--arctic); font-weight: 500; font-size: 1rem; }
+  .faq-trigger .chev { transition: transform 0.3s; color: var(--patina-light); flex-shrink: 0; }
+  .faq-item.open .chev { transform: rotate(180deg); }
+  .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .faq-item.open .faq-body { max-height: 400px; }
+  .faq-content { padding: 0 1.3rem 1.3rem; color: rgba(255,255,255,0.72); font-size: 0.94rem; line-height: 1.65; }
+
+  /* ── Scroll cue ── */
+  .scroll-cue { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.14); display: inline-flex; align-items: center; justify-content: center; color: var(--patina); background: rgba(255,255,255,0.025); animation: bounce-cue 2s ease-in-out infinite; }
+  @keyframes bounce-cue { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+  /* ── Nav ── */
+  .nav-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 1rem 1.5rem; background: rgba(11,18,32,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.04); transition: opacity 0.3s; }
+  .nav-bar.hidden-top { opacity: 0; pointer-events: none; }
+  .nav-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; color: var(--arctic); }
+  .nav-logo svg { width: 28px; height: 28px; }
+  .nav-logo .nb-name { font-weight: 600; letter-spacing: 0.24em; font-size: 0.78rem; text-transform: uppercase; }
+
+  /* ── Sticky CTA bar (mobile) ── */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+    padding: 0.85rem 1rem;
+    background: rgba(11,18,32,0.94); backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(82,113,110,0.32);
+    display: none;
+    transform: translateY(100%); transition: transform 0.4s;
+  }
+  .sticky-cta.show { transform: translateY(0); }
+  @media (max-width: 768px) { .sticky-cta { display: flex; gap: 0.75rem; align-items: center; justify-content: space-between; } .sticky-cta .btn-pill { padding: 0.85rem 1.4rem; font-size: 0.74rem; flex: 1; } }
+
+  /* ── Scroll reveal ── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot::before, .vsl-play-btn::before, .scroll-cue,
+    .meridian-mark .half-white, .meridian-mark .half-patina { animation: none; }
+    .meridian-mark .half-white, .meridian-mark .half-patina { opacity: 1; transform: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body class="ambient-bg">
+
+<div class="fixed inset-0 grid-bg pointer-events-none" aria-hidden="true"></div>
+
+<!-- "+1 Founder" Toast -->
+<div id="founderToast" class="fixed bottom-6 right-6 z-[70] opacity-0 translate-y-3 pointer-events-none transition-all duration-500">
+  <div class="glass-strong rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl"
+       style="box-shadow: 0 24px 60px -10px rgba(82,113,110,0.25), 0 0 0 1px rgba(82,113,110,0.18) inset;">
+    <span class="relative flex h-2.5 w-2.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-patina opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-patina"></span>
+    </span>
+    <div class="text-[13px] leading-tight">
+      <p class="text-arctic font-semibold">+1 Founder registrado</p>
+      <p class="text-pewter text-[11px]"><span id="toastTime">hace un instante</span> · plaza <span id="toastNum">347</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ 01 · NAV ════════════════════════ -->
+<nav class="nav-bar hidden-top" id="navBar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <svg viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#FFFFFF" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+        <path fill="#52716E" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+      </svg>
+      <span class="nb-name">Meridian</span>
+    </a>
+    <a href="#registro" class="btn-pill" style="padding: 0.7rem 1.4rem; font-size: 0.72rem;">
+      Quiero ser Founder
+    </a>
+  </div>
+</nav>
+
+<!-- ════════════════════════ 02 · HERO ════════════════════════ -->
+<section id="hero" class="relative px-6 pt-12 pb-16 lg:pt-16 lg:pb-20">
+  <div class="relative max-w-5xl mx-auto text-center">
+
+    <!-- Animated logo -->
+    <div class="inline-block mb-2 relative">
+      <svg class="meridian-mark" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
+        <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
+        <path class="half-patina" d="M193.3,373.5c3.4,19,19,16.8,19,16.8c18.6,0,18.6-20.5,18.6-20.5c0.3-2.5,0.7-4.9,1.2-7.4c12.8-66,61.9-117.8,127.6-137.4c23.3-7,40.4-6.9,40.4-6.9c-115.5-6-156.1-119.2-156.1-119.2c20.7,61.9,4.4,108.3-6.5,129.5c-3.3,6.1-8.4,13.5-12.8,19.4c-2.9,3.7-5.6,7.4-8.1,10.7l0,0l0,0c-4.5,5.9-7.7,10.3-7.7,10.3C174,315.2,193.3,373.5,193.3,373.5z"/>
+      </svg>
+    </div>
+    <p class="text-arctic font-semibold tracking-[0.34em] text-[14px] mt-2">MERIDIAN</p>
+    <p class="text-[10px] tracking-[0.28em] uppercase accent mt-1.5">Built for you to win</p>
+
+    <!-- Eyebrow with countdown -->
+    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mt-8 mb-5"
+         style="background: rgba(82,113,110,0.10); border: 1px solid rgba(82,113,110,0.32);">
+      <span class="pulse-dot"></span>
+      <span class="eyebrow !text-[10.5px]">Founders List · <span data-counter="founders">347</span>/1,000 plazas tomadas</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="h-display max-w-4xl mx-auto">
+      Sé <span class="accent">Founder</span> del broker<br class="hidden sm:block">
+      que siempre quisiste tener.
+    </h1>
+
+    <p class="body-text mt-7 max-w-2xl mx-auto !text-[17px]">
+      Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span> y recibe
+      equity real, voz en lo que construimos, comunidad privada — y la libertad total de tradear
+      con la estrategia que tú quieras.
+    </p>
+
+    <!-- Countdown -->
+    <div class="mt-10">
+      <p class="eyebrow mb-4 text-[10px]">Las plazas se cierran cuando se llenen los 1,000</p>
+      <div class="countdown justify-center" id="countdown">
+        <div class="cd-cell"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Días</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-cell"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Horas</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-cell"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Min</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-cell"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seg</div></div>
+      </div>
+    </div>
+
+    <!-- VSL video -->
+    <div class="mt-10">
+      <div class="vsl-frame" id="vslFrame">
+        <span class="vsl-live-pill">
+          <span class="pulse-dot" style="width:7px;height:7px;"></span>
+          MERIDIAN · PRE-LAUNCH
+        </span>
+        <span class="vsl-stats-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span><span data-counter="founders">347</span>/1,000 founders</span>
+        </span>
+        <div class="vsl-poster" aria-hidden="true"></div>
+        <button class="vsl-play-btn" id="vslPlayBtn" aria-label="Reproducir video">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+        <video id="vslVideo" preload="none" controls playsinline poster="/assets/cinematic/01c-hero-peak.png" class="hidden"></video>
+      </div>
+    </div>
+
+    <!-- Primary CTA -->
+    <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="#registro" class="btn-pill">
+        Quiero ser Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
+      <span class="date-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        25 jun · 2026
+      </span>
+      <span class="date-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        7:00 PM · CDMX
+      </span>
+      <span class="date-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Sesión en vivo · Founders únicamente
+      </span>
+    </div>
+
+    <div class="mt-10 flex justify-center">
+      <a href="#metricas" class="scroll-cue" aria-label="Continuar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 03 · SOCIAL PROOF (Números) ════════════════════════ -->
+<section id="metricas" class="px-6 py-14 lg:py-18 section-band">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 reveal">
+      <div class="metric">
+        <div class="num"><span data-counter="founders">347</span>/1K</div>
+        <div class="lbl">Founders ya adentro · de 1,000 plazas totales</div>
+      </div>
+      <div class="metric">
+        <div class="num" data-countup-target="23">23</div>
+        <div class="lbl">Países LATAM con traders Founders</div>
+      </div>
+      <div class="metric">
+        <div class="num">100%</div>
+        <div class="lbl">Sin conflicto de interés · Transparencia total</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 04 · TRANSFORMACIÓN (Antes / Ahora) ════════════════════════ -->
+<section id="transformacion" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">La diferencia que hace ser Founder</p>
+      <h2 class="h1">Cómo se ve tu vida como trader<br class="hidden sm:block"><span class="accent">antes y después</span> de entrar.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 reveal">
+      <div class="trans-card trans-before">
+        <h3 class="h3 mb-4" style="color: rgba(255,107,107,0.85);">Trader sin Founder</h3>
+        <ul class="space-y-3">
+          <li class="flex gap-3 items-start text-[14.5px]" style="color: rgba(255,255,255,0.72);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,107,107,0.6)" stroke-width="2.2" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Pagas spreads que el broker infla cuando le conviene.
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]" style="color: rgba(255,255,255,0.72);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,107,107,0.6)" stroke-width="2.2" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Te prohíben scalping, HFT, news trading "porque la cuenta es de evaluación".
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]" style="color: rgba(255,255,255,0.72);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,107,107,0.6)" stroke-width="2.2" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Eres un número más en una hoja de clientes para los brokers B-book.
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]" style="color: rgba(255,255,255,0.72);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,107,107,0.6)" stroke-width="2.2" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Cuando pides una feature, te ignoran o te dan letra chica.
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]" style="color: rgba(255,255,255,0.72);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,107,107,0.6)" stroke-width="2.2" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Cuando ganas mucho, congelan retiros, cierran cuentas, "investigan".
+          </li>
+        </ul>
+      </div>
+
+      <div class="trans-card trans-after">
+        <h3 class="h3 mb-4 accent-light">Founder de Meridian</h3>
+        <ul class="space-y-3">
+          <li class="flex gap-3 items-start text-[14.5px]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
+            <span><span class="text-arctic font-semibold">Equity real del broker</span> — cuando Meridian crece, tú creces.</span>
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
+            <span><span class="text-arctic font-semibold">Cualquier estrategia permitida</span> — scalping, HFT, arbitraje, news, lo que tú quieras.</span>
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
+            <span><span class="text-arctic font-semibold">Voz en el roadmap</span> — pides una feature, la construimos. 1 Founder · 1 voto.</span>
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
+            <span><span class="text-arctic font-semibold">Comunidad privada</span> con los otros 999 founders + el equipo.</span>
+          </li>
+          <li class="flex gap-3 items-start text-[14.5px]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-0.5"><path d="M5 12l5 5L20 7"/></svg>
+            <span><span class="text-arctic font-semibold">Sin conflicto de interés</span> — el broker no te quiere ver perder. Ganas tú, ganamos todos.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-center mt-10 max-w-2xl mx-auto text-[15px] reveal" style="color: rgba(255,255,255,0.78);">
+      Esto no es promesa de marketing. Es <span class="accent font-semibold">estructura del producto</span>:
+      sin conflicto de interés, código abierto a Founders, y equity asignado por contrato.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════ 05 · EL PLAN ════════════════════════ -->
+<section id="plan" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">El plan Founder</p>
+      <h2 class="h1">Tu broker en <span class="accent">piloto automático</span>,<br class="hidden sm:block">con equity desde el día uno.</h2>
+      <p class="body-text mt-6">Cuando entras a los 1,000 Founders, todo esto se activa automáticamente — sin trámites, sin upgrades, sin letras chicas.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 reveal">
+      <div class="plan-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8m4 13V5m4 16V9m4 12V7M3 3v18"/></svg></div>
+        <p class="num mb-2">PILAR 01</p>
+        <h3 class="h3 mb-2">Equity Real</h3>
+        <p class="body-text !text-[14px]">Recibes participación del broker antes del lanzamiento público. Tu nombre queda en el contrato como uno de los 1,000.</p>
+      </div>
+
+      <div class="plan-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <p class="num mb-2">PILAR 02</p>
+        <h3 class="h3 mb-2">Voz Directa</h3>
+        <p class="body-text !text-[14px]">Pides una feature, la construimos. Quieres ver algo en el dashboard, lo agregamos. Los Founders deciden el rumbo.</p>
+      </div>
+
+      <div class="plan-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 8v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V8z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <p class="num mb-2">PILAR 03</p>
+        <h3 class="h3 mb-2">Libertad Total</h3>
+        <p class="body-text !text-[14px]">Scalping, HFT, arbitraje, news, swing, algo, copy — todo permitido. Sin volumen mínimo, sin estrategia restringida.</p>
+      </div>
+
+      <div class="plan-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <p class="num mb-2">PILAR 04</p>
+        <h3 class="h3 mb-2">Comunidad Privada</h3>
+        <p class="body-text !text-[14px]">Acceso al Telegram exclusivo de los 999 otros Founders + equipo de Meridian. Conexiones reales, no foros muertos.</p>
+      </div>
+
+      <div class="plan-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7l-8 4-8-4 8-4 8 4z"/><path d="M4 12l8 4 8-4"/><path d="M4 17l8 4 8-4"/></svg></div>
+        <p class="num mb-2">PILAR 05</p>
+        <h3 class="h3 mb-2">Eventos Founders</h3>
+        <p class="body-text !text-[14px]">Trader Gala anual, masterminds privados, sesiones con traders profesionales — todo incluido, sin costo extra.</p>
+      </div>
+
+      <div class="plan-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <p class="num mb-2">PILAR 06</p>
+        <h3 class="h3 mb-2">Acceso Vitalicio</h3>
+        <p class="body-text !text-[14px]">Una vez Founder, eres Founder para siempre. Cero renovaciones, cero costos recurrentes. Para siempre.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#registro" class="btn-pill">
+        Quiero ser Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 06 · CREDIBILIDAD DEL FUNDADOR ════════════════════════ -->
+<section id="fundador" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal">
+      <div class="lg:col-span-5">
+        <div class="relative aspect-[4/5] rounded-2xl overflow-hidden max-w-sm mx-auto glass-strong">
+          <img src="/assets/josue-portrait.png" alt="Josué Melero, fundador de Meridian" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight via-midnight/40 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-midnight/80 backdrop-blur border border-white/10">
+            <span class="text-[11px] tracking-wide text-pewter">@josuemelero · 🇲🇽</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-3">Quién está detrás</p>
+        <h2 class="h2">Construí el broker que <span class="accent">yo necesitaba</span><br class="hidden sm:block">y no encontraba en LATAM.</h2>
+        <p class="body-text mt-5">
+          Soy Josué Melero. Llevo años operando con brokers que prometen una cosa y entregan otra:
+          spreads inflados cuando hay volatilidad, restricciones de estrategia disfrazadas de
+          "compliance", y soporte que aparece cuando ya perdiste el dinero.
+        </p>
+        <p class="body-text mt-4">
+          Después de probar prop firms donde el broker gana cuando pierdes, brokers offshore y plataformas que tratan al trader
+          como enemigo, decidí construir <span class="text-arctic font-semibold">lo que no existía</span>: un broker
+          sin conflicto de interés, con traders adentro como Founders, con voz en el roadmap, con equity de verdad.
+        </p>
+        <p class="body-text mt-4">
+          Meridian no es otro broker más. Es <span class="accent font-semibold">un broker construido contigo adentro</span> —
+          y por eso solo abrimos 1,000 plazas. Cuando se llenan, se cierra para siempre.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-4">
+          <div class="flex items-center gap-2.5 text-[13px]" style="color: rgba(255,255,255,0.72);">
+            <span class="w-1.5 h-1.5 rounded-full" style="background: var(--patina-light);"></span>
+            <span>+8 años operando mercados</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-[13px]" style="color: rgba(255,255,255,0.72);">
+            <span class="w-1.5 h-1.5 rounded-full" style="background: var(--patina-light);"></span>
+            <span>+450K seguidores en LATAM</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-[13px]" style="color: rgba(255,255,255,0.72);">
+            <span class="w-1.5 h-1.5 rounded-full" style="background: var(--patina-light);"></span>
+            <span>Construyendo desde 🇲🇽 CDMX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 07 · IG / UGC GRID ════════════════════════ -->
+<section id="comunidad" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">La comunidad ya está adentro</p>
+      <h2 class="h2"><span class="accent">347 traders</span> Founders ya están construyendo<br class="hidden sm:block">el broker contigo.</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 reveal">
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.32), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"Llegué al Founder #87 hace 2 semanas. Mi cuenta ya no la tocan."</p>
+      </div>
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.18), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"El Telegram de Founders es oro. Pregunté algo y respondió el CEO."</p>
+      </div>
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.42), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"Pedí integración con TradingView. La tienen en 3 semanas."</p>
+      </div>
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.22), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"Mi primer broker que de verdad respeta scalping. Por fin."</p>
+      </div>
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.36), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"Founder #142. Esto no es un broker, es un movimiento."</p>
+      </div>
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.14), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"Cero spread inflado. Cero limitaciones. Cero excusas."</p>
+      </div>
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.28), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"Mi voto cuenta. Eso es lo que cambia todo."</p>
+      </div>
+      <div class="ig-tile" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.46), rgba(11,18,32,0.95));">
+        <svg class="ig-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+        <p class="ig-label">"Si vas a ser trader serio, esto es lo que estabas esperando."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 08 · FILOSOFÍA / LIBERTAD ════════════════════════ -->
+<section id="filosofia" class="px-6 py-18 lg:py-24 relative overflow-hidden section-divider">
+  <div class="absolute bottom-0 right-0 w-[400px] h-[400px] hex-bg pointer-events-none opacity-50"
+       style="-webkit-mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%); mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%);"></div>
+
+  <div class="max-w-5xl mx-auto relative text-center reveal">
+    <p class="eyebrow mb-4">Filosofía Meridian</p>
+    <h2 class="h-display max-w-4xl mx-auto" style="font-size: clamp(2.2rem, 5.5vw, 4.2rem);">
+      Esto no es sobre <span style="color: rgba(255,255,255,0.4); font-weight: 500;">tener un broker.</span><br class="hidden sm:block">
+      Es sobre tener <span class="accent">libertad total</span> para tradear como tú quieras.
+    </h2>
+    <p class="body-text mt-8 max-w-2xl mx-auto !text-[17px]">
+      Llevamos años viendo cómo brokers tratan a los traders LATAM como enemigos. Letras chicas,
+      retiros congelados, "investigaciones" cuando alguien empieza a ganar de verdad.
+    </p>
+    <p class="body-text mt-4 max-w-2xl mx-auto !text-[17px]">
+      Meridian es la respuesta. Construido por traders, para traders, con equity real para los
+      primeros 1,000. <span class="text-arctic font-semibold">No estás aquí para ser otro cliente.
+      Estás aquí para ser dueño.</span>
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-2 justify-center max-w-3xl mx-auto">
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Scalping</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> HFT</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Arbitraje</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> News Trading</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Swing</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Position</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Hedging</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Grid</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Algo</span>
+      <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Copy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 09 · COMPARATIVA Broker normal vs Founder ════════════════════════ -->
+<section id="comparativa" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">Comparativa honesta</p>
+      <h2 class="h1">Qué pasa cuando comparas <br class="hidden sm:block">un broker normal con <span class="accent">ser Founder</span>.</h2>
+    </div>
+
+    <div class="rounded-2xl overflow-hidden glass-strong reveal">
+      <div class="comp-row" style="background: rgba(11,18,32,0.6);">
+        <div class="comp-head muted">CRITERIO</div>
+        <div class="comp-head" style="color: rgba(255,107,107,0.78);">Broker B-book típico</div>
+        <div class="comp-head accent-light" style="background: rgba(82,113,110,0.10);">Founder Meridian</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Modelo de ejecución</div>
+        <div class="comp-cell bad">B-book — gana cuando pierdes</div>
+        <div class="comp-cell good">Sin conflicto de interés — alineado contigo</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Equity en el broker</div>
+        <div class="comp-cell bad">Cero. Eres cliente, no dueño.</div>
+        <div class="comp-cell good">Sí, equity real desde día 1</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Estrategias permitidas</div>
+        <div class="comp-cell bad">Restringidas (no scalping, no HFT, no news)</div>
+        <div class="comp-cell good">Todas, sin excepción</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Voz en el roadmap</div>
+        <div class="comp-cell bad">Ninguna — eres ticket</div>
+        <div class="comp-cell good">1 Founder · 1 voto</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Volumen mínimo de operación</div>
+        <div class="comp-cell bad">Sí, "para mantener cuenta activa"</div>
+        <div class="comp-cell good">Cero. Tradea cuando quieras</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Retiros</div>
+        <div class="comp-cell bad">"Investigamos" si ganas mucho</div>
+        <div class="comp-cell good">Inmediatos, sin condiciones</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Comunidad / Network</div>
+        <div class="comp-cell bad">Foro abandonado o cero</div>
+        <div class="comp-cell good">Telegram privado de 1,000 traders</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell lbl">Eventos en vivo</div>
+        <div class="comp-cell bad">Webinars de venta cada mes</div>
+        <div class="comp-cell good">Trader Gala anual + masterminds</div>
+      </div>
+      <div class="comp-row" style="border-bottom: 0;">
+        <div class="comp-cell lbl">Acceso</div>
+        <div class="comp-cell bad">Abierto · siempre buscando ventas</div>
+        <div class="comp-cell good">Cerrado al Founder #1,000 para siempre</div>
+      </div>
+    </div>
+
+    <p class="text-center mt-10 max-w-2xl mx-auto text-[15px] reveal" style="color: rgba(255,255,255,0.72);">
+      No estamos diciendo que los otros brokers sean malos. Estamos diciendo que <span class="text-arctic font-semibold">están construidos para ellos, no para ti</span>.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════ 10 · LO QUE GANAS COMO FOUNDER (íconos) ════════════════════════ -->
+<section id="ganas" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">Tudo sobre ser Founder</p>
+      <h2 class="h1">Lo que recibes en el <span class="accent">momento exacto</span> en que entras.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 reveal">
+      <div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12V8a4 4 0 0 0-8 0v4"/><rect x="5" y="12" width="14" height="10" rx="2"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Contrato de equity firmado</h3>
+        <p class="body-text !text-[14px]">Tu participación en el broker, registrada legalmente — antes del lanzamiento público.</p>
+      </div>
+
+      <div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 8v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V8z"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Acceso a la cuenta Founder</h3>
+        <p class="body-text !text-[14px]">Spreads institucionales, ejecución directa al mercado, sin marcado oculto sobre el precio.</p>
+      </div>
+
+      <div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Telegram de Founders</h3>
+        <p class="body-text !text-[14px]">Comunidad privada con los otros 999 + Josué + el equipo de producto. Conexión directa.</p>
+      </div>
+
+      <div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Roadmap voting</h3>
+        <p class="body-text !text-[14px]">Cada feature nueva se vota. 1 Founder · 1 voto. Las prioridades del equipo las decides tú.</p>
+      </div>
+
+      <div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Onboarding 1:1 con el equipo</h3>
+        <p class="body-text !text-[14px]">Sesión inicial personalizada para configurar tu cuenta y entender todas las features Founder.</p>
+      </div>
+
+      <div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Trader Gala anual</h3>
+        <p class="body-text !text-[14px]">Evento físico para los 1,000 Founders cada año. Cena, conexiones, traders pro como invitados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 11 · MÓDULOS EXPANDIBLES ════════════════════════ -->
+<section id="modulos" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <p class="eyebrow mb-3">Profundidad Founder</p>
+      <h2 class="h1">Cada pilar, <span class="accent">explicado a fondo</span>.</h2>
+      <p class="body-text mt-5 max-w-2xl mx-auto">Lee con detalle qué significa cada uno de los 6 pilares Founder. Sin letra chica, sin asteriscos.</p>
+    </div>
+
+    <div class="space-y-3 reveal">
+      <div class="mod-item">
+        <button class="mod-trigger">
+          <span class="mod-num">01</span>
+          <span class="mod-title">Equity real — tu nombre en el contrato</span>
+          <svg class="mod-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mod-body">
+          <div class="mod-content">
+            Al cerrar la lista de los 1,000 Founders, cada uno recibe un contrato de equity con su nombre, plaza asignada
+            y porcentaje proporcional. Esto no es token, no es punto, no es cashback — es participación real del broker.
+            Cuando Meridian crece (clientes, volumen, expansión), tu equity crece. Cuando hay reparto de utilidades
+            (definido por board que incluye Founders), recibes la parte que te corresponde.
+            <div class="mod-quote">
+              "El riesgo viene de no saber qué estás haciendo. Saber que tienes equity real, con un contrato real, en un broker que tú ayudaste a construir — eso es el opuesto al riesgo."
+              <span class="author">— principio adaptado de Warren Buffett</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <button class="mod-trigger">
+          <span class="mod-num">02</span>
+          <span class="mod-title">Voz directa — tu voto cuenta</span>
+          <svg class="mod-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mod-body">
+          <div class="mod-content">
+            Cada feature nueva del producto pasa por un voto Founder antes de entrar al roadmap. Si la mayoría
+            quiere TradingView nativo antes que copy trading, eso es lo que construimos. Si quieren más pares
+            crypto que más pares de FX, eso es lo que priorizamos. <span class="accent font-semibold">El equipo de
+            marketing no decide el producto — tú sí.</span>
+            <div class="mod-quote">
+              "Conoce lo que tienes y por qué. Cuando los traders mismos definen el producto, no hay tonterías, no hay features para impresionar, solo lo que mueve la aguja."
+              <span class="author">— principio adaptado de Peter Lynch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <button class="mod-trigger">
+          <span class="mod-num">03</span>
+          <span class="mod-title">Libertad total — sin estrategias prohibidas</span>
+          <svg class="mod-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mod-body">
+          <div class="mod-content">
+            Scalping de 1 segundo. HFT. Arbitraje entre exchanges. News trading con volatilidad pre-FOMC.
+            Algoritmos custom. Copy trading desde múltiples cuentas. <span class="text-arctic font-semibold">Todo permitido.</span>
+            Sin volumen mínimo, sin máximo de retiro, sin letra pequeña que aparece cuando ganas mucho.
+            <div class="mod-quote">
+              "La gran ventaja es pensar correctamente. La libertad de aplicar lo que piensas, sin que un broker te frene, es de lo que se trata Meridian."
+              <span class="author">— principio adaptado de Charlie Munger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <button class="mod-trigger">
+          <span class="mod-num">04</span>
+          <span class="mod-title">Comunidad — los 999 otros Founders</span>
+          <svg class="mod-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mod-body">
+          <div class="mod-content">
+            Acceso al Telegram privado con los otros 999 traders Founders + Josué + el equipo de producto.
+            Esto no es un foro genérico. Es una comunidad curada: cada miembro pasó por la misma puerta que tú,
+            con la misma filosofía. Comparten setups, debaten posiciones, se conocen en los eventos.
+            <span class="accent font-semibold">El network solo vale 100x el broker.</span>
+            <div class="mod-quote">
+              "Invierte en lo que entiendes. Los Founders entienden a otros Founders. La comunidad es el producto que ningún broker te puede vender — solo construir."
+              <span class="author">— principio adaptado de Peter Lynch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <button class="mod-trigger">
+          <span class="mod-num">05</span>
+          <span class="mod-title">Eventos — Trader Gala y masterminds</span>
+          <svg class="mod-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mod-body">
+          <div class="mod-content">
+            Una vez al año, los 1,000 Founders se juntan físicamente en la <span class="accent font-semibold">Trader
+            Gala</span>: cena formal, traders profesionales como invitados, masterminds en mesas pequeñas, networking
+            real (no de pasillo). Adicionalmente, masterminds online de grupos reducidos cada trimestre. Todo
+            incluido, cero costo extra.
+            <div class="mod-quote">
+              "Compra negocios maravillosos y mantenlos por décadas. Los Founders no son clientes — son socios de largo plazo en algo que se construye despacio."
+              <span class="author">— principio adaptado de Warren Buffett</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <button class="mod-trigger">
+          <span class="mod-num">06</span>
+          <span class="mod-title">Acceso vitalicio — para siempre</span>
+          <svg class="mod-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mod-body">
+          <div class="mod-content">
+            Una vez Founder, siempre Founder. Tu plaza no caduca. Tu equity no se diluye en rondas futuras
+            sin tu consentimiento. Tu acceso al Telegram, a la Gala, a los masterminds, a las cuentas Founder —
+            es vitalicio. <span class="text-arctic font-semibold">Cero suscripciones, cero renovaciones,
+            cero "upgrade premium".</span>
+            <div class="mod-quote">
+              "La razón por la que la gente no construye riqueza es porque cambia de barco constantemente. Founder es un compromiso de largo plazo, en ambos lados."
+              <span class="author">— Philip Fisher, adaptado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 12 · FORMATO + AUDIENCIA ════════════════════════ -->
+<section id="formato" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 reveal">
+      <div class="rounded-2xl p-7 lg:p-9 glass">
+        <p class="eyebrow mb-4">Cómo funciona</p>
+        <h3 class="h2 mb-4">100% digital. Onboarding en vivo.</h3>
+        <ul class="space-y-3 mt-5">
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Te registras hoy, recibes confirmación con tu número Founder.
+          </li>
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Sesión en vivo el 25 jun · 7PM CDMX para todos los Founders.
+          </li>
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Acceso inmediato al Telegram privado tras registrarte.
+          </li>
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Cuentas Founder activas en el lanzamiento (Q3 2026).
+          </li>
+        </ul>
+      </div>
+
+      <div class="rounded-2xl p-7 lg:p-9 glass">
+        <p class="eyebrow mb-4">¿Para quién es?</p>
+        <h3 class="h2 mb-4">Para traders LATAM que están listos para más.</h3>
+        <ul class="space-y-3 mt-5">
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Traders que tradean en serio — desde principiante con cuenta real hasta pro.
+          </li>
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Cansados de B-book brokers que te cierran cuenta cuando ganas.
+          </li>
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Quieren ser parte de algo más grande, no solo cliente de algo más.
+          </li>
+          <li class="flex gap-3 items-start text-[15px]" style="color: rgba(255,255,255,0.82);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2.4" stroke-linecap="round" class="flex-shrink-0 mt-1"><path d="M5 12l5 5L20 7"/></svg>
+            Tienen criterio para identificar cuándo algo es real vs hype.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 13 · SOPORTE EN VIVO ════════════════════════ -->
+<section id="soporte" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-5xl mx-auto text-center reveal">
+    <p class="eyebrow mb-3">Soporte como ningún otro broker</p>
+    <h2 class="h1">No vas a estar solo. <span class="accent">Nunca.</span></h2>
+    <p class="body-text mt-6 max-w-3xl mx-auto !text-[17px]">
+      Telegram privado con respuesta del equipo en horas, no días. Sesiones Q&A en vivo cada mes con Josué.
+      Soporte 1:1 para tu onboarding. <span class="text-arctic font-semibold">Esto es lo que un broker debería ser desde siempre.</span>
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+      <div class="rounded-2xl p-5 glass text-left">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Telegram 24/7</h3>
+        <p class="body-text !text-[13.5px]">Respuesta del equipo + de la comunidad. Cero "abre un ticket".</p>
+      </div>
+      <div class="rounded-2xl p-5 glass text-left">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Q&A en vivo mensuales</h3>
+        <p class="body-text !text-[13.5px]">Sesiones con Josué + equipo de producto. Grabadas y archivadas.</p>
+      </div>
+      <div class="rounded-2xl p-5 glass text-left">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <h3 class="h3 mb-2">Onboarding 1:1</h3>
+        <p class="body-text !text-[13.5px]">Sesión personal para configurar tu cuenta Founder al detalle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 14 · TESTIMONIOS EN FOTO ════════════════════════ -->
+<section id="testimonios" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">Los Founders hablan</p>
+      <h2 class="h1">Ya somos <span class="accent">347 traders</span> construyendo<br class="hidden sm:block">el broker juntos.</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 reveal">
+      <div class="founder-card">
+        <div class="photo"><img src="/assets/testimonial-ana.png" alt="Ana M."/></div>
+        <div class="tag">FOUNDER #87</div>
+        <div class="quote"><p>"Por fin un broker que no me trata como enemigo."</p><span>Ana M. · CDMX 🇲🇽</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><img src="/assets/testimonial-luis.png" alt="Luis R."/></div>
+        <div class="tag">FOUNDER #112</div>
+        <div class="quote"><p>"Pedí integración TradingView, la construyeron."</p><span>Luis R. · Bogotá 🇨🇴</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><img src="/assets/testimonial-roberto.png" alt="Roberto G."/></div>
+        <div class="tag">FOUNDER #156</div>
+        <div class="quote"><p>"El Telegram solo vale más que el equity."</p><span>Roberto G. · Lima 🇵🇪</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">MS</div></div>
+        <div class="tag">FOUNDER #201</div>
+        <div class="quote"><p>"Llevo 6 años tradeando. Esto cambia el juego."</p><span>María S. · Santiago 🇨🇱</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">JV</div></div>
+        <div class="tag">FOUNDER #224</div>
+        <div class="quote"><p>"Por primera vez siento que el broker me respeta."</p><span>Javier V. · Buenos Aires 🇦🇷</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">DH</div></div>
+        <div class="tag">FOUNDER #245</div>
+        <div class="quote"><p>"Pedí una feature. Respondió el CEO directo."</p><span>Diego H. · Madrid 🇪🇸</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">PC</div></div>
+        <div class="tag">FOUNDER #267</div>
+        <div class="quote"><p>"Que el broker no gane cuando pierdo se nota en cada operación."</p><span>Paula C. · Quito 🇪🇨</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">FN</div></div>
+        <div class="tag">FOUNDER #289</div>
+        <div class="quote"><p>"Vale lo que pagué x10 solo por la comunidad."</p><span>Fernando N. · Caracas 🇻🇪</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">CA</div></div>
+        <div class="tag">FOUNDER #301</div>
+        <div class="quote"><p>"Tengo equity en un broker. Lee eso otra vez."</p><span>Camila A. · Medellín 🇨🇴</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">MT</div></div>
+        <div class="tag">FOUNDER #318</div>
+        <div class="quote"><p>"La Trader Gala sola justifica entrar ya."</p><span>Mateo T. · Monterrey 🇲🇽</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">LB</div></div>
+        <div class="tag">FOUNDER #329</div>
+        <div class="quote"><p>"Esto no es un broker, es un movimiento."</p><span>Laura B. · Guadalajara 🇲🇽</span></div>
+      </div>
+      <div class="founder-card">
+        <div class="photo"><div class="initials">SR</div></div>
+        <div class="tag">FOUNDER #341</div>
+        <div class="quote"><p>"Sin volumen mínimo. Sin restricciones. Por fin."</p><span>Santiago R. · Asunción 🇵🇾</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 15 · TESTIMONIOS EN VIDEO ════════════════════════ -->
+<section id="videos" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">Escúchalo de ellos</p>
+      <h2 class="h1"><span class="accent">4 Founders</span> cuentan por qué entraron.</h2>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+      <div class="vid-card" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.38), rgba(11,18,32,0.95));">
+        <button class="vid-play" aria-label="Reproducir testimonio Ana">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: white; margin-left: 3px;"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+        <div class="vid-meta">
+          <p class="name">Ana M.</p>
+          <p class="loc">CDMX · Founder #87</p>
+        </div>
+      </div>
+      <div class="vid-card" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.24), rgba(11,18,32,0.95));">
+        <button class="vid-play" aria-label="Reproducir testimonio Luis">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: white; margin-left: 3px;"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+        <div class="vid-meta">
+          <p class="name">Luis R.</p>
+          <p class="loc">Bogotá · Founder #112</p>
+        </div>
+      </div>
+      <div class="vid-card" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.42), rgba(11,18,32,0.95));">
+        <button class="vid-play" aria-label="Reproducir testimonio Roberto">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: white; margin-left: 3px;"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+        <div class="vid-meta">
+          <p class="name">Roberto G.</p>
+          <p class="loc">Lima · Founder #156</p>
+        </div>
+      </div>
+      <div class="vid-card" style="background-image: linear-gradient(135deg, rgba(82,113,110,0.30), rgba(11,18,32,0.95));">
+        <button class="vid-play" aria-label="Reproducir testimonio María">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: white; margin-left: 3px;"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+        <div class="vid-meta">
+          <p class="name">María S.</p>
+          <p class="loc">Santiago · Founder #201</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 rounded-2xl p-7 lg:p-9 glass max-w-3xl mx-auto reveal">
+      <div class="flex gap-3 mb-4">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#7D9A96"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23 4.001C20.494 4.985 18.961 7.097 18.961 9.5L23 9.5L23 18L14.017 18ZM0 18L0 10.609C0 4.905 3.748 1.039 9 0L9 4.001C6.494 4.985 4.961 7.097 4.961 9.5L9 9.5L9 18L0 18Z"/></svg>
+      </div>
+      <p class="text-arctic text-[18px] lg:text-[22px] leading-relaxed font-medium">
+        El concepto Founder de Meridian me convenció en 5 minutos. Llevaba 4 años saltando entre brokers buscando uno que no me tratara como enemigo. Encontré algo mejor — un broker que me considera socio.
+        <span class="accent font-semibold">Esto no se compara con nada.</span>
+      </p>
+      <p class="mt-5 text-[13px] muted">— Santiago R. · Trader full-time · Asunción 🇵🇾 · Founder #341</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 16 · BONUS STACK ════════════════════════ -->
+<section id="bonos" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 max-w-3xl mx-auto reveal">
+      <p class="eyebrow mb-3">Bonos exclusivos Founder</p>
+      <h2 class="h1">Además de todo lo anterior...<br class="hidden sm:block">recibes <span class="accent">3 bonos</span> que nadie más tiene.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal">
+      <div class="bonus-card">
+        <span class="bonus-num">BONUS · 01</span>
+        <h3 class="bonus-name">PLAZA PARA UN AMIGO</h3>
+        <p class="body-text !text-[14.5px]">Regalas una plaza Founder a un trader de tu elección. Ambos entran. La regla del founder: <em>si quieres ir lejos, ve acompañado.</em></p>
+        <p class="bonus-value">VALOR: 1 plaza Founder de 1,000</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-num">BONUS · 02</span>
+        <h3 class="bonus-name">ACCESO VITALICIO</h3>
+        <p class="body-text !text-[14.5px]">Tu plaza no caduca. Tu equity no se diluye sin tu voto. Todas las features futuras del producto, incluidas. Para siempre.</p>
+        <p class="bonus-value">VALOR: incalculable · ciclo de vida del broker</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-num">BONUS · 03</span>
+        <h3 class="bonus-name">TRADER GALA + MASTERMINDS</h3>
+        <p class="body-text !text-[14.5px]">Evento físico anual con los 1,000 Founders + masterminds trimestrales online con traders pro como invitados. Todo incluido.</p>
+        <p class="bonus-value">VALOR: 4 eventos premium/año</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 17 · GARANTÍA ════════════════════════ -->
+<section id="garantia" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center reveal">
+      <div class="md:col-span-4 flex justify-center">
+        <div class="guarantee-badge">
+          <span class="gb-eyebrow">PLAZA RESERVADA</span>
+          <span class="gb-big">100%</span>
+          <span class="gb-label">Para siempre</span>
+        </div>
+      </div>
+      <div class="md:col-span-8">
+        <p class="eyebrow mb-3">Garantía Founder</p>
+        <h2 class="h2 mb-5">Tu plaza queda <span class="accent">reservada para siempre.</span></h2>
+        <p class="body-text !text-[16px]">
+          Cuando entres a los 1,000 Founders, tu plaza no caduca. Tu equity no se diluye en rondas futuras
+          sin tu voto. Tu acceso a comunidad, eventos y cuentas Founder es <span class="text-arctic font-semibold">vitalicio</span>.
+        </p>
+        <p class="body-text !text-[16px] mt-4">
+          Y si por cualquier razón decides no continuar antes del lanzamiento oficial,
+          recuperamos tu plaza para otro trader y te liberamos sin costo, sin preguntas.
+          <span class="accent font-semibold">Yo, Josué Melero, te lo garantizo personalmente.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 18 · CHECKLIST DE INCLUSIONES ════════════════════════ -->
+<section id="incluye" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <p class="eyebrow mb-3">Lo que recibes</p>
+      <h2 class="h1">Tu inscripción Founder <span class="accent">incluye todo esto</span>.</h2>
+    </div>
+
+    <div class="rounded-2xl p-6 lg:p-8 glass reveal">
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Contrato de equity Founder</span> firmado y registrado.</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Cuenta Founder con spreads institucionales</span> y ejecución directa al mercado.</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Telegram privado</span> con los 999 Founders + equipo Meridian.</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Voto en el roadmap del producto</span> — 1 Founder · 1 voto.</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Onboarding 1:1</span> con el equipo de producto.</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Trader Gala anual</span> + masterminds trimestrales, sin costo extra.</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Plaza para un amigo</span> a tu elección (1 invitación).</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Acceso vitalicio</span> — cero renovaciones, cero costos recurrentes.</span></div>
+      <div class="inc-item"><span class="inc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span><span><span class="text-arctic font-semibold">Garantía Founder 100%</span> — tu plaza reservada para siempre.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 19 · REGISTRO / PRICING ════════════════════════ -->
+<section id="registro" class="px-6 py-18 lg:py-28 section-band relative">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-3">Finaliza tu inscripción</p>
+        <h2 class="h1">Reserva tu plaza Founder<br class="hidden sm:block"><span class="accent">antes de que se cierre.</span></h2>
+        <p class="body-text mt-6 max-w-xl">
+          Una vez que entren los 1,000, esto se cierra para siempre. No habrá Founder #1,001.
+          <span class="text-arctic font-semibold">Es ahora, o nunca.</span>
+        </p>
+
+        <!-- Countdown repetido -->
+        <div class="mt-8">
+          <p class="eyebrow mb-3 !text-[10px]">Plazas disponibles</p>
+          <div class="countdown" id="countdown2">
+            <div class="cd-cell"><div class="cd-num" id="cd-days-2">00</div><div class="cd-label">Días</div></div>
+            <div class="cd-sep">:</div>
+            <div class="cd-cell"><div class="cd-num" id="cd-hours-2">00</div><div class="cd-label">Horas</div></div>
+            <div class="cd-sep">:</div>
+            <div class="cd-cell"><div class="cd-num" id="cd-mins-2">00</div><div class="cd-label">Min</div></div>
+            <div class="cd-sep">:</div>
+            <div class="cd-cell"><div class="cd-num" id="cd-secs-2">00</div><div class="cd-label">Seg</div></div>
+          </div>
+        </div>
+
+        <form id="foundersForm" class="mt-8 space-y-3 max-w-md" novalidate>
+          <label class="sr-only" for="f-name">Nombre completo</label>
+          <input id="f-name" name="name" type="text" required placeholder="Tu nombre completo"
+                 class="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none transition-colors text-[15px]"/>
+
+          <label class="sr-only" for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required placeholder="tu@email.com"
+                 class="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none transition-colors text-[15px]"/>
+
+          <div class="flex gap-2">
+            <select id="f-country" name="country" required class="px-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic focus:border-patina focus:outline-none text-[15px]" style="max-width:160px">
+              <option value="" class="bg-midnight">País</option>
+              <option value="MX" data-code="+52" class="bg-midnight">🇲🇽 México</option>
+              <option value="CO" data-code="+57" class="bg-midnight">🇨🇴 Colombia</option>
+              <option value="PE" data-code="+51" class="bg-midnight">🇵🇪 Perú</option>
+              <option value="CL" data-code="+56" class="bg-midnight">🇨🇱 Chile</option>
+              <option value="AR" data-code="+54" class="bg-midnight">🇦🇷 Argentina</option>
+              <option value="ES" data-code="+34" class="bg-midnight">🇪🇸 España</option>
+              <option value="OTHER" data-code="+1" class="bg-midnight">Otro</option>
+            </select>
+            <div class="relative flex-1">
+              <span id="phone-code" class="absolute inset-y-0 left-3 flex items-center text-arctic font-semibold text-[15px] pointer-events-none">+52</span>
+              <input id="f-phone" name="phone" type="tel" required placeholder="55 1234 5678" inputmode="tel" autocomplete="tel-national"
+                     class="w-full pl-14 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-lg text-arctic placeholder:text-pewter focus:border-patina focus:outline-none text-[15px]"/>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-pill w-full mt-2">
+            ¡SÍ! Quiero ser Founder
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+
+          <p id="formMsg" class="hidden text-[13px] text-center mt-3" role="status"></p>
+        </form>
+
+        <div class="mt-5">
+          <div class="flex justify-between text-[11px] mb-2">
+            <span class="muted flex items-center gap-1.5">
+              <span class="pulse-dot" style="width:7px;height:7px;"></span>
+              <span><span class="accent font-semibold"><span data-counter="founders">347</span></span>/1,000 founders ya adentro</span>
+            </span>
+            <span class="accent font-semibold"><span data-remaining>653</span> disponibles</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill" style="width: 34.7%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative">
+        <div class="relative aspect-[4/5] rounded-2xl overflow-hidden max-w-sm mx-auto glass-strong">
+          <img src="/assets/josue-portrait.png" alt="Josué Melero, fundador de Meridian"
+               class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight via-midnight/40 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-midnight/80 backdrop-blur border border-white/10">
+            <span class="text-[11px] tracking-wide text-pewter">@josuemelero · 🇲🇽</span>
+          </div>
+        </div>
+
+        <div class="absolute top-6 -left-2 sm:-left-4 hidden sm:block">
+          <div class="notif-card">
+            <span class="av">JM</span>
+            <div class="min-w-0">
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Juan M.</span> entró como Founder</p>
+              <p class="text-[10px] muted">hace 4 min · 🇲🇽</p>
+            </div>
+          </div>
+        </div>
+        <div class="absolute top-32 -right-2 sm:-right-4 hidden sm:block">
+          <div class="notif-card">
+            <span class="av">AC</span>
+            <div class="min-w-0">
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Andrea C.</span> es Founder #348</p>
+              <p class="text-[10px] muted">hace 12 min · 🇨🇴</p>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-6 -left-2 sm:-left-6 hidden sm:block">
+          <div class="notif-card">
+            <span class="av">RG</span>
+            <div class="min-w-0">
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Roberto G.</span> entró al Telegram</p>
+              <p class="text-[10px] muted">hace 21 min · 🇵🇪</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 20 · BIO DEL AUTOR ════════════════════════ -->
+<section id="autor" class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-4xl mx-auto text-center reveal">
+    <p class="eyebrow mb-3">Sobre el autor</p>
+    <h2 class="h2 mb-6">Josué Melero · <span class="accent">Founder & CEO de Meridian</span></h2>
+    <p class="body-text max-w-2xl mx-auto !text-[16px]">
+      Trader desde hace +8 años. Fundador de Meridian Broker. +450K seguidores en LATAM educando sobre
+      trading honesto, por qué el broker no debería ganar cuando tú pierdes, y por qué la mayoría de plataformas están construidas
+      en contra del trader retail.
+    </p>
+    <p class="body-text max-w-2xl mx-auto !text-[16px] mt-4">
+      Su misión con Meridian es simple: <span class="text-arctic font-semibold">construir el broker que él hubiera
+      querido tener cuando empezó</span> — con traders adentro como Founders, no como clientes.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3 justify-center">
+      <span class="date-chip">+8 años operando mercados</span>
+      <span class="date-chip">+450K seguidores en LATAM</span>
+      <span class="date-chip">Construyendo desde 🇲🇽 CDMX</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 21 · FAQ ════════════════════════ -->
+<section id="faq" class="px-6 py-18 lg:py-24 section-band">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <p class="eyebrow mb-3">Preguntas frecuentes</p>
+      <h2 class="h1">Lo que <span class="accent">otros traders</span> nos están preguntando.</h2>
+    </div>
+
+    <div class="space-y-3 reveal">
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Qué significa exactamente "ser Founder"?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">Significa que recibes equity real del broker antes del lanzamiento, voto en el roadmap, acceso a comunidad privada, cuenta con spreads institucionales y ejecución directa al mercado, eventos exclusivos. Tu nombre queda registrado como uno de los 1,000 fundadores. Para siempre.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Cuánto cuesta entrar?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">El detalle de pricing y modelo lo presentamos en la sesión en vivo del 25 jun · 7PM CDMX. Lo que sí podemos garantizar: el modelo está estructurado para que el valor que recibes (equity + comunidad + cuenta + eventos) supere por mucho lo que entras.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Qué pasa si no entro a los 1,000?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">Cuando entre el Founder #1,000, la lista se cierra. Para siempre. No habrá segunda ronda, no habrá Founder #1,001, no abriremos la oferta más adelante. Quedará abierto el broker como cliente regular — pero sin equity, sin voto, sin Telegram privado, sin Gala.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Por qué solo 1,000?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">Porque la comunidad solo funciona si todos los Founders se conocen, se hablan, y tienen voz real. Más de 1,000 y se convierte en un broker más, con foro genérico. La promesa Founder es solo válida con un número finito.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Puedo regalar mi plaza Founder si cambio de opinión?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">Sí. Si decides no continuar antes del lanzamiento oficial, recuperamos tu plaza para otro trader y te liberamos sin costo, sin preguntas. Si quieres transferirla a un amigo, también puedes hacerlo previo aviso al equipo.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Qué tipo de instrumentos puedo tradear?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">FX (mayores + menores + exóticos), índices (S&P, Nasdaq, DAX), materias primas (oro, plata, petróleo), criptomonedas spot y derivados, acciones de US y Europa. Roadmap: derivados estructurados, options en Q4 2026.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Aceptan estrategias de copy trading o algorítmicas?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">Sí, todo permitido. Scalping, HFT, arbitraje entre exchanges, news trading, copy trading, algoritmos custom vía API, grid, hedging. Cero estrategia prohibida. Cero volumen mínimo. Cero letras chicas.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">
+          <span>¿Es seguro? ¿Están regulados?</span>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-body"><div class="faq-content">Meridian está construido sobre infraestructura regulada en jurisdicción tier 1. Detalles legales completos los recibes con el contrato Founder al registrarte. Fondos segregados, custodia bancaria de primer nivel, auditorías trimestrales.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ 22 · CTA FINAL ════════════════════════ -->
+<section class="px-6 py-18 lg:py-24 section-divider">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <p class="eyebrow mb-4">Última oportunidad</p>
+    <h2 class="h1 mb-6">Cuando se cierran los 1,000,<br class="hidden sm:block"><span class="accent">esto se cierra para siempre.</span></h2>
+    <p class="body-text max-w-2xl mx-auto !text-[17px]">
+      No habrá Founder #1,001. No habrá segunda ronda. No habrá "ronda especial para nuestros mejores clientes".
+      <span class="text-arctic font-semibold">Es esto. Es ahora.</span>
+    </p>
+    <div class="mt-10">
+      <a href="#registro" class="btn-pill" style="padding: 1.3rem 3rem; font-size: 0.9rem;">
+        Reservar mi plaza Founder
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <p class="mt-6 text-[12px] muted">
+      <span data-remaining>653</span> plazas restantes · Cierre cuando se llene la lista
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="px-6 py-8 border-t border-white/5">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] muted">
+    <span class="tracking-[0.14em] uppercase font-semibold text-arctic/80">Meridian · Built for you to win.</span>
+    <div class="flex gap-4">
+      <a href="#" class="hover:text-arctic transition-colors">Términos</a>
+      <a href="#" class="hover:text-arctic transition-colors">Privacidad</a>
+    </div>
+    <span>© 2026 · All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- Sticky CTA mobile -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="text-[12px]" style="color: rgba(255,255,255,0.78);">
+    <span class="accent font-semibold"><span data-counter="founders">347</span></span>/1,000 · <span class="text-arctic font-semibold"><span data-remaining>653</span> plazas</span>
+  </div>
+  <a href="#registro" class="btn-pill">Quiero ser Founder</a>
+</div>
+
+<script>
+  // ── COUNTDOWN target: 25 jun 2026 7PM CDMX ──
+  const TARGET = new Date('2026-06-25T19:00:00-06:00').getTime();
+  const pad = (n) => String(n).padStart(2, '0');
+  function tickCountdown() {
+    const now = Date.now();
+    let diff = Math.max(0, TARGET - now);
+    const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+    const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+    const m = Math.floor(diff / 60000); diff -= m * 60000;
+    const s = Math.floor(diff / 1000);
+    ['cd-days', 'cd-days-2'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = pad(d); });
+    ['cd-hours', 'cd-hours-2'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = pad(h); });
+    ['cd-mins', 'cd-mins-2'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = pad(m); });
+    ['cd-secs', 'cd-secs-2'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = pad(s); });
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  // ── VSL play handler ──
+  const vslBtn = document.getElementById('vslPlayBtn');
+  const vslVideo = document.getElementById('vslVideo');
+  const vslFrame = document.getElementById('vslFrame');
+  if (vslBtn) {
+    vslBtn.addEventListener('click', () => {
+      vslVideo.classList.remove('hidden');
+      vslBtn.style.display = 'none';
+      vslFrame.querySelector('.vsl-poster').style.display = 'none';
+      if (vslVideo.querySelector('source') || vslVideo.src) {
+        vslVideo.play();
+      } else {
+        const msg = document.createElement('div');
+        msg.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,18,32,0.92);color:#7D9A96;font-size:14px;text-align:center;padding:2rem;';
+        msg.innerHTML = '<div><p style="margin:0 0 0.5rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;font-size:11px;">Video VSL</p><p style="opacity:0.7;font-size:13px;">Por integrar — agrega <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px;">/assets/vsl/meridian-vsl.mp4</code> en el &lt;source&gt; del &lt;video&gt;.</p></div>';
+        vslFrame.appendChild(msg);
+      }
+    });
+  }
+
+  // ── PHONE PREFIX ──
+  const countrySel = document.getElementById('f-country');
+  const phoneCode = document.getElementById('phone-code');
+  if (countrySel) {
+    countrySel.addEventListener('change', () => {
+      const opt = countrySel.options[countrySel.selectedIndex];
+      phoneCode.textContent = (opt && opt.getAttribute('data-code')) || '+';
+    });
+  }
+
+  // ── LIVE FOUNDER COUNTER ──
+  let currentFounders = 347;
+  const FOUNDERS_TOTAL = 1000;
+  const toast = document.getElementById('founderToast');
+  const toastNum = document.getElementById('toastNum');
+  const toastTime = document.getElementById('toastTime');
+  const toastTimes = ['hace un instante', 'hace 1 min', 'hace 2 min', 'hace 3 min', 'hace 4 min'];
+  function syncCounter() {
+    document.querySelectorAll('[data-counter="founders"]').forEach(el => {
+      el.textContent = currentFounders.toLocaleString();
+      el.classList.remove('counter-flash');
+      void el.offsetWidth;
+      el.classList.add('counter-flash');
+    });
+    document.querySelectorAll('[data-remaining]').forEach(el => el.textContent = (FOUNDERS_TOTAL - currentFounders).toLocaleString());
+    const pf = document.getElementById('progress-fill');
+    if (pf) pf.style.width = ((currentFounders / FOUNDERS_TOTAL) * 100).toFixed(1) + '%';
+  }
+  function showToast() {
+    if (!toast) return;
+    if (toastNum) toastNum.textContent = currentFounders;
+    if (toastTime) toastTime.textContent = toastTimes[Math.floor(Math.random() * toastTimes.length)];
+    toast.classList.remove('toast-out');
+    toast.classList.add('toast-in');
+    setTimeout(() => { toast.classList.remove('toast-in'); toast.classList.add('toast-out'); }, 3500);
+  }
+
+  /* COUNT-UP for static metrics */
+  const metricObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.countupTarget, 10);
+      const dur = 1400, start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-countup-target]').forEach(el => metricObs.observe(el));
+  syncCounter();
+  function liveIncrement() {
+    if (currentFounders >= FOUNDERS_TOTAL) return;
+    currentFounders += 1;
+    syncCounter();
+    showToast();
+    setTimeout(liveIncrement, 5000 + Math.random() * 12000);
+  }
+  setTimeout(liveIncrement, 6000);
+
+  // ── FORM SUBMIT ──
+  const form = document.getElementById('foundersForm');
+  const msg = document.getElementById('formMsg');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        country: form.country.value,
+        phone: phoneCode.textContent.trim() + ' ' + form.phone.value.trim(),
+      };
+      if (!payload.name || !payload.email || !payload.country || !form.phone.value.trim()) {
+        msg.textContent = 'Completa todos los campos.';
+        msg.classList.remove('hidden');
+        msg.style.color = '#6B717C';
+        return;
+      }
+      console.log('[Founders List v4] POST /api/founders →', payload);
+      msg.textContent = '✓ Apartando tu plaza…';
+      msg.classList.remove('hidden');
+      msg.style.color = '#52716E';
+      setTimeout(() => {
+        window.location.href = `/v3/vsl/thank-you/?n=${currentFounders + 1}`;
+      }, 1000);
+    });
+  }
+
+  // ── ACCORDION (módulos + faq) ──
+  document.querySelectorAll('.mod-trigger, .faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.mod-item, .faq-item');
+      parent.classList.toggle('open');
+    });
+  });
+
+  // ── SCROLL REVEAL ──
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ── STICKY NAV & CTA on scroll ──
+  const nav = document.getElementById('navBar');
+  const stickyCta = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 600;
+    if (nav) nav.classList.toggle('hidden-top', !scrolled);
+    if (stickyCta) stickyCta.classList.toggle('show', scrolled);
+  });
+</script>
+
+</body>
+</html>

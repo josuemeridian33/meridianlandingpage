@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founders List · Meridian — Sé Founder del broker</title>
-<meta name="description" content="Únete a los 1,000 Founders de Meridian. Equity, voz, comunidad y libertad total. Trade como quieras, donde quieras. Sé Founder del broker.">
+<title>Tu psicología nunca fue el problema · Meridian Founders List</title>
+<meta name="description" content="Te vendieron el problema equivocado. A propósito. Únete a los 1,000 Founders de Meridian — el broker que el sistema nunca quiso que tuvieras.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,6 @@
     background-size: 60px 52px;
   }
 
-  /* ── Typography (Inter only, per brand sheet) ── */
   .h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.1rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.06; }
   .h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; }
   .h3 { font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
@@ -74,6 +73,7 @@
   .accent-light { color: var(--patina-light); }
   .glass { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); }
   .glass-strong { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); }
+
   /* FOUNDER TOAST */
   #founderToast.toast-in { opacity: 1; transform: translateY(0); }
   #founderToast.toast-out { opacity: 0; transform: translateY(12px); }
@@ -83,7 +83,6 @@
   }
   .counter-flash { animation: counterFlash 0.7s ease-out; }
 
-  /* ── Pill CTA ── */
   @keyframes ctaPulse {
     0%, 100% { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 0 rgba(106,173,168,0.45); }
     50%       { box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 14px 36px rgba(82,113,110,0.32), 0 0 0 14px rgba(106,173,168,0); }
@@ -121,23 +120,19 @@
   }
   .btn-ghost:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.32); }
 
-  /* ── Pulse dot ── */
   .pulse-dot { position: relative; display: inline-block; width: 8px; height: 8px; flex-shrink: 0; }
   .pulse-dot::before { content: ''; position: absolute; inset: 0; background: #6AADA8; border-radius: 50%; animation: pulse-ring 2s ease-out infinite; opacity: 0.7; }
   .pulse-dot::after { content: ''; position: absolute; inset: 0; background: #6AADA8; border-radius: 50%; }
 
-  /* ── Progress bar ── */
   .founders-progress { background: rgba(255,255,255,0.06); border-radius: 999px; height: 5px; overflow: hidden; }
   .founders-progress-fill { height: 100%; background: linear-gradient(90deg, #52716E, #6AADA8); border-radius: 999px; transition: width 0.6s ease; }
 
-  /* ── Countdown ── */
   .countdown-wrap { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
   .cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 44px;
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.45rem 0.6rem; }
   .cd-unit .cd-num { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.03em; color: #FFFFFF; line-height: 1; font-variant-numeric: tabular-nums; }
   .cd-unit .cd-label { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-top: 0.2rem; }
 
-  /* ── VSL text overlay ── */
   .vsl-text-overlay {
     position: absolute; bottom: 3.6rem; left: 1.4rem; right: 5rem; z-index: 2;
     pointer-events: none;
@@ -146,7 +141,6 @@
   .vsl-text-overlay span { display: block; margin-top: 0.35rem; color: rgba(255,255,255,0.65); font-size: 0.72rem; letter-spacing: 0.1em; }
   @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
 
-  /* ══════════════ INLINE LOGO — continuous orbital animation ══════════════ */
   .meridian-mark {
     width: clamp(72px, 8vw, 96px);
     height: auto;
@@ -234,7 +228,6 @@
     to   { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
-  /* Brand lockup text under mark */
   .lockup-text {
     margin-top: 1rem;
     opacity: 0;
@@ -243,7 +236,6 @@
   @keyframes lockup-rise { to { opacity: 1; transform: translateY(0); } }
   .lockup-text { transform: translateY(8px); }
 
-  /* ══════════════ VSL VIDEO FRAME ══════════════ */
   .vsl-frame {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -322,7 +314,6 @@
     font-size: 0.7rem;
   }
 
-  /* Scroll cue */
   .scroll-cue {
     width: 36px; height: 36px;
     border-radius: 50%;
@@ -334,65 +325,6 @@
   }
   @keyframes bounce-cue { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
-  /* ── Founder cards (social proof) ── */
-  .founder-card {
-    position: relative;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-  .founder-card:hover { transform: translateY(-3px); border-color: rgba(82,113,110,0.35); }
-  .founder-card .photo {
-    aspect-ratio: 4 / 5;
-    overflow: hidden; position: relative;
-  }
-  .founder-card .photo img { width: 100%; height: 100%; object-fit: cover; }
-  .founder-card .photo::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 55%, rgba(11,18,32,0.92) 100%);
-  }
-  .founder-card .founder-tag {
-    position: absolute; top: 0.85rem; right: 0.85rem;
-    padding: 0.3rem 0.65rem;
-    background: rgba(11,18,32,0.82);
-    border: 1px solid rgba(82,113,110,0.40);
-    backdrop-filter: blur(8px);
-    border-radius: 999px;
-    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--patina-light);
-    font-weight: 600;
-    z-index: 2;
-  }
-  .founder-card .quote {
-    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-    padding: 1rem 1rem 1.1rem;
-    text-align: center;
-  }
-  .founder-card .quote p { color: var(--arctic); font-size: 0.85rem; font-weight: 600; line-height: 1.3; }
-  .founder-card .quote span { color: var(--patina-light); font-size: 0.7rem; letter-spacing: 0.05em; }
-
-  /* ── Freedom checklist ── */
-  .free-item {
-    display: flex; align-items: flex-start; gap: 0.85rem;
-    padding: 0.7rem 0;
-    font-size: 0.98rem;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.88);
-  }
-  .free-check {
-    flex-shrink: 0;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: rgba(82,113,110,0.20);
-    border: 1px solid rgba(82,113,110,0.42);
-    display: inline-flex; align-items: center; justify-content: center;
-    color: var(--patina-light);
-    margin-top: 0.1rem;
-  }
-
-  /* ── Strategy chip grid ── */
   .strat-chip {
     display: inline-flex; align-items: center; gap: 0.45rem;
     padding: 0.45rem 0.85rem;
@@ -405,7 +337,6 @@
   }
   .strat-chip svg { color: var(--patina-light); flex-shrink: 0; }
 
-  /* ── Notification cards ── */
   .notif-card {
     background: rgba(11,18,32,0.94);
     border: 1px solid rgba(255,255,255,0.10);
@@ -426,7 +357,6 @@
     font-weight: 600; font-size: 0.72rem;
   }
 
-  /* ── Date chip ── */
   .date-chip {
     display: inline-flex; align-items: center; gap: 0.6rem;
     padding: 0.55rem 0.95rem;
@@ -439,8 +369,31 @@
   }
   .date-chip svg { color: var(--patina-light); flex-shrink: 0; }
 
-  /* ── Section divider ── */
+  .free-item {
+    display: flex; align-items: flex-start; gap: 0.85rem;
+    padding: 0.7rem 0;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+  }
+  .free-check {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(82,113,110,0.20);
+    border: 1px solid rgba(82,113,110,0.42);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--patina-light);
+    margin-top: 0.1rem;
+  }
+
   .section-divider { border-top: 1px solid rgba(255,255,255,0.04); }
+
+  .problem-card {
+    border-radius: 16px; padding: 1.6rem 1.4rem;
+    transition: transform 0.3s ease;
+  }
+  .problem-card:hover { transform: translateY(-3px); }
 
   @media (prefers-reduced-motion: reduce) {
     .pulse-dot::before, .vsl-play-btn::before, .scroll-cue,
@@ -475,7 +428,6 @@
 <section id="hero" class="relative px-6 pt-10 pb-14 lg:pt-14 lg:pb-20">
   <div class="relative max-w-4xl mx-auto text-center">
 
-    <!-- Inline animated logo (two halves animate from opposite directions) -->
     <div class="meridian-mark-wrap mx-auto mb-1">
       <svg class="meridian-mark" viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg" aria-label="Meridian">
         <path class="half-white" d="M236.4,66c-3.4-19-19-16.8-19-16.8c-18.6,0-18.6,20.5-18.6,20.5c-0.3,2.5-0.7,4.9-1.2,7.4c-12.8,66-61.9,117.8-127.6,137.4c-23.3,7-40.4,6.9-40.4,6.9c115.5,6,156.1,119.2,156.1,119.2c-20.7-61.9-4.4-108.3,6.5-129.5c3.3-6.1,8.4-13.5,12.8-19.4c2.9-3.7,5.6-7.4,8.1-10.7l0,0l0,0c4.5-5.9,7.7-10.3,7.7-10.3C255.7,124.2,236.4,66,236.4,66z"/>
@@ -487,23 +439,23 @@
       <p class="text-[10px] tracking-[0.28em] uppercase accent mt-1.5">Built for you to win</p>
     </div>
 
-    <!-- Eyebrow -->
     <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full mt-4 mb-6"
          style="background: rgba(82,113,110,0.12); border: 1px solid rgba(82,113,110,0.42); box-shadow: 0 0 16px rgba(82,113,110,0.30);">
       <span class="pulse-dot"></span>
       <span class="eyebrow !text-[11px]">Founders List · <span data-counter="founders">347</span>/1,000 plazas</span>
     </div>
 
-    <!-- HEADLINE — NEW OFFER -->
     <h1 class="h1 max-w-3xl mx-auto">
-      Sé <span class="accent">Founder</span> del broker<br class="hidden sm:block">
-      que siempre quisiste tener.
+      Tu psicología nunca fue el<br class="hidden sm:block">
+      <span class="accent">problema.</span>
     </h1>
 
-    <p class="body-text mt-6 max-w-2xl mx-auto">
-      Únete a los <span class="text-arctic font-semibold">1,000 Founders de Meridian</span> y recibe
-      equity real, voz en lo que construimos, una comunidad de traders Founders del proyecto —
-      y la libertad de tradear como tú quieras, con la estrategia que quieras.
+    <p class="mt-5 text-[1.05rem] font-semibold max-w-2xl mx-auto" style="color: rgba(255,255,255,0.92);">
+      Te vendieron el problema equivocado. A propósito.
+    </p>
+
+    <p class="body-text mt-4 max-w-2xl mx-auto">
+      Compraste cursos de mentalidad. Trabajaste tu disciplina. Y sigues sin poder retirar lo que ganaste. Porque el problema nunca estuvo adentro de ti — estuvo en el sistema donde operabas.
     </p>
 
     <!-- VSL video -->
@@ -523,8 +475,8 @@
 
         <div class="vsl-poster" aria-hidden="true"></div>
         <div class="vsl-text-overlay" id="vslOverlay">
-          <p>Por qué los 1,000 Founders reciben<br>lo que nadie más va a recibir</p>
-          <span>▶ &nbsp;4:32 min</span>
+          <p>El sistema que te convenció de que<br>el problema eras tú — y cómo salir de él</p>
+          <span>▶ &nbsp;4:47 min</span>
         </div>
         <button class="vsl-play-btn" id="vslPlayBtn" aria-label="Reproducir video">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
@@ -539,25 +491,22 @@
 
         <div class="vsl-bottom-bar">
           <span class="opacity-80">Josué Melero · Fundador de Meridian</span>
-          <span class="duration">04:32</span>
+          <span class="duration">04:47</span>
         </div>
       </div>
     </div>
 
     <p class="mt-7 body-text !text-[14px] max-w-xl mx-auto">
-      Mira el video y entiende por qué los primeros 1,000 reciben lo que el resto del mundo
-      nunca va a recibir.
+      Mira el video y entiende por qué tu psicología nunca fue el problema — y qué cambia cuando operas en el ambiente correcto.
     </p>
 
-    <!-- Primary CTA -->
     <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
       <a href="#registro" class="btn-pill">
-        Quiero ser Founder
+        Quiero operar en un sistema justo
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
 
-    <!-- Session date strip -->
     <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
       <span class="date-chip">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -580,7 +529,7 @@
     </div>
 
     <div class="mt-10 flex justify-center">
-      <a href="#porque" class="scroll-cue" aria-label="Continuar">
+      <a href="#problema" class="scroll-cue" aria-label="Continuar">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
       </a>
     </div>
@@ -612,82 +561,69 @@
 </section>
 
 
-<!-- ════════════════════════ 2 · POR QUÉ MERIDIAN ES DISTINTO ════════════════════════ -->
-<section id="porque" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
+<!-- ════════════════════════ 2 · PROBLEMA ════════════════════════ -->
+<section id="problema" class="px-6 py-16 lg:py-20" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-5xl mx-auto">
 
     <div class="text-center mb-12 max-w-3xl mx-auto">
-      <p class="eyebrow mb-3">Por qué Meridian es distinto</p>
+      <p class="eyebrow mb-3">El negocio más rentable de la industria</p>
       <h2 class="h2">
-        Un broker <span class="accent">honesto, sin conflicto de interés</span><br class="hidden sm:block">
-        — y construido contigo adentro.
+        Mientras tú trabajabas tu psicología,<br class="hidden sm:block">
+        <span class="accent">ellos te cobraban por intentarlo.</span>
       </h2>
       <p class="body-text mt-5">
-        No estás aquí para ser otro cliente más. Estás aquí para ser parte de la primera generación
-        de traders que <span class="text-arctic font-medium">tienen un broker que les pertenece.</span>
+        La industria construyó el modelo perfecto: convencerte de que el problema eres tú. Así sigues pagando. El problema nunca fue tuyo.
       </p>
     </div>
 
-    <!-- 3 differentiator cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-      <div class="rounded-2xl p-6 lg:p-7 relative overflow-hidden glass">
+      <div class="problem-card glass">
         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
              style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3 21h18M5 21V8m4 13V5m4 16V9m4 12V7M3 3v18"/>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
           </svg>
         </div>
-        <h3 class="h3 text-arctic mb-2">Eres Founder del broker</h3>
-        <p class="body-text !text-[14.5px]">
-          Recibes equity real del broker antes del lanzamiento. Tu nombre queda registrado
-          como uno de los <span class="accent font-semibold">1,000 fundadores</span>.
-          Cuando Meridian crece, tú creces.
-        </p>
+        <h3 class="h3 text-arctic mb-3">La industria construyó un ciclo perfecto.</h3>
+        <p class="body-text !text-[14.5px]">¿Perdiste la cuenta? Es tu psicología. ¿No puedes retirar? Te falta disciplina. Mientras tanto, la prop firm cobra otra fee de evaluación. <span class="text-arctic font-medium">Ese es el negocio real — no necesitan que ganes.</span></p>
       </div>
 
-      <div class="rounded-2xl p-6 lg:p-7 relative overflow-hidden glass">
+      <div class="problem-card glass">
         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
              style="background: rgba(82,113,110,0.16); border: 1px solid rgba(82,113,110,0.40);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
         </div>
-        <h3 class="h3 text-arctic mb-2">Tu voz construye el producto</h3>
-        <p class="body-text !text-[14.5px]">
-          Pides una feature, la construimos. Quieres ver algo en el dashboard, lo agregamos.
-          Los Founders <span class="text-arctic font-semibold">deciden el rumbo</span>
-          — no el equipo de marketing.
-        </p>
+        <h3 class="h3 text-arctic mb-3">Traders rentables también pierden sus cuentas.</h3>
+        <p class="body-text !text-[14.5px]">Aprendiste a no revenge-tradear. Dos meses sin cometer un error — y te cerraron igual. Traders con disciplina impecable también tienen retiros bloqueados. <span class="text-arctic font-medium">El perfil que quieren es el trader que pierde despacio y no pide retiros.</span></p>
       </div>
 
-      <div class="rounded-2xl p-6 lg:p-7 relative overflow-hidden"
-           style="background: linear-gradient(180deg, rgba(82,113,110,0.18) 0%, rgba(82,113,110,0.06) 100%); border: 1px solid rgba(82,113,110,0.40);">
+      <div class="problem-card"
+           style="background: linear-gradient(180deg, rgba(82,113,110,0.18) 0%, rgba(82,113,110,0.06) 100%); border: 1px solid rgba(82,113,110,0.40); border-radius: 16px; padding: 1.6rem 1.4rem;">
         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
              style="background: rgba(82,113,110,0.30); border: 1px solid rgba(82,113,110,0.55);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2L4 8v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V8z"/>
             <path d="M9 12l2 2 4-4"/>
           </svg>
         </div>
-        <h3 class="h3 text-arctic mb-2">Libertad total para operar</h3>
-        <p class="body-text !text-[14.5px]">
-          Scalping, HFT, arbitraje, news trading, swing — todo permitido. Sin volumen mínimo,
-          sin estrategia restringida. <span class="text-arctic font-semibold">Tradea como tú quieras.</span>
-        </p>
+        <h3 class="h3 text-arctic mb-3">Compraste otro curso. El ciclo continuó.</h3>
+        <p class="body-text !text-[14.5px]">Cada vez que el sistema te falla, la industria tiene una respuesta: necesitas más formación. Y tú lo crees, porque nadie te explicó que el problema no era tuyo — era el ambiente donde operabas.</p>
       </div>
 
     </div>
 
     <p class="text-center mt-12 text-[15px] lg:text-[17px] max-w-3xl mx-auto" style="color: rgba(255,255,255,0.86); font-weight: 500;">
-      Esto no es un broker más. Es <span class="accent">tu casa</span> — la que tú ayudaste a construir.
+      El problema no está en tu cabeza. Está en el <span class="accent">broker que elegiste.</span>
     </p>
   </div>
 </section>
 
 
-<!-- ════════════════════════ 3 · TU LIBERTAD ════════════════════════ -->
-<section id="libertad" class="px-6 py-16 lg:py-24 relative overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.04);">
+<!-- ════════════════════════ 3 · LO QUE RECIBES ════════════════════════ -->
+<section id="pilares" class="px-6 py-16 lg:py-24 relative overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.04);">
 
   <div class="absolute bottom-0 right-0 w-[400px] h-[400px] hex-bg pointer-events-none opacity-50"
        style="-webkit-mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%); mask-image: radial-gradient(ellipse at bottom right, black 0%, transparent 70%);"></div>
@@ -695,24 +631,21 @@
   <div class="max-w-6xl mx-auto relative">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-      <!-- LEFT: free-style trading visual -->
       <div class="lg:col-span-6 order-2 lg:order-1">
         <div class="relative">
-          <!-- Strategy chip cloud -->
           <div class="rounded-2xl p-6 lg:p-7 glass-strong">
-            <p class="eyebrow mb-4 !text-[10.5px]">Estrategias permitidas</p>
+            <p class="eyebrow mb-4 !text-[10.5px]">El ambiente correcto incluye</p>
             <div class="flex flex-wrap gap-2">
               <span class="strat-chip">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
-                Scalping
+                Sin conflicto de interés
               </span>
+              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Ejecución directa</span>
+              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Retiros libres</span>
+              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Scalping</span>
               <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> HFT</span>
               <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Arbitraje</span>
               <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> News Trading</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Swing</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Position</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Hedging</span>
-              <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Grid</span>
               <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Algo trading</span>
               <span class="strat-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg> Copy trading</span>
             </div>
@@ -722,8 +655,8 @@
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7D9A96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
                 </div>
                 <div>
-                  <p class="text-[14px] font-semibold text-arctic">Cero restricciones de volumen</p>
-                  <p class="text-[11.5px] muted">Tradea lo que quieras, cuando quieras.</p>
+                  <p class="text-[14px] font-semibold text-arctic">El broker no puede ir contra ti</p>
+                  <p class="text-[11.5px] muted">Estructura sin conflicto — el broker no puede ir contra ti.</p>
                 </div>
               </div>
             </div>
@@ -731,49 +664,42 @@
         </div>
       </div>
 
-      <!-- RIGHT: copy + checklist -->
       <div class="lg:col-span-6 order-1 lg:order-2">
-        <p class="eyebrow mb-3">Tu libertad como Founder</p>
+        <p class="eyebrow mb-3">Lo que recibes como Founder</p>
         <h2 class="h2">
-          Aquí tú <span class="accent">decides</span> cómo<br class="hidden sm:block">
-          quieres operar. Punto.
+          No necesitas más cursos.<br class="hidden sm:block">
+          Necesitas el <span class="accent">ambiente correcto.</span>
         </h2>
         <p class="body-text mt-5 mb-6">
-          Estamos cansados de brokers que prohíben estrategias, congelan ganancias o ponen
-          letras chiquitas para no pagarte. En Meridian no hay nada de eso — y nunca lo habrá,
-          porque <span class="text-arctic font-semibold">tú eres parte del broker.</span>
+          En Meridian, el broker no puede tomar el lado contrario de tus trades — físicamente. Tu orden va directo al mercado real. Y los Founders reciben los 5 pilares que el lanzamiento general nunca va a tener.
         </p>
 
         <div class="space-y-0">
           <div class="free-item">
             <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Cualquier estrategia</span> — scalping, HFT, arbitraje, news, lo que sea.</span>
+            <span><span class="text-arctic font-semibold">Equity real</span> — eres co-dueño de un broker valuado en $20M.</span>
           </div>
           <div class="free-item">
             <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Sin volumen mínimo</span>, sin máximos de retiro, sin letra pequeña.</span>
+            <span><span class="text-arctic font-semibold">Voz en el código</span> — acceso directo al equipo de ingeniería. Tú decides qué se construye.</span>
           </div>
           <div class="free-item">
             <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span>Si quieres una <span class="text-arctic font-semibold">feature específica</span>, la construimos para ti.</span>
+            <span><span class="text-arctic font-semibold">Comunidad privada</span> — el primer espacio donde nadie tiene que fingir.</span>
           </div>
           <div class="free-item">
             <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span>Acceso a la <span class="text-arctic font-semibold">comunidad privada</span> de los 999 otros founders + el equipo.</span>
+            <span><span class="text-arctic font-semibold">Título Founder</span> — en tu dashboard. Para siempre. El reconocimiento que la industria nunca te dio.</span>
           </div>
           <div class="free-item">
             <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Voz directa</span> en el roadmap — 1 Founder · 1 voto.</span>
-          </div>
-          <div class="free-item">
-            <span class="free-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
-            <span><span class="text-arctic font-semibold">Trader Gala + eventos privados</span> anuales, sin costo, para los 1,000.</span>
+            <span><span class="text-arctic font-semibold">Trader Gala + Expo Meridian</span> — los eventos que ningún broker construyó para ti. Tú entras sin pagar.</span>
           </div>
         </div>
 
         <div class="mt-8">
           <a href="#registro" class="btn-pill">
-            Sí, quiero esa libertad
+            Quiero ese ambiente correcto
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -784,32 +710,25 @@
 </section>
 
 
-<!-- ════════════════════════ 4 · SKIN IN THE GAME + REGISTRO ════════════════════════ -->
+<!-- ════════════════════════ 4 · REGISTRO ════════════════════════ -->
 <section id="registro" class="px-6 py-16 lg:py-24" style="background: rgba(23,34,49,0.4); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="max-w-6xl mx-auto">
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
       <div class="lg:col-span-7 order-2 lg:order-1">
-        <p class="eyebrow mb-3">Skin In The Game</p>
+        <p class="eyebrow mb-3">Tu acceso al Founders List</p>
         <h2 class="h2">
-          Meridian fue creado para traders<br class="hidden sm:block">
-          que quieren <span class="accent">más que ganar trades.</span>
+          El problema nunca fuiste tú.<br class="hidden sm:block">
+          El <span class="accent">sistema siempre fue el problema.</span>
         </h2>
         <p class="body-text mt-6 max-w-xl">
-          Queremos que entres no como cliente, sino como
-          <span class="text-arctic font-semibold">Founder parcial</span> de un broker que se construye
-          contigo adentro. Vas a tener voz, vas a tener equity, vas a tener comunidad — y vas a
-          poder operar con la libertad que mereces.
-        </p>
-        <p class="body-text mt-4 max-w-xl">
-          Una vez que entren los 1,000, esto se cierra para siempre. No habrá Founders #1,001.
-          <span class="text-arctic font-semibold">Es ahora, o nunca.</span>
+          El broker abre el 25 de junio. Los Founders entran antes — con equity, voz, comunidad, título y eventos. Una vez que entren los 1,000, esto se cierra para siempre.
+          <span class="text-arctic font-semibold">El ambiente correcto te espera ahora.</span>
         </p>
 
-        <!-- Countdown -->
         <div class="mt-6 mb-1">
-          <p class="text-[10.5px] uppercase tracking-widest mb-2.5" style="color: rgba(255,255,255,0.38);">Sesión en vivo · tiempo restante</p>
+          <p class="text-[10.5px] uppercase tracking-widest mb-2.5" style="color: rgba(255,255,255,0.38);">Broker abre · tiempo restante</p>
           <div class="countdown-wrap">
             <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-label">días</span></div>
             <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">hrs</span></div>
@@ -847,14 +766,13 @@
           </div>
 
           <button type="submit" class="btn-pill w-full mt-2">
-            ¡SÍ! Quiero ser Founder
+            Quiero ser Founder →
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </button>
 
           <p id="formMsg" class="hidden text-[13px] text-center mt-3" role="status"></p>
         </form>
 
-        <!-- Progress bar -->
         <div class="mt-5 max-w-md">
           <div class="flex justify-between text-[11px] mb-1.5" style="color: rgba(255,255,255,0.45);">
             <span class="flex items-center gap-2"><span class="pulse-dot" style="width:7px;height:7px;"></span> Plazas ocupadas</span>
@@ -866,7 +784,6 @@
         </div>
       </div>
 
-      <!-- RIGHT: portrait + notifications -->
       <div class="lg:col-span-5 order-1 lg:order-2 relative">
         <div class="relative aspect-[4/5] rounded-2xl overflow-hidden max-w-sm mx-auto glass-strong">
           <img src="/assets/josue-portrait.png" alt="Josué Melero, fundador de Meridian"
@@ -881,28 +798,28 @@
 
         <div class="absolute top-6 -left-2 sm:-left-4 hidden sm:block">
           <div class="notif-card">
-            <span class="av">JM</span>
+            <span class="av">MC</span>
             <div class="min-w-0">
-              <p class="text-arctic font-medium truncate"><span class="font-semibold">Juan M.</span> entró como Founder</p>
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Miguel C.</span> entró como Founder</p>
               <p class="text-[10px] muted">hace 4 min · 🇲🇽</p>
             </div>
           </div>
         </div>
         <div class="absolute top-28 -right-2 sm:-right-4 hidden sm:block">
           <div class="notif-card">
-            <span class="av">AC</span>
+            <span class="av">LR</span>
             <div class="min-w-0">
-              <p class="text-arctic font-medium truncate"><span class="font-semibold">Andrea C.</span> es Founder #348</p>
-              <p class="text-[10px] muted">hace 12 min · 🇨🇴</p>
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Laura R.</span> es Founder #349</p>
+              <p class="text-[10px] muted">hace 11 min · 🇨🇴</p>
             </div>
           </div>
         </div>
         <div class="absolute bottom-6 -left-2 sm:-left-6 hidden sm:block">
           <div class="notif-card">
-            <span class="av">RG</span>
+            <span class="av">CR</span>
             <div class="min-w-0">
-              <p class="text-arctic font-medium truncate"><span class="font-semibold">Roberto G.</span> entró al Telegram</p>
-              <p class="text-[10px] muted">hace 21 min · 🇵🇪</p>
+              <p class="text-arctic font-medium truncate"><span class="font-semibold">Carlos R.</span> entró al Telegram</p>
+              <p class="text-[10px] muted">hace 19 min · 🇵🇪</p>
             </div>
           </div>
         </div>
@@ -923,7 +840,7 @@
 
 
 <script>
-  // ── VSL play handler ──
+  // VSL play handler
   const vslBtn = document.getElementById('vslPlayBtn');
   const vslVideo = document.getElementById('vslVideo');
   const vslFrame = document.getElementById('vslFrame');
@@ -945,7 +862,7 @@
     });
   }
 
-  // ── PHONE PREFIX ──
+  // PHONE PREFIX
   const countrySel = document.getElementById('f-country');
   const phoneCode = document.getElementById('phone-code');
   countrySel.addEventListener('change', () => {
@@ -953,20 +870,21 @@
     phoneCode.textContent = (opt && opt.getAttribute('data-code')) || '+';
   });
 
-  // ── LIVE FOUNDER COUNTER ──
+  // LIVE FOUNDER COUNTER
   let currentFounders = 347;
   const FOUNDERS_TOTAL = 1000;
   const toast = document.getElementById('founderToast');
   const toastNum = document.getElementById('toastNum');
   const toastTime = document.getElementById('toastTime');
   const toastTimes = ['hace un instante', 'hace 1 min', 'hace 2 min', 'hace 3 min', 'hace 4 min'];
-  function syncCounter() {
+  function syncCounters() {
     document.querySelectorAll('[data-counter="founders"]').forEach(el => {
       el.textContent = currentFounders.toLocaleString();
       el.classList.remove('counter-flash');
       void el.offsetWidth;
       el.classList.add('counter-flash');
     });
+    document.querySelectorAll('[data-counter-remaining]').forEach(el => el.textContent = (FOUNDERS_TOTAL - currentFounders).toLocaleString());
     const fill = document.getElementById('progressFill');
     if (fill) fill.style.width = ((currentFounders / FOUNDERS_TOTAL) * 100).toFixed(1) + '%';
   }
@@ -978,17 +896,17 @@
     toast.classList.add('toast-in');
     setTimeout(() => { toast.classList.remove('toast-in'); toast.classList.add('toast-out'); }, 3500);
   }
-  syncCounter();
+  syncCounters();
   function liveIncrement() {
     if (currentFounders >= FOUNDERS_TOTAL) return;
     currentFounders += 1;
-    syncCounter();
+    syncCounters();
     showToast();
     setTimeout(liveIncrement, 5000 + Math.random() * 12000);
   }
   setTimeout(liveIncrement, 6000);
 
-  // ── COUNT-UP ANIMATION ──
+  // COUNT-UP ANIMATION
   function countUp(el, target, duration) {
     let start = 0; const step = target / (duration / 16);
     const timer = setInterval(() => {
@@ -1009,7 +927,7 @@
   const metricsSection = document.getElementById('metricas');
   if (metricsSection) metricsObs.observe(metricsSection);
 
-  // ── NOTIFICATION ROTATION ──
+  // NOTIFICATION ROTATION
   const notifCards = document.querySelectorAll('.notif-card');
   notifCards.forEach((c, i) => {
     c.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
@@ -1025,7 +943,7 @@
     notifCards[notifIndex].style.transform = 'translateY(0)';
   }, 4000);
 
-  // ── COUNTDOWN TIMER ──
+  // COUNTDOWN TIMER
   const sessionDate = new Date('2026-06-25T19:00:00-06:00');
   function updateCountdown() {
     const now = new Date();
@@ -1048,7 +966,7 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ── FORM SUBMIT ──
+  // FORM SUBMIT
   const form = document.getElementById('foundersForm');
   const msg = document.getElementById('formMsg');
   form.addEventListener('submit', (e) => {
@@ -1065,12 +983,12 @@
       msg.style.color = '#6B717C';
       return;
     }
-    console.log('[Founders List v3 VSL] POST /api/founders →', payload);
+    console.log('[Founders List v6 VSL] POST /api/founders →', payload);
     msg.textContent = '✓ Apartando tu plaza…';
     msg.classList.remove('hidden');
     msg.style.color = '#52716E';
     setTimeout(() => {
-      window.location.href = `/v3/vsl/thank-you/?n=${currentFounders + 1}`;
+      window.location.href = `/v6/vsl/thank-you/?n=${currentFounders + 1}`;
     }, 1000);
   });
 </script>
